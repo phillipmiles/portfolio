@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build index.html",
+    "storybook": "start-storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@storybook/react": "^5.3.14",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
@@ -18,10 +27,6 @@
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
     "theme-ui": "^0.3.1"
-  },
-  "scripts": {
-    "start": "parcel src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
