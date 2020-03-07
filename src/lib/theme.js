@@ -42,10 +42,16 @@ export default {
     xLarge: 32,
   },
   colors: {
-    background: '#0A0C11',
+    background: '#ffffff',
     primary: '#E5044C',
     secondary: '#66bee2',
     white: '#ffffff',
     text: '#000',
   },
+  // Shadows designed following Tobias' guide https://tobiasahlin.com/blog/layered-smooth-box-shadows/
+  shadows: [
+    '0 1px 2px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.06), 0 5px 4px rgba(0,0,0,0.06)',
+    '0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)',
+    '0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11)',
+  ],
 };
