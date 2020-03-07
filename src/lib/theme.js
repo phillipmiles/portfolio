@@ -1,0 +1,57 @@
+export default {
+  spaces: [0, 4, 8, 16, 24, 32, 48, 64, 128, 256, 512],
+  sizes: {
+    0: 0,
+    1: 16,
+    2: 24,
+    3: 32,
+    4: 40,
+    5: 48,
+    6: 56,
+    7: 64,
+    8: 96,
+    9: 128,
+    10: 192,
+    11: 256,
+    12: 360,
+    13: 512,
+    14: 928,
+    content: 1224,
+  },
+  breakpoints: ['40em', '52em', '64em', '76em'],
+  fonts: {
+    body: 'Proxima nova, system-ui, sans-serif',
+  },
+  fontWeights: {
+    thin: '200',
+    light: '300',
+    normal: '400',
+    bold: '700',
+    extrabold: '800',
+  },
+  borderWidths: {
+    thin: 1,
+    regular: 2,
+    thick: 4,
+    xThick: 8,
+  },
+  radii: {
+    small: 4,
+    medium: 8,
+    large: 16,
+    xLarge: 32,
+  },
+  colors: {
+    background: '#ffffff',
+    primary: '#E5044C',
+    secondary: '#66bee2',
+    white: '#ffffff',
+    text: '#000',
+  },
+  // Shadows designed following Tobias' guide https://tobiasahlin.com/blog/layered-smooth-box-shadows/
+  shadows: [
+    '0 1px 2px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.06), 0 5px 4px rgba(0,0,0,0.06)',
+    '0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)',
+    '0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11)',
+  ],
+};
