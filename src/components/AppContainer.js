@@ -1,18 +1,14 @@
 /** @jsx jsx */
-import PropTypes from 'prop-types';
 import { jsx } from 'theme-ui';
 import ThemeProvider from '../lib/ThemeProvider';
 import theme from '../lib/theme';
 import globalStyles from '../lib/globalStyles';
+import HomePage from '../pages/HomePage';
 
-const AppContainer = ({ children, ...props }) => (
+const AppContainer = ({ ...props }) => (
   <ThemeProvider {...props} theme={{ ...theme, ...globalStyles }}>
-    {children}
+    <HomePage />
   </ThemeProvider>
 );
-
-AppContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default AppContainer;

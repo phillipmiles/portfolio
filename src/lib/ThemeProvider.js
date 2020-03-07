@@ -5,9 +5,12 @@ import globalStyles from './globalStyles';
 import './customFonts';
 import theme from './theme';
 
-const ThemeProvider = ({ children, ...props }) => {
+const ThemeProvider = ({ theme: customTheme, children, ...props }) => {
   return (
-    <TP {...props} theme={{ ...theme, ...globalStyles }}>
+    <TP
+      {...props}
+      theme={{ ...(customTheme ? customTheme : theme), ...globalStyles }}
+    >
       {children}
     </TP>
   );
@@ -17,6 +20,7 @@ ThemeProvider.displayName = 'ThemeProvider';
 
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  theme: PropTypes.shape({}),
 };
 
 export default ThemeProvider;

@@ -8,16 +8,9 @@ export default {
         MozOsxFontSmoothing: 'grayscale',
         textRendering: 'optimizelegibility',
       },
-      body: {
-        margin: '0',
-        fontFamily: 'body',
-      },
 
       // Custom
-      // uses the theme values provided above
       fontFamily: 'body',
-      // fontWeight: 'body',
-      bg: 'primary',
     },
   },
 };
