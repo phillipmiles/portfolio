@@ -10,6 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@reach/router": "^1.3.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -17,6 +19,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@storybook/addon-docs": "^5.3.14",
     "@storybook/react": "^5.3.14",
     "babel-loader": "^8.0.6",

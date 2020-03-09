@@ -11,20 +11,27 @@ const Swatches = ({ themeKey, themeProperty }) => {
   const { theme } = context;
   const themeKeys = Object.keys(theme[themeKey]);
 
-  return themeKeys.map(key => (
-    <FlexColItem cols={3} key={key} sx={{ mb: 4 }}>
-      <Text sx={{ mb: 2 }}>{key}</Text>
-      <div
-        sx={{
-          width: 9,
-          height: 9,
-          borderRadius: 'small',
-          boxShadow: 0,
-          [themeProperty]: key,
-        }}
-      />
-    </FlexColItem>
-  ));
+  return themeKeys.map(key => {
+    if (typeof theme[themeKey][key] === 'string') {
+      return (
+        <FlexColItem cols={3} key={key} sx={{ mb: 4 }}>
+          <Text sx={{ mb: 2 }}>
+            <strong>{key}</strong>
+          </Text>
+          <Text sx={{ mb: 2 }}>{theme[themeKey][key]}</Text>
+          <div
+            sx={{
+              width: 9,
+              height: 9,
+              borderRadius: 'small',
+              boxShadow: 0,
+              [themeProperty]: key,
+            }}
+          />
+        </FlexColItem>
+      );
+    }
+  });
 };
 
 export const colors = () => {

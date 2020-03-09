@@ -1,1 +1,9 @@
 export { default as Text } from './Text';
+export { default as Heading } from './Heading';
+export { default as PageWrap } from './PageWrap';
+export { default as FlexCol } from './FlexColItem';
+export { default as ContentWrap } from './ContentWrap';
+export { default as Paragraph } from './Paragraph';
+export { default as Icon } from './Icon';
+export { default as Carousel } from './Carousel';
+export { default as Image } from './Image';
