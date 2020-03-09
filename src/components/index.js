@@ -7,3 +7,6 @@ export { default as Paragraph } from './Paragraph';
 export { default as Icon } from './Icon';
 export { default as Carousel } from './Carousel';
 export { default as Image } from './Image';
+export { default as Preview } from './Preview';
+export { default as PreviewImage } from './PreviewImage';
+export { default as PreviewBody } from './PreviewBody';
