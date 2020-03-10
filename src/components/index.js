@@ -1,3 +1,4 @@
+export { default as Button } from './Button';
 export { default as Text } from './Text';
 export { default as Heading } from './Heading';
 export { default as PageWrap } from './PageWrap';
@@ -10,3 +11,4 @@ export { default as Image } from './Image';
 export { default as Preview } from './Preview';
 export { default as PreviewImage } from './PreviewImage';
 export { default as PreviewBody } from './PreviewBody';
+export { default as ParallaxCache } from './ParallaxCache';

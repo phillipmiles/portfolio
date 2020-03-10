@@ -7,6 +7,7 @@ import theme from '../lib/theme';
 import globalStyles from '../lib/globalStyles';
 import ErrorPage from '../pages/ErrorPage';
 import HomePage from '../pages/HomePage';
+import ParallaxCache from './ParallaxCache';
 
 const AppContainer = ({ ...props }) => (
   <ParallaxProvider>
@@ -16,6 +17,7 @@ const AppContainer = ({ ...props }) => (
         <ErrorPage default />
       </Router>
     </ThemeProvider>
+    <ParallaxCache />
   </ParallaxProvider>
 );
 

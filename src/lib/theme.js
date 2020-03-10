@@ -115,7 +115,7 @@ export default {
       letterSpacing: 'tight',
     },
     heading4: {
-      fontSize: '3rem',
+      fontSize: '2.86rem',
       fontFamily: 'heading',
       fontWeight: 'semibold',
       letterSpacing: 'tight',
@@ -143,6 +143,79 @@ export default {
     body: {
       fontFamily: 'body',
       fontSize: '1.125rem',
+    },
+  },
+  buttons: {
+    Button: {
+      primary: {
+        color: 'white',
+        bg: 'primary',
+        borderColor: 'primary',
+        boxShadow: 0,
+        ':hover': {
+          boxShadow: 3,
+        },
+        ':active': {
+          bg: 'primary',
+        },
+        ':disabled': {
+          color: 'textDisabled',
+          bg: 'blackDisabled',
+          borderColor: 'transparent',
+          boxShadow: 'none',
+        },
+      },
+      secondary: {
+        color: 'text',
+        bg: 'secondary',
+        borderColor: 'secondary',
+        boxShadow: 1,
+        ':hover': {
+          boxShadow: 3,
+        },
+        ':active': {
+          bg: 'secondaryDark',
+          borderColor: 'secondaryDark',
+        },
+        ':disabled': {
+          color: 'textDisabled',
+          bg: 'blackDisabled',
+          borderColor: 'transparent',
+          boxShadow: 'none',
+        },
+      },
+      outlined: {
+        color: 'primaryLight',
+        bg: 'white',
+        borderColor: 'primaryLight',
+        ':hover': {
+          bg: 'primaryLightHover',
+        },
+        ':active': {
+          bg: 'primaryLightPressed',
+        },
+        ':disabled': {
+          color: 'textDisabled',
+          borderColor: 'blackDisabled',
+        },
+        ':disabled:hover': {
+          bg: 'white',
+        },
+      },
+      text: {
+        color: 'primary',
+        borderColor: 'transparent',
+        p: 0,
+        // ':hover': {
+        //   bg: 'primaryLightHover',
+        // },
+        // ':active': {
+        //   bg: 'primaryLightPressed',
+        // },
+        // ':disabled': {
+        //   color: 'textDisabled',
+        // },
+      },
     },
   },
 };

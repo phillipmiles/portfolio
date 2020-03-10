@@ -17,6 +17,17 @@ export default {
         margin: 0,
       },
 
+      a: {
+        textDecoration: 'none',
+      },
+
+      button: {
+        border: 0,
+        padding: 0,
+        fontSize: '100%',
+        backgroundColor: 'transparent',
+      },
+
       // Custom
       fontFamily: 'body',
       fontSize: ['16px', '18px'],

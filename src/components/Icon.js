@@ -22,7 +22,7 @@ const Icon = ({ icon: icon, size, ...props }) => {
 
 Icon.propTypes = {
   /** A React component that renders inline SVG. */
-  icon: PropTypes.func.isRequired,
+  icon: PropTypes.object.isRequired,
   size: PropTypes.number,
 };
 

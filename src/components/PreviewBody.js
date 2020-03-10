@@ -1,17 +1,19 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui';
 import PropTypes from 'prop-types';
+import { Parallax } from 'react-scroll-parallax';
 
 const PreviewBody = ({ children, ...props }) => (
   <Flex
     {...props}
     sx={{
-      width: '40%',
       flexDirection: 'column',
       justifyContent: 'center',
     }}
   >
-    {children}
+    <Parallax sx={{ width: '100%' }} y={[48, -48]}>
+      {children}
+    </Parallax>
   </Flex>
 );
 
