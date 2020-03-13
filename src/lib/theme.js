@@ -143,6 +143,7 @@ export default {
     body: {
       fontFamily: 'body',
       fontSize: '1.125rem',
+      lineHeight: '1.4',
     },
   },
   buttons: {
