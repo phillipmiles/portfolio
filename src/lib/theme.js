@@ -70,6 +70,7 @@ export default {
     white: '#ffffff',
     black: '#0A0C11',
     primary: '#E5044C',
+    primaryDark: '#B2003E',
     secondary: '#66bee2',
     textBlack: '#000000',
     textWhite: '#ffffff',
@@ -155,6 +156,8 @@ export default {
         boxShadow: 0,
         ':hover': {
           boxShadow: 3,
+          bg: 'primaryDark',
+          borderColor: 'primaryDark',
         },
         ':active': {
           bg: 'primary',

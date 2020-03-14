@@ -37,7 +37,9 @@ const Button = ({
         // and https://github.com/facebook/react/issues/4251
         pointerEvents: disabled ? 'none' : 'auto',
         // textTransform: 'uppercase',
-        display: 'inline-block',
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         borderRadius: 'medium',
         px: 3,
         py: 2,
@@ -49,7 +51,8 @@ const Button = ({
         borderWidth: 'thin',
         borderStyle: 'solid',
         variant: `buttons.Button.${variant}`,
-        transition: 'box-shadow 200ms ease',
+        transition: 'all 200ms ease',
+        minHeight: 5,
       }}
     >
       <span
@@ -57,6 +60,7 @@ const Button = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          height: '100%',
         }}
       >
         {icon && iconPosition === 'left' && (

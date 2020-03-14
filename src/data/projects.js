@@ -37,6 +37,7 @@ export default [
       'Multiple education web apps developed with a shared component library.',
 
     years: '2019 / 2020',
+    employer: 'Verso learning',
     cover: {
       src: imgVersoCharts,
       alt: '',
@@ -74,6 +75,7 @@ export default [
     title: 'CPA',
     summary: 'An award-winning new direction for educating financial advisors.',
     years: '2016 / 2017 / 2018',
+    employer: 'CPA',
     thumbnail: {
       src: imageCPAIPad,
       alt: '',
@@ -112,6 +114,7 @@ export default [
     summary:
       '54,000 lines of code automated in building five branching learning modules.',
     years: '2018',
+    employer: 'Coles',
     thumbnail: {
       src: imageColesMenu,
       alt: '',
@@ -141,6 +144,7 @@ export default [
     title: 'Binder',
     summary: 'A clean and simple collaborative document editor.',
     years: '2018',
+    employer: 'Personal project',
     thumbnail: {
       src: imageBinderDash,
       alt: '',
@@ -171,7 +175,7 @@ export default [
     years: '2017',
     summary:
       'A bespoke learning portal that strives to educate for a world of cleaner ears.',
-
+    employer: 'Clear Ears',
     thumbnail: {
       src: imageClearEarsDash,
       alt: '',
@@ -203,6 +207,7 @@ export default [
       'A idcomplete front-end / back-end solution for a community message board on gaming.',
 
     years: '2016',
+    employer: 'Personal project',
     thumbnail: {
       src: imageGametalkDevices,
       alt: '',

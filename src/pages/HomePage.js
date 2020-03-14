@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Fragment, useRef } from 'react';
+import { Fragment, useRef, useLayoutEffect } from 'react';
+import PropTypes from 'prop-types';
 import {
   ContentWrap,
   PageWrap,
@@ -16,8 +17,18 @@ import {
 } from '../components';
 import projectsData from '../data/projects';
 
-const HomePage = ({ ...props }) => {
+const HomePage = ({ location, ...props }) => {
   const dotRef = useRef();
+
+  // If user is routing from a project page. Set scroll position to that project preview.
+  useLayoutEffect(() => {
+    if (location.state && location.state.fromProjectId) {
+      var elmnt = document.getElementById(
+        `project${location.state.fromProjectId}`,
+      );
+      elmnt.scrollIntoView(true);
+    }
+  }, [location]);
 
   return (
     <PageWrap {...props} sx={{ bg: 'black' }}>
@@ -55,6 +66,7 @@ const HomePage = ({ ...props }) => {
               const pageUrl = `/project/${project.id}`;
               const body = (
                 <PreviewBody
+                  id={`project${project.id}`}
                   sx={{
                     pl: oddIndex ? 6 : 0,
                     pr: oddIndex ? 0 : 6,
@@ -131,4 +143,9 @@ const HomePage = ({ ...props }) => {
   );
 };
 
+HomePage.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.object,
+  }),
+};
 export default HomePage;
