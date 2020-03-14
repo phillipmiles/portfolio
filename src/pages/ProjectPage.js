@@ -2,7 +2,7 @@
 import { jsx, Flex } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import { useSpring, animated } from 'react-spring';
 import projectsData from '../data/projects';
 import {
