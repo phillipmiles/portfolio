@@ -38,10 +38,12 @@ export default [
 
     years: '2019 / 2020',
     employer: 'Verso learning',
-    cover: {
-      src: imgVersoCharts,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imgVersoCharts,
+        alt: '',
+      },
+    ],
     thumbnail: {
       src: imgVersoCharts,
       alt: '',
@@ -75,15 +77,25 @@ export default [
     title: 'CPA',
     summary: 'An award-winning new direction for educating financial advisors.',
     years: '2016 / 2017 / 2018',
-    employer: 'CPA',
+    employer: 'DeakinCo / CPA',
     thumbnail: {
       src: imageCPAIPad,
       alt: '',
     },
-    cover: {
-      src: imageCPAIPad,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imageCPAIPad,
+        alt: '',
+      },
+      {
+        src: imageCPAMCQ,
+        alt: '',
+      },
+      {
+        src: imageCPAresults,
+        alt: '',
+      },
+    ],
     images: [
       {
         src: imageCPAIPad,
@@ -114,15 +126,25 @@ export default [
     summary:
       '54,000 lines of code automated in building five branching learning modules.',
     years: '2018',
-    employer: 'Coles',
+    employer: 'DeakinCo / Coles',
     thumbnail: {
       src: imageColesMenu,
       alt: '',
     },
-    cover: {
-      src: imageColesMenu,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imageColesMenu,
+        alt: '',
+      },
+      {
+        src: imageColesDeli,
+        alt: '',
+      },
+      {
+        src: imageColesResults,
+        alt: '',
+      },
+    ],
     images: [
       {
         src: imageColesMenu,
@@ -149,10 +171,20 @@ export default [
       src: imageBinderDash,
       alt: '',
     },
-    cover: {
-      src: imageBinderDash,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imageBinderDash,
+        alt: '',
+      },
+      {
+        src: imageBinderDoc,
+        alt: '',
+      },
+      {
+        src: imageBinderWorkspace,
+        alt: '',
+      },
+    ],
     images: [
       {
         src: imageBinderDash,
@@ -175,15 +207,25 @@ export default [
     years: '2017',
     summary:
       'A bespoke learning portal that strives to educate for a world of cleaner ears.',
-    employer: 'Clear Ears',
+    employer: 'DeakinCo / Clear Ears',
     thumbnail: {
       src: imageClearEarsDash,
       alt: '',
     },
-    cover: {
-      src: imageClearEarsDash,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imageClearEarsDash,
+        alt: '',
+      },
+      {
+        src: imageClearEarsActivity,
+        alt: '',
+      },
+      {
+        src: imageClearEarsCommunication,
+        alt: '',
+      },
+    ],
     body: ClearEarsBody,
     images: [
       {
@@ -212,10 +254,20 @@ export default [
       src: imageGametalkDevices,
       alt: '',
     },
-    cover: {
-      src: imageGametalkDevices,
-      alt: '',
-    },
+    cover: [
+      {
+        src: imageGametalkDevices,
+        alt: '',
+      },
+      {
+        src: imageGametalkGame,
+        alt: '',
+      },
+      {
+        src: imageGametalkMobile,
+        alt: '',
+      },
+    ],
     images: [
       {
         src: imageGametalkDevices,

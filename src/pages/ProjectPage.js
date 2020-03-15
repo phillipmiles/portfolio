@@ -90,55 +90,41 @@ const ProjectPage = ({ projectId, ...props }) => {
       >
         <div
           sx={{
-            width: '80%',
+            width: projectData.cover.length > 2 ? '80%' : '100%',
             height: '100%',
-            backgroundImage: `url('${projectData.images[0].src}')`,
+            backgroundImage: `url('${projectData.cover[0].src}')`,
             backgroundSize: 'cover',
             backgroundPositionY: '35%',
             backgroundPositionX: '50%',
           }}
         />
-        <Flex sx={{ flexDirection: 'column', width: '40%', height: '100%' }}>
-          <div
-            sx={{
-              backgroundImage: `url('${projectData.images[1].src}')`,
-              backgroundSize: 'cover',
-              backgroundPositionY: '35%',
-              backgroundPositionX: '50%',
-              height: '50%',
-              width: '100%',
-            }}
-          />
-          <div
-            sx={{
-              backgroundImage: `url('${projectData.images[2].src}')`,
-              backgroundSize: 'cover',
-              backgroundPositionY: '35%',
-              backgroundPositionX: '50%',
-              height: '50%',
-              width: '100%',
-            }}
-          />
-          {/* {projectData.images.map(img => (
+        {projectData.cover.length > 2 && (
+          <Flex sx={{ flexDirection: 'column', width: '40%', height: '100%' }}>
             <div
               sx={{
-                backgroundImage: `url('${img.src}')`,
+                backgroundImage: `url('${projectData.cover[1].src}')`,
                 backgroundSize: 'cover',
                 backgroundPositionY: '35%',
                 backgroundPositionX: '50%',
-                height: '33.3%',
+                height: '50%',
                 width: '100%',
               }}
             />
-          ))} */}
-        </Flex>
+            <div
+              sx={{
+                backgroundImage: `url('${projectData.cover[2].src}')`,
+                backgroundSize: 'cover',
+                backgroundPositionY: '35%',
+                backgroundPositionX: '50%',
+                height: '50%',
+                width: '100%',
+              }}
+            />
+          </Flex>
+        )}
       </Flex>
 
       <ContentWrap sx={{ color: 'textWhite', py: 7 }}>
-        {/* <Image
-          src={projectData.thumbnail.src}
-          alt={projectData.thumbnail.alt}
-        /> */}
         <Heading as="h4" sx={{ mb: 6, textAlign: 'center' }}>
           {projectData.title}
         </Heading>
@@ -154,7 +140,7 @@ const ProjectPage = ({ projectId, ...props }) => {
             </div>
             <div>
               <Text sx={{ opacity: 0.6, display: 'block', mb: 2 }}>
-                Client / employer
+                Employer / client
               </Text>
               <Text sx={{ fontSize: '26px' }}>{projectData.employer}</Text>
             </div>
