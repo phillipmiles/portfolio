@@ -58,11 +58,52 @@ const HomePage = ({ location, ...props }) => {
                   color: 'primary',
                   variant: 'textStyles.heading4',
                   mb: 4,
+                  fontSize: theme => [
+                    theme.textStyles.heading4.fontSize,
+                    theme.textStyles.heading4.fontSize,
+                    theme.textStyles.heading4.fontSize,
+                    theme.textStyles.heading4.fontSize,
+                    '3.4vw',
+                  ],
+                  lineHeight: theme => [
+                    theme.textStyles.heading4.lineHeight,
+                    theme.textStyles.heading4.lineHeight,
+                    theme.textStyles.heading4.lineHeight,
+                    theme.textStyles.heading4.lineHeight,
+                    '3.4vw',
+                  ],
                 }}
               >
                 Phillip Miles
               </Text>
-              <Heading as="h2">
+              <Heading
+                as="h2"
+                sx={{
+                  // fontSize: theme => [
+                  //   theme.textStyles.heading2.fontSize,
+                  //   theme.textStyles.heading2.fontSize,
+                  //   theme.textStyles.heading2.fontSize,
+                  //   theme.textStyles.heading2.fontSize,
+                  //   // theme.textStyles.heading2.fontSize,
+                  //   '7vw',
+                  // ],
+                  fontSize: theme => [
+                    theme.textStyles.heading4.fontSize,
+                    theme.textStyles.heading3.fontSize,
+                    theme.textStyles.heading2.fontSize,
+                    theme.textStyles.heading2.fontSize,
+                    theme.textStyles.heading1.fontSize,
+                  ],
+                  lineHeight: theme => [
+                    theme.textStyles.heading2.lineHeight,
+                    theme.textStyles.heading2.lineHeight,
+                    theme.textStyles.heading2.lineHeight,
+                    theme.textStyles.heading2.lineHeight,
+                    // theme.textStyles.heading2.lineHeight,
+                    '7vw',
+                  ],
+                }}
+              >
                 I make things for
                 <br /> the internet
                 <span ref={dotRef} />

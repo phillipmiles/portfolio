@@ -62,10 +62,6 @@ export default [
         alt: '',
       },
       {
-        src: imgVersoComicYellow,
-        alt: '',
-      },
-      {
         src: imgVersoComic,
         alt: '',
       },

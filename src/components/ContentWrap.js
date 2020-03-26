@@ -8,11 +8,18 @@ import { jsx, Flex } from 'theme-ui';
 const ContentWrap = ({ children, ...props }) => {
   return (
     // Outer div used to set margins without reducing the maxWidth size.
-    <Flex {...props} sx={{ px: [3, 4], flexDirection: 'column' }}>
+    <Flex {...props} sx={{ px: 4, flexDirection: 'column' }}>
       <div
         sx={{
           position: 'relative',
-          maxWidth: 'content',
+          maxWidth: [
+            'content',
+            'content',
+            'content',
+            'content',
+            'content',
+            '80%',
+          ],
           width: '100%',
           mx: 'auto',
         }}

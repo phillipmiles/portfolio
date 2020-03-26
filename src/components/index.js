@@ -14,3 +14,4 @@ export { default as ParallaxCache } from './ParallaxCache';
 export { default as FlexCol } from './FlexCol';
 export { default as FlexColItem } from './FlexColItem';
 export { default as AnimatedDot } from './AnimatedDot';
+export { default as ButtonClose } from './ButtonClose';

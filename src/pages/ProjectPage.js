@@ -1,9 +1,6 @@
 /** @jsx jsx */
 import { jsx, Flex } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link } from '@reach/router';
-import { useSpring, animated } from 'react-spring';
 import projectsData from '../data/projects';
 import {
   Heading,
@@ -14,16 +11,11 @@ import {
   ContentWrap,
   FlexCol,
   FlexColItem,
-  Icon,
+  ButtonClose,
 } from '../components';
 
 const ProjectPage = ({ projectId, ...props }) => {
   const projectData = projectsData.find(project => project.id === projectId);
-
-  const [springProps, set] = useSpring(() => ({
-    transform: 'scale(1)',
-    config: { mass: 5, tension: 350, friction: 40 },
-  }));
 
   return (
     <PageWrap {...props} sx={{ bg: 'black' }}>
@@ -47,50 +39,23 @@ const ProjectPage = ({ projectId, ...props }) => {
         </Flex>
       </ContentWrap> */}
 
-      <Link
+      <ButtonClose
+        sx={{ position: 'fixed', top: 0, right: 0 }}
         to={'/'}
         state={{ fromProjectId: projectData.id }}
-        sx={{
-          position: 'fixed',
-          // right: 6,
-          // top: 5,
-          right: 0,
-          top: 0,
-          cursor: 'pointer',
-          zIndex: 100,
-          width: 8,
-          height: 8,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          // boxShadow: 2,
-          // borderRadius: '50%',
-          color: 'white',
-          bg: 'primary',
-          transition: 'background-color 200ms ease',
-          ':hover': {
-            bg: 'primaryDark',
-          },
-          borderRadius: theme => `0 0 0 ${theme.radii.large}px`,
-        }}
-        onMouseOver={() => set({ transform: 'scale(1.2)' })}
-        onMouseLeave={() => set({ transform: 'scale(1)' })}
-      >
-        <animated.div style={springProps}>
-          <Icon icon={faTimes} sx={{ fontSize: '32px' }} />
-        </animated.div>
-      </Link>
+      />
       <Flex
         sx={{
           width: '100%',
-          height: '40vw',
+          height: '44vw',
           maxHeight: '76vh',
-          // pr: theme => theme.sizes[8],
+          minHeight: 11,
         }}
       >
         <div
           sx={{
-            width: projectData.cover.length > 2 ? '80%' : '100%',
+            width:
+              projectData.cover.length > 2 ? ['100%', '100%', '80%'] : '100%',
             height: '100%',
             backgroundImage: `url('${projectData.cover[0].src}')`,
             backgroundSize: 'cover',
@@ -99,7 +64,14 @@ const ProjectPage = ({ projectId, ...props }) => {
           }}
         />
         {projectData.cover.length > 2 && (
-          <Flex sx={{ flexDirection: 'column', width: '40%', height: '100%' }}>
+          <Flex
+            sx={{
+              flexDirection: 'column',
+              width: '40%',
+              height: '100%',
+              display: ['none', 'none', 'flex'],
+            }}
+          >
             <div
               sx={{
                 backgroundImage: `url('${projectData.cover[1].src}')`,
@@ -129,12 +101,18 @@ const ProjectPage = ({ projectId, ...props }) => {
           {projectData.title}
         </Heading>
         <FlexCol
-          margin={[3, 4]}
+          margin={0}
           gutter={[3, 4]}
           sx={{ mb: 7, justifyContent: 'center' }}
         >
-          <FlexColItem cols={3} sx={{ mb: 8 }}>
-            <div sx={{ mb: 6 }}>
+          <FlexColItem
+            cols={[4, 8, 3]}
+            sx={{
+              flexDirection: ['row', 'row', 'column'],
+              display: ['none', 'none', 'flex'],
+            }}
+          >
+            <div sx={{ mb: 6, mr: [7, 7, 0] }}>
               <Text sx={{ opacity: 0.6, display: 'block', mb: 2 }}>When</Text>
               <Text sx={{ fontSize: '28px' }}>{projectData.years}</Text>
             </div>
@@ -146,11 +124,31 @@ const ProjectPage = ({ projectId, ...props }) => {
             </div>
           </FlexColItem>
 
-          <FlexColItem cols={9} sx={{ mb: 8 }}>
-            <Paragraph sx={{ fontSize: '26px', mb: 6, mt: 0 }}>
+          <FlexColItem cols={9} sx={{ mb: [4, 4, 8] }}>
+            <Paragraph sx={{ fontSize: ['26px', '26px'], mb: 6, mt: 0 }}>
               {projectData.summary}
             </Paragraph>
             {projectData.body && <projectData.body />}
+          </FlexColItem>
+
+          <FlexColItem
+            cols={[12]}
+            sx={{
+              flexDirection: 'row',
+              display: ['flex', 'flex', 'none'],
+              mb: 6,
+            }}
+          >
+            <div sx={{ mb: 6, mr: 7 }}>
+              <Text sx={{ opacity: 0.6, display: 'block', mb: 2 }}>When</Text>
+              <Text sx={{ fontSize: '28px' }}>{projectData.years}</Text>
+            </div>
+            <div>
+              <Text sx={{ opacity: 0.6, display: 'block', mb: 2 }}>
+                Employer / client
+              </Text>
+              <Text sx={{ fontSize: '26px' }}>{projectData.employer}</Text>
+            </div>
           </FlexColItem>
 
           {projectData.images.map(img => (

@@ -18,10 +18,10 @@ export default {
     14: 928,
     content: 1100,
   },
-  breakpoints: ['40em', '52em', '64em', '76em'],
+  breakpoints: ['40em', '52em', '64em', '76em', '88em'],
   fonts: {
-    heading: 'Proxima nova, system-ui, sans-serif',
-    body: 'Proxima nova, system-ui, sans-serif',
+    heading: 'proxima-nova, system-ui, sans-serif',
+    body: 'proxima-nova, system-ui, sans-serif',
   },
   fontWeights: {
     thin: '200',
@@ -144,7 +144,7 @@ export default {
     body: {
       fontFamily: 'body',
       fontSize: '1.125rem',
-      lineHeight: '1.4',
+      lineHeight: '1.5',
     },
   },
   buttons: {
