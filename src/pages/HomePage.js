@@ -125,9 +125,9 @@ const HomePage = ({ location, ...props }) => {
                     width: '40%',
                   }}
                 >
-                  <Heading as="h5">{project.title}</Heading>
+                  <Heading as="h5" sx={{ mb: 4 }}>{project.title}</Heading>
 
-                  <Paragraph sx={{ fontSize: '21px' }}>
+                  <Paragraph sx={{ fontSize: '21px', mb: 5 }}>
                     {project.summary}
                   </Paragraph>
                   {project.years && (
@@ -147,7 +147,7 @@ const HomePage = ({ location, ...props }) => {
                     icon={faChevronRight}
                     iconPosition="right"
                     sx={{
-                      mt: 4,
+                      mt: 5,
                       minWidth: 9,
                       svg: {
                         transition: 'transform 150ms ease',
@@ -261,7 +261,7 @@ const HomePage = ({ location, ...props }) => {
           </FlexCol>
         </ContentWrap>
       </div>
-    </PageWrap>
+    </PageWrap >
   );
 };
 

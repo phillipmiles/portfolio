@@ -34,7 +34,8 @@ export default [
     id: 'verso',
     title: 'Verso Learning',
     summary:
-      'Multiple education web apps developed with a shared component library.',
+      'Implemented a monolithic visual uplift, created an extensive component library of reusable React components complete with detailed documentation and developed interactive and animated data visualisation solutions.',
+    // 'Worked closely with the design team to implemented a full visual uplift and fresh design system to the Verso web app following a rebranding. Laid the groundwork for more efficiant development with the construction of a component library of over 100 reusable and documented components. Developed rich and interactive data visualisation charts,',
 
     years: '2019 / 2020',
     employer: 'Verso learning',
@@ -70,8 +71,10 @@ export default [
   },
   {
     id: 'cpa',
-    title: 'CPA',
-    summary: 'An award-winning new direction for educating financial advisors.',
+    title: 'DeakinCo / CPA',
+    summary:
+      'Developed an ambitious web-based simulation for educating financial advisors. Using strong narrative to tie together interactive activities, first-person-view video of hired actors and simulated digital communications from characters created an immersive gameified experience that would go on to win multiple awards in learning design.',
+    // 'An award-winning new direction for educating financial advisors.',
     years: '2016 / 2017 / 2018',
     employer: 'DeakinCo / CPA',
     thumbnail: {
@@ -118,9 +121,9 @@ export default [
   },
   {
     id: 'coles',
-    title: 'Coles',
+    title: 'DeakinCo / Coles',
     summary:
-      '54,000 lines of code automated in building five branching learning modules.',
+      'Automated the generation of 54,000 lines of JSON code in order to build five branching choose-your-own-adventure style interactive learning modules.',
     years: '2018',
     employer: 'DeakinCo / Coles',
     thumbnail: {
@@ -199,7 +202,7 @@ export default [
   },
   {
     id: 'clearears',
-    title: 'Clear Ears',
+    title: 'DeakinCo / Clear Ears',
     years: '2017',
     summary:
       'A bespoke learning portal that strives to educate for a world of cleaner ears.',

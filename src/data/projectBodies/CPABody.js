@@ -21,7 +21,7 @@ const CPABody = () => (
     </Paragraph>
     <Paragraph>
       The success of the first module resulted in the client's investment in
-      additional modules for other subjects. The more refined subsequent modules
+      additional modules for other subjects in 2017 and again in 2018. The more refined subsequent modules
       would also go on to receive multiple industry awards in learning design.
     </Paragraph>
   </Fragment>

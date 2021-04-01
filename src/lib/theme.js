@@ -143,7 +143,7 @@ export default {
     },
     body: {
       fontFamily: 'body',
-      fontSize: '1.125rem',
+      fontSize: '1.25rem',
       lineHeight: '1.5',
     },
   },
