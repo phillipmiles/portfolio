@@ -2,12 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBell,
-  faCartShopping,
-  faHeart,
-} from '@fortawesome/free-solid-svg-icons';
+
+import Hero from '../components/Hero';
 
 const Home: NextPage = () => {
   return (
@@ -38,87 +34,15 @@ const Home: NextPage = () => {
               <p className={styles.description}>
                 React front-end web developer
               </p>
-              <a href="" className={styles.cta}>
-                Get in touch
-              </a>
+              <div className={styles.ctaWrap}>
+                <a href="" className={styles.cta}>
+                  Get in touch
+                </a>
+                <div className={styles.ctaShadow} />
+              </div>
             </div>
             <div className={styles.headerRight}>
-              <video
-                controls
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{
-                  pointerEvents: 'none',
-                  width: '500px',
-                  height: '400px',
-                  objectFit: 'cover',
-                  borderRadius: '18px',
-                }}
-              >
-                <source src="/clients.mp4" type="video/mp4" />
-              </video>
-              <div className={styles.imageButtonGroup}>
-                <div className={styles.imageButton1}></div>
-                <div className={styles.imageButton2}>Add to cart</div>
-              </div>
-              <div className={styles.imageScreen}>
-                <div
-                  className={`${styles.imageScreenBar} ${styles.imageScreenCard}`}
-                >
-                  <div className={styles.imageScreenBarMenu}>
-                    <div className={styles.imageScreenBarMenuItem} />
-                    <div className={styles.imageScreenBarMenuItem} />
-                    <div className={styles.imageScreenBarMenuItem} />
-                  </div>
-                  <div className={styles.imageScreenBarAddressWrapper}>
-                    <div className={styles.imageScreenBarAddress} />
-                  </div>
-                </div>
-                <div className={styles.imageScreenContent}>
-                  <div className={styles.imageScreenHeader} />
-                  <div className={styles.imageScreenContentSplit}>
-                    <div
-                      className={`${styles.imageScreenContentLeft} ${styles.imageScreenCard}`}
-                    >
-                      <div
-                        className={`${styles.imageScreenButton} ${styles.imageScreenContentLeftButton}`}
-                      >
-                        <div />
-                      </div>
-                    </div>
-                    <div className={styles.imageScreenContentRight}>
-                      <div className={styles.imageScreenContentRightHeader} />
-                      <div
-                        className={`${styles.imageScreenContentRightBox} ${styles.imageScreenCard}`}
-                      >
-                        <div
-                          className={`${styles.imageScreenButton} ${styles.imageScreenContentLeftButton}`}
-                        >
-                          <div />
-                        </div>
-                      </div>
-                      <div className={styles.imageScreenContentRightTrio}>
-                        <div className={styles.imageScreenCard} />
-                        <div className={styles.imageScreenCard} />
-                        <div className={styles.imageScreenCard} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.imageIconGroup}>
-                <div className={styles.imageIcon}>
-                  <FontAwesomeIcon icon={faBell} />
-                </div>
-                <div className={styles.imageIcon}>
-                  <FontAwesomeIcon icon={faHeart} />
-                </div>
-                <div className={styles.imageIcon}>
-                  <FontAwesomeIcon icon={faCartShopping} />
-                </div>
-              </div>
+              <Hero />
             </div>
           </header>
         </div>

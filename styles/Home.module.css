@@ -7,18 +7,6 @@
   align-items: center;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .banner {
   padding: 2rem 4rem;
   display: flex;
@@ -58,6 +46,18 @@
   animation: gradient 15s ease infinite;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .header {
   flex-direction: row;
   align-items: center;
@@ -76,240 +76,6 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  position: relative;
-}
-
-.imageButtonGroup {
-  position: absolute;
-  /* opacity: 0.9; */
-  transform: rotate(15deg);
-  left: 0px;
-  bottom: 56px;
-}
-
-.imageButton1,
-.imageButton2 {
-  width: 200px;
-  height: 40px;
-}
-
-.imageButton1 {
-  /* Dashed border generated here https://kovart.github.io/dashed-border-generator/ */
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='3%2c 8' stroke-dashoffset='19' stroke-linecap='square'/%3e%3c/svg%3e");
-  margin-bottom: 12px;
-  opacity: 0.9;
-}
-
-.imageButton2 {
-  /* background-color: white; */
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: RecoletaDemo;
-}
-
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .imageButton2 {
-    backdrop-filter: blur(6px);
-  }
-  .imageScreen {
-    backdrop-filter: blur(6px);
-  }
-}
-
-.imageScreen {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 248px;
-  height: 156px;
-  border-radius: 8px;
-  right: 0px;
-  top: -56px;
-  transform: rotate(-5deg);
-  padding: 0.5rem;
-}
-
-.imageScreenBar {
-  height: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 6px;
-  margin-bottom: 8px;
-  flex-shrink: 0;
-}
-
-.imageScreenBarMenu {
-  display: flex;
-  flex-direction: row;
-}
-
-.imageScreenBarMenuItem {
-  width: 5px;
-  height: 5px;
-  border-radius: 4px;
-  background-color: #777;
-  margin-right: 2px;
-}
-
-.imageScreenBarAddressWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.imageScreenCard {
-  background-color: white;
-  border-radius: 4px;
-}
-
-.imageScreenBarAddress {
-  height: 5px;
-  width: 140px;
-  border-radius: 4px;
-  background-color: #e3e3e3;
-}
-
-.imageScreenContent {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
-}
-
-.imageScreenContentSplit {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  padding: 8px;
-  justify-content: space-between;
-}
-
-.imageScreenHeader {
-  background-color: white;
-  border-radius: 8px;
-  height: 10px;
-  width: 64px;
-}
-
-.imageScreenContentLeft {
-  border: 8px;
-  padding: 7px;
-  width: 34%;
-  flex-grow: 1;
-}
-
-.imageScreenContentLeftButton {
-  height: 11px;
-  width: 34px;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-}
-
-.imageScreenButton {
-  background-color: #333;
-  border-radius: 2px;
-}
-
-.imageScreenContentLeftButton > div {
-  background-color: white;
-  height: 3px;
-  width: 20px;
-  border-radius: 4px;
-}
-
-.imageScreenContentRight {
-  width: 100px;
-  flex-grow: 1;
-  margin-left: 10px;
-}
-
-.imageScreenContentRightHeader {
-  height: 3px;
-  background-color: #333;
-  width: 44px;
-  border-radius: 4px;
-  margin-top: 10px;
-  margin-bottom: 8px;
-}
-
-.imageScreenContentRightBox {
-  padding: 7px;
-  display: flex;
-  align-items: flex-end;
-  height: 36px;
-  justify-content: center;
-}
-
-.imageScreenContentRightBox .imageScreenButton {
-  width: 60px;
-  height: 14px;
-  justify-content: center;
-}
-
-.imageScreenContentRightBox .imageScreenButton div {
-  width: 32px;
-}
-
-.imageScreenContentRightTrio {
-  display: flex;
-  flex-grow: 1;
-
-  justify-content: space-between;
-  margin-top: 8px;
-}
-
-.imageScreenContentRightTrio > div {
-  border-radius: 7px;
-  width: 33%;
-  height: 24px;
-  background-color: #f89c27;
-  margin-right: 3px;
-  margin-left: 3px;
-}
-
-.imageScreenContentRightTrio > div:first-child {
-  background-color: #f9ea54;
-  margin-left: 0px;
-}
-
-.imageScreenContentRightTrio > div:last-child {
-  background-color: #a5c12e;
-  margin-right: 0px;
-}
-
-.imageIconGroup {
-  position: absolute;
-  right: 72px;
-  bottom: -64px;
-  opacity: 0.9;
-  width: 48px;
-}
-
-.imageIcon {
-  display: block;
-  height: 48px;
-  width: 48px;
-  padding: 0.8rem;
-  border-radius: 24px;
-  border: 2px solid white;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.imageIcon > svg {
-  width: 16px;
 }
 
 .cta {
@@ -321,9 +87,55 @@
   /* background: #8523d5; */
   background-color: #e53958;
   z-index: 1;
-  box-shadow: 6px 6px 0 0 #a61aa5;
+  /* box-shadow: 6px 6px 0 0 #a61aa5; */
   font-size: 18px;
   font-weight: bold;
+}
+
+.ctaWrap {
+  transition: transform 300ms;
+  display: inline-block;
+  position: relative;
+}
+
+.ctaWrap:hover {
+  transform: scale(104%);
+  transition: transform 150ms;
+}
+
+.ctaWrap:hover .ctaShadow {
+  transition: filter 150ms;
+  filter: blur(6px);
+}
+
+.ctaShadow {
+  transition: filter 300ms;
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  left: 2px;
+  animation: ctaGradient 15s ease infinite;
+  transform: translate(8px, 8px);
+  border-radius: 25px;
+  /* filter: blur(6px); */
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+@keyframes ctaGradient {
+  0% {
+    background: #2c5db8;
+    transform: translate(8px, 8px);
+  }
+  50% {
+    background-color: #8f248f;
+    transform: translate(-8px, -8px);
+  }
+  100% {
+    background-color: #2c5db8;
+    transform: translate(8px, 8px);
+  }
 }
 
 .footer {
