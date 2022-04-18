@@ -77,6 +77,30 @@ const Home: NextPage = () => {
         </div>
       </main>
 
+      <div
+        style={{
+          background: 'red',
+          width: '200px',
+          height: '200px',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            width: '100px',
+            height: '100px',
+            backdropFilter: 'blur(6px)',
+            // opacity: 0.5,
+            // filter: 'blur(6px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            opacity: 0.8,
+            right: '-25px',
+            transition: 'opacity 300ms',
+          }}
+        ></div>
+      </div>
+
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

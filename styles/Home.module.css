@@ -83,7 +83,7 @@
   /* margin: 2rem 0; */
   position: relative;
   padding: 1rem 3rem;
-  border-radius: 25px;
+  border-radius: inherit;
   /* background: #8523d5; */
   background-color: #e53958;
   z-index: 1;
@@ -96,6 +96,7 @@
   transition: transform 300ms;
   display: inline-block;
   position: relative;
+  border-radius: 25px;
 }
 
 .ctaWrap:hover {
@@ -117,8 +118,7 @@
   left: 2px;
   animation: ctaGradient 15s ease infinite;
   transform: translate(8px, 8px);
-  border-radius: 25px;
-  /* filter: blur(6px); */
+  border-radius: inherit;
   filter: blur(2px);
   opacity: 0.5;
 }

@@ -27,7 +27,7 @@ const Hero = () => {
         video1Ref.current.seekTo(0, 'seconds');
         setVideo(1);
       }
-    }, 5000);
+    }, 6000);
 
     setTimeDelay(timeout);
 
@@ -88,12 +88,12 @@ const Hero = () => {
           loop={true}
         />
       </div>
-
-      <div className={s.image}>
-        <div className={s.imageButtonGroup}>
-          <div className={s.imageButton1}></div>
-          <div className={s.imageButton2}>Add to cart</div>
-        </div>
+      {/* <div className={s.image}> */}
+      <div className={s.imageButtonGroup}>
+        <div className={s.imageButton1}></div>
+        <div className={s.imageButton2}>Add to cart</div>
+      </div>
+      <div className={s.imageScreenWrap}>
         <div className={s.imageScreen}>
           <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
             <div className={s.imageScreenBarMenu}>
@@ -137,20 +137,21 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className={s.imageIconGroup}>
-          <div className={s.imageIcon}>
-            <FontAwesomeIcon icon={faBell} />
-          </div>
-          <div className={s.imageIcon}>
-            <FontAwesomeIcon icon={faHeart} />
-          </div>
-          <div className={s.imageIcon}>
-            <FontAwesomeIcon icon={faCartShopping} />
-          </div>
+      <div className={s.imageIconGroup}>
+        <div className={s.imageIcon}>
+          <FontAwesomeIcon icon={faBell} />
+        </div>
+        <div className={s.imageIcon}>
+          <FontAwesomeIcon icon={faHeart} />
+        </div>
+        <div className={s.imageIcon}>
+          <FontAwesomeIcon icon={faCartShopping} />
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
