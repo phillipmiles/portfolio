@@ -19,10 +19,33 @@
   }
 }
 
-.header {
-  flex-direction: row;
-  align-items: center;
+.banner {
+  padding: 2rem 4rem;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: white;
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav a {
+  color: white;
+  padding: 1rem;
+}
+
+.introBlock {
+  height: 100vh;
   background: linear-gradient(
     -45deg,
     #ee7752,
@@ -33,7 +56,12 @@
   );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 100vh;
+}
+
+.header {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
   padding: 4rem 8rem;
   width: 100%;
   color: white;
@@ -48,6 +76,240 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.imageButtonGroup {
+  position: absolute;
+  /* opacity: 0.9; */
+  transform: rotate(15deg);
+  left: 0px;
+  bottom: 56px;
+}
+
+.imageButton1,
+.imageButton2 {
+  width: 200px;
+  height: 40px;
+}
+
+.imageButton1 {
+  /* Dashed border generated here https://kovart.github.io/dashed-border-generator/ */
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='3%2c 8' stroke-dashoffset='19' stroke-linecap='square'/%3e%3c/svg%3e");
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.imageButton2 {
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: RecoletaDemo;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .imageButton2 {
+    backdrop-filter: blur(6px);
+  }
+  .imageScreen {
+    backdrop-filter: blur(6px);
+  }
+}
+
+.imageScreen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 248px;
+  height: 156px;
+  border-radius: 8px;
+  right: 0px;
+  top: -56px;
+  transform: rotate(-5deg);
+  padding: 0.5rem;
+}
+
+.imageScreenBar {
+  height: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.imageScreenBarMenu {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageScreenBarMenuItem {
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+  background-color: #777;
+  margin-right: 2px;
+}
+
+.imageScreenBarAddressWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.imageScreenCard {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.imageScreenBarAddress {
+  height: 5px;
+  width: 140px;
+  border-radius: 4px;
+  background-color: #e3e3e3;
+}
+
+.imageScreenContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.imageScreenContentSplit {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 8px;
+  justify-content: space-between;
+}
+
+.imageScreenHeader {
+  background-color: white;
+  border-radius: 8px;
+  height: 10px;
+  width: 64px;
+}
+
+.imageScreenContentLeft {
+  border: 8px;
+  padding: 7px;
+  width: 34%;
+  flex-grow: 1;
+}
+
+.imageScreenContentLeftButton {
+  height: 11px;
+  width: 34px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+.imageScreenButton {
+  background-color: #333;
+  border-radius: 2px;
+}
+
+.imageScreenContentLeftButton > div {
+  background-color: white;
+  height: 3px;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.imageScreenContentRight {
+  width: 100px;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.imageScreenContentRightHeader {
+  height: 3px;
+  background-color: #333;
+  width: 44px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.imageScreenContentRightBox {
+  padding: 7px;
+  display: flex;
+  align-items: flex-end;
+  height: 36px;
+  justify-content: center;
+}
+
+.imageScreenContentRightBox .imageScreenButton {
+  width: 60px;
+  height: 14px;
+  justify-content: center;
+}
+
+.imageScreenContentRightBox .imageScreenButton div {
+  width: 32px;
+}
+
+.imageScreenContentRightTrio {
+  display: flex;
+  flex-grow: 1;
+
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.imageScreenContentRightTrio > div {
+  border-radius: 7px;
+  width: 33%;
+  height: 24px;
+  background-color: #f89c27;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.imageScreenContentRightTrio > div:first-child {
+  background-color: #f9ea54;
+  margin-left: 0px;
+}
+
+.imageScreenContentRightTrio > div:last-child {
+  background-color: #a5c12e;
+  margin-right: 0px;
+}
+
+.imageIconGroup {
+  position: absolute;
+  right: 72px;
+  bottom: -64px;
+  opacity: 0.9;
+  width: 48px;
+}
+
+.imageIcon {
+  display: block;
+  height: 48px;
+  width: 48px;
+  padding: 0.8rem;
+  border-radius: 24px;
+  border: 2px solid white;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageIcon > svg {
+  width: 16px;
 }
 
 .cta {
@@ -55,7 +317,7 @@
   /* margin: 2rem 0; */
   position: relative;
   padding: 1rem 3rem;
-  border-radius: 24px;
+  border-radius: 25px;
   /* background: #8523d5; */
   background-color: #e53958;
   z-index: 1;

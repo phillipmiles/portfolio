@@ -2,6 +2,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBell,
+  faCartShopping,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Home: NextPage = () => {
   return (
@@ -13,40 +19,109 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <header className={styles.header}>
-          <div className={styles.headerLeft}>
-            <h1 className={styles.title}>Websites that connect people</h1>
-            <p className={styles.description}>React front-end web developer</p>
-            <a href="" className={styles.cta}>
-              Get in touch
-            </a>
+        <div className={styles.introBlock}>
+          <div className={styles.banner}>
+            <div className={styles.logo}>
+              <span>Phillip Miles</span>
+            </div>
+            <nav className={styles.nav}>
+              <a href="">Services</a>
+              <a href="">Work</a>
+              <a href="">About</a>
+              <a href="">Blog</a>
+              <a href="">Contact</a>
+            </nav>
           </div>
-          <div className={styles.headerRight}>
-            <video
-              controls
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{
-                pointerEvents: 'none',
-                width: '500px',
-                height: '400px',
-                objectFit: 'cover',
-                borderRadius: '16px',
-              }}
-            >
-              <source src="/clients.mp4" type="video/mp4" />
-            </video>
-            {/* <iframe
-              frameBorder={0}
-              width="420"
-              height="315"
-              src={`https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1&controls=0&disablekb=1&loop=1&modestbranding=0&showinfo=0&rel=0`}
-            ></iframe> */}
-          </div>
-        </header>
-
+          <header className={styles.header}>
+            <div className={styles.headerLeft}>
+              <h1 className={styles.title}>Websites that connect people</h1>
+              <p className={styles.description}>
+                React front-end web developer
+              </p>
+              <a href="" className={styles.cta}>
+                Get in touch
+              </a>
+            </div>
+            <div className={styles.headerRight}>
+              <video
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  pointerEvents: 'none',
+                  width: '500px',
+                  height: '400px',
+                  objectFit: 'cover',
+                  borderRadius: '18px',
+                }}
+              >
+                <source src="/clients.mp4" type="video/mp4" />
+              </video>
+              <div className={styles.imageButtonGroup}>
+                <div className={styles.imageButton1}></div>
+                <div className={styles.imageButton2}>Add to cart</div>
+              </div>
+              <div className={styles.imageScreen}>
+                <div
+                  className={`${styles.imageScreenBar} ${styles.imageScreenCard}`}
+                >
+                  <div className={styles.imageScreenBarMenu}>
+                    <div className={styles.imageScreenBarMenuItem} />
+                    <div className={styles.imageScreenBarMenuItem} />
+                    <div className={styles.imageScreenBarMenuItem} />
+                  </div>
+                  <div className={styles.imageScreenBarAddressWrapper}>
+                    <div className={styles.imageScreenBarAddress} />
+                  </div>
+                </div>
+                <div className={styles.imageScreenContent}>
+                  <div className={styles.imageScreenHeader} />
+                  <div className={styles.imageScreenContentSplit}>
+                    <div
+                      className={`${styles.imageScreenContentLeft} ${styles.imageScreenCard}`}
+                    >
+                      <div
+                        className={`${styles.imageScreenButton} ${styles.imageScreenContentLeftButton}`}
+                      >
+                        <div />
+                      </div>
+                    </div>
+                    <div className={styles.imageScreenContentRight}>
+                      <div className={styles.imageScreenContentRightHeader} />
+                      <div
+                        className={`${styles.imageScreenContentRightBox} ${styles.imageScreenCard}`}
+                      >
+                        <div
+                          className={`${styles.imageScreenButton} ${styles.imageScreenContentLeftButton}`}
+                        >
+                          <div />
+                        </div>
+                      </div>
+                      <div className={styles.imageScreenContentRightTrio}>
+                        <div className={styles.imageScreenCard} />
+                        <div className={styles.imageScreenCard} />
+                        <div className={styles.imageScreenCard} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.imageIconGroup}>
+                <div className={styles.imageIcon}>
+                  <FontAwesomeIcon icon={faBell} />
+                </div>
+                <div className={styles.imageIcon}>
+                  <FontAwesomeIcon icon={faHeart} />
+                </div>
+                <div className={styles.imageIcon}>
+                  <FontAwesomeIcon icon={faCartShopping} />
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
