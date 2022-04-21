@@ -109,6 +109,16 @@
   filter: blur(6px);
 }
 
+.ctaWrap:active {
+  transform: scale(100%);
+  transition: transform 0ms;
+}
+
+.ctaWrap:active .ctaShadow {
+  transition: filter 0ms;
+  filter: blur(2px);
+}
+
 .ctaShadow {
   transition: filter 300ms;
   position: absolute;

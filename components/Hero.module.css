@@ -67,7 +67,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
   font-family: RecoletaDemo;
   position: absolute;
   /* left: -40px; */
@@ -147,7 +147,7 @@
   padding: 0.5rem;
   animation: screenEls 6s ease infinite;
   animation-delay: 60ms;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .imageScreenBar {
@@ -306,7 +306,7 @@
 .imageIconGroup {
   position: absolute;
   right: 72px;
-  bottom: -64px;
+  bottom: -65px;
   opacity: 0.9;
   width: 48px;
 }
