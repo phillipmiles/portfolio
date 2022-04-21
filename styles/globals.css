@@ -12,6 +12,20 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: 'metropolis';
+  src: url('/metropolis.semi-bold.otf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url('/metropolis.bold.otf');
+  font-style: normal;
+  font-weight: 700;
+}
+
 html,
 body {
   padding: 0;

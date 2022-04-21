@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBell,
   faCartShopping,
+  faComment,
+  faCommentAlt,
   faHeart,
   faPen,
   faSearch,
@@ -192,6 +194,25 @@ const Hero = () => {
         </div>
       </div>
       {/* IMAGE GROUP 2*/}
+      <div className={s.imageButtonGroup2}>
+        <div
+          className={`${s.imageButton3} ${s.imageTransition}`}
+          style={{ ...(video !== 2 && hideTransition()) }}
+        >
+          <FontAwesomeIcon icon={faShare} />
+          Share
+        </div>
+        <div
+          className={`${s.imageButton3} ${s.imageTransition}`}
+          style={{
+            ...(video !== 2 && hideTransition()),
+          }}
+        >
+          <FontAwesomeIcon icon={faCommentAlt} />
+          Comment
+        </div>
+      </div>
+      {/* IMAGE GROUP 3*/}
       <div
         className={`${s.imageSearch} ${s.imageTransition}`}
         style={{
