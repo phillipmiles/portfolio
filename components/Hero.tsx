@@ -4,6 +4,10 @@ import {
   faBell,
   faCartShopping,
   faHeart,
+  faPen,
+  faSearch,
+  faShare,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import ReactPlayer from 'react-player';
 import { useEffect, useRef, useState } from 'react';
@@ -35,6 +39,13 @@ const Hero = () => {
       clearTimeout(timeDelay);
     };
   }, [video]);
+
+  const hideTransition = () => {
+    return {
+      transform: 'scale(80%)',
+      opacity: 0,
+    };
+  };
 
   return (
     <div className={s.wrap}>
@@ -88,13 +99,28 @@ const Hero = () => {
           loop={true}
         />
       </div>
-      {/* <div className={s.image}> */}
+      {/* IMAGE GROUP 1 */}
       <div className={s.imageButtonGroup}>
-        <div className={s.imageButton1}></div>
-        <div className={s.imageButton2}>Add to cart</div>
+        <div
+          className={`${s.imageButton1} ${s.imageTransition}`}
+          style={{ ...(video !== 1 && hideTransition()) }}
+        ></div>
+        <div
+          className={`${s.imageButton2} ${s.imageTransition}`}
+          style={{
+            ...(video !== 1 && hideTransition()),
+          }}
+        >
+          Add to cart
+        </div>
       </div>
       <div className={s.imageScreenWrap}>
-        <div className={s.imageScreen}>
+        <div
+          className={`${s.imageScreen} ${s.imageTransition}`}
+          style={{
+            ...(video !== 1 && hideTransition()),
+          }}
+        >
           <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
             <div className={s.imageScreenBarMenu}>
               <div className={s.imageScreenBarMenuItem} />
@@ -140,18 +166,125 @@ const Hero = () => {
       </div>
 
       <div className={s.imageIconGroup}>
-        <div className={s.imageIcon}>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 1 && hideTransition()),
+          }}
+        >
           <FontAwesomeIcon icon={faBell} />
         </div>
-        <div className={s.imageIcon}>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 1 && hideTransition()),
+          }}
+        >
           <FontAwesomeIcon icon={faHeart} />
         </div>
-        <div className={s.imageIcon}>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 1 && hideTransition()),
+          }}
+        >
           <FontAwesomeIcon icon={faCartShopping} />
         </div>
       </div>
+      {/* IMAGE GROUP 2*/}
+      <div
+        className={`${s.imageSearch} ${s.imageTransition}`}
+        style={{
+          ...(video !== 3 && hideTransition()),
+        }}
+      >
+        <span>Search</span>
+        <FontAwesomeIcon icon={faSearch} />
+      </div>
+      <div className={s.imageScreenWrap2}>
+        <div
+          className={`${s.imageScreen} ${s.imageTransition}`}
+          style={{
+            ...(video !== 3 && hideTransition()),
+          }}
+        >
+          <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
+            <div className={s.imageScreenBarMenu}>
+              <div className={s.imageScreenBarMenuItem} />
+              <div className={s.imageScreenBarMenuItem} />
+              <div className={s.imageScreenBarMenuItem} />
+            </div>
+            <div className={s.imageScreenBarAddressWrapper}>
+              <div className={s.imageScreenBarAddress} />
+            </div>
+          </div>
+
+          <div className={s.imageScreenContent}>
+            <div className={s.imageScreenHeaderWrap}>
+              <div className={s.imageScreenHeader} />
+              <div className={s.imageScreenAvatarWrap}>
+                <div className={s.imageScreenAvatar} />
+                <div className={s.imageScreenAvatar} />
+              </div>
+            </div>
+            <div className={s.imageScreenColumns}>
+              <div className={s.imageScreenCol}>
+                <div className={s.imageScreenCard}>
+                  <div className={s.imageScreenColumnImage} />
+                </div>
+                <div className={s.imageScreenCard}>
+                  {/* <div className={s.imageScreenColumnImage} /> */}
+                </div>
+              </div>
+              <div className={s.imageScreenCol}>
+                <div className={s.imageScreenCard} />
+                <div className={s.imageScreenCard}>
+                  <div className={s.imageScreenColumnImage} />
+                </div>
+              </div>
+              <div className={s.imageScreenCol}>
+                <div className={s.imageScreenCard}>
+                  <div className={s.imageScreenColumnImage} />
+                </div>
+                <div className={s.imageScreenCard}>
+                  <div className={s.imageScreenColumnImage} />
+                </div>
+              </div>
+              <div className={s.imageScreenCol}>
+                <div className={s.imageScreenCard} />
+                <div className={s.imageScreenCard} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={s.imageIconGroup2}>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 3 && hideTransition()),
+          }}
+        >
+          <FontAwesomeIcon icon={faShare} />
+        </div>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 3 && hideTransition()),
+          }}
+        >
+          <FontAwesomeIcon icon={faPen} />
+        </div>
+        <div
+          className={`${s.imageIcon} ${s.imageTransition}`}
+          style={{
+            ...(video !== 3 && hideTransition()),
+          }}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </div>
+      </div>
     </div>
-    // </div>
   );
 };
 

@@ -45,11 +45,16 @@
   bottom: 56px;
 }
 
+.imageTransition {
+  transform: scale(100%);
+  transition: transform 150ms, opacity 150ms;
+}
+
 .imageButton1,
 .imageButton2 {
   width: 200px;
   height: 40px;
-  animation: screenEls 6s ease infinite;
+  /* animation: screenEls 6s ease infinite; */
 }
 
 .imageButton1 {
@@ -70,9 +75,34 @@
   backdrop-filter: blur(6px);
   font-family: RecoletaDemo;
   position: absolute;
+  opacity: 1;
+
   /* left: -40px; */
   /* animation: screenEls 6s ease infinite; */
   /* transform-origin: 0 0; */
+}
+
+.imageSearch {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  color: #343242;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(6px);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 40px;
+  width: 200px;
+  position: absolute;
+  /* top: -20px; */
+  bottom: 80px;
+  right: -40px;
+  transform: rotate(-8deg);
+}
+
+.imageSearch > svg {
+  width: 16px;
 }
 
 /* .imageButton2:before {
@@ -142,11 +172,11 @@
   width: 248px;
   height: 156px;
   border-radius: 8px;
-
-  transform: rotate(-5deg);
+  opacity: 1;
+  transform: scale(100%);
   padding: 0.5rem;
-  animation: screenEls 6s ease infinite;
-  animation-delay: 60ms;
+  /* animation: screenEls 6s ease infinite; */
+  /* animation-delay: 60ms; */
   backdrop-filter: blur(6px);
 }
 
@@ -311,7 +341,7 @@
   width: 48px;
 }
 
-.imageIcon {
+.imageIconGroup > .imageIcon {
   display: block;
   height: 48px;
   width: 48px;
@@ -322,10 +352,143 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: screenEls 6s ease infinite;
-  animation-delay: 100ms;
+  /* animation: screenEls 6s ease infinite; */
+  /* animation-delay: 100ms; */
+  transform: scale(100%);
+  opacity: 1;
 }
 
 .imageIcon > svg {
   width: 16px;
+}
+
+.imageScreenWrap2 {
+  transform: rotate(10deg);
+  position: absolute;
+  left: -36px;
+  bottom: -56px;
+}
+
+.imageScreenWrap2 .imageScreenContent {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.imageScreenWrap2 .imageScreenHeaderWrap {
+  padding-left: 4px;
+  padding-right: 4px;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.imageScreenWrap2 .imageScreenHeader {
+  width: 85px;
+}
+
+.imageScreenAvatarWrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageScreenAvatar {
+  height: 10px;
+  width: 10px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.imageScreenColumns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.imageScreenColumns > div {
+  width: 25%;
+  height: 100%;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.imageScreenColumns > div > div {
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  /* padding-top: 8px; */
+  padding-bottom: 8px;
+}
+
+.imageScreenColumnImage {
+  width: 100%;
+  background-color: #aaa;
+  height: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.imageScreenColumns > div:first-child > div:first-child {
+  height: 55px;
+}
+
+.imageScreenColumns > div:first-child > div:last-child {
+  height: 27px;
+}
+
+.imageScreenColumns > div:nth-child(2n) > div:first-child {
+  height: 30px;
+}
+
+.imageScreenColumns > div:nth-child(2n) > div:last-child {
+  height: 52px;
+}
+
+.imageScreenColumns
+  > div:nth-child(2n)
+  > div:last-child
+  .imageScreenColumnImage {
+  background-color: #f89c27;
+}
+
+.imageScreenColumns > div:nth-child(3) > div:first-child {
+  height: 45px;
+}
+
+.imageScreenColumns
+  > div:nth-child(3)
+  > div:first-child
+  .imageScreenColumnImage {
+  background-color: #a5c12e;
+}
+
+.imageScreenColumns > div:nth-child(3) > div:last-child {
+  height: 37px;
+}
+
+.imageIconGroup2 {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 90px;
+  top: -20px;
+}
+
+.imageIconGroup2 .imageIcon {
+  display: block;
+  height: 48px;
+  width: 48px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(100%);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  backdrop-filter: blur(6px);
 }
