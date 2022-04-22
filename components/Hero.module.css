@@ -47,7 +47,7 @@
 
 .imageTransition {
   transform: scale(100%);
-  transition: transform 150ms, opacity 150ms;
+  transition: transform 300ms, opacity 300ms;
 }
 
 .imageButton1,
@@ -369,12 +369,45 @@
   bottom: -56px;
 }
 
+.imageScreenWrap3 {
+  transform: rotate(-6deg);
+  position: absolute;
+  right: 68px;
+  bottom: -92px;
+}
+
+.imageScreenWrap3 .imageScreenHeaderWrap {
+  align-items: center;
+}
+
 .imageScreenWrap2 .imageScreenContent {
   padding-left: 4px;
   padding-right: 4px;
 }
 
-.imageScreenWrap2 .imageScreenHeaderWrap {
+.imageScreenWrap3 .imageScreenContent {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.imageScreenWrap3 .imageScreenButton {
+  width: 15%;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12px;
+}
+
+.imageScreenWrap3 .imageScreenButton > div {
+  background-color: white;
+  height: 3px;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.imageScreenWrap2 .imageScreenHeaderWrap,
+.imageScreenWrap3 .imageScreenHeaderWrap {
   padding-left: 4px;
   padding-right: 4px;
   justify-content: space-between;
@@ -382,8 +415,53 @@
   display: flex;
 }
 
+.imageScreenWrap3 .imageScreenContentInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: 6px;
+  flex-grow: 1;
+  padding-bottom: 8px;
+}
+
+.imageScreenWrap3 .imageScreenContentInner .imageScreenContentLeft {
+  width: 85%;
+  padding: 12px 10px;
+  /* flex-grow: 1; */
+  /* height: 100%; */
+  /* height: 200px; */
+}
+
+.imageScreenWrap3 .imageScreenContentInner .imageScreenContentLeft > div {
+  height: 3px;
+  border-radius: 2px;
+  width: 100%;
+  background-color: #333;
+  margin-bottom: 6px;
+}
+
+.imageScreenWrap3
+  .imageScreenContentInner
+  .imageScreenContentLeft
+  > div:last-child {
+  width: 60px;
+}
+
+.imageScreenWrap3 .imageScreenContentInner .imageScreenContentRight {
+  width: 15%;
+}
+
 .imageScreenWrap2 .imageScreenHeader {
   width: 85px;
+}
+
+.imageScreenWrap3 .imageScreenHeader {
+  width: 85%;
+  height: 16px;
+  border-radius: 4px;
 }
 
 .imageScreenAvatarWrap {
@@ -495,8 +573,8 @@
 
 .imageButtonGroup2 {
   position: absolute;
-  top: 0;
-  left: -40px;
+  top: -40px;
+  left: -30px;
   transform: rotate(4deg);
 }
 
