@@ -24,7 +24,7 @@ const Hero = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (video === 1) {
-        video2Ref.current.seekTo(7, 'seconds');
+        video2Ref.current.seekTo(15, 'seconds');
         setVideo(2);
       } else if (video === 2) {
         video3Ref.current.seekTo(0, 'seconds');
