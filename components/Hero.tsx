@@ -13,6 +13,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ReactPlayer from 'react-player';
 import { useEffect, useRef, useState } from 'react';
+import HeroScreen3 from './HeroScreen3';
+import HeroScreen4 from './HeroScreen4';
 
 const Hero = () => {
   const [timeDelay, setTimeDelay]: any = useState();
@@ -212,50 +214,8 @@ const Hero = () => {
           Comment
         </div>
       </div>
-      <div className={s.imageScreenWrap3}>
-        <div
-          className={`${s.imageScreen} ${s.imageTransition}`}
-          style={{
-            ...(video !== 2 && hideTransition()),
-          }}
-        >
-          <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
-            <div className={s.imageScreenBarMenu}>
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-            </div>
-            <div className={s.imageScreenBarAddressWrapper}>
-              <div className={s.imageScreenBarAddress} />
-            </div>
-          </div>
+      <HeroScreen4 isVisible={video === 2} />
 
-          <div className={s.imageScreenContent}>
-            <div className={s.imageScreenHeaderWrap}>
-              <div className={s.imageScreenHeader} />
-              <div className={s.imageScreenButton}>
-                <div />
-              </div>
-            </div>
-            <div className={s.imageScreenContentInner}>
-              <div
-                className={`${s.imageScreenContentLeft} ${s.imageScreenCard}`}
-              >
-                <div />
-                <div />
-                <div />
-                <div />
-                <div />
-                <div />
-                <div />
-              </div>
-              <div
-                className={`${s.imageScreenContentRight} ${s.imageScreenCard}`}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
       {/* IMAGE GROUP 3*/}
       <div
         className={`${s.imageSearch} ${s.imageTransition}`}
