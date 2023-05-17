@@ -1,3 +1,5 @@
+import Flex from './Flex';
+
 interface Props {
   children?: React.ReactNode;
   style?: { [key: string]: any };
@@ -9,9 +11,8 @@ interface Props {
 // a child element to easily fill the available space by setting flexGrow to 1.
 
 const Page = ({ children, style, ...props }: Props) => (
-  <div
+  <Flex
     style={{
-      display: 'flex',
       position: 'relative',
       minHeight: '100vh',
       width: '100%',
@@ -21,7 +22,7 @@ const Page = ({ children, style, ...props }: Props) => (
     {...props}
   >
     {children}
-  </div>
+  </Flex>
 );
 
 export default Page;

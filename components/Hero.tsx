@@ -216,6 +216,9 @@ const Hero = () => {
       </div>
       <HeroScreen4 isVisible={video === 2} />
 
+      {/* ADDD AN AVATAR IN A CIRCLE !!!!!!!!!!!!!! font awesome human
+      
+      */}
       {/* IMAGE GROUP 3*/}
       <div
         className={`${s.imageSearch} ${s.imageTransition}`}

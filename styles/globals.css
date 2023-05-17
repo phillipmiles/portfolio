@@ -55,3 +55,7 @@ a {
 * {
   box-sizing: border-box;
 }
+/* 
+:root {
+  --primary-color: brown;
+} */

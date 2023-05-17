@@ -1,4 +1,4 @@
-import Page from './page';
+import Page from './Page';
 
 interface Props {
   children?: React.ReactNode;
