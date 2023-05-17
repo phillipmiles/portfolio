@@ -7,6 +7,8 @@ import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import PageContentWrap from '../components/generic/PageContentWrap';
 import Nav from '../components/Nav';
+import Button from '../components/generic/Button';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -32,9 +34,9 @@ const Home: NextPage = () => {
                 React front-end web developer
               </p>
               <div className={styles.ctaWrap}>
-                <a href="" className={styles.cta}>
+                <Link href="/" className={styles.cta}>
                   Get in touch
-                </a>
+                </Link>
                 <div className={styles.ctaShadow} />
               </div>
             </div>
@@ -58,9 +60,6 @@ const Home: NextPage = () => {
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
         </a>
       </footer>
     </div>

@@ -14,7 +14,7 @@ const Button = ({
   ...props
 }: Props): JSX.Element => {
   return (
-    <Link href={href} className={`${classNameButton} ${s.button}`} {...props}>
+    <Link href={href} className={`${s.button} ${classNameButton}`} {...props}>
       {children}
     </Link>
   );

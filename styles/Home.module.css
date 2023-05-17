@@ -72,13 +72,17 @@
   display: inline-block;
   /* margin: 2rem 0; */
   position: relative;
-  padding: 1rem 3rem;
+  padding: 0px 40px;
   border-radius: inherit;
   /* background: #8523d5; */
   background-color: #e53958;
   z-index: 1;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* box-shadow: 6px 6px 0 0 #a61aa5; */
-  font-size: 18px;
+  /* font-size: 18px; */
   /* font-weight: bold; */
 }
 
@@ -86,7 +90,7 @@
   transition: transform 300ms;
   display: inline-block;
   position: relative;
-  border-radius: 25px;
+  border-radius: 28px;
 }
 
 .ctaWrap:hover {
@@ -168,15 +172,15 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4.5rem;
+  font-size: 72px;
 }
 
 .description {
-  margin: 2rem 0;
-  line-height: 1.5;
-  font-size: 1rem;
+  margin: 32px 0;
+  /* line-height: 1.5; */
+  font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 1.6px;
 }
 
 .code {
@@ -224,11 +228,6 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
-}
-
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
 }
 
 @media (max-width: 600px) {

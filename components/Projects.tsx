@@ -9,6 +9,8 @@ const Projects = () => {
       style={{
         // width: '100%',
         // background: '#ECF4FA',
+        paddingTop: 64,
+        paddingBottom: 64,
         borderRadius: 24,
         overflow: 'hidden',
         marginBottom: 8,
@@ -19,14 +21,13 @@ const Projects = () => {
       {/* </LazyLoader> */}
       <Flex
         style={{
-          // padding: 64,
           width: '50%',
           flexDirection: 'column',
           justifyContent: 'space-between',
         }}
       >
         <div>
-          <h3>The projects</h3>
+          <h3 style={{ fontSize: 36 }}>The projects</h3>
           <p>
             Take a look at detailed breakdowns for each of my apps. See how
             they’re progressing and what decision’s I’m making in developing
