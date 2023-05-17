@@ -1,3 +1,6 @@
+// Lazy load react-player to get around hydration error issue
+// https://github.com/cookpete/react-player/issues/1455#issuecomment-1207154843
+import dynamic from 'next/dynamic';
 import s from './Hero.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,10 +14,12 @@ import {
   faShare,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import ReactPlayer from 'react-player';
 import { useEffect, useRef, useState } from 'react';
-import HeroScreen3 from './HeroScreen3';
 import HeroScreen4 from './HeroScreen4';
+
+const VideoPlayer = dynamic(() => import('./generic/VideoPlayer'), {
+  ssr: false,
+});
 
 const Hero = () => {
   const [timeDelay, setTimeDelay]: any = useState();
@@ -25,6 +30,7 @@ const Hero = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
+      console.log(video2Ref.current);
       if (video === 1) {
         video2Ref.current.seekTo(15, 'seconds');
         setVideo(2);
@@ -54,8 +60,8 @@ const Hero = () => {
   return (
     <div className={s.wrap}>
       <div className={s.videoWrap}>
-        <ReactPlayer
-          ref={video1Ref}
+        <VideoPlayer
+          playerRef={video1Ref}
           url="/video/hero-vid-1.mp4"
           className={s.video}
           style={{
@@ -70,8 +76,8 @@ const Hero = () => {
           height="100%"
           loop={true}
         />
-        <ReactPlayer
-          ref={video2Ref}
+        <VideoPlayer
+          playerRef={video2Ref}
           url="/video/hero-vid-2.mp4"
           className={s.video}
           style={{
@@ -86,8 +92,8 @@ const Hero = () => {
           height="100%"
           loop={true}
         />
-        <ReactPlayer
-          ref={video3Ref}
+        <VideoPlayer
+          playerRef={video3Ref}
           url="/video/hero-vid-3.mp4"
           className={s.video}
           style={{

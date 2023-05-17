@@ -1,0 +1,24 @@
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 32px;
+  height: 56px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition-timing-function: ease-in-out;
+  transition: 'background-color 250ms';
+
+  padding-right: var(--padding-3);
+  padding-left: var(--padding-3);
+  padding-top: var(--padding-2);
+  padding-bottom: var(--padding-2);
+
+  /* // variant: 'text.body', */
+}
+
+.button:hover {
+  transition: none;
+  background-color: var(--primary-light-color);
+}

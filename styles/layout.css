@@ -1,0 +1,17 @@
+:root {
+  --max-content-width: 1140px;
+
+  --padding-0: 8px;
+  --padding-1: 16px;
+  --padding-2: 24px;
+  --padding-3: 32px;
+  --padding-4: 40px;
+  --padding-5: 48px;
+  --content-padding: var(--padding-2);
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --content-padding: var(--padding-1);
+  }
+}

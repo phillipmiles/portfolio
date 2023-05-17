@@ -1,0 +1,15 @@
+.outer {
+  width: 100%;
+  padding-left: var(--content-padding);
+  padding-right: 24px;
+  flex-direction: column;
+}
+
+.inner {
+  position: relative;
+  max-width: var(--max-content-width);
+  width: 100%;
+  margin: auto;
+  flex-grow: 1;
+  flex-direction: column;
+}

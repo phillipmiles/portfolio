@@ -22,23 +22,13 @@
   font-size: 20px;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-}
-
-.nav a {
-  color: white;
-  padding: 1rem;
-}
-
 .introBlock {
   height: 100vh;
   background: linear-gradient(
     -45deg,
-    #ee7752,
-    #e73c7e,
+    /* #ee7752, */ #e73c7e,
     #8523d5,
+    /* var(--primary-color), */ #2361d5,
     #23a6d5,
     #23d5ab
   );

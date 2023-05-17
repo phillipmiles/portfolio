@@ -1,13 +1,14 @@
 import Link from 'next/link';
-// import Button from './generic/Button';
+import Button from './generic/Button';
 import Flex from './generic/Flex';
-// import s from './Projects.module.css';
+import s from './Projects.module.css';
 
 const Projects = () => {
   return (
     <div
       style={{
-        background: '#ECF4FA',
+        // width: '100%',
+        // background: '#ECF4FA',
         borderRadius: 24,
         overflow: 'hidden',
         marginBottom: 8,
@@ -18,7 +19,7 @@ const Projects = () => {
       {/* </LazyLoader> */}
       <Flex
         style={{
-          padding: 64,
+          // padding: 64,
           width: '50%',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -33,7 +34,7 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* <Button href={'/'}>Go to projects</Button> */}
+        <Button href={'/'}>Go to projects</Button>
       </Flex>
     </div>
   );

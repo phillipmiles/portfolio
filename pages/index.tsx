@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.css';
 
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
-import Link from 'next/link';
+import PageContentWrap from '../components/generic/PageContentWrap';
+import Nav from '../components/Nav';
 
 const Home: NextPage = () => {
   return (
@@ -22,13 +23,7 @@ const Home: NextPage = () => {
             <div className={styles.logo}>
               <span>Phillip Miles</span>
             </div>
-            <nav className={styles.nav}>
-              <a href="">Services</a>
-              <a href="">Work</a>
-              <a href="">About</a>
-              <a href="">Blog</a>
-              <a href="">Contact</a>
-            </nav>
+            <Nav />
           </div>
           <header className={styles.header}>
             <div className={styles.headerLeft}>
@@ -48,7 +43,11 @@ const Home: NextPage = () => {
             </div>
           </header>
         </div>
-        <Projects />
+        <div style={{ backgroundColor: '#ECF4FA', width: '100%' }}>
+          <PageContentWrap>
+            <Projects />
+          </PageContentWrap>
+        </div>
         The experience Coles, CPA, Aus Post, ANZ, Transurban, etc etc
       </main>
 
