@@ -1,0 +1,440 @@
+@keyframes first {
+  0% {
+    width: 0%;
+  }
+  6% {
+    width: 0%;
+  }
+  16% {
+    width: 40%;
+  }
+  17% {
+    width: 40%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+
+@keyframes second {
+  0% {
+    width: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  18% {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  19% {
+    width: 0;
+    height: 22px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  25% {
+    width: 20%;
+  }
+
+  100% {
+    width: 20%;
+  }
+}
+@keyframes third {
+  0% {
+    width: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  25% {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  26% {
+    width: 0;
+    height: 22px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  33% {
+    width: 40%;
+  }
+  38% {
+    width: 40%;
+  }
+  44% {
+    width: 40%;
+  }
+  46% {
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  54% {
+    width: 40%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+
+@keyframes fourth {
+  0% {
+    width: 0%;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-width: 0px;
+  }
+  53% {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  54% {
+    width: 0%;
+    height: 22px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  64% {
+    width: 40%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+
+@keyframes firstLine {
+  0% {
+    background: transparent;
+  }
+  89% {
+    background: transparent;
+  }
+  90% {
+    background: rgb(223, 228, 245);
+  }
+  96% {
+    background: rgb(223, 228, 245);
+  }
+  97% {
+    background: rgb(197, 203, 220);
+  }
+  98% {
+    background: rgb(223, 228, 245);
+  }
+  99% {
+    background: rgb(197, 203, 220);
+  }
+  100% {
+    background: rgb(223, 228, 245);
+  }
+}
+
+@keyframes secondLine {
+  0% {
+    background: transparent;
+  }
+  85% {
+    background: transparent;
+  }
+  86% {
+    background: rgb(223, 228, 245);
+  }
+  96% {
+    background: rgb(223, 228, 245);
+  }
+  97% {
+    background: rgb(197, 203, 220);
+  }
+  98% {
+    background: rgb(223, 228, 245);
+  }
+  99% {
+    background: rgb(197, 203, 220);
+  }
+  100% {
+    background: rgb(223, 228, 245);
+  }
+}
+
+@keyframes thirdLine {
+  0% {
+    background: transparent;
+  }
+  80% {
+    background: transparent;
+  }
+  81% {
+    background: rgb(223, 228, 245);
+  }
+  96% {
+    background: rgb(223, 228, 245);
+  }
+  97% {
+    background: rgb(197, 203, 220);
+  }
+  98% {
+    background: rgb(223, 228, 245);
+  }
+  99% {
+    background: rgb(197, 203, 220);
+  }
+  100% {
+    background: rgb(223, 228, 245);
+  }
+}
+
+.codeSegment {
+  margin-right: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 22px;
+  width: 100%;
+  position: relative;
+}
+
+.codeSegmentInner {
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.animated {
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  visibility: hidden;
+}
+
+.first {
+  animation-name: first;
+}
+
+.second {
+  animation-name: second;
+}
+
+.third {
+  animation-name: third;
+}
+
+.fourth {
+  animation-name: fourth;
+}
+
+.firstLine {
+  animation-name: firstLine;
+}
+
+.secondLine {
+  animation-name: secondLine;
+}
+
+.thirdLine {
+  animation-name: thirdLine;
+}
+
+.cursorFirst {
+  animation-name: cursorFirst;
+}
+.cursorSecond {
+  animation-name: cursorSecond;
+}
+
+.cursorThird {
+  animation-name: cursorThird;
+}
+.cursorFourth {
+  animation-name: cursorFourth;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e53958;
+  }
+  25% {
+    background-color: #e53958;
+  }
+  26% {
+    background-color: transparent;
+  }
+  75% {
+    background-color: transparent;
+  }
+  76% {
+    background-color: #e53958;
+  }
+  100% {
+    background-color: #e53958;
+  }
+}
+
+.cursor > div {
+  width: 8px;
+  height: 22px;
+  animation-name: pulse;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cursorFirst {
+  0% {
+    visibility: hidden;
+    right: -4px;
+    left: auto;
+  }
+  1% {
+    visibility: visible;
+    right: -4px;
+    left: auto;
+  }
+  16% {
+    visibility: visible;
+  }
+  17% {
+    visibility: hidden;
+  }
+  89% {
+    visibility: hidden;
+    right: auto;
+    left: -4px;
+  }
+  90% {
+    visibility: visible;
+    right: auto;
+    left: -4px;
+  }
+  99% {
+    visibility: visible;
+    right: auto;
+    left: -4px;
+  }
+  100% {
+    visibility: hidden;
+    right: auto;
+    left: -4px;
+  }
+}
+
+@keyframes cursorSecond {
+  0% {
+    visibility: hidden;
+    right: -4px;
+    left: auto;
+  }
+  18% {
+    visibility: hidden;
+  }
+  19% {
+    visibility: visible;
+  }
+  25% {
+    visibility: visible;
+  }
+  26% {
+    visibility: hidden;
+  }
+
+  88% {
+    visibility: hidden;
+    right: auto;
+    left: -4px;
+  }
+  89% {
+    visibility: visible;
+    right: auto;
+    left: -4px;
+  }
+  89% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes cursorThird {
+  0% {
+    visibility: hidden;
+    right: -4px;
+    left: auto;
+  }
+  25% {
+    visibility: hidden;
+  }
+  26% {
+    visibility: visible;
+  }
+  53% {
+    visibility: visible;
+  }
+  54% {
+    visibility: hidden;
+    right: -4px;
+    left: auto;
+  }
+  80% {
+    visibility: hidden;
+    right: auto;
+    left: -4px;
+  }
+  81% {
+    visibility: visible;
+    right: auto;
+    left: -4px;
+  }
+  85% {
+    visibility: visible;
+  }
+  86% {
+    visibility: hidden;
+    right: -4px;
+    left: auto;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes cursorFourth {
+  0% {
+    visibility: hidden;
+  }
+  53% {
+    visibility: hidden;
+  }
+  54% {
+    visibility: visible;
+    left: auto;
+    right: -4px;
+  }
+  80% {
+    visibility: visible;
+    left: auto;
+    right: -4px;
+  }
+  81% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}

@@ -9,6 +9,23 @@ import PageContentWrap from '../components/generic/PageContentWrap';
 import Nav from '../components/Nav';
 import Button from '../components/generic/Button';
 import Link from 'next/link';
+import DevTools from '../components/DevTools';
+import Flex from '../components/generic/Flex';
+import Footer from '../components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faAws,
+  faCss3,
+  faGit,
+  faGithub,
+  faHtml5,
+  faJs,
+  faJsSquare,
+  faNode,
+  faNodeJs,
+  faReact,
+  faShopify,
+} from '@fortawesome/free-brands-svg-icons';
 
 const Home: NextPage = () => {
   return (
@@ -47,21 +64,126 @@ const Home: NextPage = () => {
         </div>
         <div style={{ backgroundColor: '#ECF4FA', width: '100%' }}>
           <PageContentWrap>
+            <Flex
+              style={{
+                paddingTop: 92,
+                paddingBottom: 24,
+                opacity: 0.9,
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  display: 'block',
+                  height: 32,
+                  width: 32,
+                  marginRight: 24,
+                }}
+              >
+                <FontAwesomeIcon icon={faReact} />
+              </div>
+
+              <div
+                style={{
+                  display: 'block',
+                  height: 32,
+                  width: 32,
+                  marginRight: 24,
+                }}
+              >
+                <FontAwesomeIcon icon={faNodeJs} />
+              </div>
+              <div
+                style={{
+                  display: 'block',
+                  height: 32,
+                  width: 32,
+                }}
+              >
+                <FontAwesomeIcon icon={faGit} />
+              </div>
+            </Flex>
             <Projects />
+            <DevTools />
           </PageContentWrap>
         </div>
-        The experience Coles, CPA, Aus Post, ANZ, Transurban, etc etc
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          style={{
+            backgroundColor: '#007BE4',
+            width: '100%',
+            paddingTop: 80,
+            paddingBottom: 80,
+          }}
         >
-          Powered by{' '}
-        </a>
-      </footer>
+          <div style={{ maxWidth: 900, margin: 'auto' }}>
+            {/* <p style={{ textAlign: 'center', color: 'white', fontSize: 20 }}>
+              Worked with
+            </p> */}
+            <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                src={'/images/companies/logo_anz_h_white.svg'}
+                width={140}
+                height={100}
+                alt="ANZ Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_coles_white.svg'}
+                width={140}
+                height={100}
+                alt="Coles Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_deakinuni_h_white.svg'}
+                width={140}
+                height={100}
+                alt="Deakin University Logo"
+                style={{ margin: 24 }}
+              />
+
+              <Image
+                src={'/images/companies/logo_auspost_white.svg'}
+                width={140}
+                height={100}
+                alt="Aus Post Logo"
+                style={{ margin: 24 }}
+              />
+            </Flex>
+            <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                src={'/images/companies/logo_hla_white.svg'}
+                width={140}
+                height={100}
+                alt="HLA Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_cpa_white.svg'}
+                width={140}
+                height={100}
+                alt="CPA Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_transurban_white.svg'}
+                width={140}
+                height={100}
+                alt="Transurban Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_dhhs_white.png'}
+                width={140}
+                height={50}
+                alt="DHHS Logo"
+                style={{ margin: 24 }}
+              />
+            </Flex>
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

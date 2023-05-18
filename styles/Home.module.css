@@ -91,6 +91,7 @@
   display: inline-block;
   position: relative;
   border-radius: 28px;
+  margin-top: 24px;
 }
 
 .ctaWrap:hover {
@@ -133,7 +134,7 @@
     transform: translate(8px, 8px);
   }
   50% {
-    background-color: #8f248f;
+    background-color: #5d2461;
     transform: translate(-8px, -8px);
   }
   100% {
