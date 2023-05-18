@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'RecoletaDemo';
+  src: url('/recoleta-demo.woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url('/metropolis.regular.otf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url('/metropolis.semi-bold.otf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url('/metropolis.bold.otf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+html,
+body {
+  font-family: metropolis, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .h1 .h2 .h3 .h4 .h5 .h6 {
+  font-family: RecoletaDemo;
+}
+
+h1,
+.h1 {
+  font-size: 72px;
+}
+
+h2,
+.h2 {
+}
+
+h3,
+.h3 {
+}
+h4,
+.h4 {
+  font-size: 36px;
+}
+
+h5,
+.h5 {
+}
+h6,
+.h6 {
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+p.small,
+span.small,
+a.small {
+  font-size: 15px;
+}

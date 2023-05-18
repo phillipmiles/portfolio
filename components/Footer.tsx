@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Flex from './generic/Flex';
 import PageContentWrap from './generic/PageContentWrap';
+import s from './Footer.module.css';
 
 const Footer = (props): JSX.Element => {
   return (
-    <div style={{ backgroundColor: '#262C35' }}>
+    <footer className={s.footer} style={{ backgroundColor: '#262C35' }}>
       <PageContentWrap
         style={{
           color: 'white',
@@ -41,6 +42,7 @@ const Footer = (props): JSX.Element => {
               <p
                 style={{
                   color: '#59b3ff',
+                  marginBottom: 0,
                 }}
               >
                 My name is
@@ -51,6 +53,7 @@ const Footer = (props): JSX.Element => {
                 // variant="callout"
                 style={{
                   color: 'white',
+                  fontSize: '22px',
                   // ':hover': { textDecoration: 'underline' }
                 }}
               >
@@ -71,6 +74,7 @@ const Footer = (props): JSX.Element => {
             <p
               style={{
                 color: '#59b3ff',
+                marginBottom: 0,
                 // variant: ['text.detail', 'text.body'],
                 // mx: [2, 0],
               }}
@@ -80,8 +84,10 @@ const Footer = (props): JSX.Element => {
             <Link
               href="https://twitter.com/PhillipAMiles"
               // variant="detail"
+              className="small"
               style={{
                 // mx: [1, 0],
+
                 color: 'white',
                 // ':hover': { textDecoration: 'underline' },
               }}
@@ -104,17 +110,16 @@ const Footer = (props): JSX.Element => {
                 color: '#59b3ff',
                 // variant: ['text.detail', 'text.body'],
                 // mx: [2, 0],
+                marginBottom: 0,
               }}
             >
               Get in touch
             </p>
             <Link
               href="mailTo:hello@phillipmiles.com"
+              className="small"
               style={{
-                // mx: [1, 0],
-                margin: 8,
                 color: 'white',
-                // ':hover': { textDecoration: 'underline' },
               }}
             >
               hello@phillipmiles.com
@@ -122,7 +127,7 @@ const Footer = (props): JSX.Element => {
           </Flex>
         </Flex>
       </PageContentWrap>
-    </div>
+    </footer>
   );
 };
 
