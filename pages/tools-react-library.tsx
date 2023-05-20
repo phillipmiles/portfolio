@@ -10,8 +10,22 @@ import PageIntro from '../components/PageIntro';
 import tools from '../data/tools/list';
 import RenderMarkdown from '../components/generic/RenderMarkdown';
 import { useEffect, useState } from 'react';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
+import Test from '../data/tools/test';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const ToolsReactLibrary: NextPage = () => {
+  // const firstLineIndex = tools[0].content.content.indexOf('\n');
+  // const lastLineIndex = tools[0].content.content.lastIndexOf('\n');
+  // const boop = tools[0].content.content.slice(
+  //   firstLineIndex + 1,
+  //   lastLineIndex - 4
+  // );
+  // console.log(boop);
+  // console.log(renderToStaticMarkup(boop));
+  const Example = tools[0].content.example;
+  const markdown = tools[0].content.exampleMarkDown;
+
   return (
     <PageWithFooter footerComponent={<Footer />}>
       <Head>
@@ -28,32 +42,47 @@ const ToolsReactLibrary: NextPage = () => {
               style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}
             >
               <PageTitle>React Functional UI Component Library</PageTitle>
-              <PageIntro>
-                I write a lot of code. Sometimes I write something useful. Take
-                a look. Perhaps you'll find it useful too.
-              </PageIntro>
+              <PageIntro>{tools[0].description}</PageIntro>
             </div>
           </div>
           <div>
             <Flex>
               <div style={{ width: '50%' }}>
-                <RenderMarkdown content={tools[0].content.content} />
+                {/* <RenderMarkdown content={tools[0].content.content} /> */}
+                {/* <RenderMarkdown content={`${renderToString(<Test />)}`} /> */}
+                <RenderMarkdown content={markdown} />
 
-                {/* {`
-import React from 'react';
-
-const ToolsReactLibrary = ({children}) => {
-  return (
-    <PageWithFooter>
-      <Head>
-        {children}
-      </Head>
-    </PageWithFooter>
-  )
-};`} */}
+                {/* <RenderMarkdown
+                  content="```jsx
+                  <Flex
+                    style={{ width: '100%', justifyContent: 'space-between' }}
+                  >
+                    <div>Hi</div>
+                    <div>Hi 2</div> <div>Hi 3</div>
+                  </Flex>
+                  ```"
+                /> */}
               </div>
               <div style={{ width: '50%', border: '1px solid black' }}>
-                <Flex>derp</Flex>
+                <Flex>
+                  <Example />
+                  {/* <Flex
+                    style={{ width: '100%', justifyContent: 'space-between' }}
+                  > */}
+                  {/* <div>Hi</div>
+                    <div>Hi 2</div>
+                    <div>Hi 3</div> */}
+                  {/* <Boop /> */}
+                  {/* <div
+                    style={{ width: '100%' }}
+                    dangerouslySetInnerHTML={{
+                      __html: renderToStaticMarkup(boop),
+                    }}
+                  ></div> */}
+
+                  {/* <Test /> */}
+                  {/* </Flex> */}
+                </Flex>
               </div>
             </Flex>
           </div>

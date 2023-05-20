@@ -7,7 +7,7 @@ import CodeBox from './CodeBox';
 
 const RenderMarkdown = ({ content }) => {
   const [parsedMarkdown, setParsedMarkdown] = useState();
-
+  // console.log(content);
   useEffect(() => {
     const compile = marksy({
       // Pass in whatever creates elements for your

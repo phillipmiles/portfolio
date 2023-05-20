@@ -1,10 +1,12 @@
-import markdownReactComponentLibrary from './react-component-library-code.md';
+import flexExample from './component-library/flex_example';
+import flexMarkdown from './component-library/flex.md';
 
 const tools = [
   {
-    slug: 'test-post-1',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    description: 'An example of a short description.',
+    slug: 'flex',
+    title: 'Flex',
+    description:
+      'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
     createdAt: '2020-06-26T01:11:37.621Z',
     readingLength: '3 minutes',
     tag: 'Tips & Tricks',
@@ -26,7 +28,8 @@ const tools = [
     thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
     content: {
       type: 'text',
-      content: markdownReactComponentLibrary,
+      example: flexExample,
+      exampleMarkDown: flexMarkdown,
     },
   },
 ];
