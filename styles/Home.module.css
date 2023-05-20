@@ -7,21 +7,6 @@
   align-items: center;
 }
 
-.banner {
-  padding: 2rem 4rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  color: white;
-  font-size: 20px;
-}
-
 .introBlock {
   height: 100vh;
   background: linear-gradient(

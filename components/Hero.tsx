@@ -22,7 +22,6 @@ const VideoPlayer = dynamic(() => import('./generic/VideoPlayer'), {
 });
 
 const Hero = () => {
-  const [timeDelay, setTimeDelay]: any = useState();
   const [video, setVideo] = useState(1);
   const video1Ref: any = useRef();
   const video2Ref: any = useRef();
@@ -43,10 +42,8 @@ const Hero = () => {
       }
     }, 6000);
 
-    setTimeDelay(timeout);
-
     return () => {
-      clearTimeout(timeDelay);
+      clearTimeout(timeout);
     };
   }, [video]);
 

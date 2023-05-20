@@ -25,17 +25,25 @@ const DevTools = () => {
           justifyContent: 'space-between',
         }}
       >
-        <div>
-          <h3 style={{ fontSize: 36 }}>Developer tools</h3>
-          <p>
-            I write a lot of code. Sometimes I write something useful. Take a
-            look. Perhaps you'll find it useful too.
-          </p>
-        </div>
+        <Flex
+          style={{
+            justifyContent: 'center',
+            flexDirection: 'column',
+            height: '100%',
+          }}
+        >
+          <div>
+            <h3 style={{ fontSize: 36 }}>Developer tools</h3>
+            <p>
+              I write a lot of code. Sometimes I write something useful. Take a
+              look. Perhaps you'll find it useful too.
+            </p>
 
-        <Button href={'/'} style={{ marginTop: '32px', marginLeft: -2 }}>
-          Go to tools
-        </Button>
+            <Button href={'/'} style={{ marginTop: '32px', marginLeft: -2 }}>
+              Go to tools
+            </Button>
+          </div>
+        </Flex>
       </div>
       <div
         style={{

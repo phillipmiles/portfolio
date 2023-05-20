@@ -62,18 +62,32 @@ const Projects = () => {
           justifyContent: 'space-between',
         }}
       >
-        <div>
-          <h3 style={{ fontSize: 36 }}>The projects</h3>
-          <p>
-            Take a look at detailed breakdowns for each of my apps. See how
-            they’re progressing and what decision’s I’m making in developing
-            them.
-          </p>
-        </div>
+        <Flex
+          style={{
+            justifyContent: 'center',
+            flexDirection: 'column',
+            height: '100%',
+          }}
+        >
+          <div>
+            <h3 style={{ fontSize: 36 }}>The projects</h3>
+            <p>
+              Take a look at detailed breakdowns for each of my apps. See how
+              they’re progressing and what decision’s I’m making in developing
+              them.
+            </p>
 
-        <Button href={'/'} style={{ marginTop: '32px', marginLeft: -2 }}>
-          Go to projects
-        </Button>
+            <Button
+              href={'projects'}
+              style={{
+                marginTop: '32px',
+                marginLeft: -2,
+              }}
+            >
+              Go to projects
+            </Button>
+          </div>
+        </Flex>
       </div>
     </Flex>
   );

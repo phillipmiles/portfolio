@@ -1,12 +1,13 @@
+import Link from 'next/link';
 import s from './Nav.module.css';
 
 const Nav = (): JSX.Element => (
   <nav className={s.nav}>
-    <a href="">Services</a>
-    <a href="">Work</a>
-    <a href="">About</a>
-    <a href="">Blog</a>
-    <a href="">Contact</a>
+    <Link href="projects">Projects</Link>
+    <Link href="tools">Tools</Link>
+    <Link href="about">About</Link>
+    {/* <Link href="blog">Blog</Link> */}
+    <Link href="contact">Contact</Link>
   </nav>
 );
 

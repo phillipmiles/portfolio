@@ -27,6 +27,7 @@ import {
   faShopify,
 } from '@fortawesome/free-brands-svg-icons';
 import PageWithFooter from '../components/PageWithFooter';
+import Banner from '../components/Banner';
 
 const Home: NextPage = () => {
   return (
@@ -39,12 +40,8 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.introBlock}>
-          <div className={styles.banner}>
-            <div className={styles.logo}>
-              <span>Phillip Miles</span>
-            </div>
-            <Nav />
-          </div>
+          <Banner invert />
+
           <header className={styles.header}>
             <div className={styles.headerLeft}>
               <h1 className={styles.title}>Websites that connect people</h1>
