@@ -5,18 +5,17 @@ interface Props {
   children: React.ReactNode;
 }
 
-const CodeBox = ({ language, children }: Props): JSX.Element => (
+const CodeBox = ({ language, children, style }: Props): JSX.Element => (
   <div
     style={{
       maxWidth: 728,
       marginLeft: 'auto',
       marginRight: 'auto',
-      marginTop: 48,
-      marginBottom: 48,
       width: '100%',
       position: 'relative',
       backgroundColor: '#262C35',
       borderRadius: 8,
+      ...style,
     }}
   >
     <span

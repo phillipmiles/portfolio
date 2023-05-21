@@ -1,34 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import PageContentWrap from '../components/generic/PageContentWrap';
-import Nav from '../components/Nav';
-import Button from '../components/generic/Button';
-import Link from 'next/link';
-import DevTools from '../components/DevTools';
-import Flex from '../components/generic/Flex';
-import Footer from '../components/Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAws,
-  faCss3,
-  faGit,
-  faGithub,
-  faHtml5,
-  faJs,
-  faJsSquare,
-  faNode,
-  faNodeJs,
-  faReact,
-  faShopify,
-} from '@fortawesome/free-brands-svg-icons';
-import PageWithFooter from '../components/PageWithFooter';
-import Banner from '../components/Banner';
-import ProjectCard from '../components/ProjectCard';
-import PageTitle from '../components/PageTitle';
-import PageIntro from '../components/PageIntro';
-import ToolCard from '../components/ToolCard';
+import PageContentWrap from '../../components/generic/PageContentWrap';
+import Flex from '../../components/generic/Flex';
+import Footer from '../../components/Footer';
+import PageWithFooter from '../../components/PageWithFooter';
+import Banner from '../../components/Banner';
+import PageTitle from '../../components/PageTitle';
+import PageIntro from '../../components/PageIntro';
+import ToolCard from '../../components/ToolCard';
 
 const Tools: NextPage = () => {
   return (
@@ -60,10 +39,11 @@ const Tools: NextPage = () => {
                 href="/tools-useFormState"
               />
               <ToolCard
-                title="React Functional UI Component Library"
-                description="Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin."
+                title="React Behavioural UI Component Library"
+                description="A collection of components that provide behaviours and utilities
+                to your visual UI components."
                 srcThumb="/images/react-component-library-thumb.png"
-                href="/tools-react-library"
+                href="/tools/react-behavioural-ui-component-library"
               />
             </Flex>
           </div>

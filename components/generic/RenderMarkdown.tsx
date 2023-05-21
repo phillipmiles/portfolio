@@ -7,8 +7,11 @@ import CodeBox from './CodeBox';
 
 const RenderMarkdown = ({ content }) => {
   const [parsedMarkdown, setParsedMarkdown] = useState();
-  // console.log(content);
+
   useEffect(() => {
+    if (!content) {
+      return undefined;
+    }
     const compile = marksy({
       // Pass in whatever creates elements for your
       // virtual DOM library. h('h1', {})
