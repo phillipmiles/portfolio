@@ -14,19 +14,6 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CodeBox from '../../../components/generic/CodeBox';
 
-const sortedTools = tools.sort((a, b) => {
-  const nameA = a.title.toLowerCase();
-  const nameB = b.title.toLowerCase();
-  if (nameA < nameB) {
-    return -1;
-  }
-  if (nameA > nameB) {
-    return 1;
-  }
-
-  return 0;
-});
-
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
   console.log(router);
@@ -68,7 +55,7 @@ const ToolsReactLibrary: NextPage = () => {
             </div>
           </div>
           <Flex style={{ margin: 'auto', flexWrap: 'wrap' }}>
-            {sortedTools.map((tool) => (
+            {tools.map((tool) => (
               <div
                 key={tool.slug}
                 style={{
@@ -82,10 +69,7 @@ const ToolsReactLibrary: NextPage = () => {
                   paddingRight: 48,
                 }}
               >
-                <Link
-                  href={`/tools/react-behavioural-ui-component-library/${tool.slug}`}
-                  scroll={false}
-                >
+                <Link href={tool.slug} scroll={false}>
                   {tool.title}
                 </Link>
               </div>

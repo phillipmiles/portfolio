@@ -214,4 +214,17 @@ const tools = [
   },
 ];
 
-export default tools;
+const sortedTools = tools.sort((a, b) => {
+  const nameA = a.title.toLowerCase();
+  const nameB = b.title.toLowerCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  return 0;
+});
+
+export default sortedTools;

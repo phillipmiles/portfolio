@@ -39,7 +39,10 @@ const DevTools = () => {
               look. Perhaps you'll find it useful too.
             </p>
 
-            <Button href={'/'} style={{ marginTop: '32px', marginLeft: -2 }}>
+            <Button
+              href={'/tools'}
+              style={{ marginTop: '32px', marginLeft: -2 }}
+            >
               Go to tools
             </Button>
           </div>
