@@ -4,27 +4,33 @@
   padding: 24px;
 }
 
+.hoverEffect1::before {
+  inset: 0 0;
+  border: 2px solid black;
+  opacity: 0;
+  transition-property: opacity, inset;
+  transition-duration: 200ms;
+}
+
+.hoverEffect1:hover::before {
+  opacity: 1;
+  inset: -8px -8px;
+}
+
 .contentStyle2 {
   padding: 24px;
 }
 
-.hoverEffect2 {
-  border-radius: 8px;
-}
-
 .hoverEffect2::before {
-  /* border-radius: 16px; */
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 30px;
-  border: none;
-}
-
-.hoverEffect1::before {
+  border-radius: 8px;
   inset: 0 0;
-  border: 2px solid black;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 30px;
+  opacity: 0;
+  transition-property: opacity, inset;
+  transition-duration: 200ms;
 }
 
-.hoverEffect1:hover::before,
-.active {
+.hoverEffect2:hover::before {
   opacity: 1;
   inset: -8px -8px;
 }

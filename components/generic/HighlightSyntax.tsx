@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism';
 
 const SyntaxHighlighterComponent = ({ language, children }) => {
@@ -8,11 +9,14 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
     if (language == 'jsx') {
       SyntaxHighlighter.registerLanguage('jsx', jsx);
     }
+    if (language == 'css') {
+      SyntaxHighlighter.registerLanguage('css', css);
+    }
   }, [language]);
 
   return (
     <SyntaxHighlighter
-      language={'jsx'}
+      language={language}
       style={{
         ...prism,
         ...{
@@ -24,7 +28,7 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
             color: '#0087FE',
           },
           'attr-value': {
-            color: 'red',
+            color: 'rgb(243, 78, 95)',
           },
 
           doctype: {
@@ -70,7 +74,7 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
             color: 'red',
           },
           property: {
-            color: 'red',
+            color: 'rgb(243, 78, 95)',
           },
           deleted: {
             color: 'red',
@@ -81,7 +85,7 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
             // color: theme.colors.primaryLight,
           },
           selector: {
-            color: 'red',
+            color: '#FFEF64',
           },
           entity: {
             color: 'red',

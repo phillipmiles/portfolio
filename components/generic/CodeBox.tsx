@@ -3,7 +3,7 @@ import Flex from './Flex';
 import SyntaxHighlighterComponent from './HighlightSyntax';
 
 interface Props {
-  language: 'jsx' | 'javascript';
+  language: 'jsx' | 'javascript' | 'css';
   children: React.ReactNode;
 }
 

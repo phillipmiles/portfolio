@@ -11,16 +11,31 @@ export const Example1 = () => (
 export const example1Code = [
   {
     language: 'jsx',
-    code: `<HoverRevealEffect className="hoverEffect">
+    code: `<DetachedHoverEffect className="hoverEffect">
   <div className="contentStyle">
     Hello
   </div>
-</HoverRevealEffect>`,
+</DetachedHoverEffect>`,
   },
   {
     language: 'css',
-    code: `.hoverEffect {
+    code: `.contentStyle {
+  background-color: black;
+  color: white;
+  padding: 24px;
+}
 
+.hoverEffect::before {
+  inset: 0 0;
+  border: 2px solid black;
+  opacity: 0;
+  transition-property: opacity, inset;
+  transition-duration: 200ms;
+}
+
+.hoverEffect:hover::before {
+  opacity: 1;
+  inset: -8px -8px;
 }`,
   },
 ];
