@@ -1,4 +1,7 @@
-const code = `<Flex
+const code = [
+  {
+    language: 'jsx',
+    code: `<Flex
   style={{
     width: '100%',
     justifyContent: 'space-between',
@@ -8,6 +11,8 @@ const code = `<Flex
   <div>Left</div>
   <div>Middle</div>
   <div>Right</div>
-</Flex>`;
+</Flex>`,
+  },
+];
 
 export default code;

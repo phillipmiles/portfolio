@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+}
+
+.liftChild {
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition-property: opacity, inset;
+  transition-duration: 200ms;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 30px; */
+  border-radius: inherit;
+  inset: 0 0;
+  background-color: inherit;
+
+  border: 2px solid black;
+}
+
+.container:hover::before,
+.active {
+  opacity: 1;
+  inset: -8px -8px;
+}

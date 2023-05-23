@@ -13,13 +13,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CodeBox from '../../../components/generic/CodeBox';
+import HoverRevealEffect from '../../../components/generic/HoverRevealEffect';
+import s from './[slug].module.css';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
-  console.log(router);
+
   const [currentTool, setCurrentTool] = useState();
   const [currentToolMarkdown, setCurrentToolMarkdown]: [
-    string | undefined,
+    // string | undefined,
+    any,
     Function
   ] = useState();
 
@@ -31,7 +34,7 @@ const ToolsReactLibrary: NextPage = () => {
     }
 
     setCurrentTool(tool);
-    setCurrentToolMarkdown(tool.content.exampleMarkDown);
+    // setCurrentToolMarkdown(tool.content.exampleMarkDown);
   }, [router]);
 
   return (
@@ -56,23 +59,35 @@ const ToolsReactLibrary: NextPage = () => {
           </div>
           <Flex style={{ margin: 'auto', flexWrap: 'wrap' }}>
             {tools.map((tool) => (
-              <div
+              <Link
                 key={tool.slug}
+                href={tool.slug}
+                scroll={false}
+                passHref={true}
                 style={{
-                  backgroundColor:
-                    currentTool && tool.slug === currentTool.slug
-                      ? 'red'
-                      : 'transparent',
-                  paddingTop: 24,
-                  paddingBottom: 24,
-                  paddingLeft: 48,
-                  paddingRight: 48,
+                  margin: '24px',
                 }}
               >
-                <Link href={tool.slug} scroll={false}>
-                  {tool.title}
-                </Link>
-              </div>
+                <HoverRevealEffect
+                  className={`${s.hover} ${
+                    currentTool &&
+                    tool.slug === currentTool.slug &&
+                    s.hoverSelect
+                  }`}
+                >
+                  <span
+                    style={{
+                      display: 'block',
+                      paddingLeft: '16px',
+                      paddingRight: '16px',
+                      paddingTop: '8px',
+                      paddingBottom: '8px',
+                    }}
+                  >
+                    {tool.title}
+                  </span>
+                </HoverRevealEffect>
+              </Link>
             ))}
           </Flex>
           <p
@@ -86,19 +101,32 @@ const ToolsReactLibrary: NextPage = () => {
           >
             {currentTool ? currentTool.description : 'Component not found.'}
           </p>
+
           <div style={{ marginBottom: 96 }}>
-            <Flex>
-              <div
-                style={{
-                  width: '50%',
-                  marginRight: 8,
-                }}
-              >
-                <CodeBox language={'jsx'}>{currentToolMarkdown}</CodeBox>;
-                {/* <RenderMarkdown content={tools[0].content.content} /> */}
-                {/* <RenderMarkdown content={`${renderToString(<Test />)}`} /> */}
-                {/* <RenderMarkdown content={currentToolMarkdown} /> */}
-                {/* <RenderMarkdown
+            {currentTool &&
+              currentTool.content.map((example) => (
+                <Flex
+                  style={{
+                    alignItems: 'stretch',
+                    marginBottom: 48,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '50%',
+                      marginRight: 8,
+                    }}
+                  >
+                    {example.exampleMarkDown && (
+                      <CodeBox
+                        code={example.exampleMarkDown}
+                        style={{ height: '100%' }}
+                      />
+                    )}
+                    {/* <RenderMarkdown content={tools[0].content.content} /> */}
+                    {/* <RenderMarkdown content={`${renderToString(<Test />)}`} /> */}
+                    {/* <RenderMarkdown content={currentToolMarkdown} /> */}
+                    {/* <RenderMarkdown
                   content="```jsx
                   <Flex
                     style={{ width: '100%', justifyContent: 'space-between' }}
@@ -108,21 +136,24 @@ const ToolsReactLibrary: NextPage = () => {
                   </Flex>
                   ```"
                 /> */}
-              </div>
-              <div
-                style={{
-                  marginLeft: 8,
-                  width: '50%',
-                  border: '2px solid #262C35',
-                  borderRadius: '6px',
-                  padding: '16px',
-                }}
-              >
-                <Flex>
-                  {currentTool && currentTool && currentTool.content.example()}
+                  </div>
+
+                  <Flex
+                    style={{
+                      marginLeft: 8,
+                      width: '50%',
+                      border: '2px solid #262C35',
+                      borderRadius: '6px',
+                      padding: '16px',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: 24,
+                    }}
+                  >
+                    {example.example()}
+                  </Flex>
                 </Flex>
-              </div>
-            </Flex>
+              ))}
           </div>
         </PageContentWrap>
       </main>

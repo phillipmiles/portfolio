@@ -1,5 +1,13 @@
 import flexExample from './component-library/flex_example';
 import flexCode from './component-library/flex_code.tsx';
+import {
+  Example2,
+  example2Code,
+} from './component-library/detachedHoverEffect_example2.tsx';
+import {
+  Example1,
+  example1Code,
+} from './component-library/detachedHoverEffect_example1.tsx';
 
 const tools = [
   {
@@ -7,70 +15,37 @@ const tools = [
     title: 'Flex',
     description:
       "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
   {
     slug: 'hover-reveal-effect',
-    title: 'Hover Reveal Effect',
+    title: 'Detached Hover Effect',
     description:
       'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
+        type: 'text',
+        example: Example1,
+        exampleMarkDown: example1Code,
       },
       {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: Example2,
+        exampleMarkDown: example2Code,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
   {
     slug: 'page',
     title: 'Page',
     description:
       'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
     topics: [
       {
         title: 'React',
@@ -86,11 +61,13 @@ const tools = [
       },
     ],
     thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
+    content: [
+      {
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
+      },
+    ],
   },
   {
     slug: 'page-with-footer',
@@ -101,116 +78,52 @@ const tools = [
     readingLength: '3 minutes',
     tag: 'Tips & Tricks',
     type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
   {
     slug: 'page-content-wrap',
     title: 'Page Content Wrap',
     description:
       'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
   {
     slug: 'content-slider',
     title: 'Content Slider',
     description:
       'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
   {
     slug: 'content-reveal',
     title: 'Content Reveal',
     description:
       "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: row' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
-    topics: [
+    content: [
       {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
+        type: 'text',
+        example: flexExample,
+        exampleMarkDown: flexCode,
       },
     ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
-    content: {
-      type: 'text',
-      example: flexExample,
-      exampleMarkDown: flexCode,
-    },
   },
 ];
 
@@ -227,4 +140,4 @@ const sortedTools = tools.sort((a, b) => {
   return 0;
 });
 
-export default sortedTools;
+export default tools;

@@ -1,0 +1,30 @@
+.contentStyle1 {
+  background-color: black;
+  color: white;
+  padding: 24px;
+}
+
+.contentStyle2 {
+  padding: 24px;
+}
+
+.hoverEffect2 {
+  border-radius: 8px;
+}
+
+.hoverEffect2::before {
+  /* border-radius: 16px; */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 30px;
+  border: none;
+}
+
+.hoverEffect1::before {
+  inset: 0 0;
+  border: 2px solid black;
+}
+
+.hoverEffect1:hover::before,
+.active {
+  opacity: 1;
+  inset: -8px -8px;
+}
