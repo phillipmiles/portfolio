@@ -3,6 +3,7 @@
 }
 
 .container > * {
+  /* Lifts children component above the pseudo selector. */
   position: relative;
 }
 

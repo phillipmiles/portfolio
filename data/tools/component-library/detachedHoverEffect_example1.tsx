@@ -1,11 +1,10 @@
-import Flex from '../../../components/generic/Flex';
-import HoverRevealEffect from '../../../components/generic/HoverRevealEffect';
-import s from './hoverEffect_example_css.module.css';
+import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
+import s from './detachedHoverEffect_styles.module.css';
 
 export const Example1 = () => (
-  <HoverRevealEffect className={s.hoverEffect1}>
+  <DetachedHoverEffect className={s.hoverEffect1}>
     <div className={s.contentStyle1}>Hover over me</div>
-  </HoverRevealEffect>
+  </DetachedHoverEffect>
 );
 
 export const example1Code = [
@@ -13,7 +12,7 @@ export const example1Code = [
     language: 'jsx',
     code: `<DetachedHoverEffect className="hoverEffect">
   <div className="contentStyle">
-    Hello
+    Hover over me
   </div>
 </DetachedHoverEffect>`,
   },

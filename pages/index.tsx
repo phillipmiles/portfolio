@@ -28,6 +28,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import PageWithFooter from '../components/PageWithFooter';
 import Banner from '../components/Banner';
+import ContentSlider from '../components/generic/ContentSlider';
 
 const Home: NextPage = () => {
   return (

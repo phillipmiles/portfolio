@@ -1,13 +1,13 @@
 import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
 import s from './detachedHoverEffect_styles.module.css';
 
-export const Example2 = () => (
-  <DetachedHoverEffect className={s.hoverEffect2}>
-    <div className={s.contentStyle2}>Hover over me</div>
+export const Example3 = () => (
+  <DetachedHoverEffect className={s.hoverEffect3}>
+    <div className={s.contentStyle3}>Hover over me</div>
   </DetachedHoverEffect>
 );
 
-export const example2Code = [
+export const example3Code = [
   {
     language: 'jsx',
     code: `<DetachedHoverEffect className="hoverEffect">
@@ -19,21 +19,24 @@ export const example2Code = [
   {
     language: 'css',
     code: `.contentStyle {
-  padding: 24px;
+  padding: 8px;
 }
 
 .hoverEffect::before {
-  border-radius: 8px;
-  inset: 0 0;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 30px;
   opacity: 0;
-  transition-property: opacity, inset;
+  top: auto;
+  bottom: 0;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
   transition-duration: 200ms;
 }
 
 .hoverEffect:hover::before {
   opacity: 1;
-  inset: -8px -8px;
-}`,
+  transform: scaleX(100%);
+}
+`,
   },
 ];

@@ -8,13 +8,13 @@ import Banner from '../../../components/Banner';
 import PageTitle from '../../../components/PageTitle';
 import PageIntro from '../../../components/PageIntro';
 import tools from '../../../data/tools/list';
-import RenderMarkdown from '../../../components/generic/RenderMarkdown';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CodeBox from '../../../components/generic/CodeBox';
-import HoverRevealEffect from '../../../components/generic/HoverRevealEffect';
+import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
+import ContentSlider from '../../../components/generic/ContentSlider';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -68,7 +68,7 @@ const ToolsReactLibrary: NextPage = () => {
                   margin: '24px',
                 }}
               >
-                <HoverRevealEffect
+                <DetachedHoverEffect
                   className={`${s.hover} ${
                     currentTool &&
                     tool.slug === currentTool.slug &&
@@ -86,7 +86,7 @@ const ToolsReactLibrary: NextPage = () => {
                   >
                     {tool.title}
                   </span>
-                </HoverRevealEffect>
+                </DetachedHoverEffect>
               </Link>
             ))}
           </Flex>
@@ -104,8 +104,9 @@ const ToolsReactLibrary: NextPage = () => {
 
           <div style={{ marginBottom: 96 }}>
             {currentTool &&
-              currentTool.content.map((example) => (
+              currentTool.content.map((example, index) => (
                 <Flex
+                  key={index}
                   style={{
                     alignItems: 'stretch',
                     marginBottom: 48,
@@ -147,10 +148,10 @@ const ToolsReactLibrary: NextPage = () => {
                       padding: '16px',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      padding: 24,
+                      // padding: 24,
                     }}
                   >
-                    {example.example()}
+                    <example.example />
                   </Flex>
                 </Flex>
               ))}

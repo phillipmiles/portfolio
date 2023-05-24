@@ -47,6 +47,8 @@ const ContentSlider = ({
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    console.log('top');
+    console.log(isAnimating);
     const endAnimation = () => {
       setPreviousIndex(currentIndex);
       setHeight('auto');
@@ -61,27 +63,31 @@ const ContentSlider = ({
       const transitionedCaroselItem =
         trackRef.current.children[previousIndex].children[0];
 
-      requestAnimationFrame(() => {
-        // Set current height ready for animating from
-        setHeight(`${transitionedCaroselItem.scrollHeight}px`);
+      // Request animation frame caused flashes
+      // requestAnimationFrame(() => {
+      // Set current height ready for animating from
+      setHeight(`${transitionedCaroselItem.scrollHeight}px`);
 
-        requestAnimationFrame(() => {
-          // Set new height for animating to
-          setHeight(`${currentCaroselItem.scrollHeight}px`);
-          animationEndTimeout.current = setTimeout(
-            endAnimation,
-            animationResizeDuration
-          );
-        });
+      requestAnimationFrame(() => {
+        // Set new height for animating to
+        setHeight(`${currentCaroselItem.scrollHeight}px`);
+        animationEndTimeout.current = setTimeout(
+          endAnimation,
+          animationResizeDuration
+        );
       });
+      // });
     };
 
     if (!isAnimating && previousIndex !== currentIndex) {
+      console.log('lets go');
       clearTimeout(animationEndTimeout.current);
       setTransitionToIndex(currentIndex);
       setIsAnimating(true);
       updateCaroselHeight();
     }
+    console.log('bottom');
+    console.log(isAnimating);
   }, [
     isAnimating,
     currentIndex,
@@ -145,13 +151,8 @@ const ContentSlider = ({
                   ? 'translateX(0)'
                   : `translateX(${findItemPosition(index)})`,
             }}
-            // index={index}
           >
-            {(!unmountWhenHidden ||
-              (!applyFadeEffect &&
-                isBetween(index, previousIndex, transitionToIndex)) ||
-              (applyFadeEffect &&
-                (index === previousIndex || index === transitionToIndex))) && (
+            {isBetween(index, previousIndex, transitionToIndex) && (
               <Fragment>{item}</Fragment>
             )}
           </div>

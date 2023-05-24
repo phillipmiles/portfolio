@@ -34,3 +34,23 @@
   opacity: 1;
   inset: -8px -8px;
 }
+
+.contentStyle3 {
+  padding: 8px;
+}
+
+.hoverEffect3::before {
+  opacity: 0;
+  top: auto;
+  bottom: 0;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
+  transition-duration: 200ms;
+}
+
+.hoverEffect3:hover::before {
+  opacity: 1;
+  transform: scaleX(100%);
+}

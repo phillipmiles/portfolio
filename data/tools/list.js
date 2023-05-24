@@ -1,13 +1,21 @@
 import flexExample from './component-library/flex_example';
 import flexCode from './component-library/flex_code.tsx';
 import {
+  Example1,
+  example1Code,
+} from './component-library/detachedHoverEffect_example1.tsx';
+import {
   Example2,
   example2Code,
 } from './component-library/detachedHoverEffect_example2.tsx';
 import {
-  Example1,
-  example1Code,
-} from './component-library/detachedHoverEffect_example1.tsx';
+  Example3,
+  example3Code,
+} from './component-library/detachedHoverEffect_example3.tsx';
+import {
+  Example as ContentSliderExample,
+  exampleCode as contentSliderCode,
+} from './component-library/contentSlider_example1.tsx';
 
 const tools = [
   {
@@ -24,10 +32,10 @@ const tools = [
     ],
   },
   {
-    slug: 'hover-reveal-effect',
+    slug: 'detached-hover-effect',
     title: 'Detached Hover Effect',
     description:
-      'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+      'Provides the basic framework to style a pseduo class element to assist in a hover effect.',
     content: [
       {
         type: 'text',
@@ -38,6 +46,11 @@ const tools = [
         type: 'text',
         example: Example2,
         exampleMarkDown: example2Code,
+      },
+      {
+        type: 'text',
+        example: Example3,
+        exampleMarkDown: example3Code,
       },
     ],
   },
@@ -107,8 +120,8 @@ const tools = [
     content: [
       {
         type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
+        example: ContentSliderExample,
+        exampleMarkDown: contentSliderCode,
       },
     ],
   },
@@ -127,7 +140,8 @@ const tools = [
   },
 ];
 
-const sortedTools = tools.sort((a, b) => {
+// Sort tools array into alphabetical order
+tools.sort((a, b) => {
   const nameA = a.title.toLowerCase();
   const nameB = b.title.toLowerCase();
   if (nameA < nameB) {

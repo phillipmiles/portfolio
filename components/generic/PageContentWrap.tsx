@@ -18,8 +18,8 @@ const PageContentWrap = ({
 }: Props): JSX.Element => {
   return (
     // Outer div used to set margins without reducing the maxWidth size.
-    <Flex classNameFlex={`${s.outer} ${classNameOuter}`} {...props}>
-      <Flex classNameFlex={`${s.inner} ${classNameInner}`}>{children}</Flex>
+    <Flex className={`${s.outer} ${classNameOuter}`} {...props}>
+      <Flex className={`${s.inner} ${classNameInner}`}>{children}</Flex>
     </Flex>
   );
 };

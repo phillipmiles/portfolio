@@ -3,16 +3,11 @@ import s from './Flex.module.css';
 interface Props {
   children: React.ReactNode;
   style?: { [key: string]: any };
-  classNameFlex?: string;
+  className?: string;
 }
 
-const Flex = ({
-  children,
-  style,
-  classNameFlex,
-  ...props
-}: Props): JSX.Element => (
-  <div className={`${s.flex} ${classNameFlex}`} style={style} {...props}>
+const Flex = ({ children, style, className, ...props }: Props): JSX.Element => (
+  <div className={`${s.flex} ${className}`} style={style} {...props}>
     {children}
   </div>
 );
