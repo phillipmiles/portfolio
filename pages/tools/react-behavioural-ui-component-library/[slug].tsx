@@ -20,11 +20,6 @@ const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
 
   const [currentTool, setCurrentTool] = useState();
-  const [currentToolMarkdown, setCurrentToolMarkdown]: [
-    // string | undefined,
-    any,
-    Function
-  ] = useState();
 
   useEffect(() => {
     const tool = tools.find((tool) => tool.slug === router.query.slug);
@@ -34,7 +29,6 @@ const ToolsReactLibrary: NextPage = () => {
     }
 
     setCurrentTool(tool);
-    // setCurrentToolMarkdown(tool.content.exampleMarkDown);
   }, [router]);
 
   return (
