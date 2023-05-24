@@ -20,16 +20,7 @@ const CodeSegment = ({ color, className, style, children }) => (
 );
 
 const CodeLine = ({ className, children }) => (
-  <Flex
-    classNameFlex={className}
-    style={
-      {
-        //marginTop: 6, marginBottom: 6
-      }
-    }
-  >
-    {children}
-  </Flex>
+  <Flex className={className}>{children}</Flex>
 );
 
 const Cursor = ({ className }) => (

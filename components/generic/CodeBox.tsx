@@ -59,15 +59,13 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
       <ContentSlider currentIndex={languageIndex}>
         {code.map((item) => (
           <div
+            key={item.language}
             style={{
               overflow: 'scroll',
               maxHeight: '600px',
             }}
           >
-            <SyntaxHighlighterComponent
-              key={item.language}
-              language={item.language}
-            >
+            <SyntaxHighlighterComponent language={item.language}>
               {item.code}
             </SyntaxHighlighterComponent>
           </div>
