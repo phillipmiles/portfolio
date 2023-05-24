@@ -47,8 +47,6 @@ const ContentSlider = ({
   const trackRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    console.log('top');
-    console.log(isAnimating);
     const endAnimation = () => {
       setPreviousIndex(currentIndex);
       setHeight('auto');
@@ -86,8 +84,6 @@ const ContentSlider = ({
       setIsAnimating(true);
       updateCaroselHeight();
     }
-    console.log('bottom');
-    console.log(isAnimating);
   }, [
     isAnimating,
     currentIndex,

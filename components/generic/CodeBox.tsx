@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ContentSlider from './ContentSlider';
 import Flex from './Flex';
 import SyntaxHighlighterComponent from './HighlightSyntax';
 
@@ -17,9 +18,6 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
   return (
     <div
       style={{
-        maxWidth: 728,
-        marginLeft: 'auto',
-        marginRight: 'auto',
         width: '100%',
         position: 'relative',
         backgroundColor: '#262C35',
@@ -27,43 +25,54 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
         ...style,
       }}
     >
-      <div>
-        <div
+      <div
+        style={{
+          width: '100%',
+          paddingTop: 20,
+        }}
+      >
+        <Flex
           style={{
-            width: '100%',
-            position: 'relative',
-            paddingTop: 20,
+            paddingBottom: 16,
+            right: 34,
+            borderBottom: '2px solid rgb(236, 244, 250)',
+            paddingLeft: 32,
+            paddingRight: 32,
           }}
         >
-          <Flex
+          {code.map((item, index) => (
+            <span
+              key={item.language}
+              style={{
+                top: '8px',
+                marginRight: 32,
+                color: 'white',
+                opacity: index === languageIndex ? 1 : 0.4,
+              }}
+              onClick={() => changeLanguage(index)}
+            >
+              {item.language}
+            </span>
+          ))}
+        </Flex>
+      </div>
+      <ContentSlider currentIndex={languageIndex}>
+        {code.map((item) => (
+          <div
             style={{
-              paddingBottom: 16,
-              right: 34,
-              borderBottom: '2px solid rgb(236, 244, 250)',
-              paddingLeft: 32,
-              paddingRight: 32,
+              overflow: 'scroll',
+              maxHeight: '600px',
             }}
           >
-            {code.map((item, index) => (
-              <span
-                key={item.language}
-                style={{
-                  top: '8px',
-                  marginRight: 32,
-                  color: 'white',
-                  opacity: index === languageIndex ? 1 : 0.4,
-                }}
-                onClick={() => changeLanguage(index)}
-              >
-                {item.language}
-              </span>
-            ))}
-          </Flex>
-        </div>
-        <SyntaxHighlighterComponent language={code[languageIndex].language}>
-          {code[languageIndex].code}
-        </SyntaxHighlighterComponent>
-      </div>
+            <SyntaxHighlighterComponent
+              key={item.language}
+              language={item.language}
+            >
+              {item.code}
+            </SyntaxHighlighterComponent>
+          </div>
+        ))}
+      </ContentSlider>
     </div>
   );
 };

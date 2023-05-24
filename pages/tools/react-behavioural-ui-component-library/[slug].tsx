@@ -116,6 +116,8 @@ const ToolsReactLibrary: NextPage = () => {
                     style={{
                       width: '50%',
                       marginRight: 8,
+                      flexGrow: 0,
+                      flexShrink: 0,
                     }}
                   >
                     {example.exampleMarkDown && (
@@ -124,19 +126,6 @@ const ToolsReactLibrary: NextPage = () => {
                         style={{ height: '100%' }}
                       />
                     )}
-                    {/* <RenderMarkdown content={tools[0].content.content} /> */}
-                    {/* <RenderMarkdown content={`${renderToString(<Test />)}`} /> */}
-                    {/* <RenderMarkdown content={currentToolMarkdown} /> */}
-                    {/* <RenderMarkdown
-                  content="```jsx
-                  <Flex
-                    style={{ width: '100%', justifyContent: 'space-between' }}
-                  >
-                    <div>Hi</div>
-                    <div>Hi 2</div> <div>Hi 3</div>
-                  </Flex>
-                  ```"
-                /> */}
                   </div>
 
                   <Flex
@@ -148,7 +137,8 @@ const ToolsReactLibrary: NextPage = () => {
                       padding: '16px',
                       justifyContent: 'center',
                       alignItems: 'center',
-                      // padding: 24,
+                      flexGrow: 0,
+                      flexShrink: 0,
                     }}
                   >
                     <example.example />
