@@ -11,7 +11,7 @@ export const Example = () => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <div>
       <ContentSlider currentIndex={slideIndex}>
         <div>
           <h5>Slide 1</h5>

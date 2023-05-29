@@ -1,7 +1,7 @@
 import Page from './Page';
 
 interface Props {
-  children?: React.ReactNode;
+  children?: React.ReactNode | React.ReactNode[];
   style?: { [key: string]: any };
 }
 
@@ -11,16 +11,22 @@ interface Props {
 // div with display flex on allowing a child element to easily fill the available space
 // by setting flexGrow to 1.
 
-const PageWithFooter = ({ children, style, ...props }: Props) => (
-  <Page
-    style={{
-      justifyContent: 'space-between',
-      ...style,
-    }}
-    {...props}
-  >
-    {children}
-  </Page>
-);
+const PageWithFooter = ({ children, style, ...props }: Props) => {
+  if (children && children.length > 2) {
+    throw 'Error: PageWithFooterComponent only accepts 2 children components.';
+  } else {
+    return (
+      <Page
+        style={{
+          // justifyContent: 'space-between',
+          ...style,
+        }}
+        {...props}
+      >
+        {children}
+      </Page>
+    );
+  }
+};
 
 export default PageWithFooter;

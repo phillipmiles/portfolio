@@ -18,44 +18,36 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
   return (
     <div
       style={{
-        width: '100%',
-        position: 'relative',
         backgroundColor: '#262C35',
         borderRadius: 8,
         ...style,
       }}
     >
-      <div
+      <Flex
         style={{
-          width: '100%',
           paddingTop: 20,
+          paddingBottom: 16,
+          right: 34,
+          borderBottom: '2px solid rgb(236, 244, 250)',
+          paddingLeft: 32,
+          paddingRight: 32,
         }}
       >
-        <Flex
-          style={{
-            paddingBottom: 16,
-            right: 34,
-            borderBottom: '2px solid rgb(236, 244, 250)',
-            paddingLeft: 32,
-            paddingRight: 32,
-          }}
-        >
-          {code.map((item, index) => (
-            <span
-              key={item.language}
-              style={{
-                top: '8px',
-                marginRight: 32,
-                color: 'white',
-                opacity: index === languageIndex ? 1 : 0.4,
-              }}
-              onClick={() => changeLanguage(index)}
-            >
-              {item.language}
-            </span>
-          ))}
-        </Flex>
-      </div>
+        {code.map((item, index) => (
+          <span
+            key={item.language}
+            style={{
+              top: '8px',
+              marginRight: 32,
+              color: 'white',
+              opacity: index === languageIndex ? 1 : 0.4,
+            }}
+            onClick={() => changeLanguage(index)}
+          >
+            {item.language}
+          </span>
+        ))}
+      </Flex>
       <ContentSlider currentIndex={languageIndex}>
         {code.map((item) => (
           <div

@@ -95,13 +95,13 @@ const ContentReveal = ({
     };
 
     if (!isOpen && visible && !isAnimating) {
-      requestAnimationFrame(() => {
-        animateSliderOpen();
-      });
+      // requestAnimationFrame(() => {
+      animateSliderOpen();
+      // });
     } else if (isOpen && !visible && !isAnimating) {
-      requestAnimationFrame(() => {
-        animateSliderClosed();
-      });
+      // requestAnimationFrame(() => {
+      animateSliderClosed();
+      // });
     }
   }, [
     animationCloseDuration,

@@ -1,10 +1,15 @@
 import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
+import Flex from '../../../components/generic/Flex';
 import s from './detachedHoverEffect_styles.module.css';
 
 export const Example2 = () => (
-  <DetachedHoverEffect className={s.hoverEffect2}>
-    <div className={s.contentStyle2}>Hover over me</div>
-  </DetachedHoverEffect>
+  <Flex
+    style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}
+  >
+    <DetachedHoverEffect className={s.hoverEffect2}>
+      <div className={s.contentStyle2}>Hover over me</div>
+    </DetachedHoverEffect>
+  </Flex>
 );
 
 export const example2Code = [

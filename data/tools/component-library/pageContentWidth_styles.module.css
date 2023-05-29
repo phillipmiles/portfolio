@@ -1,0 +1,21 @@
+.outer {
+  padding-left: 24px;
+  padding-right: 24px;
+  background: teal;
+}
+
+.inner {
+  max-width: 300px;
+  background: darkred;
+}
+
+.outer2 {
+  padding-left: 24px;
+  padding-right: 24px;
+  background: lightblue;
+}
+
+.inner2 {
+  max-width: 100%;
+  background: blue;
+}

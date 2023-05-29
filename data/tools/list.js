@@ -16,6 +16,32 @@ import {
   Example as ContentSliderExample,
   exampleCode as contentSliderCode,
 } from './component-library/contentSlider_example1.tsx';
+import {
+  Example as PageExample,
+  exampleCode as pageCode,
+} from './component-library/page_example.tsx';
+import {
+  Example as PageWithFooterExample,
+  exampleCode as pageWithFooterCode,
+} from './component-library/pageWithFooter_example.tsx';
+import {
+  CustomCheckboxExample,
+  customCheckboxExampleCode,
+} from './component-library/customCheckbox_example';
+import {
+  PageContentWidthExample,
+  pageContentWidthExampleCode,
+} from './component-library/PageContentWidth';
+import {
+  flexColCode,
+  FlexColExample,
+} from './component-library/flexCol_example';
+import {
+  contentRevealCode,
+  contentRevealCode2,
+  ContentRevealExample,
+  ContentRevealExample2,
+} from './component-library/contentReveal_example';
 
 const tools = [
   {
@@ -55,63 +81,70 @@ const tools = [
     ],
   },
   {
+    slug: 'custom-checkbox',
+    title: 'Custom Checkbox',
+    description:
+      'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+    content: [
+      {
+        type: 'text',
+        example: CustomCheckboxExample,
+        exampleMarkDown: customCheckboxExampleCode,
+      },
+    ],
+  },
+  {
     slug: 'page',
     title: 'Page',
     description:
       'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    topics: [
-      {
-        title: 'React',
-        count: 12,
-      },
-      {
-        title: 'Thought Stream',
-        count: 3,
-      },
-      {
-        title: 'Cryptography',
-        count: 3,
-      },
-    ],
-    thumbSrc: 'https://www.lapa.ninja/assets/blog/blush.jpg',
     content: [
       {
         type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
+        example: PageExample,
+        exampleMarkDown: pageCode,
       },
     ],
   },
+  // {
+  //   slug: 'flex-col',
+  //   title: 'Flex Col',
+  //   description:
+  //     'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+  //   content: [
+  //     {
+  //       type: 'text',
+  //       example: FlexColExample,
+  //       exampleMarkDown: flexColCode,
+  //     },
+  //   ],
+  // },
   {
-    slug: 'page-with-footer',
-    title: 'Page With Footer',
+    slug: 'page-content-width',
+    title: 'Page Content Width',
     description:
       'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    createdAt: '2020-06-26T01:11:37.621Z',
-    readingLength: '3 minutes',
-    tag: 'Tips & Tricks',
-    type: 'custom2',
     content: [
       {
         type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
+        example: PageContentWidthExample,
+        exampleMarkDown: pageContentWidthExampleCode,
       },
     ],
   },
-  {
-    slug: 'page-content-wrap',
-    title: 'Page Content Wrap',
-    description:
-      'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-    content: [
-      {
-        type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
-      },
-    ],
-  },
+  // {
+  //   slug: 'page-content-wrap',
+  //   title: 'Page Content Wrap',
+  //   description:
+  //     'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+  //   content: [
+  //     {
+  //       type: 'text',
+  //       example: flexExample,
+  //       exampleMarkDown: flexCode,
+  //     },
+  //   ],
+  // },
   {
     slug: 'content-slider',
     title: 'Content Slider',
@@ -133,9 +166,14 @@ const tools = [
     content: [
       {
         type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
+        example: ContentRevealExample,
+        exampleMarkDown: contentRevealCode,
       },
+      // {
+      //   type: 'text',
+      //   example: ContentRevealExample2,
+      //   exampleMarkDown: contentRevealCode2,
+      // },
     ],
   },
 ];
