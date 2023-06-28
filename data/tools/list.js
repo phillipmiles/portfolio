@@ -29,6 +29,10 @@ import {
   customCheckboxExampleCode,
 } from './component-library/customCheckbox_example';
 import {
+  Example as StickyTopBarExample,
+  exampleCode as stickyTopBarExampleCode,
+} from './component-library/stickyTopBar_example';
+import {
   PageContentWidthExample,
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
@@ -132,19 +136,6 @@ const tools = [
       },
     ],
   },
-  // {
-  //   slug: 'page-content-wrap',
-  //   title: 'Page Content Wrap',
-  //   description:
-  //     'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-  //   content: [
-  //     {
-  //       type: 'text',
-  //       example: flexExample,
-  //       exampleMarkDown: flexCode,
-  //     },
-  //   ],
-  // },
   {
     slug: 'content-slider',
     title: 'Content Slider',
@@ -155,6 +146,19 @@ const tools = [
         type: 'text',
         example: ContentSliderExample,
         exampleMarkDown: contentSliderCode,
+      },
+    ],
+  },
+  {
+    slug: 'sticky-top-bar',
+    title: 'Sticky Top Bar',
+    description:
+      'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+    content: [
+      {
+        type: 'text',
+        example: StickyTopBarExample,
+        exampleMarkDown: stickyTopBarExampleCode,
       },
     ],
   },
