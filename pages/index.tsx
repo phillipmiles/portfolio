@@ -25,6 +25,8 @@ import {
   faNodeJs,
   faReact,
   faShopify,
+  faWordpress,
+  faWordpressSimple,
 } from '@fortawesome/free-brands-svg-icons';
 import PageWithFooter from '../components/generic/PageWithFooter';
 import Banner from '../components/Banner';
@@ -97,9 +99,19 @@ const Home: NextPage = () => {
                     display: 'block',
                     height: 32,
                     width: 32,
+                    marginRight: 24,
                   }}
                 >
                   <FontAwesomeIcon icon={faGit} />
+                </div>
+                <div
+                  style={{
+                    display: 'block',
+                    height: 32,
+                    width: 32,
+                  }}
+                >
+                  <FontAwesomeIcon icon={faWordpressSimple} />
                 </div>
               </Flex>
               <Projects />

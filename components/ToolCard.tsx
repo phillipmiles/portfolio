@@ -31,17 +31,15 @@ const ToolCard = ({
         backgroundColor: 'white',
         borderRadius: '6px',
         padding: 24,
-        marginLeft: 24,
-        marginRight: 24,
+        marginLeft: '16px',
+        marginRight: '16px',
         width: '33%',
         // ':hover': {
         //   boxShadow: (theme) => `0 0px 0px 4px ${theme.colors.primaryLight}`,
         // },
       }}
     >
-      <h5>{title}</h5>
-      <p style={{ marginBottom: 24 }}>{description}</p>
-      <div style={{ position: 'relative', height: 200 }}>
+      <div style={{ position: 'relative', height: 120, marginBottom: '24px' }}>
         <Image
           src={srcThumb}
           // height={200}
@@ -59,6 +57,8 @@ const ToolCard = ({
           // fill
         />
       </div>
+      <h5 style={{ textAlign: 'center' }}>{title}</h5>
+      <p>{description}</p>
     </Link>
   );
 };

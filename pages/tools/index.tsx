@@ -46,6 +46,13 @@ const Tools: NextPage = () => {
                   srcThumb="/images/react-component-library-thumb.png"
                   href={`/tools/react-behavioural-ui-component-library/${tools[0].slug}`}
                 />
+                <ToolCard
+                  title="Handy Dandy Functions"
+                  description="A collection of components that provide behaviours and utilities
+                to your visual UI components."
+                  srcThumb="/images/react-component-library-thumb.png"
+                  href={`/tools/react-behavioural-ui-component-library/${tools[0].slug}`}
+                />
               </Flex>
             </div>
           </PageContentWrap>
