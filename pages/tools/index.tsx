@@ -26,7 +26,7 @@ const Tools: NextPage = () => {
               <div
                 style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}
               >
-                <PageTitle>Tools</PageTitle>
+                <PageTitle>Resources</PageTitle>
                 <PageIntro>
                   I write a lot of code. Sometimes I write something useful.
                   Take a look. Perhaps you'll find it useful too.

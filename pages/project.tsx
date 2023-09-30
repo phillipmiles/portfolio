@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 import PageContentWrap from '../components/generic/PageContentWrap';
 import Nav from '../components/Nav';
 import Button from '../components/generic/Button';
@@ -29,7 +28,12 @@ import ProjectCard from '../components/ProjectCard';
 import PageTitle from '../components/PageTitle';
 import PageIntro from '../components/PageIntro';
 
-const Projects: NextPage = () => {
+import projects from '../data/projects';
+
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+const Project: NextPage = (props) => {
   return (
     <>
       <Head>
@@ -45,7 +49,7 @@ const Projects: NextPage = () => {
               <div
                 style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}
               >
-                <PageTitle>Thought Stream</PageTitle>
+                <PageTitle>Woodfort cases</PageTitle>
                 <PageIntro>
                   Mobile not taking app built with React Native
                 </PageIntro>
@@ -105,4 +109,4 @@ const Projects: NextPage = () => {
   );
 };
 
-export default Projects;
+export default Project;

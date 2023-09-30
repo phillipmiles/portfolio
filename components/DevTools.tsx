@@ -33,7 +33,7 @@ const DevTools = () => {
           }}
         >
           <div>
-            <h3 style={{ fontSize: 36 }}>Developer tools</h3>
+            <h3 style={{ fontSize: 36 }}>Developer resources</h3>
             <p>
               I write a lot of code. Sometimes I write something useful. Take a
               look. Perhaps you'll find it useful too.

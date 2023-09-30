@@ -92,7 +92,7 @@ const ProjectCard = ({
         </Button>
       </Flex>
       <Link
-        href={'/'}
+        href={url}
         style={{
           width: '60%',
           flexShrink: 0,

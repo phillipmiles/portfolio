@@ -1,0 +1,26 @@
+.content p,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p {
+  max-width: 680px;
+  margin: auto;
+  text-align: left;
+}
+
+.content p {
+  margin-bottom: 16px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
