@@ -26,10 +26,19 @@ const Hero = () => {
   const video1Ref: any = useRef();
   const video2Ref: any = useRef();
   const video3Ref: any = useRef();
+  const [doOnce, setDoOnce] = useState(false);
+
+  const onReady = () => {
+    // console.log('dsfg');
+    if (!doOnce) {
+      // video1Ref.current.seekTo(15, 'seconds');
+      // video1Ref.current.playing = true;
+      setDoOnce(true);
+    }
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      console.log(video2Ref.current);
       if (video === 1) {
         video2Ref.current.seekTo(15, 'seconds');
         setVideo(2);
@@ -60,12 +69,14 @@ const Hero = () => {
         <VideoPlayer
           playerRef={video1Ref}
           url="/video/hero-vid-1.mp4"
+          onReady={onReady}
           className={s.video}
           style={{
             transition: 'transform 300ms, opacity 300ms',
             ...(video === 1 && {
               opacity: 1,
             }),
+            opacity: doOnce === true ? 1 : 0,
           }}
           playing={video === 1}
           muted={true}
