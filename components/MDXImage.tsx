@@ -9,22 +9,19 @@ const MDXImage = ({
   width,
   height,
   aspectRatio = '16 / 9',
+  caption,
 }): JSX.Element => {
   const w = `${width}px`;
   const h = `${height}px`;
-  console.log(width, height);
   return (
     <div
-      className="mdx-content-image"
       style={{
-        overflow: 'hidden',
-        position: 'relative',
-        maxWidth: w,
         margin: 'auto',
         marginTop: '48px',
         marginBottom: '48px',
-        aspectRatio: aspectRatio,
         width: '100%',
+        maxWidth: w,
+        textAlign: 'left',
 
         ...(wide && {
           maxWidth: '100%',
@@ -39,7 +36,17 @@ const MDXImage = ({
         }),
       }}
     >
-      {/* <div
+      <div
+        style={{
+          overflow: 'hidden',
+          position: 'relative',
+
+          aspectRatio: aspectRatio,
+          width: '100%',
+          backgroundColor: '#DDDDDD',
+        }}
+      >
+        {/* <div
         style={{
           height: h,
           overflow: 'hidden',
@@ -50,18 +57,35 @@ const MDXImage = ({
           // position: 'relative',
         }}
       > */}
-      <Image
-        src={src}
-        alt={alt}
-        // width={width}
-        // height={height}
-        // width={!wide || float ? width : undefined}
-        // height={height}
-        fill={true}
-        style={{ objectFit: 'cover' }}
-        priority={priority}
-      />
-      {/* </div> */}
+        <Image
+          src={src}
+          alt={alt}
+          // width={width}
+          // height={height}
+          // width={!wide || float ? width : undefined}
+          // height={height}
+          fill={true}
+          style={{ objectFit: 'cover' }}
+          priority={priority}
+        />
+        {/* </div> */}
+      </div>
+      {caption && (
+        <p
+          style={{
+            color: '#98A3B2',
+            fontSize: '15px',
+            maxWidth: 'none',
+            width: '100%',
+            paddingTop: '8px',
+            paddingBottom: '8px',
+            borderBottom: '1px solid #D4DBE6',
+            margin: 0,
+          }}
+        >
+          {caption}
+        </p>
+      )}
     </div>
   );
 };
