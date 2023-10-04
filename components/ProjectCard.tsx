@@ -5,6 +5,7 @@ import { relative } from 'path';
 import Button from './generic/Button';
 // import { getPlatformIcon } from '../resolvers/platforms';
 import Flex from './generic/Flex';
+import s from './ProjectCard.module.css';
 
 const ProjectCard = ({
   title,
@@ -91,30 +92,21 @@ const ProjectCard = ({
           View project
         </Button>
       </Flex>
-      <Link
-        href={url}
-        style={{
-          width: '60%',
-          flexShrink: 0,
-          marginLeft: 6,
-          position: 'relative',
-        }}
-      >
-        <Image
-          src={srcThumb}
-          // height={300}
-          // width={300}
-          fill={true}
-          style={{
-            objectFit: 'cover',
-            transform: 'scale(1)',
-            transition: 'transform 200ms',
-            width: '100%',
-            height: '100%',
-            ':hover': { transform: 'scale(1.025)' },
-          }}
-        />
-      </Link>
+      <div className={s.imageWrap}>
+        <Link href={url} className={s.imageContainer}>
+          <Image
+            src={srcThumb}
+            fill={true}
+            alt=""
+            className={s.image}
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+        </Link>
+      </div>
     </Flex>
   );
 };

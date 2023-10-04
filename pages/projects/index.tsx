@@ -28,6 +28,7 @@ import Banner from '../../components/Banner';
 import ProjectCard from '../../components/ProjectCard';
 import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
+import projects from '../../data/projects';
 
 const Projects: NextPage = () => {
   return (
@@ -52,16 +53,19 @@ const Projects: NextPage = () => {
                 <PageTitle>Projects</PageTitle>
                 <PageIntro>Useful things I have made for developers.</PageIntro>
               </div>
-              <ProjectCard
-                title="Woodfort Cases"
-                description={
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                }
-                url="/projects/woodfort"
-                srcThumb="/images/woodfort_walnut.jpeg"
-                style={{ marginBottom: 64 }}
-              />
-              <ProjectCard
+              {projects.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.name}
+                  description={
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
+                  }
+                  url={`/projects/${project.slug}`}
+                  srcThumb={project.thumbnail}
+                  style={{ marginBottom: 64 }}
+                />
+              ))}
+              {/* <ProjectCard
                 title="Verso Learning App"
                 description={
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
@@ -96,7 +100,7 @@ const Projects: NextPage = () => {
                 url="/"
                 srcThumb="/images/gametalk_composite.jpeg"
                 style={{ marginBottom: 64 }}
-              />
+              /> */}
             </div>
           </PageContentWrap>
         </main>
