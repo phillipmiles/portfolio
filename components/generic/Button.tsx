@@ -4,21 +4,21 @@ import s from './Button.module.css';
 interface Props {
   children: JSX.Element | string | Array<JSX.Element>;
   href: string;
-  classNameButton?: string;
+  className?: string;
   style: object;
 }
 
 const Button = ({
   children,
   href,
-  classNameButton,
+  className,
   style,
   ...props
 }: Props): JSX.Element => {
   return (
     <Link
       href={href}
-      className={`${s.button} ${classNameButton}`}
+      className={`${s.button} ${className}`}
       style={style}
       {...props}
     >

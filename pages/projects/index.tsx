@@ -51,15 +51,17 @@ const Projects: NextPage = () => {
                 style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}
               >
                 <PageTitle>Projects</PageTitle>
-                <PageIntro>Useful things I have made for developers.</PageIntro>
+                <PageIntro>
+                  A collection of projects I have worked on both personal and
+                  professional.
+                </PageIntro>
               </div>
               {projects.map((project) => (
                 <ProjectCard
                   key={project.slug}
+                  slug={project.slug}
                   title={project.name}
-                  description={
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                  }
+                  description={project.description}
                   url={`/projects/${project.slug}`}
                   srcThumb={project.thumbnail}
                   style={{ marginBottom: 64 }}

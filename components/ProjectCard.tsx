@@ -8,6 +8,7 @@ import Flex from './generic/Flex';
 import s from './ProjectCard.module.css';
 
 const ProjectCard = ({
+  slug,
   title,
   url,
   description,
@@ -24,6 +25,7 @@ const ProjectCard = ({
 
   return (
     <Flex
+      className={s[slug]}
       style={{
         background: 'white',
         borderRadius: '6px',
@@ -74,8 +76,8 @@ const ProjectCard = ({
               </Flex>
             ))}
           </Flex> */}
-          <h5>{title}</h5>
-          <p>{description}</p>
+          <h4 className={s.heading}>{title}</h4>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
           {/* <Flex style={{ mb: 4 }}>
             {stack.map((item) => (
               <p
@@ -88,7 +90,11 @@ const ProjectCard = ({
             ))}
           </Flex> */}
         </div>
-        <Button href="/" style={{ alignSelf: 'flex-start' }}>
+        <Button
+          className={s.button}
+          href="/"
+          style={{ alignSelf: 'flex-start' }}
+        >
           View project
         </Button>
       </Flex>

@@ -28,17 +28,62 @@
   animation-timing-function: ease;
 }
 
-/* @keyframes pan {
-  0% {
-    transform: translateX(-2%) scale(1.2);
-  }
-  50% {
-    transform: translateX(2%) scale(1.2);
-  }
-  100% {
-    transform: translateX(-2%) scale(1.2);
-  }
-} */
+.woodfort .button {
+  background-color: #6a553d;
+}
+
+.woodfort .button:hover {
+  background-color: #816a50;
+}
+
+.thought-stream .button {
+  background-color: #f04153;
+}
+
+.thought-stream .button:hover {
+  background-color: #f96170;
+}
+
+.cpa .button {
+  background-color: #78674a;
+}
+
+.cpa .button:hover {
+  background-color: #b7a380;
+}
+
+.coles .button {
+  background-color: #df1a23;
+}
+.coles .button:hover {
+  background-color: #e73c45;
+}
+
+.verso .button {
+  background-color: #5b2f7f;
+}
+
+.verso .button:hover {
+  background-color: #6c3c93;
+}
+
+.woodfort .heading {
+  color: #6a553d;
+}
+
+.thought-stream .heading {
+  color: #f04153;
+}
+
+.cpa .heading {
+  color: #78674a;
+}
+.verso .heading {
+  color: #5b2f7f;
+}
+.coles .heading {
+  color: #df1a23;
+}
 
 @keyframes zoom {
   0% {
