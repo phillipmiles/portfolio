@@ -104,7 +104,7 @@ const Projects: NextPage = (props) => {
                     Mobile not taking app built with React Native
                   </PageIntro>
                   <p style={{ marginBottom: 96 }}>2020 - 2021</p>
-                  <div
+                  {/* <div
                     style={{
                       position: 'relative',
                       width: '100%',
@@ -118,7 +118,7 @@ const Projects: NextPage = (props) => {
                       fill={true}
                       style={{ objectFit: 'cover' }}
                     />
-                  </div>
+                  </div> */}
                   <div className={styles.content}>{project.content}</div>
                 </div>
               )}

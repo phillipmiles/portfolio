@@ -20,6 +20,7 @@ const MDXGallery = ({
         display: 'flex',
         flexDirection: 'row',
         height: '540px',
+        clear: 'both',
       }}
     >
       <div

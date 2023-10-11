@@ -7,7 +7,11 @@ export const CustomCheckboxExample = () => {
   const [example1Checked, setExample1Checked] = useState(false);
   return (
     <Flex
-      style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}
+      style={{
+        height: '200px',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
     >
       <label
         style={{

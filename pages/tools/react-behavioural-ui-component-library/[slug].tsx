@@ -42,7 +42,7 @@ const ToolsReactLibrary: NextPage = () => {
         <main style={{ background: '#ECF4FA' }}>
           <Banner />
           <PageContentWrap>
-            <div style={{ marginBottom: 96 }}>
+            <div style={{ marginBottom: 128 }}>
               <div style={{ textAlign: 'center', marginTop: 64 }}>
                 <PageTitle>React Behavioural UI Component Library</PageTitle>
                 <PageIntro>
@@ -51,94 +51,113 @@ const ToolsReactLibrary: NextPage = () => {
                 </PageIntro>
               </div>
             </div>
-            <Flex style={{ margin: 'auto', flexWrap: 'wrap' }}>
-              {tools.map((tool) => (
-                <Link
-                  key={tool.slug}
-                  href={tool.slug}
-                  scroll={false}
-                  passHref={true}
+          </PageContentWrap>
+          <div
+            style={{
+              background: 'white',
+              //padding: '16px'
+              paddingTop: '64px',
+              position: 'sticky',
+              top: 0,
+            }}
+          >
+            <PageContentWrap>
+              <Flex
+                style={{
+                  //gap: '64px',
+                  width: '100%',
+                }}
+              >
+                <div
                   style={{
-                    margin: '24px',
+                    width: '30%',
+                    paddingRight: '64px',
+                    flexShrink: 0,
+                    flexGrow: 0,
                   }}
                 >
-                  <DetachedHoverEffect
-                    className={`${s.hover} ${
-                      currentTool &&
-                      tool.slug === currentTool.slug &&
-                      s.hoverSelect
-                    }`}
-                  >
-                    <span
+                  {tools.map((tool) => (
+                    <Link
+                      key={tool.slug}
+                      href={tool.slug}
+                      scroll={false}
+                      passHref={true}
                       style={{
-                        display: 'block',
-                        paddingLeft: '16px',
-                        paddingRight: '16px',
-                        paddingTop: '8px',
-                        paddingBottom: '8px',
+                        margin: '24px',
                       }}
                     >
-                      {tool.title}
-                    </span>
-                  </DetachedHoverEffect>
-                </Link>
-              ))}
-            </Flex>
-            <p
-              style={{
-                maxWidth: 700,
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                marginTop: '48px',
-                marginBottom: '48px',
-              }}
-            >
-              {currentTool ? currentTool.description : 'Component not found.'}
-            </p>
-
-            <div style={{ marginBottom: 96 }}>
-              {currentTool &&
-                currentTool.content.map((example, index) => (
-                  <Flex
-                    key={index}
+                      <DetachedHoverEffect
+                        className={`${s.hover} ${
+                          currentTool &&
+                          tool.slug === currentTool.slug &&
+                          s.hoverSelect
+                        }`}
+                      >
+                        <span
+                          style={{
+                            display: 'block',
+                            paddingLeft: '16px',
+                            paddingRight: '16px',
+                            paddingTop: '8px',
+                            paddingBottom: '8px',
+                          }}
+                        >
+                          {tool.title}
+                        </span>
+                      </DetachedHoverEffect>
+                    </Link>
+                  ))}
+                </div>
+                <div style={{ marginBottom: 96, width: '70%' }}>
+                  <p
                     style={{
-                      alignItems: 'stretch',
-                      marginBottom: 48,
+                      maxWidth: 700,
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                      marginTop: '48px',
+                      marginBottom: '48px',
                     }}
                   >
-                    <div
-                      style={{
-                        width: '50%',
-                        marginRight: 8,
-                        flexGrow: 0,
-                        flexShrink: 0,
-                      }}
-                    >
-                      {example.exampleMarkDown && (
-                        <CodeBox
-                          code={example.exampleMarkDown}
-                          style={{ height: '100%' }}
-                        />
-                      )}
-                    </div>
+                    {currentTool
+                      ? currentTool.description
+                      : 'Component not found.'}
+                  </p>
 
-                    <div
-                      style={{
-                        marginLeft: 8,
-                        width: '50%',
-                        border: '2px solid #262C35',
-                        borderRadius: '6px',
-                        padding: '16px',
-                        flexGrow: 0,
-                        flexShrink: 0,
-                      }}
-                    >
-                      <example.example />
-                    </div>
-                  </Flex>
-                ))}
-            </div>
-          </PageContentWrap>
+                  {currentTool &&
+                    currentTool.content.map((example, index) => (
+                      <>
+                        <div
+                          style={{
+                            // marginLeft: 8,
+                            // width: '100%',
+                            border: '2px solid #262C35',
+                            borderRadius: '6px 6px 0px 0',
+                            // padding: '16px',
+                            flexGrow: 0,
+                            flexShrink: 0,
+                            background: '#ecf4fa',
+                            padding: '24px',
+                          }}
+                        >
+                          <example.example />
+                        </div>
+                        <div style={{}}>
+                          {example.exampleMarkDown && (
+                            <CodeBox
+                              code={example.exampleMarkDown}
+                              style={{
+                                height: '100%',
+                                borderRadius: '0px 0 6px 6px',
+                              }}
+                            />
+                          )}
+                        </div>
+                      </>
+                    ))}
+                </div>
+              </Flex>
+            </PageContentWrap>
+          </div>
         </main>
         <Footer />
       </PageWithFooter>

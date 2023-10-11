@@ -37,6 +37,14 @@ import {
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
 import {
+  Example as DraggableExample,
+  exampleCode as draggableExampleCode,
+} from './component-library/draggableConstraint_example';
+import {
+  Example as AudioExample,
+  exampleCode as audioExampleCode,
+} from './component-library/audioPlayer_example';
+import {
   flexColCode,
   FlexColExample,
 } from './component-library/flexCol_example';
@@ -48,6 +56,32 @@ import {
 } from './component-library/contentReveal_example';
 
 const tools = [
+  {
+    slug: 'draggable-constraint',
+    title: 'Draggable Constraint',
+    description:
+      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    content: [
+      {
+        type: 'text',
+        example: DraggableExample,
+        exampleMarkDown: draggableExampleCode,
+      },
+    ],
+  },
+  {
+    slug: 'audio-player',
+    title: 'Audio Player',
+    description:
+      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    content: [
+      {
+        type: 'text',
+        example: AudioExample,
+        exampleMarkDown: audioExampleCode,
+      },
+    ],
+  },
   {
     slug: 'flex',
     title: 'Flex',

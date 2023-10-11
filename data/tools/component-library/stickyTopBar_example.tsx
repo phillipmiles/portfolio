@@ -1,7 +1,7 @@
 import StickyTopBar from '../../../components/generic/StickyTopBar';
 
 export const Example = () => (
-  <div style={{ height: '600px', position: 'relative' }}>
+  <div style={{ height: '400px', position: 'relative' }}>
     <StickyTopBar>
       <div style={{ height: '56px', background: 'lightgrey', flexGrow: 1 }}>
         I'm sticky

@@ -10,7 +10,7 @@ const PageContent = ({ style, children }) => (
 );
 
 export const PageContentWidthExample = () => (
-  <Page>
+  <div>
     {/* <PageContent> */}
     <div style={{ background: 'orange' }}>Normal div</div>
     <PageContentWrap classNameOuter={s.outer} classNameInner={s.inner}>
@@ -24,13 +24,13 @@ export const PageContentWidthExample = () => (
       when scanning code is just easier for me to read.
     </PageContentWrap>
     {/* </PageContent> */}
-  </Page>
+  </div>
 );
 
 export const pageContentWidthExampleCode = [
   {
     language: 'jsx',
-    code: `<Page style={{ background: 'green' }}>
+    code: `<div>
   <div style={{ background: 'orange' }}>Normal div</div>
   <PageContentWidth classNameOuter={s.outer} classNameInner={s.inner}>
     A super basic utility component that just replaces a div with display flex
@@ -42,7 +42,7 @@ export const pageContentWidthExampleCode = [
     to a component called Flex. I use flex alot and seeing a Flex component
     when scanning code is just easier for me to read.
   </PageContentWidth>
-</Page>`,
+</div>`,
   },
   {
     language: 'css',
