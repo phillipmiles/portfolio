@@ -33,6 +33,10 @@ import {
   exampleCode as stickyTopBarExampleCode,
 } from './component-library/stickyTopBar_example';
 import {
+  Example2 as StickyTopBarExample2,
+  example2Code as stickyTopBarExample2Code,
+} from './component-library/stickyTopBar_example2';
+import {
   PageContentWidthExample,
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
@@ -185,7 +189,7 @@ const tools = [
   },
   {
     slug: 'sticky-top-bar',
-    title: 'Sticky Top Bar',
+    title: 'Retractable Sticky Element',
     description:
       'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
     content: [
@@ -193,6 +197,11 @@ const tools = [
         type: 'text',
         example: StickyTopBarExample,
         exampleMarkDown: stickyTopBarExampleCode,
+      },
+      {
+        type: 'text',
+        example: StickyTopBarExample2,
+        exampleMarkDown: stickyTopBarExample2Code,
       },
     ],
   },

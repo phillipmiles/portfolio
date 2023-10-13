@@ -1,8 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-const StickyTopBar = ({ children }) => {
-  // const prevScrollY = useRef(0);
-
+const RetractableStickyElement = ({
+  children,
+  style,
+  isRetractable = true, // If false disables javascript translation to only utilise css sticky.
+}) => {
   const headerRef = useRef(null);
   const [headerTranslate, setHeaderTranslate] = useState(0);
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -12,32 +14,21 @@ const StickyTopBar = ({ children }) => {
       const headerBoundingRect = headerRef.current.getBoundingClientRect();
       const currentScrollY = window.scrollY;
       const distanceFromTop = currentScrollY + headerBoundingRect.top;
-      console.log('BAM');
-      setHeaderTranslate((oldState) => {
-        console.log('BONG');
-        let newTranslate = oldState - (prevScrollY - window.scrollY) * -1;
-        console.log(newTranslate);
 
-        if (
-          headerBoundingRect.top <= 0
-          // &&
-          // prevScrollY.current <= currentScrollY
-        ) {
+      setHeaderTranslate((oldState) => {
+        let newTranslate = oldState - (prevScrollY - window.scrollY) * -1;
+
+        if (headerBoundingRect.top <= 0) {
           if (headerBoundingRect.height * -1 >= newTranslate) {
-            console.log('hi');
             return headerBoundingRect.height * -1;
           } else if (0 < newTranslate) {
-            console.log('hi3', newTranslate);
             return 0;
           } else {
-            console.log(newTranslate);
             return newTranslate;
           }
         } else if (prevScrollY > currentScrollY) {
-          console.log('nope2');
           return oldState;
         } else {
-          console.log('nope');
           return oldState;
         }
         // const newTranslate = oldState - currentScrollY + prevScrollY.current;
@@ -55,28 +46,31 @@ const StickyTopBar = ({ children }) => {
       setPrevScrollY(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (isRetractable) {
+      window.addEventListener('scroll', handleScroll);
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [prevScrollY]);
+  }, [isRetractable, prevScrollY]);
 
   return (
-    <header
+    <div
       ref={headerRef}
       style={{
+        ...style,
         position: 'sticky',
         top: 0,
         width: '100%',
         background: 'white',
         zIndex: 100,
-        transform: `translateY(${headerTranslate}px)`,
+        transform: isRetractable ? `translateY(${headerTranslate}px)` : 'none',
       }}
     >
       {children}
-    </header>
+    </div>
   );
 };
 
-export default StickyTopBar;
+export default RetractableStickyElement;

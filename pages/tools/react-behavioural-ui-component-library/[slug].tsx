@@ -148,6 +148,7 @@ const ToolsReactLibrary: NextPage = () => {
                               style={{
                                 height: '100%',
                                 borderRadius: '0px 0 6px 6px',
+                                marginBottom: '64px',
                               }}
                             />
                           )}
