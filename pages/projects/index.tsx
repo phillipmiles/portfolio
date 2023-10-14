@@ -52,7 +52,7 @@ const Projects: NextPage = () => {
               >
                 <PageTitle>Projects</PageTitle>
                 <PageIntro>
-                  A collection of projects I have worked on both personal and
+                  A sample of projects I have worked on both personal and
                   professional.
                 </PageIntro>
               </div>

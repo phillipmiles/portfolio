@@ -188,8 +188,8 @@ const tools = [
     ],
   },
   {
-    slug: 'sticky-top-bar',
-    title: 'Retractable Sticky Element',
+    slug: 'sticky-container',
+    title: 'Sticky Container',
     description:
       'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
     content: [

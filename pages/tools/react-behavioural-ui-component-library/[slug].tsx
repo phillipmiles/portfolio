@@ -44,10 +44,11 @@ const ToolsReactLibrary: NextPage = () => {
           <PageContentWrap>
             <div style={{ marginBottom: 128 }}>
               <div style={{ textAlign: 'center', marginTop: 64 }}>
-                <PageTitle>React Behavioural UI Component Library</PageTitle>
+                <PageTitle>React Construct</PageTitle>
                 <PageIntro>
-                  A collection of components that provide behaviours and
-                  utilities to your visual UI components.
+                  React Construct is a library of low-level react components
+                  used by developers to construct their own UI components.
+                  react-construct-components
                 </PageIntro>
               </div>
             </div>

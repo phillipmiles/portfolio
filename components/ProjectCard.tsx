@@ -92,7 +92,7 @@ const ProjectCard = ({
         </div>
         <Button
           className={s.button}
-          href="/"
+          href={url}
           style={{ alignSelf: 'flex-start' }}
         >
           View project

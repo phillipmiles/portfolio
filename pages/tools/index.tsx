@@ -40,7 +40,7 @@ const Tools: NextPage = () => {
                   href="/tools-useFormState"
                 />
                 <ToolCard
-                  title="React Behavioural UI Component Library"
+                  title="React Construct"
                   description="A collection of components that provide behaviours and utilities
                 to your visual UI components."
                   srcThumb="/images/react-component-library-thumb.png"
