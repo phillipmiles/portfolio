@@ -49,7 +49,7 @@ const Home: NextPage = () => {
               <div className={styles.headerLeft}>
                 <h1 className={styles.title}>Websites that connect people</h1>
                 <p className={styles.description}>
-                  React front-end web developer
+                  React component library specialist
                 </p>
                 <div className={styles.ctaWrap}>
                   <Link href="/" className={styles.cta}>

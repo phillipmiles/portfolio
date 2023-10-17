@@ -49,6 +49,10 @@ import {
   exampleCode as audioExampleCode,
 } from './component-library/audioPlayer_example';
 import {
+  Example as NumberAnimateExample,
+  exampleCode as numberAnimateExampleCode,
+} from './component-library/NumberAnimate_example';
+import {
   flexColCode,
   FlexColExample,
 } from './component-library/flexCol_example';
@@ -202,6 +206,19 @@ const tools = [
         type: 'text',
         example: StickyTopBarExample2,
         exampleMarkDown: stickyTopBarExample2Code,
+      },
+    ],
+  },
+  {
+    slug: 'number-animate',
+    title: 'Number Animate',
+    description:
+      'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
+    content: [
+      {
+        type: 'text',
+        example: NumberAnimateExample,
+        exampleMarkDown: numberAnimateExampleCode,
       },
     ],
   },

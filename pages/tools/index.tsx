@@ -9,6 +9,7 @@ import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
 import ToolCard from '../../components/ToolCard';
 import tools from '../../data/tools/list';
+import functions from '../../data/tools/functions';
 
 const Tools: NextPage = () => {
   return (
@@ -44,14 +45,14 @@ const Tools: NextPage = () => {
                   description="A collection of components that provide behaviours and utilities
                 to your visual UI components."
                   srcThumb="/images/react-component-library-thumb.png"
-                  href={`/tools/react-behavioural-ui-component-library/${tools[0].slug}`}
+                  href={`/tools/react-construct/${tools[0].slug}`}
                 />
                 <ToolCard
                   title="Handy Dandy Functions"
                   description="A collection of components that provide behaviours and utilities
                 to your visual UI components."
                   srcThumb="/images/react-component-library-thumb.png"
-                  href={`/tools/react-behavioural-ui-component-library/${tools[0].slug}`}
+                  href={`/tools/handy-dandy-functions/${functions[0].slug}`}
                 />
               </Flex>
             </div>
