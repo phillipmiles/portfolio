@@ -3,16 +3,26 @@ import Cpa from '../../data/projects/cpa.mdx';
 import ThoughtStream from '../../data/projects/thought-stream.mdx';
 import Verso from '../../data/projects/verso.mdx';
 import Coles from '../../data/projects/coles.mdx';
+import UntitledGame from '../../data/projects/untitled-game.mdx';
 
 const projects = [
   {
-    slug: 'woodfort',
-    name: 'Woodfort Cases',
-    thumbnail: '/images/woodfort_walnut.jpeg',
-    bannerSrc: '/images/projects/woodfort/woodfort_banner_01.jpg',
+    slug: 'verso',
+    name: 'Verso Learning',
+    thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
+    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
     description:
       '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
-    content: <Woodfort />,
+    content: <Verso />,
+  },
+  {
+    slug: 'cpa',
+    name: 'CPA Interactive Story',
+    thumbnail: '/images/projects/cpa/cpa_thumbnail_01.jpg',
+    bannerSrc: '/images/projects/cpa/cpa_image_banner.jpeg',
+    description:
+      '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
+    content: <Cpa />,
   },
   {
     slug: 'thought-stream',
@@ -25,22 +35,22 @@ const projects = [
     content: <ThoughtStream />,
   },
   {
-    slug: 'cpa',
-    name: 'CPA Interactive Story',
-    thumbnail: '/images/projects/cpa/cpa_thumbnail_01.jpg',
-    bannerSrc: '/images/projects/cpa/cpa_image_banner.jpeg',
-    description:
-      '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
-    content: <Cpa />,
-  },
-  {
-    slug: 'verso',
-    name: 'Verso Learning',
-    thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
+    slug: 'untitled-game',
+    name: 'Untitled Game',
+    thumbnail: '/images/projects/untitled-game/untitled-game_thumbnail_01.jpg',
     bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
     description:
+      '<p>Ever since I was a kid I always have wanted to make a game someday. I even briefly did a semester in Game Design at university before switching to Computer Science.</p><p>Recently I decided that the cirumstances were right to finally start.</p>',
+    content: <UntitledGame />,
+  },
+  {
+    slug: 'woodfort',
+    name: 'Woodfort Cases',
+    thumbnail: '/images/woodfort_walnut.jpeg',
+    bannerSrc: '/images/projects/woodfort/woodfort_banner_01.jpg',
+    description:
       '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
-    content: <Verso />,
+    content: <Woodfort />,
   },
   {
     slug: 'coles',

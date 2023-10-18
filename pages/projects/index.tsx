@@ -29,6 +29,7 @@ import ProjectCard from '../../components/ProjectCard';
 import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
 import projects from '../../data/projects';
+import s from './projects.module.css';
 
 const Projects: NextPage = () => {
   return (
@@ -64,7 +65,7 @@ const Projects: NextPage = () => {
                   description={project.description}
                   url={`/projects/${project.slug}`}
                   srcThumb={project.thumbnail}
-                  style={{ marginBottom: 64 }}
+                  className={s.projectCard}
                 />
               ))}
               {/* <ProjectCard

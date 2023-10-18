@@ -14,10 +14,15 @@
   padding-left: var(--padding-3);
   padding-top: var(--padding-2);
   padding-bottom: var(--padding-2);
-  /* display: inline-block; */
+  box-shadow: none;
 }
 
 .button:hover {
   transition: none;
   background-color: var(--primary-light-color);
+}
+
+/* Improves visual contrast when focus is applied. */
+.button:focus {
+  box-shadow: inset 0px 0px 0px 2px white;
 }

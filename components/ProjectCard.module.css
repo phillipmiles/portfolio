@@ -1,9 +1,59 @@
+.projectCard {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 600px;
+}
+
 .imageWrap {
   width: 60%;
   flex-shrink: 0;
   margin-left: 48px;
   position: relative;
   overflow: hidden;
+}
+
+.projectCardBody {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+@media (max-width: 900px) {
+  .projectCard {
+    flex-direction: column-reverse;
+    height: auto;
+    overflow: auto;
+  }
+
+  .projectCardBody {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .buttonContainer {
+    margin-top: 8px;
+    text-align: center;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    height: auto;
+  }
+
+  .imageWrap {
+    margin: 0;
+    width: 100%;
+    height: 240px;
+  }
 }
 .imageContainer {
   transform: scale(1);
@@ -67,6 +117,13 @@
   background-color: #6c3c93;
 }
 
+.untitled-game .button {
+  background-color: #1f705a;
+}
+.untitled-game .button:hover {
+  background-color: #145443;
+}
+
 .woodfort .heading {
   color: #6a553d;
 }
@@ -75,6 +132,9 @@
   color: #f04153;
 }
 
+.untitled-game .heading {
+  color: #1f705a;
+}
 .cpa .heading {
   color: #78674a;
 }

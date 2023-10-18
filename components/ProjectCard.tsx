@@ -6,6 +6,7 @@ import Button from './generic/Button';
 // import { getPlatformIcon } from '../resolvers/platforms';
 import Flex from './generic/Flex';
 import s from './ProjectCard.module.css';
+import Heading from './Heading';
 
 const ProjectCard = ({
   slug,
@@ -15,7 +16,7 @@ const ProjectCard = ({
   srcThumb,
   platforms,
   stack,
-  style,
+  className,
   ...props
 }) => {
   // const platformIcons = platforms.map((platform) => ({
@@ -24,29 +25,8 @@ const ProjectCard = ({
   // }));
 
   return (
-    <Flex
-      className={s[slug]}
-      style={{
-        background: 'white',
-        borderRadius: '6px',
-        overflow: 'hidden',
-        // width: '100%',
-        height: 600,
-        ...style,
-      }}
-      {...props}
-    >
-      <Flex
-        style={{
-          paddingTop: 40,
-          paddingBottom: 40,
-          paddingLeft: 40,
-          paddingRight: 40,
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          width: '40%',
-        }}
-      >
+    <Flex className={`${s[slug]} ${s.projectCard} ${className}`} {...props}>
+      <Flex className={`${s[slug]} ${s.projectCardBody}`}>
         <div>
           {/* <Flex style={{ mb: 3 }}>
             {platformIcons.map((platform) => (
@@ -76,7 +56,8 @@ const ProjectCard = ({
               </Flex>
             ))}
           </Flex> */}
-          <h4 className={s.heading}>{title}</h4>
+
+          <h2 className={`h4 ${s.heading}`}>{title}</h2>
           <div dangerouslySetInnerHTML={{ __html: description }} />
           {/* <Flex style={{ mb: 4 }}>
             {stack.map((item) => (
@@ -90,13 +71,15 @@ const ProjectCard = ({
             ))}
           </Flex> */}
         </div>
-        <Button
-          className={s.button}
-          href={url}
-          style={{ alignSelf: 'flex-start' }}
-        >
-          View project
-        </Button>
+        <div className={s.buttonContainer}>
+          <Button
+            className={s.button}
+            href={url}
+            style={{ alignSelf: 'flex-start' }}
+          >
+            View project
+          </Button>
+        </div>
       </Flex>
       <div className={s.imageWrap}>
         <Link href={url} className={s.imageContainer}>
