@@ -8,6 +8,11 @@
   padding-bottom: 64px;
 }
 
+.footerPageWrapWrap {
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
 .footerContent {
   justify-content: space-between;
   align-items: center;
@@ -44,12 +49,32 @@
   margin-right: 24px;
 }
 
+.avatarTextContainer {
+  flex-direction: column;
+}
+
+.avatarText {
+  color: white;
+  font-size: 22px;
+}
+
+.avatarLabel {
+  color: #59b3ff;
+  margin-bottom: 0;
+}
+
 @media (max-width: 900px) {
   .footerPageWrap {
     color: white;
     padding-top: 32px;
     padding-bottom: 32px;
   }
+
+  .footerPageWrapWrap {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   .footerContent {
     flex-direction: column;
   }

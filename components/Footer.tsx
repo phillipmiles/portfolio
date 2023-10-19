@@ -7,7 +7,10 @@ import s from './Footer.module.css';
 const Footer = ({ ...props }): JSX.Element => {
   return (
     <footer className={s.footer} {...props}>
-      <PageContentWrap classNameInner={s.footerPageWrap}>
+      <PageContentWrap
+        classNameOuter={s.footerPageWrapWrap}
+        classNameInner={s.footerPageWrap}
+      >
         <Flex className={s.footerContent}>
           <Flex className={s.avatarContent}>
             <Image
@@ -17,22 +20,9 @@ const Footer = ({ ...props }): JSX.Element => {
               alt=""
               className={s.avatar}
             />
-            <Flex style={{ flexDirection: 'column' }}>
-              <p
-                style={{
-                  color: '#59b3ff',
-                  marginBottom: 0,
-                }}
-              >
-                My name is
-              </p>
-              <Link
-                href="/"
-                style={{
-                  color: 'white',
-                  fontSize: '22px',
-                }}
-              >
+            <Flex className={s.avatarTextContainer}>
+              <p className={s.avatarLabel}>My name is</p>
+              <Link href="/" className={s.avatarText}>
                 Phillip Miles
               </Link>
             </Flex>
