@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import s from './MDXImage.module.css';
 
 const MDXImage = ({
   alt,
@@ -8,6 +9,7 @@ const MDXImage = ({
   float,
   width,
   height,
+  zoom,
   aspectRatio = '16 / 9',
   caption,
 }): JSX.Element => {
@@ -40,10 +42,11 @@ const MDXImage = ({
         style={{
           overflow: 'hidden',
           position: 'relative',
+          borderRadius: '6px',
 
           aspectRatio: aspectRatio,
           width: '100%',
-          backgroundColor: '#DDDDDD',
+          // backgroundColor: '#DDDDDD',
         }}
       >
         {/* <div
@@ -65,27 +68,15 @@ const MDXImage = ({
           // width={!wide || float ? width : undefined}
           // height={height}
           fill={true}
-          style={{ objectFit: 'cover' }}
+          style={{
+            objectFit: 'cover',
+            ...(!!zoom && { transform: `scale(${zoom})` }),
+          }}
           priority={priority}
         />
         {/* </div> */}
       </div>
-      {caption && (
-        <p
-          style={{
-            color: '#98A3B2',
-            fontSize: '15px',
-            maxWidth: 'none',
-            width: '100%',
-            paddingTop: '8px',
-            paddingBottom: '8px',
-            borderBottom: '1px solid #D4DBE6',
-            margin: 0,
-          }}
-        >
-          {caption}
-        </p>
-      )}
+      {caption && <p className={s.caption}>{caption}</p>}
     </div>
   );
 };

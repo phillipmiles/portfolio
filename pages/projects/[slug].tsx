@@ -100,10 +100,8 @@ const Projects: NextPage = (props) => {
                   }}
                 >
                   <PageTitle>{project.name}</PageTitle>
-                  <PageIntro>
-                    Mobile not taking app built with React Native
-                  </PageIntro>
-                  <p style={{ marginBottom: 96 }}>2020 - 2021</p>
+                  <PageIntro>{project.intro}</PageIntro>
+                  <p style={{ marginBottom: 96 }}>{project.year}</p>
                   {/* <div
                     style={{
                       position: 'relative',

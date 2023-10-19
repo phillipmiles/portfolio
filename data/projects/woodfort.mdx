@@ -1,4 +1,16 @@
 import MDXImage from '../../components/MDXImage';
+import MDXGallery from '../../components/MDXGallery';
+
+<MDXImage
+  src="/images/projects/woodfort/woodfort_banner_01.jpg"
+  width={1140}
+  aspectRatio="6/3"
+  priority
+  zoom="1.3"
+  wide
+  layout="responsive"
+  alt="sdfsf"
+/>
 
 This is an example file where I would be writing and editing the content of a blog post completly ignoring **how** it will be rendered in the final app. This is just about content only.
 
@@ -11,7 +23,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a diam vitae metus
 Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at bibendum velit turpis at purus. In fermentum, dolor sed rutrum accumsan, lorem risus maximus purus, id tempus ipsum ex at nibh.
 
 <MDXImage
-  src="/../public/images/blog/test_01.jpeg"
+  src="/images/projects/woodfort/photos/genesis_blackwood/power1_blackwood.jpg"
   height={680}
   width={1140}
   priority
@@ -25,7 +37,7 @@ Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit l
 Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
 
 <MDXImage
-  src="/../public/images/blog/test_01.jpeg"
+  src="/images/projects/woodfort/photos/genesis_tasmanian_oak/towering_alt_tasoak.jpg"
   height={512}
   width={416}
   aspectRatio="4/5"
@@ -39,11 +51,25 @@ Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit l
 Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
 Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
 
-<MDXImage
-  src="/../public/images/blog/test_01.jpeg"
-  height={512}
-  width={680}
-  aspectRatio="9/6"
+<MDXGallery
+  images={[
+    {
+      src: '/images/projects/woodfort/photos/making_of/wip_sanding_alt_blackwhite.jpg',
+      alt: '',
+    },
+    {
+      src: '/images/projects/woodfort/photos/making_of/wip_routing_blackwhite.jpg',
+      alt: '',
+    },
+    {
+      src: '/images/projects/woodfort/photos/making_of/wip_buffing_blackwhite.jpg',
+      alt: '',
+    },
+  ]}
+  height={680}
+  width={1140}
+  priority
+  wide
   alt="sdfsf"
 />
 
@@ -53,20 +79,10 @@ Aenean id leo sit amet justo efficitur congue. Integer ut vulputate turpis. Proi
 
 Cras convallis, ex non rutrum imperdiet, purus nisi posuere dui, ut tempor neque dui at justo. Suspendisse potenti. Aenean vestibulum dignissim ultrices. Cras rhoncus, ligula et tincidunt bibendum, sapien velit vulputate mauris, porttitor faucibus felis sem eget purus. Phasellus at nunc eget lacus aliquam sodales non et urna. Ut sed rhoncus magna.
 
-### Oh look, a heading 2
-
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
-
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a diam vitae metus rhoncus ornare. Donec imperdiet libero vel lectus molestie maximus. Integer iaculis lobortis cursus. Nullam sodales odio magna, a mollis est aliquet et. Proin posuere metus non interdum sagittis. Nulla ac risus ullamcorper, pellentesque odio vehicula, laoreet libero. Sed neque libero, venenatis et euismod ac, mollis nec mauris.
-
-Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at bibendum velit turpis at purus. In fermentum, dolor sed rutrum accumsan, lorem risus maximus purus, id tempus ipsum ex at nibh.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a diam vitae metus rhoncus ornare. Donec imperdiet libero vel lectus molestie maximus. Integer iaculis lobortis cursus. Nullam sodales odio magna, a mollis est aliquet et. Proin posuere metus non interdum sagittis. Nulla ac risus ullamcorper, pellentesque odio vehicula, laoreet libero. Sed neque libero, venenatis et euismod ac, mollis nec mauris.
-
-Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at bibendum velit turpis at purus. In fermentum, dolor sed rutrum accumsan, lorem risus maximus purus, id tempus ipsum ex at nibh.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a diam vitae metus rhoncus ornare. Donec imperdiet libero vel lectus molestie maximus. Integer iaculis lobortis cursus. Nullam sodales odio magna, a mollis est aliquet et. Proin posuere metus non interdum sagittis. Nulla ac risus ullamcorper, pellentesque odio vehicula, laoreet libero. Sed neque libero, venenatis et euismod ac, mollis nec mauris.
-
-Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at bibendum velit turpis at purus. In fermentum, dolor sed rutrum accumsan, lorem risus maximus purus, id tempus ipsum ex at nibh.
+<MDXImage
+  src="/images/projects/woodfort/brand/logo_primary.png"
+  width={680}
+  aspectRatio="2/1"
+  zoom="0.8"
+  alt=""
+/>

@@ -57,7 +57,7 @@ const ProjectCard = ({
             ))}
           </Flex> */}
 
-          <h2 className={`h4 ${s.heading}`}>{title}</h2>
+          <h2 className={`h3 ${s.heading}`}>{title}</h2>
           <div dangerouslySetInnerHTML={{ __html: description }} />
           {/* <Flex style={{ mb: 4 }}>
             {stack.map((item) => (

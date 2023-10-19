@@ -42,7 +42,7 @@ const MDXVideo = ({
         style={{
           overflow: 'hidden',
           position: 'relative',
-
+          borderRadius: '6px',
           aspectRatio: aspectRatio,
           width: '100%',
           height: '100%',
@@ -94,13 +94,13 @@ const MDXVideo = ({
       {caption && (
         <p
           style={{
-            color: '#98A3B2',
+            color: '#465973',
             fontSize: '15px',
             maxWidth: 'none',
             width: '100%',
             paddingTop: '8px',
             paddingBottom: '8px',
-            borderBottom: '1px solid #D4DBE6',
+            borderBottom: '1px solid #98a3b2',
             margin: 0,
           }}
         >

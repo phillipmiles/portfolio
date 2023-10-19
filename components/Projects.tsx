@@ -70,7 +70,7 @@ const Projects = () => {
           }}
         >
           <div>
-            <h3 style={{ fontSize: 36 }}>The projects</h3>
+            <h2 className="h3">The projects</h2>
             <p>
               Take a look at detailed breakdowns for each of my apps. See how
               they’re progressing and what decision’s I’m making in developing

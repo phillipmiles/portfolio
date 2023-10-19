@@ -1,0 +1,10 @@
+.caption {
+  color: #465973;
+  font-size: 15px;
+  max-width: none;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #98a3b2;
+  margin: 0;
+}

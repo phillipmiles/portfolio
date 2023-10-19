@@ -50,30 +50,35 @@ h1,
 
 h2,
 .h2 {
-  font-size: 44px;
+  font-size: 48px;
   margin-bottom: 16px;
 }
 
 h3,
 .h3 {
+  font-size: 36px;
+  line-height: 1.25em;
   margin-bottom: 16px;
 }
 h4,
 .h4 {
-  font-size: 36px;
+  font-size: 28px;
+  line-height: 1.25em;
   margin-bottom: 16px;
 }
 
 h5,
 .h5 {
-  font-size: 28px;
+  font-size: 21px;
   margin-bottom: 16px;
 }
 h6,
 .h6 {
+  font-size: 18px;
 }
 
-p {
+p,
+.p {
   font-size: 18px;
   line-height: 1.6;
 }
@@ -88,9 +93,20 @@ a.small {
   p {
     font-size: 16px;
   }
+
+  h2,
+  .h2 {
+    font-size: 40px;
+  }
+
+  h3,
+  .h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
   h4,
   .h4 {
-    font-size: 28px;
+    font-size: 21px;
     margin-bottom: 16px;
   }
 }

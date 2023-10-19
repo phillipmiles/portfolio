@@ -57,7 +57,9 @@ const ToolCard = ({
           // fill
         />
       </div>
-      <h5 style={{ textAlign: 'center' }}>{title}</h5>
+      <h2 className="h4" style={{ textAlign: 'center' }}>
+        {title}
+      </h2>
       <p>{description}</p>
     </Link>
   );

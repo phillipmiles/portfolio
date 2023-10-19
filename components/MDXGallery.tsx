@@ -27,6 +27,7 @@ const MDXGallery = ({
         style={{
           overflow: 'hidden',
           position: 'relative',
+          borderRadius: '6px',
           width: '65%',
           aspectRatio: aspectRatio,
           backgroundColor: '#DDDDDD',
@@ -69,6 +70,7 @@ const MDXGallery = ({
           style={{
             overflow: 'hidden',
             position: 'relative',
+            borderRadius: '6px',
             height: '50%',
             marginBottom: '8px',
             flexGrow: 1,
@@ -104,6 +106,7 @@ const MDXGallery = ({
           style={{
             overflow: 'hidden',
             position: 'relative',
+            borderRadius: '6px',
             marginTop: '8px',
             height: '50%',
             width: '100%',
