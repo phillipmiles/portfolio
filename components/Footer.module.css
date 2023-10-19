@@ -1,3 +1,66 @@
+.footer {
+  background-color: #262c35;
+}
+
+.footerPageWrap {
+  color: white;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.footerContent {
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
 .footer a:hover {
   text-decoration: underline;
+}
+
+.linkContent {
+  min-width: 240;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.linkLabel {
+  color: #59b3ff;
+  margin-bottom: 0;
+}
+
+.link {
+  color: white;
+  font-size: 16px;
+}
+
+.avatarContent {
+  min-width: 240;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 64px;
+  margin-right: 24px;
+}
+
+@media (max-width: 900px) {
+  .footerPageWrap {
+    color: white;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .footerContent {
+    flex-direction: column;
+  }
+  .linkContent {
+    flex-direction: row;
+  }
+  .link {
+    margin: 0 8px;
+    font-size: 16px;
+  }
+  .avatarContent {
+    margin-bottom: 24px;
+  }
 }
