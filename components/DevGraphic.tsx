@@ -30,9 +30,7 @@ const Cursor = ({ className }) => (
 );
 
 const CodeBlock = ({ children }) => (
-  <div style={{ paddingLeft: 20, borderLeft: '2px solid rgb(223, 228, 245)' }}>
-    {children}
-  </div>
+  <div className={s.codeBlock}>{children}</div>
 );
 
 const colors = {

@@ -206,6 +206,11 @@
   border-radius: 2px;
 }
 
+.codeBlock {
+  padding-left: 20px;
+  border-left: 2px solid rgb(223, 228, 245);
+}
+
 .animated {
   animation-duration: 10000ms;
   animation-iteration-count: infinite;
@@ -436,5 +441,114 @@
   }
   100% {
     visibility: hidden;
+  }
+}
+
+@media (max-width: 500px) {
+  .codeSegment {
+    height: 16px;
+  }
+
+  .codeBlock {
+    padding-left: 10px;
+  }
+
+  .cursor > div {
+    height: 16px;
+  }
+
+  /* Repeated keyfraomes to make height smaller on mobile.*/
+  @keyframes second {
+    0% {
+      width: 0;
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    18% {
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    19% {
+      width: 0;
+      height: 16px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    25% {
+      width: 20%;
+    }
+
+    100% {
+      width: 20%;
+    }
+  }
+  @keyframes third {
+    0% {
+      width: 0;
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    25% {
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    26% {
+      width: 0;
+      height: 16px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    33% {
+      width: 40%;
+    }
+    38% {
+      width: 40%;
+    }
+    44% {
+      width: 40%;
+    }
+    46% {
+      width: 30%;
+    }
+    50% {
+      width: 30%;
+    }
+    54% {
+      width: 40%;
+    }
+    100% {
+      width: 40%;
+    }
+  }
+
+  @keyframes fourth {
+    0% {
+      width: 0%;
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-width: 0px;
+    }
+    53% {
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    54% {
+      width: 0%;
+      height: 16px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+    64% {
+      width: 40%;
+    }
+    100% {
+      width: 40%;
+    }
   }
 }

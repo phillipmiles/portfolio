@@ -1,3 +1,30 @@
+.container {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  border-radius: 24px;
+  margin-bottom: 8px;
+}
+
+.imageContainer {
+  margin-right: 64px;
+  width: 100%;
+  max-width: 516px;
+}
+
+.imageWrap {
+  position: relative;
+  height: 395px;
+  /* Margin left used to adjust for right most image being transformed scale
+   * so it doesn't align with the containers right edge. */
+  margin-left: 20px;
+}
+
+.textContainer {
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @keyframes hover1 {
   0% {
     transform: translateY(10px);
@@ -12,13 +39,13 @@
 
 @keyframes hover2 {
   0% {
-    transform: translateY(10px) scale(0.95) translateX(-50%);
+    transform: translateY(10px) scale(0.95);
   }
   50% {
-    transform: translateY(-10px) scale(0.95) translateX(-50%);
+    transform: translateY(-10px) scale(0.95);
   }
   100% {
-    transform: translateY(10px) scale(0.95) translateX(-50%);
+    transform: translateY(10px) scale(0.95);
   }
 }
 
@@ -34,36 +61,91 @@
   }
 }
 
-.projectCard {
-  border-radius: 24px;
+.projectCardWrap {
+  /* width: 100%; */
   position: absolute;
+  top: 0px;
+  bottom: 0px;
+  border-radius: 24px;
+  /* height: 395px; */
+
   animation-duration: 4000ms;
   animation-iteration-count: infinite;
   animation-fill-mode: backwards;
   animation-timing-function: ease-in-out;
+  overflow: hidden;
+}
+
+.projectCard {
   object-fit: cover;
 }
 
-.projectCard:first-child {
+.projectCardWrap:first-child {
   animation-name: hover3;
   top: 0;
   right: 0px;
-  transform-origin: right;
+  left: 64px;
+  /* transform-origin: right; */
   animation-delay: 1800ms;
   box-shadow: 0 8px 24px -8px rgba(204, 124, 0, 0.3);
 }
 
-.projectCard:nth-child(2n) {
+.projectCardWrap:nth-child(2n) {
   animation-name: hover2;
   animation-delay: 900ms;
   top: 0;
-  left: 50%;
-  transform: scale(0.95) translateX(-50%);
+  left: 32px;
+  right: 32px;
+  transform: scale(0.95);
   box-shadow: 0 16px 36px -2px rgba(40, 40, 120, 0.3);
 }
 
-.projectCard:nth-child(3n) {
+.projectCardWrap:nth-child(3n) {
   animation-name: hover1;
+  right: 64px;
+  left: 0;
   z-index: 1;
   box-shadow: 0 24px 48px -14px rgba(120, 0, 0, 0.3);
+}
+
+.buttonContainer {
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .imageWrap {
+    height: 360px;
+  }
+
+  .buttonContainer {
+    margin-top: 24px;
+  }
+
+  .container {
+    align-items: center;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .imageContainer {
+    margin-right: 0px;
+    margin-bottom: 48px;
+  }
+  .textContainer {
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .imageContainer {
+    margin-bottom: 32px;
+  }
+  .imageWrap {
+    height: 200px;
+  }
+
+  .buttonContainer {
+    margin-top: 24px;
+  }
 }

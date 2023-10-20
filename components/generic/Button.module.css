@@ -15,14 +15,30 @@
   padding-top: var(--padding-2);
   padding-bottom: var(--padding-2);
   box-shadow: none;
+
+  border: 2px solid var(--primary-color);
 }
 
 .button:hover {
-  transition: none;
-  background-color: var(--primary-light-color);
+  /* transition: none;
+  background-color: var(--primary-light-color); */
+
+  box-shadow: inset 0px 0px 0px 2px white;
+  border-width: 2px;
 }
 
 /* Improves visual contrast when focus is applied. */
 .button:focus {
-  box-shadow: inset 0px 0px 0px 2px white;
+  box-shadow: inset 0px 0px 0px 1px white;
+  border: 2px solid white;
+}
+
+@media (max-width: 900px) {
+  .button {
+    max-width: 300px;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    height: auto;
+  }
 }

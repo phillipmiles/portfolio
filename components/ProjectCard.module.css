@@ -42,13 +42,6 @@
     padding-right: 48px;
   }
 
-  .button {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px;
-    height: auto;
-  }
-
   .imageWrap {
     margin: 0;
     width: 100%;
@@ -80,48 +73,47 @@
 
 .woodfort .button {
   background-color: #6a553d;
-}
-
-.woodfort .button:hover {
-  background-color: #816a50;
+  border-color: #6a553d;
+  outline-color: #6a553d;
 }
 
 .thought-stream .button {
   background-color: #f04153;
-}
-
-.thought-stream .button:hover {
-  background-color: #f96170;
+  border-color: #f04153;
+  outline-color: #f04153;
 }
 
 .cpa .button {
   background-color: #78674a;
-}
-
-.cpa .button:hover {
-  background-color: #b7a380;
+  border-color: #78674a;
+  outline-color: #78674a;
 }
 
 .coles .button {
   background-color: #df1a23;
-}
-.coles .button:hover {
-  background-color: #e73c45;
+  border-color: #df1a23;
+  outline-color: #df1a23;
 }
 
 .verso .button {
   background-color: #5b2f7f;
-}
-
-.verso .button:hover {
-  background-color: #6c3c93;
+  border-color: #5b2f7f;
+  outline-color: #5b2f7f;
 }
 
 .untitled-game .button {
   background-color: #1f705a;
+  border-color: #1f705a;
+  outline-color: #1f705a;
 }
-.untitled-game .button:hover {
-  background-color: #145443;
+
+.woodfort .button:focus,
+.untitled-game .button:focus,
+.verso .button:focus,
+.coles .button:focus,
+.cpa .button:focus,
+.thought-stream .button:focus {
+  border-color: white;
 }
 
 .woodfort .heading {

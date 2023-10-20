@@ -3,65 +3,35 @@ import Link from 'next/link';
 import Button from './generic/Button';
 import Flex from './generic/Flex';
 import s from './Projects.module.css';
+import ButtonContainer from './ButtonContainer';
 
 const Projects = () => {
   return (
-    <Flex
-      style={{
-        // width: '100%',
-        // background: '#ECF4FA',
-        paddingTop: 96,
-        paddingBottom: 96,
-        borderRadius: 24,
-        // overflow: 'hidden',
-        marginBottom: 8,
-      }}
-    >
-      <div
-        style={{
-          paddingRight: '64px',
-
-          // width: '100%', // width: '50%',
-        }}
-      >
-        <div
-          style={{
-            position: 'relative',
-            height: 395,
-            width: 516,
-            // width: '100%',
-          }}
-        >
-          <Image
-            src="/blankYellow.png"
-            alt=""
-            height={395}
-            width={456}
-            className={s.projectCard}
-          />
-          <Image
-            src="/blank.png"
-            alt=""
-            height={395}
-            width={456}
-            className={s.projectCard}
-          />
-          <Image
-            src="/projects-thumb.png"
-            alt=""
-            height={395}
-            width={456}
-            className={s.projectCard}
-          />
+    <Flex className={s.container}>
+      <div className={s.imageContainer}>
+        <div className={s.imageWrap}>
+          <div className={s.projectCardWrap}>
+            <Image src="/blank.png" alt="" fill className={s.projectCard} />
+          </div>
+          <div className={s.projectCardWrap}>
+            <Image
+              src="/blankYellow.png"
+              alt=""
+              fill
+              className={s.projectCard}
+            />
+          </div>
+          <div className={s.projectCardWrap}>
+            <Image
+              src="/projects-thumb.png"
+              alt=""
+              fill
+              className={s.projectCard}
+            />
+          </div>
         </div>
       </div>
-      <div
-        style={{
-          width: '50%',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className={s.textContainer}>
         <Flex
           style={{
             justifyContent: 'center',
@@ -76,16 +46,16 @@ const Projects = () => {
               they’re progressing and what decision’s I’m making in developing
               them.
             </p>
-
-            <Button
-              href={'projects'}
-              style={{
-                marginTop: '32px',
-                marginLeft: -2,
-              }}
-            >
-              Go to projects
-            </Button>
+            <ButtonContainer className={s.buttonContainer}>
+              <Button
+                href={'projects'}
+                style={{
+                  marginLeft: -2,
+                }}
+              >
+                Go to projects
+              </Button>
+            </ButtonContainer>
           </div>
         </Flex>
       </div>
