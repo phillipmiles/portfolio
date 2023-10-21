@@ -1,8 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-
+import s from './index.module.css';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import PageContentWrap from '../components/generic/PageContentWrap';
@@ -31,6 +30,7 @@ import {
 import PageWithFooter from '../components/generic/PageWithFooter';
 import Banner from '../components/Banner';
 import ContentSlider from '../components/generic/ContentSlider';
+import InfinityPanner from '../components/generic/InfinityPanner';
 
 const Home: NextPage = () => {
   return (
@@ -42,38 +42,34 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWithFooter>
-        <main className={styles.main}>
-          <div className={styles.introBlock}>
+        <main className={s.main}>
+          <div className={s.introBlock}>
             <Banner invert />
 
-            <header className={styles.header}>
-              <div className={styles.headerLeft}>
-                <h1 className={styles.title}>Websites that connect people</h1>
-                <p className={styles.description}>
+            <header className={s.header}>
+              <div className={s.headerLeft}>
+                <h1 className={s.title}>
+                  {/* Quality, Performant, Documented */}
+                  Versatile, Performant, Documented
+                </h1>
+                <p className={s.description}>
                   React component library specialist
                 </p>
-                <div className={styles.ctaWrap}>
-                  <Link href="/" className={styles.cta}>
+                <div className={s.ctaWrap}>
+                  <Link href="/" className={s.cta}>
                     Get in touch
                   </Link>
-                  <div className={styles.ctaShadow} />
+                  <div className={s.ctaShadow} />
                 </div>
               </div>
-              <div className={styles.headerRight}>
+              <div className={s.headerRight}>
                 <Hero />
               </div>
             </header>
           </div>
           <div style={{ backgroundColor: '#ECF4FA', width: '100%' }}>
             <PageContentWrap>
-              <Flex
-                style={{
-                  paddingTop: 92,
-                  paddingBottom: 24,
-                  opacity: 0.9,
-                  justifyContent: 'center',
-                }}
-              >
+              <Flex className={s.techIcons}>
                 <div
                   style={{
                     display: 'block',
@@ -163,6 +159,7 @@ const Home: NextPage = () => {
                 />
               </Flex>
               <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
+                {/* <InfinityPanner> */}
                 <Image
                   src={'/images/companies/logo_hla_white.svg'}
                   width={140}
@@ -191,6 +188,7 @@ const Home: NextPage = () => {
                   alt="DHHS Logo"
                   style={{ margin: 24 }}
                 />
+                {/* </InfinityPanner> */}
               </Flex>
             </div>
           </div>
