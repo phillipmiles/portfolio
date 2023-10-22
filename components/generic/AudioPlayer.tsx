@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Dispatch, useCallback } from 'react';
 // import './style.scss';
 // import circleplay from '../../assets/icons/circle-play';
 // import circlepause from '../../assets/icons/circle-pause';
@@ -11,18 +11,26 @@ import DraggableConstraint from './DraggableConstraint';
 
 import { getValueAsPercentage } from '../../utils/math';
 
-const AudioPlayer = ({ className, src }) => {
-  const [audioObject, setAudioObject] = useState();
+const AudioPlayer = ({
+  className,
+  src,
+}: {
+  className?: string;
+  src: string;
+}) => {
+  const [audioObject, setAudioObject] = useState<HTMLAudioElement>();
   const [duration, setDuration] = useState('0:00');
   const [audioState, setAudioState] = useState('unloaded');
   const [progress, setProgress] = useState(0);
-  const audioRef = useRef();
-  const timelineRef = useRef();
+  const audioRef = useRef<HTMLAudioElement>();
+  const timelineRef = useRef<HTMLElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [buffered, setBuffered] = useState([]);
+  const [buffered, setBuffered] = useState<{ start: number; end: number }[]>(
+    []
+  );
   const [currentTimeString, setCurrentTimeString] = useState('0:00');
 
-  const getTimeString = (timeInSeconds) => {
+  const getTimeString = (timeInSeconds: number) => {
     if (!timeInSeconds) {
       return '0:00';
     }
@@ -34,15 +42,16 @@ const AudioPlayer = ({ className, src }) => {
     return `${minutes}:${secondsConverted}`;
   };
 
-  const loadAudio = () => {
-    const onLoaded = (e) => {
-      setDuration(a.duration);
-      a.play();
-      setAudioState('play');
-      setIsPlaying(true);
-      a.removeEventListener('loadeddata', onLoaded);
-    };
+  const onLoaded = useCallback((e: Event) => {
+    if (!audioRef.current) return;
+    setDuration(audioRef.current.duration.toString());
+    audioRef.current.play();
+    setAudioState('play');
+    setIsPlaying(true);
+    audioRef.current.removeEventListener('loadeddata', onLoaded);
+  }, []);
 
+  const loadAudio = () => {
     const a = new Audio(src);
     setAudioObject(a);
     audioRef.current = a;
@@ -60,9 +69,10 @@ const AudioPlayer = ({ className, src }) => {
         audioObject.removeEventListener('loadeddata', onLoaded);
       }
     };
-  }, [src]);
+  }, [audioObject, onLoaded, src]);
 
   const togglePlay = () => {
+    if (!audioObject) return;
     if (audioState === 'unloaded') {
       loadAudio();
     } else if (audioState === 'play') {
@@ -79,6 +89,7 @@ const AudioPlayer = ({ className, src }) => {
   useEffect(() => {
     const updateBuffer = () => {
       const buffered = [];
+      if (!audioRef.current) return;
       for (let i = 0; i < audioRef.current.buffered.length; i++) {
         buffered.push({
           start: getValueAsPercentage(
@@ -95,6 +106,8 @@ const AudioPlayer = ({ className, src }) => {
     };
 
     const updateProgress = () => {
+      if (!audioRef.current) return;
+
       const current = audioRef.current.currentTime;
       const progress = getValueAsPercentage(
         audioRef.current.currentTime,
@@ -108,7 +121,7 @@ const AudioPlayer = ({ className, src }) => {
       setCurrentTimeString(getTimeString(current));
     };
 
-    let timeout;
+    let timeout: any;
 
     if (isPlaying) {
       timeout = setInterval(updateProgress, 200);
@@ -121,7 +134,9 @@ const AudioPlayer = ({ className, src }) => {
     };
   }, [isPlaying, src]);
 
-  const handleClickTimeline = (e) => {
+  const handleClickTimeline = (e: any) => {
+    if (!timelineRef.current || !audioObject) return;
+
     const clickPositionInEl = Math.floor(
       (window.scrollX +
         timelineRef.current.getBoundingClientRect().left -
@@ -149,19 +164,21 @@ const AudioPlayer = ({ className, src }) => {
     }
 
     const minutes = Math.trunc(toMinutes(duration, 'seconds'));
-    const secondsAbs = Math.trunc(duration);
+    const secondsAbs = parseInt(duration);
     const secondsConverted = addLeadingZero(secondsAbs % 60, 2);
     return `${minutes}:${secondsConverted}`;
   };
 
-  const handleMoveSeeker = (e, data) => {
+  const handleMoveSeeker = (e: any, data: any) => {
+    if (!audioObject) return;
     const progressAsFraction = data.offsetLeftPercent / 100;
     const newTime = audioObject.duration * progressAsFraction;
     setProgress(data.offsetLeftPercent);
     setCurrentTimeString(getTimeString(newTime));
   };
 
-  const handleMoveSeekerEnd = (e, data) => {
+  const handleMoveSeekerEnd = (e: any, data: any) => {
+    if (!audioObject) return;
     const progressAsFraction = data.offsetLeftPercent / 100;
     const newTime = audioObject.duration * progressAsFraction;
 
@@ -171,7 +188,8 @@ const AudioPlayer = ({ className, src }) => {
     setIsPlaying(true);
   };
 
-  const handleDragSeekStart = (e, data) => {
+  const handleDragSeekStart = () => {
+    if (!audioObject) return;
     if (isPlaying) {
       audioObject.pause();
       setIsPlaying(false);
@@ -183,15 +201,17 @@ const AudioPlayer = ({ className, src }) => {
   // throw off the seekers position by a few pixels for a moment until the next position
   // interval runs moving to the correct spot
   const getSeekerPos = () => {
-    if (!timelineRef.current) return 0;
+    if (!timelineRef.current || !timelineRef.current.parentElement) return 0;
 
-    const seekerWidth = timelineRef.current.parentElement
-      .querySelector('.mmcq-component-audio-timeline-seeker')
-      .getBoundingClientRect().width;
+    const seekerWidth = timelineRef.current.parentElement.querySelector(
+      '.mmcq-component-audio-timeline-seeker'
+    );
+
+    if (!seekerWidth) return;
+    const el = seekerWidth.getBoundingClientRect().width;
 
     const seekerPos = Math.floor(
-      ((timelineRef.current.parentElement.getBoundingClientRect().width -
-        seekerWidth) *
+      ((timelineRef.current.parentElement.getBoundingClientRect().width - el) *
         progress) /
         100
     );
@@ -218,7 +238,7 @@ const AudioPlayer = ({ className, src }) => {
               className="mmcq-component-audio-button mmcq-component-audio-button-play"
             >
               {/* <Icon icon={circleplay} /> */}
-              Player
+              Play
             </button>
             <button
               onClick={togglePlay}
@@ -254,12 +274,13 @@ const AudioPlayer = ({ className, src }) => {
           <div className="mmcq-component-audio-timeline">
             <div className="mmcq-component-audio-timeline-wrap">
               <div
-                ref={timelineRef}
+                ref={timelineRef as React.RefObject<HTMLDivElement>}
                 className="mmcq-component-audio-timeline-bar"
                 onClick={handleClickTimeline}
               >
-                {buffered.map((item) => (
+                {buffered.map((item, index) => (
                   <div
+                    key={index}
                     className="mmcq-component-audio-buffered"
                     style={{
                       left: `${item.start}%`,

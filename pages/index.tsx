@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                   React component library specialist
                 </p>
                 <div className={s.ctaWrap}>
-                  <Link href="/" className={s.cta}>
+                  <Link href="mailTo:hello@phillipmiles.com" className={s.cta}>
                     Get in touch
                   </Link>
                   <div className={s.ctaShadow} />

@@ -17,24 +17,11 @@ const MDXImage = ({
   const h = `${height}px`;
   return (
     <div
+      className={`${s.container} ${s[float]}`}
       style={{
-        margin: 'auto',
-        marginTop: '48px',
-        marginBottom: '48px',
-        width: '100%',
-        maxWidth: w,
-        textAlign: 'left',
-
+        // maxWidth: w,
         ...(wide && {
           maxWidth: '100%',
-        }),
-
-        ...(float === 'right' && {
-          marginTop: 0,
-          // marginBottom: 0,
-          float: 'right',
-          marginLeft: '48px',
-          clear: 'both',
         }),
       }}
     >

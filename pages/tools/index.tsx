@@ -10,6 +10,7 @@ import PageIntro from '../../components/PageIntro';
 import ToolCard from '../../components/ToolCard';
 import tools from '../../data/tools/list';
 import functions from '../../data/tools/functions';
+import s from './index.module.css';
 
 const Tools: NextPage = () => {
   return (
@@ -30,17 +31,19 @@ const Tools: NextPage = () => {
                 <PageTitle>Resources</PageTitle>
                 <PageIntro>
                   I write a lot of code. Sometimes I write something useful.
-                  Take a look. Perhaps you'll find it useful too.
+                  Take a look. Perhaps you&apos;ll find it useful too.
                 </PageIntro>
               </div>
-              <Flex style={{ justifyContent: 'center' }}>
+              <Flex className={s.tools}>
                 <ToolCard
+                  className={s.tool}
                   title="React useFormState hook"
                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien."
                   srcThumb="/images/react-useFormState-thumb.png"
                   href="/tools-useFormState"
                 />
                 <ToolCard
+                  className={s.tool}
                   title="React Construct"
                   description="A collection of components that provide behaviours and utilities
                 to your visual UI components."
@@ -48,6 +51,7 @@ const Tools: NextPage = () => {
                   href={`/tools/react-construct/${tools[0].slug}`}
                 />
                 <ToolCard
+                  className={s.tool}
                   title="Handy Dandy Functions"
                   description="A collection of components that provide behaviours and utilities
                 to your visual UI components."

@@ -16,6 +16,7 @@ const ToolCard = ({
   platforms,
   stack,
   style,
+  className,
   ...props
 }) => {
   // const platformIcons = platforms.map((platform) => ({
@@ -24,21 +25,7 @@ const ToolCard = ({
   // }));
 
   return (
-    <Link
-      href={href}
-      className={s.box}
-      style={{
-        backgroundColor: 'white',
-        borderRadius: '6px',
-        padding: 24,
-        marginLeft: '16px',
-        marginRight: '16px',
-        width: '33%',
-        // ':hover': {
-        //   boxShadow: (theme) => `0 0px 0px 4px ${theme.colors.primaryLight}`,
-        // },
-      }}
-    >
+    <Link href={href} className={`${s.box} ${className}`}>
       <div style={{ position: 'relative', height: 120, marginBottom: '24px' }}>
         <Image
           src={srcThumb}

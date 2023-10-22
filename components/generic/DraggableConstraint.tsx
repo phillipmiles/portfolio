@@ -2,10 +2,15 @@ import { useRef, useState, useEffect } from 'react';
 import s from './DraggableConstraint.module.css';
 
 // Div shield is used to cover the page
-const createBodyBlocker = (id, onClick) => {
+const createBodyBlocker = (
+  id: string | undefined,
+  onClick: Function | undefined
+) => {
   const bodyBlocker = document.createElement('div');
 
-  bodyBlocker.id = id;
+  if (id) {
+    bodyBlocker.id = id;
+  }
   bodyBlocker.style.position = 'absolute';
   bodyBlocker.style.top = '0';
   bodyBlocker.style.left = '0';
@@ -32,6 +37,19 @@ const createBodyBlocker = (id, onClick) => {
   return { element: bodyBlocker, add, remove };
 };
 
+interface Props {
+  className?: string;
+  onMove?: Function;
+  onEnd?: Function;
+  onStart?: Function;
+  disable: boolean;
+  constrainToParent?: boolean;
+  externalPosX?: number;
+  externalPosY?: number;
+  axisXMultiplier?: number;
+  axisYMultiplier?: number;
+}
+
 const DraggableConstraint = ({
   className,
   externalPosX = 0,
@@ -44,7 +62,7 @@ const DraggableConstraint = ({
   onEnd,
   disable = false,
   ...props
-}) => {
+}: Props) => {
   const dragElement = useRef();
   const [elementPosX, setElementPosX] = useState(externalPosX);
   const [elementPosY, setElementPosY] = useState(externalPosY);
@@ -69,7 +87,7 @@ const DraggableConstraint = ({
     let elementPercentX = 0;
     let elementPercentY = 0;
 
-    const endDrag = (e) => {
+    const endDrag = (e: any) => {
       document.documentElement.removeEventListener('mouseup', endDrag);
       document.documentElement.removeEventListener('mousemove', moveElement);
       bodyBlocker.remove();
@@ -83,7 +101,7 @@ const DraggableConstraint = ({
         });
     };
 
-    const moveElement = (e) => {
+    const moveElement = (e: any) => {
       if (!dragElement.current) return;
 
       e.preventDefault();
@@ -156,7 +174,7 @@ const DraggableConstraint = ({
         });
     };
 
-    const dragMouseDown = (e) => {
+    const dragMouseDown = (e: any) => {
       if (disable) return;
       e = e || window.event;
       e.preventDefault();

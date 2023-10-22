@@ -17,3 +17,9 @@
   color: inherit;
   font-size: 22px;
 }
+
+@media (max-width: 600px) {
+  .banner {
+    flex-direction: column;
+  }
+}

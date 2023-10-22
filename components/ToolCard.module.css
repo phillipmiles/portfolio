@@ -1,3 +1,9 @@
+.box {
+  width: 33%;
+  background-color: white;
+  border-radius: 6px;
+  padding: 24px;
+}
 .box:hover {
   box-shadow: 0 0px 0px 4px var(--primary-light-color);
 }

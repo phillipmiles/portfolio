@@ -1,39 +1,14 @@
 import Flex from './generic/Flex';
 import s from './DevGraphic.module.css';
 
-const CodeSegment = ({ color, className, style, children }) => (
-  <div
-    className={`${s.codeSegment} ${className}`}
-    style={{
-      ...style,
-    }}
-  >
-    <div
-      className={s.codeSegmentInner}
-      style={{
-        ...(color ? colors[color] : colors.grey),
-      }}
-    >
-      {children}
-    </div>
-  </div>
-);
+interface CodeSegmentProps {
+  color?: string;
+  className?: string;
+  children?: React.ReactNode;
+  style?: { [key: string]: any };
+}
 
-const CodeLine = ({ className, children }) => (
-  <Flex className={className}>{children}</Flex>
-);
-
-const Cursor = ({ className }) => (
-  <div className={`${s.cursor} ${className}`}>
-    <div />
-  </div>
-);
-
-const CodeBlock = ({ children }) => (
-  <div className={s.codeBlock}>{children}</div>
-);
-
-const colors = {
+const colors: { [key: string]: any } = {
   grey: {
     background: 'rgb(152, 163, 178)',
   },
@@ -54,7 +29,48 @@ const colors = {
   },
 };
 
-const DevGraphic = (props): JSX.Element => {
+const CodeSegment = ({
+  color,
+  className,
+  style,
+  children,
+}: CodeSegmentProps) => (
+  <div
+    className={`${s.codeSegment} ${className}`}
+    style={{
+      ...style,
+    }}
+  >
+    <div
+      className={s.codeSegmentInner}
+      style={{
+        ...(color ? colors[color] : colors.grey),
+      }}
+    >
+      {children}
+    </div>
+  </div>
+);
+
+const CodeLine = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) => <Flex className={className}>{children}</Flex>;
+
+const Cursor = ({ className }: { className?: string }) => (
+  <div className={`${s.cursor} ${className}`}>
+    <div />
+  </div>
+);
+
+const CodeBlock = ({ children }: { children?: React.ReactNode }) => (
+  <div className={s.codeBlock}>{children}</div>
+);
+
+const DevGraphic = (): JSX.Element => {
   return (
     <div>
       <CodeBlock>

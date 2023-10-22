@@ -1,3 +1,20 @@
+.container {
+  margin: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  width: 100%;
+
+  text-align: left;
+}
+
+.container.right {
+  max-width: 400px;
+  margin-top: 0;
+  float: right;
+  margin-left: 48px;
+  clear: both;
+}
+
 .caption {
   color: #465973;
   font-size: 15px;
@@ -7,4 +24,11 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #98a3b2;
   margin: 0;
+}
+
+@media (max-width: 900px) {
+  .container.right {
+    width: 100%;
+    max-width: 100%;
+  }
 }

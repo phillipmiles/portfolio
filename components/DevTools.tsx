@@ -19,7 +19,7 @@ const DevTools = () => {
             <h2 className="h3">Developer resources</h2>
             <p>
               I write a lot of code. Sometimes I write something useful. Take a
-              look. Perhaps you'll find it useful too.
+              look. Perhaps you&apos;ll find it useful too.
             </p>
 
             <ButtonContainer className={s.buttonContainer}>
