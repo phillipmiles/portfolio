@@ -23,9 +23,10 @@ const Projects = () => {
           </div>
           <div className={s.projectCardWrap}>
             <Image
-              src="/projects-thumb.png"
+              src="/images/projects/thought-stream/thought-stream_thumbnail_01.jpg"
               alt=""
               fill
+              style={{ transform: 'scale(1.2)' }}
               className={s.projectCard}
             />
           </div>

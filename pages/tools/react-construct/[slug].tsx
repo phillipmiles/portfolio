@@ -15,11 +15,21 @@ import CodeBox from '../../../components/generic/CodeBox';
 import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
 import ContentSlider from '../../../components/generic/ContentSlider';
+import SelectInput from '../../../components/generic/SelectInput';
+import SelectOption from '../../../components/generic/SelectOption';
+import SelectValue from '../../../components/generic/SelectValue';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
 
+  const options = [
+    { id: 'hello', value: 'Hello' },
+    { id: 'word', value: 'Word' },
+    { id: 'bur', value: 'bur' },
+  ];
   const [currentTool, setCurrentTool] = useState();
+  const [selectedOption, setSelectedOption] = useState(options[2]);
+  const [selectVisibility, setSelectVisibility] = useState(false);
 
   useEffect(() => {
     const tool = tools.find((tool) => tool.slug === router.query.slug);
@@ -123,11 +133,55 @@ const ToolsReactLibrary: NextPage = () => {
                       ? currentTool.description
                       : 'Component not found.'}
                   </p>
+                  <SelectInput
+                    expanded={selectVisibility}
+                    selectId="toolSelect"
+                    selected={selectedOption}
+                    options={options}
+                    onClick={() => {
+                      setSelectVisibility((state) => !state);
+                    }}
+                  >
+                    <SelectValue
+                      style={{
+                        color: 'red', // WHEN FOCUSED IEURBGIER
+                      }}
+                    >
+                      {selectedOption.value}
+                    </SelectValue>
+                    {selectVisibility && (
+                      <div style={{ position: 'absolute' }}>
+                        <h5>Options</h5>
+                        {options.map((option) => (
+                          <SelectOption
+                            selectId="toolSelect"
+                            key={option.id}
+                            onCancel={() => {
+                              setSelectVisibility(false);
+                            }}
+                            onClick={() => {
+                              setSelectedOption(option);
+                              setSelectVisibility(false);
+                            }}
+                            style={{
+                              color:
+                                selectedOption.id === option.id
+                                  ? 'red'
+                                  : 'black',
+                            }}
+                          >
+                            {option.value}
+                          </SelectOption>
+                        ))}
+                      </div>
+                    )}
+                  </SelectInput>
 
                   {currentTool &&
                     currentTool.content.map((example, index) => (
                       <>
                         <div
+                          key={index}
                           style={{
                             // marginLeft: 8,
                             // width: '100%',

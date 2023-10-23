@@ -1,0 +1,14 @@
+:focus .select-value {
+}
+
+.container input {
+  opacity: 1;
+}
+
+.focus {
+  background-color: green;
+}
+
+.focus .selectValue {
+  border: 2px solid blue;
+}
