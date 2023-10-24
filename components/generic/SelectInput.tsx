@@ -14,65 +14,36 @@ const SelectInput = ({
   selectId,
   selected,
   children,
+  className,
   style,
   onClick,
+  onFocus,
+  onBlur,
+  value,
+  onKeyDown,
   ...props
 }: Props) => {
-  const childrenRef = useRef(null);
-  const [isFocused, setIsFocused] = useState(false);
-
-  const handleKeyDown = (e) => {
-    if (e.key == ' ') {
-      onClick();
-    } else if (e.key === 'ArrowDown') {
-      if (childrenRef.current) {
-        const optionElements =
-          childrenRef.current.querySelector('[data-option]');
-        if (optionElements) {
-          e.preventDefault();
-          optionElements.focus();
-        }
-      }
-    } else if (e.key === 'Escape' && expanded) {
-      event.preventDefault();
-      onClick();
-    }
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
   return (
-    <div
-      ref={childrenRef}
-      data-select-id={selectId}
-      className={`${s.container} ${isFocused && s.focus}`}
-      {...props}
-    >
+    <label className={className} style={style}>
+      {value}
       <input
+        className={s.input}
         tabIndex={0}
-        value={''}
+        value={value}
         onClick={onClick}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onKeyDown={handleKeyDown}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         aria-readonly="true"
         aria-controls={selectId}
         aria-expanded={expanded}
         aria-haspopup="listbox"
-        inputmode="none"
+        inputMode="none"
         role="combobox"
         aria-autocomplete="list"
         onChange={() => {}}
-        className={s.input}
       />
-      {children}
-    </div>
+    </label>
   );
 };
 

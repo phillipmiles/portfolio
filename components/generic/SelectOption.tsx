@@ -10,6 +10,7 @@ interface Props {
 
 const SelectOption = ({
   selectId,
+  optionId,
   onClick,
   onCancel,
   children,
@@ -23,10 +24,10 @@ const SelectOption = ({
     }
     switch (event.key) {
       case 'Escape':
-        event.preventDefault();
-        const inputContainerElement = event.target.closest('[data-select-id]');
+        // event.preventDefault();
+        // const inputContainerElement = event.target.closest('[data-select-id]');
 
-        inputContainerElement.children[0].focus();
+        // inputContainerElement.children[0].focus();
 
         if (onCancel) onCancel(event);
       case 'ArrowUp':
@@ -55,8 +56,9 @@ const SelectOption = ({
   return (
     <div
       data-option={true}
+      data-option-id={optionId}
       aria-disabled="false"
-      tabIndex={0}
+      tabIndex={-1}
       onKeyDown={handleKeyDown}
       onClick={onClick}
       {...props}
