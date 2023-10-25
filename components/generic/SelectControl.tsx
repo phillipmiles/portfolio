@@ -56,7 +56,6 @@ const SelectControl = ({
         `[data-option-id="${optionId}"`
       );
 
-      console.log(optionElements);
       if (optionElements) {
         optionElements.focus();
       }

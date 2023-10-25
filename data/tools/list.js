@@ -1,5 +1,8 @@
-import flexExample from './component-library/flex_example';
-import flexCode from './component-library/flex_code.tsx';
+import {
+  SelectExample,
+  SelectCode,
+} from './component-library/select_example.tsx';
+
 import {
   Example1,
   example1Code,
@@ -91,15 +94,15 @@ const tools = [
     ],
   },
   {
-    slug: 'flex',
-    title: 'Flex',
+    slug: 'select',
+    title: 'Select',
     description:
       "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
     content: [
       {
         type: 'text',
-        example: flexExample,
-        exampleMarkDown: flexCode,
+        example: SelectExample,
+        exampleMarkDown: SelectCode,
       },
     ],
   },

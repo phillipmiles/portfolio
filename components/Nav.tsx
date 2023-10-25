@@ -1,13 +1,23 @@
-import Link from 'next/link';
 import s from './Nav.module.css';
+import NavItem from './NavItem';
 
-const Nav = (): JSX.Element => (
+interface Props {
+  invert: boolean;
+}
+
+const Nav = ({ invert }: Props): JSX.Element => (
   <nav className={s.nav}>
-    <Link href="/projects">Projects</Link>
-    <Link href="/tools">Tools</Link>
+    <NavItem href="/projects" invert={invert}>
+      Projects
+    </NavItem>
+    <NavItem href="/tools" invert={invert}>
+      Tools
+    </NavItem>
     {/* <Link href="/about">About</Link> */}
     {/* <Link href="blog">Blog</Link> */}
-    <Link href="mailTo:hello@phillipmiles.com">Contact</Link>
+    <NavItem href="mailTo:hello@phillipmiles.com" invert={invert}>
+      Contact
+    </NavItem>
   </nav>
 );
 

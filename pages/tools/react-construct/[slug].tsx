@@ -15,6 +15,7 @@ import CodeBox from '../../../components/generic/CodeBox';
 import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
 import Select from '../../../components/Select';
+import SelectMobile from '../../../components/SelectMobile';
 
 const options = [
   { id: 'hello', value: 'Hello' },
@@ -81,14 +82,7 @@ const ToolsReactLibrary: NextPage = () => {
                   width: '100%',
                 }}
               >
-                <div
-                  style={{
-                    width: '30%',
-                    paddingRight: '64px',
-                    flexShrink: 0,
-                    flexGrow: 0,
-                  }}
-                >
+                <div className={s.componentMenu}>
                   {tools.map((tool) => (
                     <Link
                       key={tool.slug}
@@ -121,7 +115,20 @@ const ToolsReactLibrary: NextPage = () => {
                     </Link>
                   ))}
                 </div>
-                <div style={{ marginBottom: 96, width: '70%' }}>
+                <div className={s.content}>
+                  <div className={s.selectControl}>
+                    <h5>Components</h5>
+                    {currentTool && (
+                      <SelectMobile
+                        selectId="component-select"
+                        options={parsedTools}
+                        selectedOption={currentTool}
+                        onSelect={(selection) => {
+                          router.push(selection.id, '', { scroll: false });
+                        }}
+                      />
+                    )}
+                  </div>
                   <p
                     style={{
                       maxWidth: 700,
@@ -135,18 +142,7 @@ const ToolsReactLibrary: NextPage = () => {
                       ? currentTool.description
                       : 'Component not found.'}
                   </p>
-                  {currentTool && (
-                    <Select
-                      selectId="component-select"
-                      options={parsedTools}
-                      label="Hello world"
-                      selectedOption={currentTool}
-                      onSelect={(selection) => {
-                        router.push(selection.id, '', { scroll: false });
-                        console.log(selection);
-                      }}
-                    />
-                  )}
+
                   {currentTool &&
                     currentTool.content.map((example, index) => (
                       <>

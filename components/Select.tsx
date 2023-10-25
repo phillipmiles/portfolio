@@ -18,7 +18,6 @@ const Select = ({
   children,
   label,
 }): Props => {
-  console.log(selectedOption);
   return (
     <>
       {label && <h5>{label}</h5>}

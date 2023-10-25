@@ -13,7 +13,7 @@ const Banner = ({ invert }: Props): JSX.Element => (
     <div className={s.logo}>
       <Link href="/">Phillip Miles</Link>
     </div>
-    <Nav />
+    <Nav invert={invert} />
   </div>
   // </StickyTopBar>
 );

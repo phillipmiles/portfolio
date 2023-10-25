@@ -3,15 +3,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 16px;
 }
 
 .nav a {
   color: inherit;
   padding: 16px;
-}
-
-.nav a:hover {
-  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
