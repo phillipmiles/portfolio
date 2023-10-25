@@ -111,6 +111,30 @@ const Home: NextPage = () => {
                   <FontAwesomeIcon icon={faWordpressSimple} />
                 </div>
               </Flex>
+              <div
+                style={{
+                  textAlign: 'center',
+                  marginTop: '96px',
+                  marginBottom: '48px',
+                }}
+              >
+                <p>
+                  "Phil's always able to balance shippability and quality with
+                  his work. He was always willing to call out problems early and
+                  would always articulate them at ease. He brings a
+                  solution-focused mindset, strong problem-solving capabilities
+                  and keen eye of design to every project. Phil's a pleasure to
+                  work with and would be a great member of any future team."
+                </p>
+                <p>- Daniel Steen (Senior Digital Designer @ DeakinCo)</p>
+                <Image
+                  alt=""
+                  src="/images/testimonials/daniel-steen.jpeg"
+                  width={100}
+                  height={100}
+                  style={{ borderRadius: '100px' }}
+                />
+              </div>
               <Projects />
               <DevTools />
             </PageContentWrap>

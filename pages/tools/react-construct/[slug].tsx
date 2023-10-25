@@ -129,19 +129,25 @@ const ToolsReactLibrary: NextPage = () => {
                       />
                     )}
                   </div>
-                  <p
+                  <div
                     style={{
-                      maxWidth: 700,
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
+                      // maxWidth: '700px',
                       marginTop: '48px',
                       marginBottom: '48px',
                     }}
                   >
-                    {currentTool
-                      ? currentTool.description
-                      : 'Component not found.'}
-                  </p>
+                    <h4>{currentTool ? currentTool.title : 'Title'}</h4>
+                    <p
+                      style={{
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                    >
+                      {currentTool
+                        ? currentTool.description
+                        : 'Component not found.'}
+                    </p>
+                  </div>
 
                   {currentTool &&
                     currentTool.content.map((example, index) => (
