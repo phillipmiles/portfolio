@@ -16,16 +16,16 @@ import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect
 import s from './[slug].module.css';
 import Select from '../../../components/Select';
 
+const options = [
+  { id: 'hello', value: 'Hello' },
+  { id: 'word', value: 'Word' },
+  { id: 'bur', value: 'bur' },
+];
+
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
 
-  const options = [
-    { id: 'hello', value: 'Hello' },
-    { id: 'word', value: 'Word' },
-    { id: 'bur', value: 'bur' },
-  ];
-  const [currentTool, setCurrentTool] = useState();
-  const [selectedOption, setSelectedOption] = useState(options[2]);
+  const [currentTool, setCurrentTool] = useState(null);
 
   useEffect(() => {
     const tool = tools.find((tool) => tool.slug === router.query.slug);
@@ -34,8 +34,14 @@ const ToolsReactLibrary: NextPage = () => {
       return;
     }
 
-    setCurrentTool(tool);
+    setCurrentTool({ value: tool.title, id: tool.slug, ...tool });
   }, [router]);
+
+  const parsedTools = tools.map((tool) => ({
+    value: tool.title,
+    id: tool.slug,
+    ...tool,
+  }));
 
   return (
     <>
@@ -129,12 +135,18 @@ const ToolsReactLibrary: NextPage = () => {
                       ? currentTool.description
                       : 'Component not found.'}
                   </p>
-                  <Select
-                    selectId="component-select"
-                    options={options}
-                    label="Hello world"
-                  />
-
+                  {currentTool && (
+                    <Select
+                      selectId="component-select"
+                      options={parsedTools}
+                      label="Hello world"
+                      selectedOption={currentTool}
+                      onSelect={(selection) => {
+                        router.push(selection.id, '', { scroll: false });
+                        console.log(selection);
+                      }}
+                    />
+                  )}
                   {currentTool &&
                     currentTool.content.map((example, index) => (
                       <>

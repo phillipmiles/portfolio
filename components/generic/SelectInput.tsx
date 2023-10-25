@@ -1,18 +1,18 @@
-import { useRef, useState } from 'react';
+import { MouseEventHandler, useRef, useState } from 'react';
 import Flex from './Flex';
 import s from './SelectInput.module.css';
 
 interface Props {
-  selected: boolean;
+  selectedOption: boolean;
   children?: React.ReactNode;
-  onClick: Function;
+  onClick: MouseEventHandler;
   style?: { [key: string]: any };
 }
 
 const SelectInput = ({
   expanded,
   selectId,
-  selected,
+  selectedOption,
   children,
   className,
   style,

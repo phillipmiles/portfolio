@@ -1,0 +1,11 @@
+.selectMenu {
+  position: absolute;
+  background: white;
+  border: 2px solid #ddd;
+  z-index: 1000;
+}
+
+.option {
+  cursor: pointer;
+  padding: 8px 24px;
+}

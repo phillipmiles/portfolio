@@ -3,15 +3,15 @@ import { MouseEventHandler } from 'react';
 interface Props {
   selectId: string;
   children?: React.ReactNode;
-  onClick: MouseEventHandler;
+  onSelect: MouseEventHandler;
   onCancel?: MouseEventHandler;
   style?: { [key: string]: any };
 }
 
 const SelectOption = ({
   selectId,
-  optionId,
-  onClick,
+  id,
+  onSelect,
   onCancel,
   children,
   ...props
@@ -19,7 +19,7 @@ const SelectOption = ({
   const handleKeyDown = (event: any) => {
     if (event.key === ' ' || event.key === 'Enter') {
       event.preventDefault();
-      onClick(event);
+      onSelect(event);
       return;
     }
     switch (event.key) {
@@ -56,11 +56,11 @@ const SelectOption = ({
   return (
     <div
       data-option={true}
-      data-option-id={optionId}
+      data-option-id={id}
       aria-disabled="false"
       tabIndex={-1}
       onKeyDown={handleKeyDown}
-      onClick={onClick}
+      onClick={onSelect}
       {...props}
     >
       {children}
