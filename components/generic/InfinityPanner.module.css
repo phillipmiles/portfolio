@@ -1,3 +1,24 @@
 .container > * {
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
+
+.animate {
+  animation: animate;
+  animation-duration: 8000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* position: absolute; */
+  /* transform: translate(100px); */
+  /* transition: transform 1000ms; */
+
+  /* left: 0; */
+}
+@keyframes animate {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    /* transform: translateX(-100%); */
+  }
+}

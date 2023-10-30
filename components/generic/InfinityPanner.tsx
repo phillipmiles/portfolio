@@ -38,7 +38,7 @@ const InfinityPanner = ({
   const [isTransitioning, setIsTransitioning] = useState(false);
   // const intervalRef = useRef();
   const containerRef = useRef<HTMLInputElement>(null);
-
+  const [appendElements, setAppendElements] = useState([]);
   // useEffect(() => {
   //   setIsTransitioning(true);
   // }, []);
@@ -91,16 +91,13 @@ const InfinityPanner = ({
       // });
     };
 
-    // if (!intervalRef.current) {
-    // console.log('am');
-    let intervalRef = setInterval(onInterval, 10);
-    // }
+    // let intervalRef = setInterval(onInterval, 10);
 
-    return () => {
-      if (intervalRef) {
-        clearInterval(intervalRef);
-      }
-    };
+    // return () => {
+    //   if (intervalRef) {
+    //     clearInterval(intervalRef);
+    //   }
+    // };
   }, []);
 
   const addChildren = () => {
@@ -128,21 +125,92 @@ const InfinityPanner = ({
       );
     });
   };
+
+  const addChildren2 = () => {
+    const childrenNew = [...children];
+    childrenNew.unshift(children[children.length - 1]);
+    childrenNew.unshift(children[children.length - 2]);
+    childrenNew.unshift(children[children.length - 3]);
+    childrenNew.unshift(children[children.length - 4]);
+    childrenNew.unshift(children[children.length - 5]);
+
+    return childrenNew;
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const items = containerRef.current.children;
+
+    let width = 0;
+    for (const item of items) {
+      width = width + item.getBoundingClientRect().width;
+      width = width + parseInt(item.style.marginLeft);
+      width = width + parseInt(item.style.marginRight);
+    }
+
+    console.log(width);
+    console.log(containerRef.current.getBoundingClientRect().width);
+    // console.log(width - containerRef.current.getBoundingClientRect().width);
+    const remainder = width;
+    console.log(remainder);
+
+    // setAppendElements([containerRef.current.children[0].cloneNode()]);
+
+    const append = [];
+
+    let appendWidth = 0;
+    for (let index = 0; index < children.length; index++) {
+      if (appendWidth > containerRef.current.getBoundingClientRect().width)
+        break;
+      const el = containerRef.current.children[index];
+      appendWidth = appendWidth + el.getBoundingClientRect().width;
+      appendWidth = appendWidth + parseInt(el.style.marginLeft);
+      appendWidth = appendWidth + parseInt(el.style.marginRight);
+      append.push(children[index]);
+    }
+    console.log(appendWidth);
+    setAppendElements(append);
+
+    // width =
+    //   width + appendWidth - containerRef.current.getBoundingClientRect().width;
+    containerRef.current.style.transform = `translateX(-${width - 1}px)`;
+    // containerRef.current.children.reduce((item) => {
+    //   return item.getBoundingClientBox().width;
+    // });
+    // console.log(containerRef.current.children[0]);
+    // containerRef.current.append(containerRef.current.children[0].cloneNode());
+
+    // containerRef.current.append(containerRef.current.children[1].cloneNode());
+    // containerRef.current.append(containerRef.current.children[2].cloneNode());
+  }, []);
+
+  console.log(appendElements);
   return (
     <div
-      ref={containerRef}
       className={`${s.container} ${className}`}
       style={{
         overflow: 'hidden',
-        position: 'relative',
-        display: 'flex',
-        width: '500px',
-        height: '500px',
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
       }}
       {...props}
     >
-      {addChildren()}
+      <div
+        ref={containerRef}
+        style={{
+          display: 'flex',
+          flexWrap: 'nowrap',
+          // justifyContent: 'center',
+          alignItems: 'center',
+          // position: 'absolute',
+          // left: 0,
+        }}
+        className={s.animate}
+      >
+        {children}
+        {...appendElements}
+        {/* {addChildren2()} */}
+      </div>
     </div>
   );
 };

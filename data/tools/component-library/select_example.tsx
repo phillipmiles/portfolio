@@ -25,7 +25,7 @@ export const SelectExample = () => {
     },
     {
       id: 'egg',
-      value: 'Apple',
+      value: 'Egg',
     },
   ];
 

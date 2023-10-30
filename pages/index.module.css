@@ -7,6 +7,41 @@
   align-items: center;
 }
 
+.testimonial {
+  text-align: center;
+  margin-top: 96px;
+  margin-bottom: 48px;
+  position: relative;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial q {
+  quotes: '“' '”';
+}
+
+.testimonial q:before {
+  position: absolute;
+  left: -60px;
+  top: -200px;
+  content: open-quote;
+  color: var(--primary-color);
+  opacity: 0.2;
+  font-size: 380px;
+  font-family: RecoletaDemo;
+}
+.testimonial q:after {
+  position: absolute;
+  content: close-quote;
+  color: var(--primary-color);
+  right: -80px;
+  bottom: -340px;
+  opacity: 0.2;
+  font-size: 380px;
+  font-family: RecoletaDemo;
+}
+
 .introBlock {
   width: 100%;
   height: 100vh;

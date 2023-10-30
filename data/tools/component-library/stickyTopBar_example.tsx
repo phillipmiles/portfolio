@@ -14,8 +14,8 @@ export const Example = () => {
           <div
             style={{ padding: '16px', background: 'lightgrey', flexGrow: 1 }}
           >
-            I'm sticky within the red box and will retract when scrolling down
-            but reappears when scrolling up.
+            I'm sticky only when scrolling up allowing me to retract when
+            scrolling down.
           </div>
         </StickyContainer>
       </div>

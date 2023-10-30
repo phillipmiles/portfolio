@@ -61,7 +61,6 @@ const ToolsReactLibrary: NextPage = () => {
                 <PageIntro>
                   React Construct is a library of low-level react components
                   used by developers to construct their own UI components.
-                  react-construct-components
                 </PageIntro>
               </div>
             </div>
