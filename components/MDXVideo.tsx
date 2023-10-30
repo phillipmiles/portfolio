@@ -87,7 +87,7 @@ const MDXVideo = ({
             ...videoStyle,
           }}
         >
-          <source src="/video/cpa_video_1.mp4" type="audio/mp4" />
+          <source src={src} type="audio/mp4" />
         </video>
         {/* </div> */}
       </div>

@@ -33,6 +33,9 @@ const InfinityPanner = ({
   href,
   className,
   style,
+  speed = '6000ms',
+  translateX = -1,
+  translateY = 0,
   ...props
 }: Props): JSX.Element => {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -102,7 +105,7 @@ const InfinityPanner = ({
 
   const addChildren = () => {
     let leftPosition = 0;
-    console.log('here', containerRef.current);
+
     return children.map((child, index) => {
       // leftPosition = leftPosition + child.getBoundingClientRect().width;
       // console.log(child);
@@ -124,17 +127,6 @@ const InfinityPanner = ({
         </div>
       );
     });
-  };
-
-  const addChildren2 = () => {
-    const childrenNew = [...children];
-    childrenNew.unshift(children[children.length - 1]);
-    childrenNew.unshift(children[children.length - 2]);
-    childrenNew.unshift(children[children.length - 3]);
-    childrenNew.unshift(children[children.length - 4]);
-    childrenNew.unshift(children[children.length - 5]);
-
-    return childrenNew;
   };
 
   useEffect(() => {
@@ -174,7 +166,9 @@ const InfinityPanner = ({
 
     // width =
     //   width + appendWidth - containerRef.current.getBoundingClientRect().width;
-    containerRef.current.style.transform = `translateX(-${width - 1}px)`;
+    containerRef.current.style.transform = `translateX(${
+      (width - 1) * translateX
+    }px)`;
     // containerRef.current.children.reduce((item) => {
     //   return item.getBoundingClientBox().width;
     // });
@@ -191,7 +185,8 @@ const InfinityPanner = ({
       className={`${s.container} ${className}`}
       style={{
         overflow: 'hidden',
-        // backgroundColor: 'green',
+        marginLeft: translateX > 0 ? '-100%' : 0,
+        ...style,
       }}
       {...props}
     >
@@ -200,9 +195,11 @@ const InfinityPanner = ({
         style={{
           display: 'flex',
           flexWrap: 'nowrap',
+          animationDuration: speed,
           // justifyContent: 'center',
           alignItems: 'center',
           // position: 'absolute',
+
           // left: 0,
         }}
         className={s.animate}

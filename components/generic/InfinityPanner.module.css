@@ -3,8 +3,7 @@
 }
 
 .animate {
-  animation: animate;
-  animation-duration: 8000ms;
+  animation-name: animate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   /* position: absolute; */

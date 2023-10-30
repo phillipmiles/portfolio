@@ -207,43 +207,8 @@ const Home: NextPage = () => {
               paddingBottom: 80,
             }}
           >
-            {/* <div style={{ maxWidth: 900, margin: 'auto' }}> */}
-            {/* <p style={{ textAlign: 'center', color: 'white', fontSize: 20 }}>
-              Worked with
-            </p> */}
-            {/* <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Image
-                  src={'/images/companies/logo_anz_h_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="ANZ Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_coles_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Coles Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_deakinuni_h_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Deakin University Logo"
-                  style={{ margin: 24 }}
-                />
-
-                <Image
-                  src={'/images/companies/logo_auspost_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Aus Post Logo"
-                  style={{ margin: 24 }}
-                />
-              </Flex> */}
             <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <InfinityPanner>
+              <InfinityPanner speed="12000ms" translateX={-1} translateY={0}>
                 <Image
                   src={'/images/companies/logo_anz_h_white.svg'}
                   width={140}
@@ -304,7 +269,6 @@ const Home: NextPage = () => {
               </InfinityPanner>
             </Flex>
           </div>
-          {/* </div> */}
         </main>
         <Footer />
       </PageWithFooter>
