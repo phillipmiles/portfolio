@@ -327,6 +327,13 @@
   .ctaWrap {
     margin-bottom: 64px;
   }
+
+  .testimonial q:before {
+    display: none;
+  }
+  .testimonial q:after {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {

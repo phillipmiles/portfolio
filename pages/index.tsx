@@ -71,7 +71,13 @@ const Home: NextPage = () => {
               </header>
             </PageContentWrap>
           </div>
-          <div style={{ backgroundColor: '#ECF4FA', width: '100%' }}>
+          <div
+            style={{
+              backgroundColor: '#ECF4FA',
+              width: '100%',
+              overflow: 'hidden',
+            }}
+          >
             <PageContentWrap>
               <Flex className={s.techIcons}>
                 <div
