@@ -1,8 +1,8 @@
+import { SelectExample, SelectCode } from './component-library/select_example';
 import {
-  SelectExample,
-  SelectCode,
-} from './component-library/select_example.tsx';
-
+  InfinityPannerExample,
+  InfinityPannerCode,
+} from './component-library/infinityPanner_example';
 import {
   Example1,
   example1Code,
@@ -90,6 +90,19 @@ const tools = [
         type: 'text',
         example: AudioExample,
         exampleMarkDown: audioExampleCode,
+      },
+    ],
+  },
+  {
+    slug: 'infinity-panner',
+    title: 'Infinity Panner',
+    description:
+      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    content: [
+      {
+        type: 'text',
+        example: InfinityPannerExample,
+        exampleMarkDown: InfinityPannerCode,
       },
     ],
   },

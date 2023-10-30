@@ -52,16 +52,20 @@ const InfinityPanner = ({
   useEffect(() => {
     const recalcPanner = () => {
       if (!containerRef.current) return;
-
+      console.log('run');
       const items = containerRef.current.children;
 
       let width = 0;
 
       for (let index = 0; index < children.length; index++) {
-        console.log('run');
         width = width + items[index].getBoundingClientRect().width;
-        width = width + parseInt(items[index].style.marginLeft);
-        width = width + parseInt(items[index].style.marginRight);
+        if (items[index].style.marginLeft) {
+          width = width + parseInt(items[index].style.marginLeft);
+        }
+
+        if (items[index].style.marginRight) {
+          width = width + parseInt(items[index].style.marginRight);
+        }
       }
 
       const append = [];
@@ -78,7 +82,7 @@ const InfinityPanner = ({
       }
 
       setAppendElements(append);
-
+      console.log(`translateX(${width})`);
       containerRef.current.style.transform = `translateX(${
         (width - 1) * translateX
       }px)`;
@@ -94,14 +98,14 @@ const InfinityPanner = ({
     };
   }, [children, translateX]);
 
-  console.log(appendElements);
+  console.log(translateX);
 
   return (
     <div
       className={`${s.container} ${className}`}
       style={{
         overflow: 'hidden',
-        marginLeft: translateX > 0 ? '-100%' : 0,
+
         ...style,
       }}
       {...props}
@@ -113,16 +117,13 @@ const InfinityPanner = ({
           flexWrap: 'nowrap',
           animationDuration: speed,
           // justifyContent: 'center',
+          marginLeft: translateX > 0 ? '-100%' : 0,
           alignItems: 'center',
-          // position: 'absolute',
-
-          // left: 0,
         }}
         className={s.animate}
       >
         {children}
         {...appendElements}
-        {/* {addChildren2()} */}
       </div>
     </div>
   );
