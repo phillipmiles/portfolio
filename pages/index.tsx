@@ -203,76 +203,68 @@ const Home: NextPage = () => {
               <DevTools />
             </PageContentWrap>
           </div>
-          <div
-            style={{
-              backgroundColor: '#007BE4',
-              width: '100%',
-              paddingTop: 80,
-              paddingBottom: 80,
-            }}
-          >
-            <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <InfinityPanner speed="12000ms" translateX={-1} translateY={0}>
-                <Image
-                  src={'/images/companies/logo_anz_h_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="ANZ Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_coles_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Coles Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_deakinuni_h_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Deakin University Logo"
-                  style={{ margin: 24 }}
-                />
 
-                <Image
-                  src={'/images/companies/logo_auspost_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Aus Post Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_hla_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="HLA Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_cpa_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="CPA Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_transurban_white.svg'}
-                  width={140}
-                  height={100}
-                  alt="Transurban Logo"
-                  style={{ margin: 24 }}
-                />
-                <Image
-                  src={'/images/companies/logo_dhhs_white.png'}
-                  width={140}
-                  height={50}
-                  alt="DHHS Logo"
-                  style={{ margin: 24 }}
-                />
-              </InfinityPanner>
-            </Flex>
-          </div>
+          <Flex className={s.companiesContainer}>
+            <InfinityPanner speed="12000ms" translateX={-1} translateY={0}>
+              <Image
+                src={'/images/companies/logo_anz_h_white.svg'}
+                width={140}
+                height={100}
+                alt="ANZ Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_coles_white.svg'}
+                width={140}
+                height={100}
+                alt="Coles Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_deakinuni_h_white.svg'}
+                width={140}
+                height={100}
+                alt="Deakin University Logo"
+                style={{ margin: 24 }}
+              />
+
+              <Image
+                src={'/images/companies/logo_auspost_white.svg'}
+                width={140}
+                height={100}
+                alt="Aus Post Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_hla_white.svg'}
+                width={140}
+                height={100}
+                alt="HLA Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_cpa_white.svg'}
+                width={140}
+                height={100}
+                alt="CPA Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_transurban_white.svg'}
+                width={140}
+                height={100}
+                alt="Transurban Logo"
+                style={{ margin: 24 }}
+              />
+              <Image
+                src={'/images/companies/logo_dhhs_white.png'}
+                width={140}
+                height={50}
+                alt="DHHS Logo"
+                style={{ margin: 24 }}
+              />
+            </InfinityPanner>
+          </Flex>
         </main>
         <Footer />
       </PageWithFooter>
