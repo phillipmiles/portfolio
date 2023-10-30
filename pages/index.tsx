@@ -130,13 +130,13 @@ const Home: NextPage = () => {
               <div className={s.testimonial}>
                 <p>
                   <q>
-                    Phil's always able to balance shippability and quality with
-                    his work. He was always willing to call out problems early
-                    and would always articulate them at ease. He brings a
+                    Phil&pos;s always able to balance shippability and quality
+                    with his work. He was always willing to call out problems
+                    early and would always articulate them at ease. He brings a
                     solution-focused mindset, strong problem-solving
-                    capabilities and keen eye of design to every project. Phil's
-                    a pleasure to work with and would be a great member of any
-                    future team.
+                    capabilities and keen eye of design to every project.
+                    Phil&pos;s a pleasure to work with and would be a great
+                    member of any future team.
                   </q>
                 </p>
 
