@@ -48,24 +48,28 @@ const Home: NextPage = () => {
         <main className={s.main}>
           <div className={s.introBlock}>
             <Banner invert />
-
-            <header className={s.header}>
-              <div className={s.headerLeft}>
-                <h1 className={s.title}>Versatile, Performant, Documented</h1>
-                <p className={s.description}>
-                  React component library specialist
-                </p>
-                <div className={s.ctaWrap}>
-                  <Link href="/projects" className={s.cta}>
-                    View projects
-                  </Link>
-                  <div className={s.ctaShadow} />
+            <PageContentWrap
+              classNameOuter={s.pageWrapOuter}
+              classNameInner={s.pageWrapInner}
+            >
+              <header className={s.header}>
+                <div className={s.headerLeft}>
+                  <h1 className={s.title}>Versatile, Performant, Documented</h1>
+                  <p className={s.description}>
+                    React component library specialist
+                  </p>
+                  <div className={s.ctaWrap}>
+                    <Link href="/projects" className={s.cta}>
+                      View projects
+                    </Link>
+                    <div className={s.ctaShadow} />
+                  </div>
                 </div>
-              </div>
-              <div className={s.headerRight}>
-                <Hero />
-              </div>
-            </header>
+                <div className={s.headerRight}>
+                  <Hero />
+                </div>
+              </header>
+            </PageContentWrap>
           </div>
           <div style={{ backgroundColor: '#ECF4FA', width: '100%' }}>
             <PageContentWrap>

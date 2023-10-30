@@ -43,6 +43,8 @@
 }
 
 .introBlock {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   background: linear-gradient(
@@ -69,11 +71,20 @@
   }
 }
 
+.pageWrapOuter {
+  flex-grow: 1;
+}
+
+.pageWrapInner {
+  justify-content: center;
+}
+
 .header {
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   display: flex;
-  padding: 4rem 8rem;
+  /* padding: 4rem 8rem; */
   width: 100%;
   color: white;
 }
