@@ -7,6 +7,17 @@ import UntitledGame from '../../data/projects/untitled-game.mdx';
 
 const projects = [
   {
+    slug: 'verso',
+    name: 'Verso Learning',
+    intro: 'Implementation of a site wide redesign as part of a rebranding.',
+    year: '2020 - 2021',
+    thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
+    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
+    description:
+      'I was brought into this project to implement a full visual uplift and fresh design system to the Verso web app following as part of a rebranding. I worked closeslyOther goals were to lay the groundwork for more efficiant development with the construction of a component library of over 100 reusable and documented components. Developed rich and interactive data visualisation charts,',
+    content: <Verso />,
+  },
+  {
     slug: 'cpa',
     name: 'CPA Interactive Story',
     intro: 'An award-winning new direction for educating financial advisors.',
@@ -16,17 +27,6 @@ const projects = [
     description:
       '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
     content: <Cpa />,
-  },
-  {
-    slug: 'verso',
-    name: 'Verso Learning',
-    intro: 'Mobile not taking app built with React Native',
-    year: '2020 - 2021',
-    thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
-    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
-    description:
-      '<p>We created an industry first interactive and immersive experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
-    content: <Verso />,
   },
   {
     slug: 'thought-stream',

@@ -1,5 +1,6 @@
 import MDXImage from '../../components/MDXImage';
 import MDXGallery from '../../components/MDXGallery';
+import MDXVideo from '../../components/MDXVideo';
 
 <MDXImage
   src="/images/projects/verso/verso_thumbnail_01.jpg"
@@ -8,35 +9,32 @@ import MDXGallery from '../../components/MDXGallery';
   alt="sdfsf"
 />
 
-This is an example file where I would be writing and editing the content of a blog post completly ignoring **how** it will be rendered in the final app. This is just about content only.
+Back in 2020 Verso was inititing a complete redesign of their web app using the React framework. As part of the redesign the development team saw the opportunity to conduct a rewrite of the frontend codebase which had become frankenstiened by different developers over the years.
 
-Praesent eget augue in tellus porta luctus. Mauris quis nulla nulla. Vivamus rutrum rutrum nisi, sed laoreet augue dignissim egestas.
+This was in a large part due to the spontinaity of new requirements and an ever changing visual design unguided by a deadicated designer encountering a codebase that lacked any restrictions or documentation for developers on how changes should be made.
+
+<MDXVideo
+  src="/video/verso_video_1.mp4"
+  width={680}
+  aspectRatio="17/10"
+  caption="A marketing video showcasing some of the redesigned web app."
+/>
+
+I was brought in along with a designer and product manager to handle the implementation of the redesign. Working closely with the designer we created a design language that would hold up and direct new developers and designers in their work for years to come.
+
+The design language was then integrated into our chosen CSS in JS solution called [Theme UI](https://theme-ui.com/) restricting what styles could be applied to components. This insured consistancy accross the web app by creating a friction point for developers that would guide them even without a designer present on the team.
 
 <MDXImage
   src="/images/projects/verso/verso_feedback.png"
   height={512}
   width={680}
   aspectRatio="9/6"
-  alt="sdfsf"
+  alt=""
 />
 
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
+A second friction point was created by sperating the core components out into an isolated NPM module. Again to help deter any spontanious changes that may errode the codebase. These components were then integrated in [Storybook](https://storybook.js.org/) which served as a dynamically updated documentation and would force careful consideration to be made before getting changed by developers.
 
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
-
-<MDXImage
-  src="/images/projects/verso/verso_home.png"
-  height={512}
-  width={400}
-  aspectRatio="3/4"
-  float="right"
-  alt="sdfsf"
-/>
-
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
-
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
+The result was a component library of over 100 new, versatile and documented components used across two web apps.
 
 <MDXGallery
   images={[
@@ -45,7 +43,7 @@ Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit l
       alt: '',
     },
     {
-      src: '/images/projects/verso/verso_dot_chart.png',
+      src: '/images/projects/verso/verso_home.png',
       alt: '',
     },
     {
@@ -57,9 +55,13 @@ Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit l
   width={1140}
   priority
   wide
-  alt="sdfsf"
+  alt=""
 />
 
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
+The app which guided teachers into improving their professional ability within the education space relyed heavily on user generated data and student feedback. This needed to be communicted to the user through interactive charts.
 
-Aenean id leo sit amet justo efficitur congue. Integer ut vulputate turpis. Proin quis erat eu ligula faucibus consectetur. Cras nec pretium dolor. Fusce porttitor magna ex, eget sagittis urna tempus sit amet. Pellentesque dapibus nec sem vitae ultricies. Curabitur quis ante sagittis, hendrerit felis nec, vehicula risus.
+A problem we encountered with the charts was that poor performance was hurting numerous animations within the charts and other interactive elements. Careful monitoring of performace using various tools helped me isolate problamatic areas. The colpreate was always page data triggering component rerenders on components that didn't rerendering. On each component rerender the web browser would then have to repaint large section of the the page which took too many resources away from insuring butter smooth animations.
+
+This problem was solved by memoizing various page data in the problamatic areas with the use of the useMemo and useCallback reat hooks.
+
+All in all I left the project feeling proud of the work I had done and confident in the longevity of the systems we set up.
