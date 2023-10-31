@@ -2,20 +2,19 @@
   --content-width: 680px;
 }
 
-.content p,
+.content > p,
 .content h1,
 .content h2,
 .content h3,
 .content h4,
 .content h5,
-.content h6,
-.content p {
+.content h6 {
   max-width: var(--content-width);
   margin: auto;
   text-align: left;
 }
 
-.content p {
+.content > p {
   margin-bottom: 16px;
 }
 

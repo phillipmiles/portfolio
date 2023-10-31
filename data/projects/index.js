@@ -42,17 +42,6 @@ const projects = [
     content: <ThoughtStream />,
   },
   {
-    slug: 'untitled-game',
-    name: 'AI Generated Unreal Game',
-    intro: 'Creating AI assisted art assets for a stunning 2D game world.',
-    year: '2023 - Current',
-    thumbnail: '/images/projects/untitled-game/untitled-game_thumbnail_01.jpg',
-    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
-    description:
-      "<p>With the introduction of AI art generators I finally saw an oportunity to fullfill my childhood dream of creating a game.</p><p>I'm developing the game in the Unreal Engine. The art assets start out as AI generated which are then spliced together and further altered with my own illustrating to create rich seamless backgrounds.</p>",
-    content: <UntitledGame />,
-  },
-  {
     slug: 'coles',
     name: 'Coles E-Learning',
     intro:
@@ -65,10 +54,21 @@ const projects = [
     content: <Coles />,
   },
   {
+    slug: 'untitled-game',
+    name: 'AI generated game made in Unreal',
+    intro: 'Creating AI assisted art assets for a stunning 2D game world.',
+    year: '2023',
+    thumbnail: '/images/projects/untitled-game/untitled-game_thumbnail_01.jpg',
+    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
+    description:
+      "<p>With the introduction of AI art generators I finally saw an oportunity to fullfill my childhood dream of creating a game.</p><p>I'm developing the game in the Unreal Engine. The art assets start out as AI generated which are then spliced together and further altered with my own illustrating to create rich seamless backgrounds.</p>",
+    content: <UntitledGame />,
+  },
+  {
     slug: 'woodfort',
     name: 'Woodfort Cases',
-    intro: 'Mobile not taking app built with React Native',
-    year: '2020 - 2021',
+    intro: 'A small business making handmade wood panelled computer cases.',
+    year: '2023',
     thumbnail: '/images/woodfort_walnut.jpeg',
     bannerSrc: '/images/projects/woodfort/woodfort_banner_01.jpg',
     description:
