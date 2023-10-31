@@ -8,15 +8,19 @@ import MDXGallery from '../../components/MDXGallery';
   alt="sdfsf"
 />
 
-This is an example file where I would be writing and editing the content of a blog post completly ignoring **how** it will be rendered in the final app. This is just about content only.
+I had been eyeing [React Native](https://reactnative.dev/) for a while when I first started on Thought Stream. As a app development framework that lets you create Apps for both Apple Iphone and Android using only Javascript and React, React Native was something I had been wanting to play around with for a while.
 
-Praesent eget augue in tellus porta luctus. Mauris quis nulla nulla. Vivamus rutrum rutrum nisi, sed laoreet augue dignissim egestas.
+So when I had a personal need for a mobile app I jumped on it.
 
-## Oh look, a heading 2
+I frequently take notes throughout my day. Often not because I want to return to them but just because I want to get them out of my head.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a diam vitae metus rhoncus ornare. Donec imperdiet libero vel lectus molestie maximus. Integer iaculis lobortis cursus. Nullam sodales odio magna, a mollis est aliquet et. Proin posuere metus non interdum sagittis. Nulla ac risus ullamcorper, pellentesque odio vehicula, laoreet libero. Sed neque libero, venenatis et euismod ac, mollis nec mauris.
+In the past I had used paper. A lot of it. But I was tired of having piles of paper everywhere as well as being increasingly concious of the environment. So I wanted to switch to using a note taking app.
 
-Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at bibendum velit turpis at purus. In fermentum, dolor sed rutrum accumsan, lorem risus maximus purus, id tempus ipsum ex at nibh.
+The problem was I wasn't happy with any of the apps I tried.
+
+They either felt too bloated, weren't fast enough, took too many button presses or were just plain ugly. All I wanted was something as close to the simiplicity and speed of writing on a piece of paper.
+
+### The app
 
 <MDXImage
   src="/images/projects/thought-stream/store-mobile-4.png"
@@ -27,14 +31,13 @@ Phasellus interdum, velit eu tincidunt lobortis, lorem est dictum arcu, at biben
   float="right"
 />
 
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
+On paper what I ended up making is not really desimilar to existing note taking apps. Regardless I actually liked using it. It gave me exactly what I wanted in just the way that I wanted it. Since this was an app intended just for myself it was perfect.
 
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
+The core intention of the app was to serve as a dumping ground for thoughts on an infinite wall ordered by time. Notes are not meant to be deleted (although they can be) but instead simply accumulate forever with older notes dissapearing (but never gone) further up and up the scrollable wall. There is no other way to order notes as I found I almost never return to notes older then a couple of weeks.
 
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
+Notes also didn't need to be tagged, labeled or searchable because the primary goal here is to simply get the thought out of my head. They can however be filtered as when I do return to my notes I frequently return with the objective of reviewing notes on a specifict subject rather then all recent notes regardless of topic.
 
-Proin faucibus rutrum vehicula. Integer vel iaculis mauris. Nam ante elit, fermentum et varius in, eleifend at est. Duis enim sem, semper non turpis vitae, finibus ultricies odio. Integer ex augue, sagittis vel porttitor non, hendrerit nec tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec fringilla molestie sapien, porta viverra urna condimentum aliquam.
-Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit lorem, id consequat felis sollicitudin in. Phasellus tortor ligula, pulvinar in risus sit amet, laoreet ultrices magna. Nam bibendum fringilla efficitur. Pellentesque eros nibh, ornare id semper sed, aliquam vel neque.
+This filtering is achieved through "Streams" (hence why the app is called 'Thought Stream'). Stream affectivly act as a category. When writing a note you can specify what stream to add it in but by default the app will add the note to the same stream of the previously added note. The reason behind this is because I would often have a string of thoughts in a row on the one subject and it saved on a button press to note have to specify the stream on every new note.
 
 <MDXGallery
   images={[
@@ -55,5 +58,12 @@ Mauris a odio eleifend, vehicula sapien in, varius massa. Aliquam finibus elit l
   width={1140}
   priority
   wide
-  alt="sdfsf"
 />
+
+### Challenges
+
+The biggest challenged was the rich text editor. React Native by itself doesn't come with one and because every primitive React Native component is written in the operating systems own language I couldn't excactly write my own without spending way too much time learning and developing it.
+
+Another challenges were performance. Especially on page loads. Any delay would effectively kill any chance that I would actually use the app. This was largely solved by using recommended development practices and through careful and intentiounal priorities rendering of components at different times within a transition.
+
+The final challenge was jank. At the end of the day React Native just won't ever be as good as an app writting in the operating systems native code. Within it there exists numerous little querks and inconsistances that would just feel a little off compared to a typical app. I had to expierment and discover work arounds to these issues to make sure the user experience didn't distract from the user's objective when using it.

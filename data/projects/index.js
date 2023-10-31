@@ -31,8 +31,9 @@ const projects = [
   {
     slug: 'thought-stream',
     name: 'Thought Stream',
-    intro: 'A mobile, cross-platform note taking app built with React Native.',
-    year: '2020 - 2021',
+    intro:
+      'A cross-platform mobile note taking app built with React Native built by me for me.',
+    year: '2021 - 2022',
     thumbnail:
       '/images/projects/thought-stream/thought-stream_thumbnail_01.jpg',
     bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
