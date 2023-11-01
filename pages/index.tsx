@@ -153,13 +153,7 @@ const Home: NextPage = () => {
               </q>
             </p>
 
-            <Flex
-              style={{
-                // display: 'block',
-                justifyContent: 'center',
-                // marginLeft: '240px'
-              }}
-            >
+            <Flex className={s.testimonialContainer}>
               <Image
                 alt=""
                 src="/images/testimonials/daniel-steen.jpeg"
@@ -167,15 +161,7 @@ const Home: NextPage = () => {
                 height={48}
                 style={{ borderRadius: '100px' }}
               />
-              <div
-                style={{
-                  display: 'flex',
-                  // flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginLeft: '16px',
-                }}
-              >
+              <div className={s.testimonialTextContainer}>
                 <p
                   style={{
                     textAlign: 'left',
@@ -183,19 +169,9 @@ const Home: NextPage = () => {
                     fontSize: '16px',
                   }}
                 >
-                  {/* <strong> */}
                   Daniel Steen
-                  {/* </strong> */}
                 </p>
-                <p
-                  style={{
-                    margin: '0 8px',
-                    opacity: 0.6,
-                    fontSize: '16px',
-                  }}
-                >
-                  |
-                </p>
+                <p className={s.testimonialTextDivider}>|</p>
                 <p
                   style={{
                     margin: 0,

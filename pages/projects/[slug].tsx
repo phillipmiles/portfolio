@@ -101,6 +101,14 @@ const Projects: NextPage = (props) => {
           property="og:url"
           content={`https://www.phillipmiles.com/projects/${router.query.slug}`}
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Your Website Title" />
+        <meta property="og:description" content="Your description" />
+        <meta
+          property="og:image"
+          content="https://www.your-domain.com/path/image.jpg"
+          key="./images/projects/untitled-game/untitled-game_thumbnail_01.jpg"
+        />
       </Head>
 
       <Banner />
@@ -133,7 +141,18 @@ const Projects: NextPage = (props) => {
                     />
                   </div> */}
               <div className={styles.content}>{project.content}</div>
+              {/* <p
+                style={{
+                  borderBottom: '1px solid #AAA',
+                  margin: 'auto',
+                  maxWidth: '150px',
+                  paddingBottom: '16px',
+                }}
+              >
+                Share
+              </p> */}
               <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <p style={{ margin: '16px' }}>Share on</p>
                 <a
                   rel="canonical"
                   data-size="large"
@@ -145,7 +164,7 @@ const Projects: NextPage = (props) => {
                     width={32}
                     height={32}
                     alt="Share on X"
-                    style={{ margin: 24, color: 'black' }}
+                    style={{ margin: 16, color: 'black' }}
                   />
                 </a>
 
@@ -192,7 +211,7 @@ const Projects: NextPage = (props) => {
                       width={32}
                       height={32}
                       alt="Share on X"
-                      style={{ margin: 24, color: 'black' }}
+                      style={{ margin: 16, color: 'black' }}
                     />
                   </a>
                 </div>

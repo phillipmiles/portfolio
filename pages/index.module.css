@@ -275,6 +275,23 @@
   line-height: 1.5;
 }
 
+.testimonialContainer {
+  justify-content: center;
+}
+
+.testimonialTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 16px;
+}
+
+.testimonialTextDivider {
+  margin: 0 8px;
+  opacity: 0.6;
+  font-size: 16px;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -349,6 +366,18 @@
   }
   .companyImage {
     width: 100px;
+  }
+  .testimonialContainer {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .testimonialTextContainer {
+    flex-direction: column;
+  }
+
+  .testimonialTextDivider {
+    display: none;
   }
 }
 
