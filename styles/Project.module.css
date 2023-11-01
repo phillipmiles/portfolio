@@ -41,3 +41,14 @@
   float: right;
   clear: both;
 }
+
+.shareButton {
+  line-height: 0;
+  transform: scale(1);
+  transition: transform 200ms;
+}
+
+.shareButton:hover {
+  transform: scale(1.2);
+  transition: none;
+}

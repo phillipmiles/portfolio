@@ -28,7 +28,7 @@ import ProjectCard from '../../components/ProjectCard';
 import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
 
-import styles from '../../styles/Project.module.css';
+import s from '../../styles/Project.module.css';
 
 import projects from '../../data/projects';
 
@@ -115,17 +115,18 @@ const Projects: NextPage = (props) => {
       <PageContentWrap>
         <div style={{ marginBottom: 96 }}>
           {router.isReady && project && (
-            <div
-              style={{
-                textAlign: 'center',
-                marginTop: 64,
-                marginBottom: 96,
-              }}
-            >
-              <p style={{ marginBottom: 30 }}>{project.year}</p>
-              <PageTitle>{project.name}</PageTitle>
-              <PageIntro>{project.intro}</PageIntro>
-              {/* <div
+            <>
+              <div
+                style={{
+                  textAlign: 'center',
+                  marginTop: 64,
+                  marginBottom: 96,
+                }}
+              >
+                <p style={{ marginBottom: 30 }}>{project.year}</p>
+                <PageTitle>{project.name}</PageTitle>
+                <PageIntro>{project.intro}</PageIntro>
+                {/* <div
                     style={{
                       position: 'relative',
                       width: '100%',
@@ -140,7 +141,8 @@ const Projects: NextPage = (props) => {
                       style={{ objectFit: 'cover' }}
                     />
                   </div> */}
-              <div className={styles.content}>{project.content}</div>
+              </div>
+              <div className={s.content}>{project.content}</div>
               <Flex
                 style={{
                   justifyContent: 'center',
@@ -152,7 +154,7 @@ const Projects: NextPage = (props) => {
                 <a
                   rel="canonical"
                   data-size="large"
-                  className="twitter-share-button"
+                  className={`twitter-share-button ${s.shareButton}`}
                   href={`https://twitter.com/intent/tweet?text=www.phillipmiles.com/projects/${router.query.slug}`}
                 >
                   <Image
@@ -160,7 +162,7 @@ const Projects: NextPage = (props) => {
                     width={32}
                     height={32}
                     alt="Share on X"
-                    style={{ margin: 16, color: 'black' }}
+                    style={{ margin: 8, color: 'black' }}
                   />
                 </a>
 
@@ -168,13 +170,13 @@ const Projects: NextPage = (props) => {
                 <script
                   async
                   defer
-                  crossorigin="anonymous"
+                  crossOrigin="anonymous"
                   src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
                   nonce="QgmLflDB"
                 ></script>
 
                 <div
-                  class="fb-share-button"
+                  className={`fb-share-button ${s.shareButton}`}
                   data-href="https://www.phillipmiles.com"
                   data-layout=""
                   data-size=""
@@ -182,19 +184,19 @@ const Projects: NextPage = (props) => {
                   <a
                     target="_blank"
                     href={`https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.phillipmiles.com/projects/${router.query.slug}%2F&amp;src=sdkpreparse`}
-                    class="fb-xfbml-parse-ignore"
+                    className="fb-xfbml-parse-ignore"
                   >
                     <Image
                       src={'/images/companies/icons/facebook-icon.svg'}
                       width={32}
                       height={32}
                       alt="Share on Facebook"
-                      style={{ margin: 16, color: 'black' }}
+                      style={{ margin: 8, color: 'black' }}
                     />
                   </a>
                 </div>
               </Flex>
-            </div>
+            </>
           )}
         </div>
       </PageContentWrap>
