@@ -141,16 +141,6 @@ const Projects: NextPage = (props) => {
                     />
                   </div> */}
               <div className={styles.content}>{project.content}</div>
-              {/* <p
-                style={{
-                  borderBottom: '1px solid #AAA',
-                  margin: 'auto',
-                  maxWidth: '150px',
-                  paddingBottom: '16px',
-                }}
-              >
-                Share
-              </p> */}
               <Flex
                 style={{
                   justifyContent: 'center',
@@ -158,7 +148,7 @@ const Projects: NextPage = (props) => {
                   marginTop: '60px',
                 }}
               >
-                <p style={{ margin: '16px' }}>Share on</p>
+                <p style={{ margin: '16px' }}>Share on:</p>
                 <a
                   rel="canonical"
                   data-size="large"
@@ -183,24 +173,6 @@ const Projects: NextPage = (props) => {
                   nonce="QgmLflDB"
                 ></script>
 
-                {/* <a
-                  // className="fb-share-button"
-                  // data-href={`https://twitter.com/intent/tweet?text=www.phillipmiles.com/projects/${router.query.slug}`}
-                  target="_blank"
-                  data-layout="button"
-                  data-size="large"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                  className="fb-xfbml-parse-ignore"
-                >
-                  <Image
-                    src={'/images/companies/icons/facebook-icon.svg'}
-                    width={32}
-                    height={32}
-                    alt="Share on X"
-                    style={{ margin: 24, color: 'black' }}
-                  />
-                </a> */}
-
                 <div
                   class="fb-share-button"
                   data-href="https://www.phillipmiles.com"
@@ -216,20 +188,11 @@ const Projects: NextPage = (props) => {
                       src={'/images/companies/icons/facebook-icon.svg'}
                       width={32}
                       height={32}
-                      alt="Share on X"
+                      alt="Share on Facebook"
                       style={{ margin: 16, color: 'black' }}
                     />
                   </a>
                 </div>
-
-                {/* <div
-                  className="fb-share-button"
-                  data-href={`https://twitter.com/intent/tweet?text=www.phillipmiles.com/projects/${router.query.slug}`}
-                  data-layout="button"
-                  data-size="large"
-                >
-                  sdf
-                </div> */}
               </Flex>
             </div>
           )}

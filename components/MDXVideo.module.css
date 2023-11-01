@@ -1,19 +1,30 @@
 .muteButton {
-  background-color: white;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
   border-radius: 24px;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: scale(1);
   transition: transform 200ms;
+  background-color: transparent;
 }
 
 .muteButton:hover {
   transform: scale(1.2);
   transition: none;
+}
+
+.muteButtonInner {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  border-radius: inherit;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
 }

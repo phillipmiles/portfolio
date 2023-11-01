@@ -100,21 +100,23 @@ const MDXVideo = ({
         </video>
         {showMuteButton && (
           <button onClick={onClickMute} className={s.muteButton}>
-            {mute ? (
-              <Image
-                src="/images/icons/volume-none.svg"
-                width={16}
-                height={16}
-                alt=""
-              />
-            ) : (
-              <Image
-                src="/images/icons/volume-high.svg"
-                width={16}
-                height={16}
-                alt=""
-              />
-            )}
+            <div className={s.muteButtonInner}>
+              {mute ? (
+                <Image
+                  src="/images/icons/volume-none.svg"
+                  width={16}
+                  height={16}
+                  alt=""
+                />
+              ) : (
+                <Image
+                  src="/images/icons/volume-high.svg"
+                  width={16}
+                  height={16}
+                  alt=""
+                />
+              )}
+            </div>
           </button>
         )}
       </div>
