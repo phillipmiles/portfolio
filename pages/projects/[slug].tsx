@@ -107,7 +107,7 @@ const Projects: NextPage = (props) => {
         <meta
           property="og:image"
           content="https://www.your-domain.com/path/image.jpg"
-          key="./images/projects/untitled-game/untitled-game_thumbnail_01.jpg"
+          key={`./images/projects/${router.query.slug}/${router.query.slug}_thumbnail_01.jpg`}
         />
       </Head>
 
@@ -151,7 +151,13 @@ const Projects: NextPage = (props) => {
               >
                 Share
               </p> */}
-              <Flex style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Flex
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: '60px',
+                }}
+              >
                 <p style={{ margin: '16px' }}>Share on</p>
                 <a
                   rel="canonical"
