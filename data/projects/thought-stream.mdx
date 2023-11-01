@@ -1,8 +1,9 @@
 import MDXImage from '../../components/MDXImage';
+import MDXVideo from '../../components/MDXVideo';
 import MDXGallery from '../../components/MDXGallery';
 
 <MDXImage
-  src="/images/projects/thought-stream/thought-stream_thumbnail_01.jpg"
+  src="/images/projects/thought-stream/feature-graphic.png"
   width={1140}
   aspectRatio="6/3"
   alt=""
@@ -61,6 +62,13 @@ This filtering is achieved through "Streams" (hence why the app is called 'Thoug
 />
 
 ### Challenges
+
+<MDXVideo
+  src="/video/thought-stream-app.mp4"
+  height={600}
+  width={400}
+  float="right"
+/>
 
 The biggest challenged was the rich text editor. React Native by itself doesn't come with one and because every primitive React Native component is written in the operating systems own language I couldn't excactly write my own without spending way too much time learning and developing it.
 

@@ -21,15 +21,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.ico" />
-        <meta
-          property="og:url"
-          content="https://www.your-domain.com/your-page.html"
-        />
+        <meta property="og:url" content="https://www.phillipmiles.com" />
         <meta property="og:type" content="website" key="og:type" />
         <meta property="og:title" content="Your Website Title" key="og:title" />
         <meta
           property="og:description"
-          content="Your description"
+          content="React component library specialist porfolio by Phillip Miles. Versatile, performant, documented react components."
           key="og:description"
         />
         <meta

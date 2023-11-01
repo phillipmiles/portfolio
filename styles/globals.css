@@ -78,3 +78,8 @@ p > a:hover::before {
   background-color: var(--primary-color);
   color: white;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+}

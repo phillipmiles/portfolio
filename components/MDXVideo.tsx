@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { useState } from 'react';
+import s from './MDXVideo.module.css';
 
 const MDXVideo = ({
+  showMuteButton = false,
   alt,
   priority,
   src,
@@ -12,6 +15,12 @@ const MDXVideo = ({
   caption,
   videoStyle,
 }): JSX.Element => {
+  const [mute, setMute] = useState(true);
+
+  const onClickMute = () => {
+    setMute((state) => !state);
+  };
+
   const w = `${width}px`;
   const h = `${height}px`;
   return (
@@ -74,7 +83,7 @@ const MDXVideo = ({
         {/* <iframe width="420" height="315" src={src}></iframe> */}
         <video
           loop
-          muted
+          muted={mute}
           autoPlay
           style={{
             width: '100%',
@@ -89,7 +98,25 @@ const MDXVideo = ({
         >
           <source src={src} type="audio/mp4" />
         </video>
-        {/* </div> */}
+        {showMuteButton && (
+          <button onClick={onClickMute} className={s.muteButton}>
+            {mute ? (
+              <Image
+                src="/images/icons/volume-none.svg"
+                width={16}
+                height={16}
+                alt=""
+              />
+            ) : (
+              <Image
+                src="/images/icons/volume-high.svg"
+                width={16}
+                height={16}
+                alt=""
+              />
+            )}
+          </button>
+        )}
       </div>
       {caption && (
         <p
