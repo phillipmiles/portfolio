@@ -14,7 +14,7 @@ import {
   faShare,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import HeroScreen4 from './HeroScreen4';
 
 const VideoPlayer = dynamic(() => import('./generic/VideoPlayer'), {
@@ -28,25 +28,24 @@ const Hero = () => {
   const video3Ref: any = useRef();
   const [doOnce, setDoOnce] = useState(false);
 
-  const onReady = () => {
-    // console.log('dsfg');
+  const onReady = useCallback(() => {
     if (!doOnce) {
-      // video1Ref.current.seekTo(15, 'seconds');
-      // video1Ref.current.playing = true;
+      video1Ref.current.seekTo(0, 'seconds');
+
       setDoOnce(true);
     }
-  };
+  }, [doOnce]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (video === 1) {
-        video2Ref.current.seekTo(15, 'seconds');
+        video3Ref.current.seekTo(0, 'seconds');
         setVideo(2);
       } else if (video === 2) {
-        video3Ref.current.seekTo(0, 'seconds');
-        setVideo(3);
-      } else if (video === 3 && video1Ref.current) {
         video1Ref.current.seekTo(0, 'seconds');
+        setVideo(3);
+      } else if (video === 3) {
+        video2Ref.current.seekTo(0, 'seconds');
         setVideo(1);
       }
     }, 6000);
@@ -73,10 +72,10 @@ const Hero = () => {
           className={s.video}
           style={{
             transition: 'transform 300ms, opacity 300ms',
-            ...(video === 1 && {
-              opacity: 1,
-            }),
-            opacity: doOnce === true ? 1 : 0,
+            ...(video === 1 &&
+              doOnce !== false && {
+                opacity: 1,
+              }),
           }}
           playing={video === 1}
           muted={true}

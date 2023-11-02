@@ -179,7 +179,7 @@ const Home: NextPage = () => {
                     fontSize: '16px',
                   }}
                 >
-                  Senior Digital Experience Designer, DeakinCo.
+                  Lead Digital Experience and Innovation, RMIT
                 </p>
               </div>
             </Flex>

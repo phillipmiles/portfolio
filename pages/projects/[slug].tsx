@@ -162,7 +162,7 @@ const Projects: NextPage = (props) => {
                     width={32}
                     height={32}
                     alt="Share on X"
-                    style={{ margin: 8, color: 'black' }}
+                    style={{ margin: 12, color: 'black' }}
                   />
                 </a>
 
@@ -191,7 +191,7 @@ const Projects: NextPage = (props) => {
                       width={32}
                       height={32}
                       alt="Share on Facebook"
-                      style={{ margin: 8, color: 'black' }}
+                      style={{ margin: 12, color: 'black' }}
                     />
                   </a>
                 </div>
