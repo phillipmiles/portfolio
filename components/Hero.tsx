@@ -16,6 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import HeroScreen4 from './HeroScreen4';
+import Image from 'next/image';
 
 const VideoPlayer = dynamic(() => import('./generic/VideoPlayer'), {
   ssr: false,
@@ -65,6 +66,21 @@ const Hero = () => {
   return (
     <div className={s.wrap}>
       <div className={s.videoWrap}>
+        {!doOnce && (
+          <Image
+            src="/images/hero/video-placeholder.jpg"
+            alt=""
+            fill
+            priority
+            style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '16px',
+              objectFit: 'cover',
+              opacity: 0.5,
+            }}
+          />
+        )}
         <VideoPlayer
           playerRef={video1Ref}
           url="/video/hero-vid-1.mp4"
@@ -72,10 +88,9 @@ const Hero = () => {
           className={s.video}
           style={{
             transition: 'transform 300ms, opacity 300ms',
-            ...(video === 1 &&
-              doOnce !== false && {
-                opacity: 1,
-              }),
+            ...((video === 1 || doOnce === false) && {
+              opacity: 1,
+            }),
           }}
           playing={video === 1}
           muted={true}

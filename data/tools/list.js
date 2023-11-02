@@ -4,6 +4,10 @@ import {
   InfinityPannerCode,
 } from './component-library/infinityPanner_example';
 import {
+  InfinityPannerExample2,
+  InfinityPannerCode2,
+} from './component-library/infinityPanner_example2';
+import {
   Example1,
   example1Code,
 } from './component-library/detachedHoverEffect_example1.tsx';
@@ -103,6 +107,11 @@ const tools = [
         type: 'text',
         example: InfinityPannerExample,
         exampleMarkDown: InfinityPannerCode,
+      },
+      {
+        type: 'text',
+        example: InfinityPannerExample2,
+        exampleMarkDown: InfinityPannerCode2,
       },
     ],
   },
