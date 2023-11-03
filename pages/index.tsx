@@ -196,21 +196,21 @@ const Home: NextPage = () => {
             width={140}
             height={100}
             alt="ANZ Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_coles_white.svg'}
             width={140}
             height={100}
             alt="Coles Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_deakinuni_h_white.svg'}
             width={140}
             height={100}
             alt="Deakin University Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
 
           <Image
@@ -218,35 +218,35 @@ const Home: NextPage = () => {
             width={140}
             height={100}
             alt="Aus Post Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_hla_white.svg'}
             width={140}
             height={100}
             alt="HLA Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_cpa_white.svg'}
             width={140}
             height={100}
             alt="CPA Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_transurban_white.svg'}
             width={140}
             height={100}
             alt="Transurban Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
           <Image
             src={'/images/companies/logo_dhhs_white.png'}
             width={140}
             height={50}
             alt="DHHS Logo"
-            style={{ margin: 24 }}
+            style={{ margin: 40 }}
           />
         </InfinityPanner>
       </Flex>

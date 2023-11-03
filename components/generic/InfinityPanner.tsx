@@ -41,19 +41,13 @@ const InfinityPanner = ({
   const containerRef = useRef<HTMLInputElement>(null);
   const [appendElements, setAppendElements] = useState([]);
 
-  // LOOKAT THIS
-  // https://www.michellemcquaid.com/
-  // https://www.michellemcquaid.com/
-  // https://www.michellemcquaid.com/
-  // https://www.michellemcquaid.com/
-  // Clone some of the slides the equit to the parents width
-  // Only slide the container not the individual items
-
   useEffect(() => {
     const recalcPanner = () => {
       if (!containerRef.current) return;
       console.log('run');
       const items = containerRef.current.children;
+
+      if (items.length === 0) return;
 
       let width = 0;
 
@@ -69,16 +63,18 @@ const InfinityPanner = ({
       }
 
       const append = [];
+      const containerWidth = containerRef.current.getBoundingClientRect().width;
 
       let appendWidth = 0;
-      for (let index = 0; index < children.length; index++) {
-        if (appendWidth > containerRef.current.getBoundingClientRect().width)
-          break;
-        const el = containerRef.current.children[index];
-        appendWidth = appendWidth + el.getBoundingClientRect().width;
-        appendWidth = appendWidth + parseInt(el.style.marginLeft);
-        appendWidth = appendWidth + parseInt(el.style.marginRight);
-        append.push(children[index]);
+
+      while (appendWidth < containerWidth) {
+        for (let index = 0; index < children.length; index++) {
+          const el = containerRef.current.children[index];
+          appendWidth = appendWidth + el.getBoundingClientRect().width;
+          appendWidth = appendWidth + parseInt(el.style.marginLeft);
+          appendWidth = appendWidth + parseInt(el.style.marginRight);
+          append.push(children[index]);
+        }
       }
 
       setAppendElements(append);
