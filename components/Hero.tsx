@@ -27,20 +27,43 @@ const Hero = () => {
   const video1Ref: any = useRef();
   const video2Ref: any = useRef();
   const video3Ref: any = useRef();
-  const [doOnce, setDoOnce] = useState(false);
+  const [video1Ready, setVideo1Ready] = useState(false);
+  const [video2Ready, setVideo2Ready] = useState(false);
+  const [video3Ready, setVideo3Ready] = useState(false);
 
-  const onReady = useCallback(() => {
-    if (!doOnce) {
+  const onVideo1Ready = useCallback(() => {
+    if (!video1Ready) {
       video1Ref.current.seekTo(0, 'seconds');
 
-      setDoOnce(true);
+      setVideo1Ready(true);
     }
-  }, [doOnce]);
+  }, [video1Ready]);
+
+  const onVideo2Ready = useCallback(() => {
+    console.log('hmm', video2Ready);
+    if (!video2Ready) {
+      console.log('okay');
+      // video2Ref.current.seekTo(0, 'seconds');
+
+      // setVideo2Ready(true);
+    }
+  }, [video2Ready]);
+
+  // const onVideo3Ready = useCallback(() => {
+  //   if (!video3Ready) {
+  //     // video3Ref.current.seekTo(0, 'seconds');
+
+  //     setVideo3Ready(true);
+  //   }
+  // }, [video3Ready]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (video === 1) {
-        video3Ref.current.seekTo(0, 'seconds');
+        setVideo2Ready(true);
+        if (video3Ref.current) {
+          video3Ref.current.seekTo(0, 'seconds');
+        }
         setVideo(2);
       } else if (video === 2) {
         video1Ref.current.seekTo(0, 'seconds');
@@ -66,7 +89,7 @@ const Hero = () => {
   return (
     <div className={s.wrap}>
       <div className={s.videoWrap}>
-        {!doOnce && (
+        {!video1Ready && (
           <Image
             src="/images/hero/video-placeholder.jpg"
             alt=""
@@ -84,11 +107,11 @@ const Hero = () => {
         <VideoPlayer
           playerRef={video1Ref}
           url="/video/hero-vid-1.mp4"
-          onReady={onReady}
+          onReady={onVideo1Ready}
           className={s.video}
           style={{
             transition: 'transform 300ms, opacity 300ms',
-            ...((video === 1 || doOnce === false) && {
+            ...((video === 1 || video1Ready === false) && {
               opacity: 1,
             }),
           }}
@@ -98,38 +121,44 @@ const Hero = () => {
           height="100%"
           loop={true}
         />
-        <VideoPlayer
-          playerRef={video2Ref}
-          url="/video/hero-vid-2.mp4"
-          className={s.video}
-          style={{
-            transition: 'transform 300ms, opacity 300ms',
-            ...(video === 2 && {
-              opacity: 1,
-            }),
-          }}
-          playing={video === 2}
-          muted={true}
-          width="100%"
-          height="100%"
-          loop={true}
-        />
-        <VideoPlayer
-          playerRef={video3Ref}
-          url="/video/hero-vid-3.mp4"
-          className={s.video}
-          style={{
-            transition: 'transform 300ms, opacity 300ms',
-            ...(video === 3 && {
-              opacity: 1,
-            }),
-          }}
-          playing={video === 3}
-          muted={true}
-          width="100%"
-          height="100%"
-          loop={true}
-        />
+        {video1Ready && (
+          <VideoPlayer
+            playerRef={video2Ref}
+            onReady={onVideo2Ready}
+            url="/video/hero-vid-2.mp4"
+            className={s.video}
+            style={{
+              transition: 'transform 300ms, opacity 300ms',
+              ...(video === 2 && {
+                opacity: 1,
+              }),
+            }}
+            playing={video === 2}
+            muted={true}
+            width="100%"
+            height="100%"
+            loop={true}
+          />
+        )}
+        {video2Ready && (
+          <VideoPlayer
+            playerRef={video3Ref}
+            // onReady={onVideo3Ready}
+            url="/video/hero-vid-3.mp4"
+            className={s.video}
+            style={{
+              transition: 'transform 300ms, opacity 300ms',
+              ...(video === 3 && {
+                opacity: 1,
+              }),
+            }}
+            playing={video === 3}
+            muted={true}
+            width="100%"
+            height="100%"
+            loop={true}
+          />
+        )}
       </div>
       {/* IMAGE GROUP 1 */}
       <div className={s.imageButtonGroup}>
