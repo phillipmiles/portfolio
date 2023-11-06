@@ -10,8 +10,8 @@ const Nav = ({ invert }: Props): JSX.Element => (
     <NavItem href="/projects" invert={invert}>
       Projects
     </NavItem>
-    <NavItem href="/tools" invert={invert}>
-      Tools
+    <NavItem href="/resources" invert={invert}>
+      Resources
     </NavItem>
     {/* <Link href="/about">About</Link> */}
     {/* <Link href="blog">Blog</Link> */}

@@ -43,9 +43,8 @@ const Projects = () => {
           <div>
             <h2 className="h3">The projects</h2>
             <p>
-              Take a look at detailed breakdowns for each of my apps. See how
-              they’re progressing and what decision’s I’m making in developing
-              them.
+              Take a look at a selection of my work and gain an insight into the
+              processes and decisions made during their development.
             </p>
             <ButtonContainer className={s.buttonContainer}>
               <Button

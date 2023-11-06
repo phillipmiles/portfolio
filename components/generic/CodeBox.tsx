@@ -56,7 +56,7 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
             key={item.language}
             style={{
               overflow: 'scroll',
-              maxHeight: '600px',
+              maxHeight: '680px',
             }}
           >
             <SyntaxHighlighterComponent language={item.language}>

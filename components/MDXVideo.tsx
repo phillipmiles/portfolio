@@ -96,7 +96,7 @@ const MDXVideo = ({
             ...videoStyle,
           }}
         >
-          <source src={src} type="audio/mp4" />
+          <source src={src} type="video/mp4" />
         </video>
         {showMuteButton && (
           <button onClick={onClickMute} className={s.muteButton}>

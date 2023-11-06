@@ -145,12 +145,21 @@ const Projects: NextPage = (props) => {
               <div className={s.content}>{project.content}</div>
               <Flex
                 style={{
-                  justifyContent: 'center',
+                  justifyContent: 'flex-end',
+                  maxWidth: 900,
                   alignItems: 'center',
                   marginTop: '60px',
                 }}
               >
-                <p style={{ margin: '16px' }}>Share on:</p>
+                <p
+                  style={{
+                    margin: '8px',
+                    //opacity: 0.6,
+                    fontSize: '16px',
+                  }}
+                >
+                  Share project:
+                </p>
                 <a
                   rel="canonical"
                   data-size="large"
@@ -159,10 +168,10 @@ const Projects: NextPage = (props) => {
                 >
                   <Image
                     src={'/images/companies/icons/x-icon.svg'}
-                    width={32}
-                    height={32}
+                    width={24}
+                    height={24}
                     alt="Share on X"
-                    style={{ margin: 12, color: 'black' }}
+                    style={{ margin: 8, color: 'black' }}
                   />
                 </a>
 
@@ -188,10 +197,10 @@ const Projects: NextPage = (props) => {
                   >
                     <Image
                       src={'/images/companies/icons/facebook-icon.svg'}
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                       alt="Share on Facebook"
-                      style={{ margin: 12, color: 'black' }}
+                      style={{ margin: 8, color: 'black' }}
                     />
                   </a>
                 </div>

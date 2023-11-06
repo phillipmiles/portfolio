@@ -65,6 +65,8 @@ const Home: NextPage = () => {
           backgroundColor: '#ECF4FA',
           width: '100%',
           overflow: 'hidden',
+          borderTop: '1px solid rgba(255,255,255, 0.8)',
+          outline: '1px solid #FFF',
         }}
       >
         <PageContentWrap>
@@ -190,7 +192,7 @@ const Home: NextPage = () => {
       </div>
 
       <Flex className={s.companiesContainer}>
-        <InfinityPanner speed="12000ms" translateX={-1} translateY={0}>
+        <InfinityPanner speed="30000ms" translateX={-1} translateY={0}>
           <Image
             src={'/images/companies/logo_anz_h_white.svg'}
             width={140}

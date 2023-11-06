@@ -16,6 +16,9 @@ const DevTools = () => {
           }}
         >
           <div>
+            {/* <h2 className="h3">The code</h2> */}
+            {/* <h2 className="h3">Components & functions</h2> */}
+            {/* <h2 className="h3">For developers</h2> */}
             <h2 className="h3">Developer resources</h2>
             <p>
               I write a lot of code. Sometimes I write something useful. Take a
@@ -24,7 +27,7 @@ const DevTools = () => {
 
             <ButtonContainer className={s.buttonContainer}>
               <Button href={'/tools'} style={{ marginLeft: -2 }}>
-                Go to tools
+                Go to resources
               </Button>
             </ButtonContainer>
           </div>
