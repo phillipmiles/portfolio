@@ -34,17 +34,17 @@ const Tools: NextPage = () => {
           <Flex className={s.tools}>
             <ToolCard
               className={s.tool}
-              title="React useFormState"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien."
-              srcThumb="/images/react-useFormState-thumb.png"
-              href="/resources/use-form-state"
-            />
-            <ToolCard
-              className={s.tool}
               title="React Construct"
               description="React Construct is a library of low-level react components used to construct reusable UI components."
               srcThumb="/images/react-component-library-thumb.png"
               href={`/resources/react-construct/${tools[0].slug}`}
+            />
+            <ToolCard
+              className={s.tool}
+              title="React UseFormState"
+              description="UseFormState is a flexible React Hook that manages the state of a web form."
+              srcThumb="/images/react-useFormState-thumb.png"
+              href="/resources/use-form-state"
             />
             <ToolCard
               className={s.tool}

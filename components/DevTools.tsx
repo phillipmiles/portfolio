@@ -26,7 +26,7 @@ const DevTools = () => {
             </p>
 
             <ButtonContainer className={s.buttonContainer}>
-              <Button href={'/tools'} style={{ marginLeft: -2 }}>
+              <Button href={'/resources'} style={{ marginLeft: -2 }}>
                 Go to resources
               </Button>
             </ButtonContainer>

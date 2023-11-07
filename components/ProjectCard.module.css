@@ -2,7 +2,7 @@
   background: white;
   border-radius: 6px;
   overflow: hidden;
-  height: 600px;
+  min-height: 600px;
 }
 
 .imageWrap {

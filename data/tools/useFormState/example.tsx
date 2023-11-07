@@ -290,26 +290,10 @@ const validationRules = (state) => {
   };
 };
 
-// This function mocks a server request by return a promise that resolves itself
+// This function mocks a server request by returning a promise that resolves itself
 // after a specified time.
 const sleep = (milliseconds: number) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
-};
-
-const StateValue = ({ label, children, color = 'black' }) => {
-  return (
-    <span>
-      <strong>{label}: </strong>
-      <span style={{ color: color }}>{children}</span>
-    </span>
-  );
-};
-const StateBool = ({ label, children }) => {
-  return (
-    <StateValue label={label} color={children === true ? 'green' : 'red'}>
-      {children + ''}
-    </StateValue>
-  );
 };
 
 export const UseFormStateExample = ({ style }) => {
@@ -327,6 +311,7 @@ export const UseFormStateExample = ({ style }) => {
     formOnSubmit,
     validationRules
   );
+  
 
   const handleChangeEmail = useCallback(
     (event) => handleChange('email', event.target.value),

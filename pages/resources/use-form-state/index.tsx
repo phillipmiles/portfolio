@@ -33,9 +33,8 @@ const ToolsReactLibrary: NextPage = () => {
           <div style={{ textAlign: 'center', marginTop: 64 }}>
             <PageTitle>React useFormState</PageTitle>
             <PageIntro>
-              UseFormState is a React Hook that handles form state. I made this
-              in order to address use cases that other form handlers fail to
-              cover.
+              UseFormState is a flexible React Hook that manages the state of a
+              web form.
             </PageIntro>
           </div>
         </div>
