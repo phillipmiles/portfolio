@@ -54,7 +54,7 @@ const ToolsReactLibrary: NextPage = () => {
             }}
           >
             <div className={s.content}>
-              <div className={s.selectControl}>
+              {/* <div className={s.selectControl}>
                 <h5>Components</h5>
               </div>
               <div
@@ -73,7 +73,7 @@ const ToolsReactLibrary: NextPage = () => {
                 >
                   Lorem ipusm
                 </p>
-              </div>
+              </div> */}
 
               {examples.map((example, index) => (
                 <>

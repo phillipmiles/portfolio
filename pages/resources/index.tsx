@@ -49,8 +49,7 @@ const Tools: NextPage = () => {
             <ToolCard
               className={s.tool}
               title="Handy Dandy Functions"
-              description="A collection of components that provide behaviours and utilities
-                to your visual UI components."
+              description="Handy Dandy Functions are a collection of simple Javascript functions that I find myself constantly coming back to."
               srcThumb="/images/react-component-library-thumb.png"
               href={`/resources/handy-dandy-functions/${functions[0].slug}`}
             />

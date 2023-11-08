@@ -19,7 +19,7 @@ const MDXImage = ({
     <div
       className={`${s.container} ${s[float]}`}
       style={{
-        // maxWidth: w,
+        maxWidth: w,
         ...(wide && {
           maxWidth: '100%',
         }),

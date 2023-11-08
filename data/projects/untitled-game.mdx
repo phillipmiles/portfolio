@@ -2,56 +2,77 @@ import MDXImage from '../../components/MDXImage';
 import MDXVideo from '../../components/MDXVideo';
 
 <MDXImage
-  src="/images/projects/untitled-game/untitled-game_scene-1.jpg"
+  src="/images/projects/untitled-game/untitled-game_scene_01.jpg"
   width={1140}
   aspectRatio="6/3"
-  zoom="1.45"
   priority
   wide
   layout="responsive"
   alt=""
-  caption="This work in progress image was created with over 30 seperated AI generated images spliced together with additional illustrating from myself to fill in spaces and to correct inconsistencies in the AIs output."
+  caption="A work in progress image was created with over 30 separated AI generated images spliced together with additional illustrating from myself to fill in spaces and to correct inconsistencies in the AI's output."
 />
 
-Ever since I was a kid I have always wanted to create a video game. With the introduction of AI art generators I finally saw an opportunity to realistically fullfill this childhood dream.
+Ever since I was a kid I have always wanted to create a video game. With the introduction of AI art generators I finally saw an opportunity to fulfil this childhood dream at a quality I would be satisfied with.
 
-Early steps towards this goal included draw characters and creating stat sheets as a 10 year. I later advanced to creating mods and maps for the games Morrowind, Oblivion and Counter Strike Global Offensive. I even volenteered as a concept artist at one point for someone else project. Then finally I did a brief semester in a game development bachelor degree at RMIT university.
+I have taken tentative steps towards this goal in the past going way back to when I was just 10 years old. Back then I would draw monsters, and gear with accompanies lore and stat sheets.
+
+Later I advanced to creating mods and maps for games like Morrowind, Oblivion and Counter-Strike Global Offensive. I even volunteered as a concept artist at one point for someone else's project.
+
+And in university I did a brief semester in a game development bachelor's degree at RMIT before switching into an Information Technology degree.
 
 <MDXVideo
   src="/video/game_prototype_01.mp4"
   width={680}
-  aspectRatio="17/10"
-  caption="An early prototype testing some fundamental systems. Most notably how ordering of sprites is handled to let characters move infront and behind objects placed in the environment and a system to apply fake shadows onto a character."
+  aspectRatio="20/10"
+  caption="An early prototype testing some fundamental systems. Most notably how ordering of sprites is handled to let characters move in front and behind objects placed in the environment and a system to apply fake shadows onto a character."
   showMuteButton
+  wide
 />
 
-None of these were serious attempts at making a game but rather an exploration into the space. But after my programming skills improved from years working as a front-end developer it finally became realistic to make a game.
-
-However due to the challenges I faced with the creation of art assets. Perfectionism, a personal skill level I was unsatisied with and simply not having the time to create 100s of assets were all too big of a challenge for me to cross.
+I had never seriously sat down to make a game from scratch but once my programming skills had improved from the years working as a developer and with the introduction of AI image generation effectively solving the art side I have finally begun.
 
 <MDXImage
-  src="/images/projects/untitled-game/untitled-game_character-sheet-01.jpg"
+  src="/images/projects/untitled-game/untitled-game_interior_01.jpg"
   height={512}
   width={416}
   aspectRatio="4/5"
   float="right"
-  alt="sdfsf"
-  caption="In-game prototype"
+  alt=""
+  caption="AI generated interior environment which will serve as a starting point for additional editing and illustration to fix up the strange layout."
 />
 
-But then advancements in AI generatoring technologies introduced services like [Stable Diffusioin](https://stablediffusionweb.com/) and [MidJourney](https://www.midjourney.com/home) which could quickly create images of all manner of styles with simple text prompts.
+The advancements in AI generating technologies introduced services like [Stable Diffusion](https://stablediffusionweb.com/) and [MidJourney](https://www.midjourney.com/home) which could quickly create images in all manner of styles with simple text prompts.
 
-This effectively solved the problems I had with creating art assets.
+This solved the bottleneck of time needed for creating art assets, an issue which had prevented me from starting in the past.
 
-The workflow I use is to create isometric art assets with a specific style in mind from within an AI generator. From the resulting image I isolate and extract various elements of the image that I like. These are then spliced together and further altered with my own illustrating to create rich seamless backgrounds and individual assets.
+The workflow I use begins with an isometric image generated from MidJourney. From the resulting image I then isolate and extract specific elements out creating a kind of library of reusable scene parts, items and furniture. These are then spliced together and further altered with my own illustrations to create rich seamless backgrounds.
 
-The game itself is an isometric slice-of-life game focusing on someone struggling with depression and anxiety who persues woodworking as a means to reestablish connection within a community. I'm developing the game within the [Unreal Game Engine](https://www.unrealengine.com/en-US) and uses Unreal's Blueprints as the method I use to program the game logic.
+The game itself is an isometric slice-of-life game focusing on someone struggling with depression and anxiety who pursues woodworking as a means to re-establish connection within a community. As the player progresses in the narrative, the game world slowly transitions from a dark and moody environment into the warm, lush one pictured in the test images here.
 
 <MDXImage
-  src="/images/projects/untitled-game/untitled-game_character-sheet-01.jpg"
-  height={512}
+  src="/images/projects/untitled-game/untitled-game_character-sheet_01.jpg"
   width={680}
   aspectRatio="9/5"
   alt=""
   caption="Unaltered AI generated character sheet."
 />
+
+I'm developing the game within the [Unreal Game Engine](https://www.unrealengine.com/en-US) and use Unreal's Blueprints as to program the game logic.
+
+My focus is currently on establishing a firm art style and to develop some of the basic game systems.
+
+A crucial system I've already developed is how the sprites are ordered allowing characters to move in front and behind objects in a 2D world where depth is largely faked.
+
+This is accomplished by first casting rays around a character to detect overlapping sprites. The preset order of these static sprites dictate what Z position the character should be the sprites ordering value and by the character's Y position relative to the sprites explicit 'ground connection' line which tell the game system where a sprite connects with the ground and where the character should be able to walk around.
+
+<MDXImage
+  src="/images/projects/untitled-game/untitled-game_raycast_01.jpg"
+  width={680}
+  aspectRatio="9/5"
+  alt=""
+  caption="A box ray is cast around the character detecting overlapping sprites (green rectangle). Then a ray is cast along the Y axis to locate the overlapping sprite's ground connection line (yellow line). If the character is above this line it is ordered behind the sprite (right side), if it is below the line then it goes infront of the sprite. (left side)"
+/>
+
+Another system is how shadows on characters are handled. Because environmental shadows are backed into the illustrations there needs to be a way to cast a shadow on a character that enters those shaded areas.
+
+For this I created shadow volumes. Characters cast more rays around them to locate any nearby shadow volumes. As the character approaches a shadow volume their sprite gets tinted based on the distance to the shadow volume. If the character is within the shadow volume 100% of the tint is applied.
