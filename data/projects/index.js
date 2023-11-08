@@ -14,7 +14,7 @@ const projects = [
     thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
     bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
     description:
-      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components used accross multiple web apps.</p>',
+      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components used across multiple web apps.</p>',
     content: <Verso />,
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     thumbnail: '/images/projects/cpa/cpa_thumbnail_01.jpg',
     bannerSrc: '/images/projects/cpa/cpa_image_banner.jpeg',
     description:
-      '<p>We created an industry first interactive and immersive learning experience to train financial advisors utilising video, gameification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
+      '<p>We created an industry first interactive and immersive learning experience to train financial advisors utilising video, gamification and performance tracking.</p><p>The success of this project resulted in multiple awards within the e-learning space and the production of two additional courses for CPA.</p>',
     content: <Cpa />,
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     thumbnail: '/images/projects/coles/coles_thumbnail_01.jpg',
     bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
     description:
-      "<p>We created 5 E-Learning modules for Coles that because of their branching narratives and the constraints of the E-Learning framework we were using required an automated solution to generate over 54,000 lines of code.</p><p>For this we wrote a Node JS program that would convert multiple lengthy spreadsheets into the code needed for the Framework's consumption.</p>",
+      "<p>We created 5 E-Learning modules for Coles that, because of their branching narratives and the constraints of the E-Learning framework we were using, required an automated solution to generate over 54,000 lines of code.</p><p>For this we wrote a Node JS program that would convert multiple lengthy spreadsheets into the JSON data needed for the Framework's consumption.</p>",
     content: <Coles />,
   },
   {
@@ -74,7 +74,7 @@ const projects = [
     thumbnail: '/images/woodfort_walnut.jpeg',
     bannerSrc: '/images/projects/woodfort/woodfort_banner_01.jpg',
     description:
-      '<p>Woodfort Cases is a budding small business of mine that sells handmade luxury computer cases made with materials like wood, metal and brass.</p><p>It is a passion project of mine that merges two of my interests, woodworking and technology. I hope to build upon this one for many years to come.</p>',
+      "<p>Woodfort Cases is a budding small business of mine that sells handmade luxury computer cases that I make with materials like wood, metal and brass.</p><p>Although not a dev project, it is a project that I'm passionate about and I always want to show it off any chance that I get.</p>",
     content: <Woodfort />,
   },
 ];

@@ -10,12 +10,14 @@
   align-items: center;
   transform: scale(1);
   transition: transform 200ms;
+  cursor: pointer;
   background-color: transparent;
 }
 
 .muteButton:hover {
   transform: scale(1.2);
   transition: none;
+  cursor: pointer;
 }
 
 .muteButtonInner {

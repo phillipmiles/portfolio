@@ -61,7 +61,7 @@ The result was a component library of over 100 new, versatile and documented com
 
 The app which guided teachers into improving their professional ability within the education space relyed heavily on user generated data and student feedback. This needed to be communicted to the user through interactive charts.
 
-A problem we encountered with the charts was that poor performance was hurting numerous animations within the charts and other interactive elements. Careful monitoring of performace using various tools helped me isolate problamatic areas. The colpreate was always page data triggering component rerenders on components that didn't rerendering. On each component rerender the web browser would then have to repaint large section of the the page which took too many resources away from insuring butter smooth animations.
+I used [AMCharts](https://www.amcharts.com/) and used a mix of the provided charts as well as making completely custom charts. A problem we encountered with the charts was that poor performance was hurting numerous animations within the charts and other interactive elements. Careful monitoring of performace using various tools helped me isolate problamatic areas. The colpreate was always page data triggering component rerenders on components that didn't rerendering. On each component rerender the web browser would then have to repaint large section of the the page which took too many resources away from insuring butter smooth animations.
 
 This problem was solved by memoizing various page data in the problamatic areas with the use of the useMemo and useCallback reat hooks.
 
