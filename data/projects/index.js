@@ -4,6 +4,8 @@ import ThoughtStream from '../../data/projects/thought-stream.mdx';
 import Verso from '../../data/projects/verso.mdx';
 import Coles from '../../data/projects/coles.mdx';
 import UntitledGame from '../../data/projects/untitled-game.mdx';
+import Binder from '../../data/projects/binder.mdx';
+import Wordpress from '../../data/projects/wordpress.mdx';
 
 const projects = [
   {
@@ -40,6 +42,30 @@ const projects = [
     description:
       '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p><p>I made this to solve a personal problem of requiring a mobile note taking app but being unsatisfied with what was available within the App store.</p>',
     content: <ThoughtStream />,
+  },
+  {
+    slug: 'wordpress',
+    name: 'Wordpress Gutenberg React',
+    intro:
+      'A cross-platform mobile note taking app built with React Native built for me, by me.',
+    year: '2021 - 2022',
+    thumbnail:
+      '/images/projects/thought-stream/thought-stream_thumbnail_01.jpg',
+    bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
+    description:
+      '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p><p>I made this to solve a personal problem of requiring a mobile note taking app but being unsatisfied with what was available within the App store.</p>',
+    content: <Wordpress />,
+  },
+  {
+    slug: 'binder',
+    name: 'Binder Collaborative Text Editor',
+    intro: 'Implementation of a site wide redesign as part of a rebranding.',
+    year: '2020 - 2021',
+    thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
+    bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
+    description:
+      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components shared across multiple web apps.</p>',
+    content: <Binder />,
   },
   {
     slug: 'coles',
