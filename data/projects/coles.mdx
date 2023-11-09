@@ -4,25 +4,33 @@ import MDXImage from '../../components/MDXImage';
   src="/images/projects/coles/coles_thumbnail_01.jpg"
   width={1140}
   aspectRatio="6/3"
-  alt="sdfsf"
+  alt=""
 />
 
-Towards the end of 2018 Coles was looking to roll out a new tool for use in their deli's. In order to upskill their staff, they came to DeakinCo. to help develop a digital learning solution. With Coles sold on a branching learning experience we were tasked with the unfortunate business of constructing five learning modules each with a branching progression that together would consist with over 100 screens of content.
+Towards the end of 2018 Coles was looking to roll out a new tool for use in training their deli's staff. The project called for a digital learning solution with a branching narrative that would fork down different paths based on the user's performance. The full scope was 5 separate E-Learns with over 100 screens of content.
+
+This was not a simple task due to the constraints of the [Adapt Framework](https://www.adaptlearning.org/index.php/adapt-framework/), a JS framework for developing E-Learn modules for an LMS (Learning Management System), that was not designed to handle a branching learning experience.
 
 <MDXImage
   src="/images/projects/coles/coles_screen_results.jpeg"
   height={512}
   width={680}
   aspectRatio="9/6"
-  alt="sdfsf"
-  caption="Awards for stuff and sdgsdg"
+  alt=""
+  caption=""
 />
 
-To solve the issue of marking up that much content whilst keeping it easily maintainable we turned to an automated solution. We created a Node JS program to generate the mark-up code using spreadsheets as the source. By the end of the project the program would generate over 54,000 lines of JSON code for the 5 required modules and left us with a reusable automation tool that would later be applied to future projects.
+Effectively the framework required an enormous amount of repeated data to make this possible. This created a development nightmare as chasing down bugs and applying change requests would have to be carefully applied in numerous places with many opportunities for errors.
+
+Furthermore we needed to make a long term branching solution to offer to future clients and one that none developers in the team could build with.
+
+To solve the issue of marking up that much content whilst keeping it easily maintainable we turned to an automated solution. We created a Node JS program that generated the necessary code from a series of spreadsheets as the data source. These could be edited by people with no programming experience. The programs output when then be consumed in the Adapt Framework's build script.
 
 <MDXImage
   src="/images/projects/coles/coles_screen_deli.jpeg"
   width={1140}
   aspectRatio="6/3"
-  alt="sdfsf"
+  alt=""
 />
+
+By the end of the project the program would generate over 54,000 lines of JSON code for the 5 required modules and left us with a reusable automation tool that would later be applied to future projects.

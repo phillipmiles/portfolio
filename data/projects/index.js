@@ -8,13 +8,13 @@ import UntitledGame from '../../data/projects/untitled-game.mdx';
 const projects = [
   {
     slug: 'verso',
-    name: 'Verso Learning',
+    name: 'Verso Learning Web Apps',
     intro: 'Implementation of a site wide redesign as part of a rebranding.',
     year: '2020 - 2021',
     thumbnail: '/images/projects/verso/verso_thumbnail_01.jpg',
     bannerSrc: '/../public/images/projects/thought-stream/og_image.png',
     description:
-      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components used across multiple web apps.</p>',
+      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components shared across multiple web apps.</p>',
     content: <Verso />,
   },
   {
@@ -30,9 +30,9 @@ const projects = [
   },
   {
     slug: 'thought-stream',
-    name: 'Thought Stream',
+    name: 'Thought Stream Mobile App',
     intro:
-      'A cross-platform mobile note taking app built with React Native built by me for me.',
+      'A cross-platform mobile note taking app built with React Native built for me, by me.',
     year: '2021 - 2022',
     thumbnail:
       '/images/projects/thought-stream/thought-stream_thumbnail_01.jpg',
@@ -70,7 +70,7 @@ const projects = [
     name: 'Woodfort Cases',
     intro:
       'A small business making luxury handmade wood panelled computer cases.',
-    year: '2023',
+    year: '2022 - 2023',
     thumbnail: '/images/woodfort_walnut.jpeg',
     bannerSrc: '/images/projects/woodfort/woodfort_banner_01.jpg',
     description:
