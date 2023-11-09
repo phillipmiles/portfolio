@@ -107,12 +107,21 @@
   outline-color: #1f705a;
 }
 
+.binder .button {
+  background-color: #008e89;
+  border-color: #008e89;
+  outline-color: #008e89;
+}
+
 .woodfort .button:focus,
 .untitled-game .button:focus,
 .verso .button:focus,
 .coles .button:focus,
 .cpa .button:focus,
-.thought-stream .button:focus {
+.thought-stream .button:focus,
+.binder .button:focus,
+.wordpress .button:focus,
+.gametalk .button:focus {
   border-color: white;
 }
 
@@ -135,6 +144,9 @@
 }
 .coles .heading {
   color: #df1a23;
+}
+.binder .heading {
+  color: #008e89;
 }
 
 @keyframes zoom {
