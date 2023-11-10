@@ -1,3 +1,54 @@
-As someone who enjoys the clarity gained from writing, I was constantly on the lookout for a writing tool that matched my own slightly unique preferences for working. At the same time, I was wanting to familiarise myself with some different JS libraries and further my understanding in databases and internet security. These motivating factors were enough to prompt me into developing my own writing web app.
+import MDXImage from '../../components/MDXImage';
 
-With focus put on clarity, encapsulation, collaboration and speed, the app's foundation has been built with a hierarchical folder structure and real-time collaboration of text documents. Future development will further extend the collaboration features and introduce a streamlined and intelligent styling of text documents.
+<MDXImage
+  src="/images/projects/binder/binder_image_03.jpg"
+  width={1140}
+  aspectRatio="6/3"
+  alt=""
+  caption="The document editor. Multiple users could edit the same document simultaneously with changes correctly resolving across the server and all connected clients."
+/>
+
+Way back in my university days I got hooked on the idea of merging document editing and file storage with an education platform complete with subject learning tracks.
+
+As part of the user's learning journey, I wanted users to slowly construct a personal library of their own content in the form of written documents, embedded audio and video links, uploaded files and external web links.
+
+I wanted to create a feeling of satisfaction from having built the library themselves and that it was personal to them and their interests.
+
+I could also see some interesting possibilities in data mining user's content into finding and linking common web links to specific topics with perhaps a link quality/relevance being dictated by the user's learning performance in the related subject. From this data I could create a dynamic public digital library to further assist students in their research.
+
+<MDXImage
+  src="/images/projects/binder/binder_image_02.jpg"
+  height={512}
+  width={680}
+  aspectRatio="9/6"
+  alt=""
+  caption="A user's workspaces page. Each workspace can contain many documents and nesting folders with the future goal of web links, embed media and files."
+/>
+
+On the learning side of things there would be no in app education like other education platforms that convey knowledge through text or video mediums. Instead it would present a lesson plan for a subject and leave it to the user to conduct their own research for it in whatever way they see fit. The user could then return to the lesson to complete some form of testing or evaluation of their knowledge and progress through the subject's learning pathway.
+
+Pathways wouldn't necessarily be linear but instead fork into various subtopics where the user could follow what parts of the subject interest them most but still provide a sensible and approachable means of progression.
+
+I'd never get anywhere close to this lofty goal but I did manage to produce a collaborative text editor with a document structure not dissimilar to Google Drive.
+
+#### The Workspace
+
+What I did succeed in making was a hierarchical folder structure with shareable folders that users could create documents using the document editor that allowed for rich text elements and real-time collaborative editing between multiple clients.
+
+Both the hierarchical and shareable folder structure as well as the collaborative text editing provided significant challenges that I had to overcome.
+
+The problem in adding real-time collaborative text editing is the delay between client 1, the server and any other connected clients.
+
+Edits made at the same time from different clients would take a moment to arrive at the server and then passed back to the other clients. This would produce updates to the document that would become out of sync with each other causing each client to be editing text not at the location that they appear to be at from the client's computer.
+
+<MDXImage
+  src="/images/projects/binder/binder_image_01.jpg"
+  width={1140}
+  aspectRatio="10/6"
+  alt=""
+  caption="An example of one of the workspaces. Documents can be stored within a hierarchical folder structure. An entire workspace including the documents could be shared with multiple people."
+/>
+
+To solve for this I looked into a technique for concurrency control called Operational Transformations. There's a great write up on it [here](https://medium.com/coinmonks/operational-transformations-as-an-algorithm-for-automatic-conflict-resolution-3bf8920ea447). Effectively this process meant that as changes arrived at the server, the server would adjust later changes to account for the previously arrived changes.
+
+Thankfully I found [ShareDB](https://github.com/share/sharedb), a NodeJS library which provided the operational transformation handling for me. This would link up with a MongoDB database and connect with clients through websockets. I then used [QuillJS](https://quilljs.com/) for WYSIWYG editor that was already equipped to consume transformational data.

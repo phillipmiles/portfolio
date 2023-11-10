@@ -1,0 +1,49 @@
+.imageWrap {
+  flex-grow: 1;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .imageWrap {
+    margin: 0;
+    width: 100%;
+    height: 240px;
+  }
+}
+
+.imageContainer {
+  transform: scale(1);
+  transition: transform 300ms;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.imageContainer:hover {
+  transform: scale(1.04);
+}
+
+.imageContainer .image {
+  /* animation-name: pan; */
+  /* animation-name: zoom; */
+  animation-duration: 40000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}

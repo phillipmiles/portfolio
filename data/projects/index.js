@@ -63,12 +63,13 @@ const projects = [
   // },
   {
     slug: 'binder',
-    name: 'Binder Collaborative Text Editor',
-    intro: 'Implementation of a site wide redesign as part of a rebranding.',
-    year: '2020 - 2021',
+    name: 'Collaborative Text Editor - Binder',
+    intro:
+      'A minimalist collaborative text editor made with NodeJS, ExpressJS, MongoDB and MySQL.',
+    year: '2018',
     thumbnail: binderThumb,
     description:
-      '<p>I was brought into Verso to implement a complete redesign and code refactor of their React based web app.</p><p>Working closely with the designer I implemented a strict design system, standardised coding practices and created a component library of over 100 reusable, well documented React components shared across multiple web apps.</p>',
+      '<p>Binder was a web-based minimalist collaborative text editor I made that challenged me in solving the difficult requirement of multiple users editing the same document simultaneously.</p><p>This project used NodeJS with ExpressJS server side and two databases, one in MongoDB and another in MySQL.',
     content: <Binder />,
   },
   {
