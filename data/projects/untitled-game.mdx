@@ -57,13 +57,13 @@ The game itself is an isometric slice-of-life game focusing on someone strugglin
   caption="Unaltered AI generated character sheet."
 />
 
-I'm developing the game within the [Unreal Game Engine](https://www.unrealengine.com/en-US) and use Unreal's Blueprints as to program the game logic.
+I'm developing the game within the [Unreal Game Engine](https://www.unrealengine.com/en-US) and use Unreal's Blueprints to program the game logic.
 
 My focus is currently on establishing a firm art style and to develop some of the basic game systems.
 
 A crucial system I've already developed is how the sprites are ordered allowing characters to move in front and behind objects in a 2D world where depth is largely faked.
 
-This is accomplished by first casting rays around a character to detect overlapping sprites. The preset order of these static sprites dictate what Z position the character should be the sprites ordering value and by the character's Y position relative to the sprites explicit 'ground connection' line which tell the game system where a sprite connects with the ground and where the character should be able to walk around.
+This is accomplished by first casting rays around a character to detect overlapping sprites. The preset order of these static sprites dictate what Z position the character should be by the sprites ordering value and by the character's Y position relative to the sprites explicit 'ground connection' line which tell the game system where a sprite connects with the ground and where the character should be able to walk around.
 
 <MDXImage
   src="/images/projects/untitled-game/untitled-game_raycast_01.jpg"
