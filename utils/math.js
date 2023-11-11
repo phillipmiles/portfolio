@@ -8,6 +8,7 @@ export const getValueAsPercentage = (value1, value2, decimals = 2) => {
 };
 
 export const roundDecimalTo = (value, decimals) => {
-  const decimalDigits = 10 * decimals;
+  const decimalDigits = Math.pow(10, decimals);
+
   return Math.round(value * decimalDigits) / decimalDigits;
 };
