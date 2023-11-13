@@ -1,44 +1,30 @@
 import {
   Example as GetValueAsPercentageExample,
   code as getValueAsPercentageCode,
-} from './examples/getValueAsPercentage';
+} from './examples/maths/getValueAsPercentage';
 import {
   Example as RoundDecimalToExample,
   code as roundDecimalToCode,
-} from './examples/roundDecimalTo';
+} from './examples/maths/roundDecimalTo';
 
 const mathFunctions = [
   {
     slug: 'get-value-as-percentage',
-    title: 'getValueAsPercentage()',
-    description:
-      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    title: 'Maths',
+    description: 'A collection of functions relating to general maths.',
     content: [
       {
         type: 'text',
+        title: 'percentage()',
+        description:
+          'Returns the percent of one value to another rounded to a specified number of digits.',
         example: GetValueAsPercentageExample,
         exampleMarkDown: getValueAsPercentageCode,
       },
       {
         type: 'text',
-        example: RoundDecimalToExample,
-        exampleMarkDown: roundDecimalToCode,
-      },
-    ],
-  },
-  {
-    slug: 'get-value-as-percentage',
-    title: 'getValueAsPercentage()',
-    description:
-      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-    content: [
-      {
-        type: 'text',
-        example: GetValueAsPercentageExample,
-        exampleMarkDown: getValueAsPercentageCode,
-      },
-      {
-        type: 'text',
+        title: 'roundDecimalTo()',
+        description: 'Round a decimal number to a specified number of digits.',
         example: RoundDecimalToExample,
         exampleMarkDown: roundDecimalToCode,
       },
