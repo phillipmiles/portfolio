@@ -17,6 +17,9 @@ import {
 import { useCallback, useEffect, useRef, useState } from 'react';
 import HeroScreen4 from './HeroScreen4';
 import Image from 'next/image';
+import Screen01 from './componentImages/Screen01';
+import Screen02 from './componentImages/Screen02';
+import Screen03 from './componentImages/Screen03';
 
 const VideoPlayer = dynamic(() => import('./generic/VideoPlayer'), {
   ssr: false,
@@ -176,54 +179,12 @@ const Hero = () => {
         </div>
       </div>
       <div className={s.imageScreenWrap}>
-        <div
-          className={`${s.imageScreen} ${s.imageTransition}`}
+        <Screen01
+          className={s.imageTransition}
           style={{
             ...(video !== 1 && hideTransition()),
           }}
-        >
-          <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
-            <div className={s.imageScreenBarMenu}>
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-            </div>
-            <div className={s.imageScreenBarAddressWrapper}>
-              <div className={s.imageScreenBarAddress} />
-            </div>
-          </div>
-          <div className={s.imageScreenContent}>
-            <div className={s.imageScreenHeader} />
-            <div className={s.imageScreenContentSplit}>
-              <div
-                className={`${s.imageScreenContentLeft} ${s.imageScreenCard}`}
-              >
-                <div
-                  className={`${s.imageScreenButton} ${s.imageScreenContentLeftButton}`}
-                >
-                  <div />
-                </div>
-              </div>
-              <div className={s.imageScreenContentRight}>
-                <div className={s.imageScreenContentRightHeader} />
-                <div
-                  className={`${s.imageScreenContentRightBox} ${s.imageScreenCard}`}
-                >
-                  <div
-                    className={`${s.imageScreenButton} ${s.imageScreenContentLeftButton}`}
-                  >
-                    <div />
-                  </div>
-                </div>
-                <div className={s.imageScreenContentRightTrio}>
-                  <div className={s.imageScreenCard} />
-                  <div className={s.imageScreenCard} />
-                  <div className={s.imageScreenCard} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        />
       </div>
 
       <div className={s.imageIconGroup}>
@@ -271,7 +232,14 @@ const Hero = () => {
           Comment
         </div>
       </div>
-      <HeroScreen4 isVisible={video === 2} />
+      <div className={s.imageScreenWrap3}>
+        <Screen03
+          className={s.imageTransition}
+          style={{
+            ...(video !== 2 && hideTransition()),
+          }}
+        />
+      </div>
 
       {/* ADDD AN AVATAR IN A CIRCLE !!!!!!!!!!!!!! font awesome human
       
@@ -287,61 +255,12 @@ const Hero = () => {
         <FontAwesomeIcon icon={faSearch} />
       </div>
       <div className={s.imageScreenWrap2}>
-        <div
-          className={`${s.imageScreen} ${s.imageTransition}`}
+        <Screen02
+          className={s.imageTransition}
           style={{
             ...(video !== 3 && hideTransition()),
           }}
-        >
-          <div className={`${s.imageScreenBar} ${s.imageScreenCard}`}>
-            <div className={s.imageScreenBarMenu}>
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-              <div className={s.imageScreenBarMenuItem} />
-            </div>
-            <div className={s.imageScreenBarAddressWrapper}>
-              <div className={s.imageScreenBarAddress} />
-            </div>
-          </div>
-
-          <div className={s.imageScreenContent}>
-            <div className={s.imageScreenHeaderWrap}>
-              <div className={s.imageScreenHeader} />
-              <div className={s.imageScreenAvatarWrap}>
-                <div className={s.imageScreenAvatar} />
-                <div className={s.imageScreenAvatar} />
-              </div>
-            </div>
-            <div className={s.imageScreenColumns}>
-              <div className={s.imageScreenCol}>
-                <div className={s.imageScreenCard}>
-                  <div className={s.imageScreenColumnImage} />
-                </div>
-                <div className={s.imageScreenCard}>
-                  {/* <div className={s.imageScreenColumnImage} /> */}
-                </div>
-              </div>
-              <div className={s.imageScreenCol}>
-                <div className={s.imageScreenCard} />
-                <div className={s.imageScreenCard}>
-                  <div className={s.imageScreenColumnImage} />
-                </div>
-              </div>
-              <div className={s.imageScreenCol}>
-                <div className={s.imageScreenCard}>
-                  <div className={s.imageScreenColumnImage} />
-                </div>
-                <div className={s.imageScreenCard}>
-                  <div className={s.imageScreenColumnImage} />
-                </div>
-              </div>
-              <div className={s.imageScreenCol}>
-                <div className={s.imageScreenCard} />
-                <div className={s.imageScreenCard} />
-              </div>
-            </div>
-          </div>
-        </div>
+        />
       </div>
       <div className={s.imageIconGroup2}>
         <div

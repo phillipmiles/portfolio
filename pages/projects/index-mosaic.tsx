@@ -216,7 +216,7 @@ const Projects: NextPage = () => {
                   minHeight: '300px',
                   flexDirection: 'row',
                   maxHeight: '200px',
-                  marginBottom: '24px',
+                  marginBottom: '32px',
                 }}
               >
                 <ProjectCardImage
@@ -378,7 +378,7 @@ const Projects: NextPage = () => {
                   minHeight: '300px',
                   flexDirection: 'row',
                   maxHeight: '200px',
-                  marginBottom: '24px',
+                  marginBottom: '32px',
                 }}
               >
                 <ProjectCardImage

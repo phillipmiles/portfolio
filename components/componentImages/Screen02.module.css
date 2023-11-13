@@ -1,0 +1,152 @@
+.imageScreenHeaderWrap {
+  padding-left: 4px;
+  padding-right: 4px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.imageScreenHeader {
+  background-color: white;
+  border-radius: 8px;
+  height: 10px;
+  width: 64px;
+}
+
+.imageScreenAvatarWrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageScreenAvatar {
+  height: 10px;
+  width: 10px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.imageScreenColumns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.imageScreenColumns > div {
+  width: 25%;
+  height: 100%;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.imageScreenColumns > div > div {
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  /* padding-top: 8px; */
+  padding-bottom: 8px;
+}
+
+.imageScreenColumnImage {
+  width: 100%;
+  background-color: #f9ea54;
+  height: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.imageScreenColumns > div:first-child > div:first-child {
+  height: 55px;
+}
+
+.imageScreenColumns > div:first-child > div:last-child {
+  height: 27px;
+}
+
+.imageScreenColumns > div:nth-child(2n) > div:first-child {
+  height: 30px;
+}
+
+.imageScreenColumns > div:nth-child(2n) > div:last-child {
+  height: 52px;
+}
+
+.imageScreenColumns
+  > div:nth-child(2n)
+  > div:last-child
+  .imageScreenColumnImage {
+  background-color: #f89c27;
+}
+
+.imageScreenColumns > div:nth-child(3) > div:first-child {
+  height: 45px;
+}
+
+.imageScreenColumns
+  > div:nth-child(3)
+  > div:first-child
+  .imageScreenColumnImage {
+  background-color: #a5c12e;
+}
+
+.imageScreenColumns > div:nth-child(3) > div:last-child {
+  height: 37px;
+}
+
+.imageIconGroup2 {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 90px;
+  top: -20px;
+}
+
+.imageIconGroup2 .imageIcon {
+  display: block;
+  height: 48px;
+  width: 48px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(100%);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  backdrop-filter: blur(6px);
+}
+
+.imageButtonGroup2 {
+  position: absolute;
+  top: -40px;
+  left: -30px;
+  transform: rotate(4deg);
+}
+
+.imageButton3 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  margin-top: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  height: 40px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+
+.imageButton3 svg {
+  width: 14px;
+  margin-right: 12px;
+  color: #777;
+}

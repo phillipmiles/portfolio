@@ -1,0 +1,60 @@
+.imageScreen {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 248px;
+  height: 156px;
+  border-radius: 8px;
+  opacity: 1;
+  transform: scale(100%);
+  padding: 0.5rem;
+  /* animation: screenEls 6s ease infinite; */
+  /* animation-delay: 60ms; */
+  backdrop-filter: blur(6px);
+}
+
+.imageScreenBar {
+  height: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.imageScreenBarMenu {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageScreenBarMenuItem {
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+  background-color: #777;
+  margin-right: 2px;
+}
+
+.imageScreenBarAddressWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.imageScreenBarAddress {
+  height: 5px;
+  width: 140px;
+  border-radius: 4px;
+  background-color: #e3e3e3;
+}
+
+.imageScreenContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
