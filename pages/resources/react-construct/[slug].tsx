@@ -16,6 +16,7 @@ import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect
 import s from './[slug].module.css';
 import Select from '../../../components/Select';
 import SelectMobile from '../../../components/SelectMobile';
+import Notification from '../../../components/Notification';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -67,6 +68,10 @@ const ToolsReactLibrary: NextPage = () => {
         }}
       >
         <PageContentWrap>
+          <Notification style={{ marginBottom: '64px' }}>
+            This library is under development. A NPM module will be made
+            available when it is ready.
+          </Notification>
           <Flex
             style={{
               //gap: '64px',

@@ -16,6 +16,7 @@ import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect
 import s from './[slug].module.css';
 import ContentSlider from '../../../components/generic/ContentSlider';
 import Heading from '../../../components/Heading';
+import Notification from '../../../components/Notification';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -52,7 +53,7 @@ const ToolsReactLibrary: NextPage = () => {
             <PageTitle>Handy Dandy Functions</PageTitle>
             <PageIntro>
               Handy Dandy Functions are a collection of simple Javascript
-              functions that I find myself constantly coming back to.
+              functions that I have found myself using in many projects.
             </PageIntro>
           </div>
         </div>
@@ -67,6 +68,11 @@ const ToolsReactLibrary: NextPage = () => {
         }}
       >
         <PageContentWrap>
+          <Notification style={{ marginBottom: '64px' }}>
+            This library is under development. A NPM module will be made
+            available when it is ready.
+          </Notification>
+
           <Flex
             style={{
               //gap: '64px',
