@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
-import { incrementNumberTo } from '../../../../utils/change';
+import { useCallback, useState } from 'react';
+import { incrementNumberOverTime } from '../../../../../utils/change';
 
 export const Example = () => {
   const startNumber = 0;
@@ -21,7 +21,7 @@ export const Example = () => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    incrementNumberTo(
+    incrementNumberOverTime(
       startNumber,
       200,
       2000,
@@ -37,6 +37,7 @@ export const Example = () => {
 
   return (
     <div>
+      <p>Click button below to increment number from 0 to 200 in 2 seconds.</p>
       <p>{number}</p>
       <button onClick={triggerAnimation}>Start</button>
     </div>
@@ -65,7 +66,7 @@ const triggerAnimation = useCallback(() => {
   if (isAnimating) return;
   setIsAnimating(true);
 
-  incrementNumberTo(
+  incrementNumberOverTime(
     startNumber,
     200,
     2000,
@@ -81,6 +82,7 @@ const triggerAnimation = useCallback(() => {
 
 return (
   <div>
+    <p>Click button below to increment number from 0 to 200 in 2 seconds.</p>
     <p>{number}</p>
     <button onClick={triggerAnimation}>Start</button>
   </div>

@@ -8,7 +8,7 @@ const calcIncrement = (
   return (delta / duration) * millisecondsSinceLastUpdate;
 };
 
-export const incrementNumberTo = (
+export const incrementNumberOverTime = (
   startNumber: number,
   endNumber: number,
   duration: number,
@@ -38,7 +38,7 @@ export const incrementNumberTo = (
 
     // Delay a bit before calling the function again for performance reasons
     setTimeout(function () {
-      incrementNumberTo(
+      incrementNumberOverTime(
         startNumber,
         endNumber,
         duration,

@@ -1,19 +1,21 @@
 import {
-  Example as IncrementNumberToExample,
-  code as incrementNumberToCode,
-} from './examples/incrementNumberTo';
+  Example as IncrementNumberOverTimeExample,
+  code as incrementNumberOverTimeCode,
+} from './examples/change/incrementNumberOverTime';
 
 const changeFunctions = [
   {
     slug: 'increment-number-to',
-    title: 'incrementNumberTo',
-    description:
-      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    title: 'Change',
+    description: 'A collection of functions relating to change.',
     content: [
       {
         type: 'text',
-        example: IncrementNumberToExample,
-        exampleMarkDown: incrementNumberToCode,
+        title: 'incrementNumberOverTime()',
+        description:
+          'Increments a number to another time over the time duration specified.',
+        example: IncrementNumberOverTimeExample,
+        exampleMarkDown: incrementNumberOverTimeCode,
       },
     ],
   },
