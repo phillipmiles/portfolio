@@ -12,3 +12,7 @@ export const roundDecimalTo = (value, decimals) => {
 
   return Math.round(value * decimalDigits) / decimalDigits;
 };
+
+export const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
+};

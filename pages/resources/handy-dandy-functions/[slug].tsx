@@ -15,6 +15,7 @@ import CodeBox from '../../../components/generic/CodeBox';
 import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
 import ContentSlider from '../../../components/generic/ContentSlider';
+import Heading from '../../../components/Heading';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -113,9 +114,12 @@ const ToolsReactLibrary: NextPage = () => {
               ))}
             </div>
             <div style={{ marginBottom: 96, width: '70%' }}>
+              <Heading tag="h2" as="h4">
+                {currentTool ? currentTool.title : 'Function not found.'}
+              </Heading>
               <p
                 style={{
-                  maxWidth: 700,
+                  // maxWidth: 700,
                   marginLeft: 'auto',
                   marginRight: 'auto',
                   marginTop: '48px',
@@ -128,6 +132,18 @@ const ToolsReactLibrary: NextPage = () => {
               {currentTool &&
                 currentTool.content.map((example, index) => (
                   <>
+                    <Heading tag="h3" as="h5">
+                      {example.title}
+                    </Heading>
+                    <p
+                      style={{
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        marginBottom: '24px',
+                      }}
+                    >
+                      {example.description}
+                    </p>
                     <div
                       style={{
                         // marginLeft: 8,

@@ -1,12 +1,18 @@
 import { getValueAsPercentage, roundDecimalTo } from '../../../../utils/math';
 
 export const Example = () => {
-  return <p>{getValueAsPercentage(300, 450, 2)}</p>;
+  return (
+    <div>
+      <p>{getValueAsPercentage(300, 450, 2)}</p>
+      <p>{getValueAsPercentage(0, 450, 2)}</p>
+    </div>
+  );
 };
 
 export const code = [
   {
     language: 'js',
-    code: `getValueAsPercentage(300, 450, 2);`,
+    code: `percentage(300, 450, 2); // 66.67
+percentage(0, 450, 2); // 0`,
   },
 ];

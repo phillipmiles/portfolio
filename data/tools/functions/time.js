@@ -1,19 +1,68 @@
 import {
-  Example as GetValueAsPercentageExample,
-  code as getValueAsPercentageCode,
-} from './examples/getValueAsPercentage';
+  Example as ToMillisecondsExample,
+  code as toMillisecondsCode,
+} from './examples/time/toMilliseconds';
+import {
+  Example as ToSecondsExample,
+  code as toSecondsCode,
+} from './examples/time/toSeconds';
+import {
+  Example as ToMinutesExample,
+  code as toMinutesCode,
+} from './examples/time/toMinutes';
+import {
+  Example as IsoDateStringToLabelExample,
+  code as isoDateStringToLabelCode,
+} from './examples/time/isoDateStringToLabel';
+import {
+  Example as DaysDifferenceExample,
+  code as daysDifferenceCode,
+} from './examples/time/daysDifference';
 
 const timeFunctions = [
   {
-    slug: 'get-value-as-percentage',
-    title: 'getValueAsPercentage',
+    slug: 'time',
+    title: 'Time',
     description:
       "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
     content: [
       {
         type: 'text',
-        example: GetValueAsPercentageExample,
-        exampleMarkDown: getValueAsPercentageCode,
+        title: 'daysDifference()',
+        example: DaysDifferenceExample,
+        description: 'Returns a date label.',
+        exampleMarkDown: daysDifferenceCode,
+      },
+      // {
+      //   type: 'text',
+      //   title: 'isoDateStringToLabel()',
+      //   example: IsoDateStringToLabelExample,
+      //   description: 'Returns a date label.',
+      //   exampleMarkDown: isoDateStringToLabelCode,
+      // },
+      {
+        type: 'text',
+        title: 'toMinutes()',
+        example: ToMinutesExample,
+        description:
+          'Convert a number from a specified time measurement into minutes.',
+        exampleMarkDown: toMinutesCode,
+      },
+      {
+        type: 'text',
+        title: 'toSeconds()',
+        example: ToSecondsExample,
+        description:
+          'Convert a number from a specified time measurement into seconds.',
+        exampleMarkDown: toSecondsCode,
+      },
+      {
+        type: 'text',
+        title: 'toMilliseconds()',
+        example: ToMillisecondsExample,
+        description:
+          'Convert a number from a specified time measurement into milliseconds.',
+        exampleMarkDown: toMillisecondsCode,
       },
     ],
   },

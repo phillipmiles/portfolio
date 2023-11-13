@@ -61,13 +61,37 @@ export const toMinutes = (duration, type) => {
   }
 };
 
+export const isoDateStringToLabel = (isoDateString) => {
+  const date = new Date(isoDateString);
+  const todaysDate = new Date();
+  const yesterdaysDate = new Date();
+
+  yesterdaysDate.setDate(yesterdaysDate.getDate() - 1);
+
+  if (
+    date.getDate() === todaysDate.getDate() &&
+    date.getMonth() === todaysDate.getMonth() &&
+    date.getFullYear() === todaysDate.getFullYear()
+  ) {
+    return 'Today';
+  } else if (
+    date.getDate() === yesterdaysDate.getDate() &&
+    date.getMonth() === yesterdaysDate.getMonth() &&
+    date.getFullYear() === yesterdaysDate.getFullYear()
+  ) {
+    return 'Yesterday';
+  } else {
+    return date.toDateString();
+  }
+};
+
 export const convertRelativeTimeStringToMilliseconds = (relativeTimeString) => {
   const [numberStr, timeDef, suffix] = relativeTimeString.split(' ');
 
   if (suffix !== 'ago') return;
 
   const num = parseInt(numberStr);
-  // console.log(numberStr, num);
+
   if (
     timeDef === 'sec' ||
     timeDef === 'secs' ||
@@ -96,4 +120,48 @@ export const convertRelativeTimeStringToMilliseconds = (relativeTimeString) => {
 export const addLeadingZero = (num, size) => {
   var s = '000000000' + num;
   return s.substr(s.length - size);
+};
+
+export const timeSince = (firstTime, lastTime, type) => {
+  if (type === 'years') {
+    throw new Error(`Conversion '${type}' not built yet..`);
+  } else if (type === 'weeks') {
+    throw new Error(`Conversion '${type}' not built yet..`);
+  } else if (type === 'days') {
+    throw new Error(`Conversion '${type}' not built yet..`);
+  } else if (type === 'hours') {
+    throw new Error(`Conversion '${type}' not built yet..`);
+  } else if (type === 'minutes') {
+    return toMinutes(lastTime - firstTime, 'milliseconds');
+  } else if (type === 'seconds') {
+    return toSeconds(lastTime - firstTime, 'milliseconds');
+  } else if (type === 'milliseconds') {
+    return lastTime - firstTime;
+  } else {
+    throw new Error('Unrecognised time deliminator.');
+  }
+};
+
+// REPLACE WITH # DAYS AWAY FROM TODAY.
+// So it would return 0 if today and -1 if yesterday. then developer can do
+//
+// if(daysDifference(new Date(), someOtherDate) === -1) {
+//   return 'today'
+// }
+
+export const daysDifference = (date1, date2) => {
+  const timeDiff = date2.getTime() - date1.getTime();
+
+  const daysDiff = timeDiff / (1000 * 3600 * 24);
+  return daysDiff;
+};
+
+export const timeFunction = async (time = 'seconds', func) => {
+  const startTime = Date.now();
+  const result = await func();
+  const stopTime = Date.now();
+
+  const duration = parseFloat(timeSince(startTime, stopTime, time).toFixed(2));
+
+  return [duration, result];
 };

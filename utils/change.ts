@@ -38,7 +38,6 @@ export const incrementNumberTo = (
 
     // Delay a bit before calling the function again for performance reasons
     setTimeout(function () {
-      console.log('sdgs');
       incrementNumberTo(
         startNumber,
         endNumber,
