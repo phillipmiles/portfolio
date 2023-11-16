@@ -1,10 +1,15 @@
+import Heading from './Heading';
 import s from './ProjectCardTitle.module.css';
 
-const ProjectCardTitle = ({ className, children, ...props }) => {
+const ProjectCardTitle = ({ as, className, children, ...props }) => {
   return (
-    <h2 className={className} {...props}>
+    <Heading
+      as={as ? as : 'h5'}
+      className={`${s.heading} ${className}`}
+      {...props}
+    >
       {children}
-    </h2>
+    </Heading>
   );
 };
 

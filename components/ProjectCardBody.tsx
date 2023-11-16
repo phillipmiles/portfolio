@@ -1,4 +1,3 @@
-import Button from './generic/Button';
 import Flex from './generic/Flex';
 import s from './ProjectCardBody.module.css';
 
@@ -16,18 +15,8 @@ const ProjectCardBody = ({
   ...props
 }) => {
   return (
-    <Flex className={`${s[slug]} ${s.projectCardBody}`} style={style}>
+    <Flex className={`${s.projectCardBody} ${className}`} style={style}>
       {children}
-
-      <div className={s.buttonContainer}>
-        <Button
-          className={s.button}
-          href={url}
-          style={{ alignSelf: 'flex-start' }}
-        >
-          View project
-        </Button>
-      </div>
     </Flex>
   );
 };

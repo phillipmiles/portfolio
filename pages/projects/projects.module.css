@@ -1,9 +1,88 @@
-.projectCard {
+.content {
+  --content-width: 680px;
+}
+
+.content > p,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  max-width: var(--content-width);
+  margin: auto;
+  text-align: left;
+}
+
+.content > p {
+  margin-bottom: 16px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
+.mdx-content-image-text {
+  background-color: red;
+  max-width: 680px;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 24px;
+  width: 460px;
+  padding-left: 48px;
+  float: right;
+  clear: both;
+}
+
+.shareButton {
+  line-height: 0;
+  transform: scale(1);
+  transition: transform 200ms;
+}
+
+.shareButton:hover {
+  transform: scale(1.2);
+  transition: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 3;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+}
+
+.projectCard .heading {
+  margin-top: 98px;
   margin-bottom: 64px;
 }
 
-@media (max-width: 900px) {
-  .projectCard {
+.projectCardWide {
+  margin-bottom: 64px;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: auto auto;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+  }
+  .projectCardWide {
     margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: auto;
   }
 }

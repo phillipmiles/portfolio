@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import s from './NavItem.module.css';
-import DetachedHoverEffect from './generic/DetachedHoverEffect';
+import HoverUnderline from './HoverUnderline';
 
 interface Props {
   href: string;
@@ -9,11 +9,11 @@ interface Props {
 }
 
 const NavItem = ({ href, invert, children }: Props) => (
-  <DetachedHoverEffect className={`${s.hoverEffect} && ${invert && s.invert}`}>
+  <HoverUnderline className={invert && s.underline}>
     <Link href={href} className={s.contentStyle}>
       {children}
     </Link>
-  </DetachedHoverEffect>
+  </HoverUnderline>
 );
 
 export default NavItem;

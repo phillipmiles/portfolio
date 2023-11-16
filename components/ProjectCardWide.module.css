@@ -1,0 +1,32 @@
+.container {
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 520px;
+  flex-direction: row;
+}
+
+.image {
+  width: 33%;
+  margin-bottom: 0;
+  height: auto;
+}
+
+.body {
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.projectCardMobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .container {
+    display: none;
+  }
+
+  .projectCardMobile {
+    display: block;
+  }
+}

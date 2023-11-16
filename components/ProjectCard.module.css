@@ -13,6 +13,14 @@
   overflow: hidden;
 }
 
+/* .link:hover {
+  text-decoration: underline;
+} */
+
+/* .link:hover .title {
+  text-decoration: underline;
+} */
+
 .projectCardBody {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -71,82 +79,50 @@
   animation-timing-function: ease;
 }
 
-.woodfort .button {
-  background-color: #6a553d;
-  border-color: #6a553d;
-  outline-color: #6a553d;
+.link {
+  position: relative;
 }
 
-.thought-stream .button {
-  background-color: #f04153;
-  border-color: #f04153;
-  outline-color: #f04153;
+.link > * {
+  /* Lifts children component above the pseudo selector. */
+  position: relative;
 }
 
-.cpa .button {
-  background-color: #78674a;
-  border-color: #78674a;
-  outline-color: #78674a;
+.link .title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-.coles .button {
-  background-color: #df1a23;
-  border-color: #df1a23;
-  outline-color: #df1a23;
+.link .title::before {
+  left: -4px;
+  right: -4px;
 }
 
-.verso .button {
-  background-color: #5b2f7f;
-  border-color: #5b2f7f;
-  outline-color: #5b2f7f;
+.link .title::before {
+  opacity: 0;
+  top: auto;
+  bottom: 0;
+  height: 1.5px;
+  background-color: var(--primary-color);
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
+  transition-duration: 200ms;
 }
 
-.untitled-game .button {
-  background-color: #1f705a;
-  border-color: #1f705a;
-  outline-color: #1f705a;
+.link:hover .title {
+  color: var(--primary-color);
 }
 
-.binder .button {
-  background-color: #008e89;
-  border-color: #008e89;
-  outline-color: #008e89;
+.title {
+  display: inline-block;
 }
-
-.woodfort .button:focus,
-.untitled-game .button:focus,
-.verso .button:focus,
-.coles .button:focus,
-.cpa .button:focus,
-.thought-stream .button:focus,
-.binder .button:focus,
-.wordpress .button:focus,
-.gametalk .button:focus {
-  border-color: white;
-}
-
-.woodfort .heading {
-  color: #6a553d;
-}
-
-.thought-stream .heading {
-  color: #f04153;
-}
-
-.untitled-game .heading {
-  color: #1f705a;
-}
-.cpa .heading {
-  color: #78674a;
-}
-.verso .heading {
-  color: #5b2f7f;
-}
-.coles .heading {
-  color: #df1a23;
-}
-.binder .heading {
-  color: #008e89;
+.link:hover .title::before {
+  opacity: 1;
+  transform: scaleX(100%);
 }
 
 @keyframes zoom {

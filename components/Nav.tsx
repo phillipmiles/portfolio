@@ -7,6 +7,9 @@ interface Props {
 
 const Nav = ({ invert }: Props): JSX.Element => (
   <nav className={s.nav}>
+    {/* <NavItem href="/services" invert={invert}>
+      Services
+    </NavItem> */}
     <NavItem href="/projects" invert={invert}>
       Projects
     </NavItem>

@@ -26,12 +26,26 @@ import {
 import PageWithFooter from '../../components/generic/PageWithFooter';
 import Banner from '../../components/Banner';
 import ProjectCard from '../../components/ProjectCard';
+import ProjectCardWide from '../../components/ProjectCardWide';
 import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
 import projects from '../../data/projects';
 import s from './projects.module.css';
+import ProjectCardImage from '../../components/ProjectCardImage';
+import ProjectCardBody from '../../components/ProjectCardBody';
+import ProjectCardTitle from '../../components/ProjectCardTitle';
+import ProjectCardDescription from '../../components/ProjectCardDescription';
+import ProjectCardTags from '../../components/ProjectCardTags';
+import Heading from '../../components/Heading';
 
 const Projects: NextPage = () => {
+  const professionalProjects = projects.filter(
+    (project) => project.type === 'professional'
+  );
+  const personalProjects = projects.filter(
+    (project) => project.type === 'personal'
+  );
+
   return (
     <>
       <Head>
@@ -49,53 +63,64 @@ const Projects: NextPage = () => {
               professionally.
             </PageIntro>
           </div>
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              slug={project.slug}
-              title={project.name}
-              description={project.description}
-              url={`/projects/${project.slug}`}
-              srcThumb={project.thumbnail}
-              className={s.projectCard}
-            />
-          ))}
-          {/* <ProjectCard
-                title="Verso Learning App"
-                description={
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                }
-                url="/"
-                srcThumb="/images/versohome.png"
-                style={{ marginBottom: 64 }}
-              />
+
+          {/* <Heading tag="h2" as="h4" style={{ marginBottom: '32px' }}>
+            Professional Work
+          </Heading> */}
+          <ProjectCardWide
+            slug={professionalProjects[0].slug}
+            url={`/projects/${professionalProjects[0].slug}`}
+            title={professionalProjects[0].name}
+            description={professionalProjects[0].description}
+            descriptionBrief={professionalProjects[0].intro}
+            tags={professionalProjects[0].tags}
+            thumbnail={professionalProjects[0].thumbnail}
+            className={s.projectCardWide}
+          />
+
+          <div className={s.grid}>
+            {professionalProjects.slice(1).map((project) => (
               <ProjectCard
-                title="Thought Stream Mobile App"
-                description={
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                }
-                url="/"
-                srcThumb="/projects-thumb.png"
-                style={{ marginBottom: 64 }}
+                slug={project.slug}
+                url={`/projects/${project.slug}`}
+                title={project.name}
+                description={project.intro}
+                tags={project.tags}
+                thumbnail={project.thumbnail}
+                style={{ height: '500px' }}
               />
+            ))}
+          </div>
+          <Heading
+            tag="h2"
+            as="h4"
+            style={{ marginTop: '96px', marginBottom: '32px' }}
+          >
+            Personal Work
+          </Heading>
+
+          <ProjectCardWide
+            slug={personalProjects[0].slug}
+            url={`/projects/${personalProjects[0].slug}`}
+            title={personalProjects[0].name}
+            description={personalProjects[0].description}
+            tags={personalProjects[0].tags}
+            thumbnail={personalProjects[0].thumbnail}
+            className={s.projectCardWide}
+            descriptionBrief={personalProjects[0].intro}
+          />
+          <div className={s.grid}>
+            {personalProjects.slice(1).map((project) => (
               <ProjectCard
-                title="Test"
-                description={
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                }
-                url="/"
-                srcThumb="/images/cpa_screen_ipad.jpeg"
-                style={{ marginBottom: 64 }}
+                slug={project.slug}
+                url={`/projects/${project.slug}`}
+                title={project.name}
+                description={project.intro}
+                tags={project.tags}
+                thumbnail={project.thumbnail}
               />
-              <ProjectCard
-                title="Test"
-                description={
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros velit, sollicitudin vel gravida sit amet, gravida eget sapien. Proin tellus lorem, rhoncus eu pharetra non, dapibus a nisl. Fusce aliquam nisi ut nunc suscipit sollicitudin.'
-                }
-                url="/"
-                srcThumb="/images/gametalk_composite.jpeg"
-                style={{ marginBottom: 64 }}
-              /> */}
+            ))}
+          </div>
         </div>
       </PageContentWrap>
     </>

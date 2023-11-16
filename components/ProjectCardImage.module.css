@@ -3,14 +3,24 @@
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+  height: 228px;
 }
 
 @media (max-width: 900px) {
   .imageWrap {
     margin: 0;
     width: 100%;
-    height: 240px;
+    height: 228px;
   }
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  animation-duration: 40000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
 }
 
 .imageContainer {
@@ -26,14 +36,6 @@
 
 .imageContainer:hover {
   transform: scale(1.04);
-}
-
-.imageContainer .image {
-  /* animation-name: pan; */
-  /* animation-name: zoom; */
-  animation-duration: 40000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
 }
 
 @keyframes zoom {

@@ -1,0 +1,35 @@
+a.contentStyle {
+  padding: 8px;
+  text-decoration: none;
+}
+
+div.hoverEffect::before {
+  left: 4px;
+  right: 4px;
+}
+
+div.hoverEffect::before {
+  opacity: 0;
+  top: auto;
+  bottom: 0;
+  height: 1.5px;
+  background-color: black;
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
+  transition-duration: 200ms;
+}
+
+div.hoverEffect.invert::before {
+  background-color: white;
+}
+
+div.hoverEffect:hover::before {
+  opacity: 1;
+  transform: scaleX(100%);
+}
+
+@media (max-width: 600px) {
+  a.contentStyle {
+    font-size: 16px;
+  }
+}
