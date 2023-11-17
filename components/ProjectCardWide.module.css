@@ -4,6 +4,7 @@
   overflow: hidden;
   height: 520px;
   flex-direction: row;
+  position: relative;
 }
 
 .image {
@@ -13,7 +14,7 @@
 }
 
 .body {
-  justify-content: flex-start;
+  justify-content: center;
   width: 40%;
 }
 
@@ -29,4 +30,59 @@
   .projectCardMobile {
     display: block;
   }
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px;
+}
+
+.link > * {
+  /* Lifts children component above the pseudo selector. */
+  position: relative;
+}
+
+.link .title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.link .title::before {
+  left: -4px;
+  right: -4px;
+}
+
+.link .title::before {
+  opacity: 0;
+  top: auto;
+  bottom: 0;
+  height: 1.5px;
+  /* background-color: var(--primary-color); */
+  background-color: black;
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
+  transition-duration: 200ms;
+}
+
+.link:hover .title {
+  /* color: var(--primary-color); */
+  color: black;
+}
+
+.title {
+  display: inline-block;
+}
+.link:hover .title::before {
+  opacity: 1;
+  transform: scaleX(100%);
 }

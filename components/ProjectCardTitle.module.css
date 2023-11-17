@@ -1,5 +1,47 @@
+.link {
+  position: relative;
+}
+
+.link > * {
+  /* Lifts children component above the pseudo selector. */
+  position: relative;
+}
+
+.link .heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.link .heading::before {
+  left: -4px;
+  right: -4px;
+}
+
+.link .heading::before {
+  opacity: 0;
+  top: auto;
+  bottom: 0;
+  height: 1.5px;
+  /* background-color: var(--primary-color); */
+  background-color: black;
+  transform: scaleX(0%);
+  transition-property: opacity, transform;
+  transition-duration: 200ms;
+}
+
+.link:hover .heading {
+  /* color: var(--primary-color); */
+  color: black;
+}
+
 .heading {
-  /* font-family: metropolis; */
-  /* font-weight: 400; */
-  /* font-size: 36px; */
+  display: inline-block;
+}
+.link:hover .heading::before {
+  opacity: 1;
+  transform: scaleX(100%);
 }

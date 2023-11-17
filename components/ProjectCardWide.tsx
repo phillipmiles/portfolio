@@ -36,64 +36,25 @@ const ProjectCardWide = ({
       <Flex className={`${s.container} ${className}`} style={style} {...props}>
         <ProjectCardImage
           slug={slug}
-          url={`/projects/${slug}`}
+          url={url}
           src={thumbnail}
           className={s.image}
         />
-        <ProjectCardBody
-          url={`/projects/${slug}`}
-          slug={slug}
-          className={s.body}
-        >
-          <ProjectCardTags
-            style={{
-              // marginTop: '8px',
-              marginBottom: '24px',
-            }}
-          >
-            {tags?.map((tag, index) => (
-              <>
-                <span
-                  style={
-                    {
-                      // textTransform: 'uppercase',
-                      // fontSize: '15px',
-                      // letterSpacing: '1px',
-                      // fontWeight: 500,
-                      // opacity: 0.8,
-                    }
-                  }
-                >
-                  {tag}
-                </span>
-                {index !== tags.length - 1 && (
-                  <span
-                    style={{
-                      margin: '0 8px',
-                      opacity: 0.6,
-                      fontSize: '18px',
-                      display: 'inline-block',
-                      transform: 'translateY(0.5px)',
-                    }}
-                  >
-                    /
-                  </span>
-                )}
-              </>
-            ))}
-          </ProjectCardTags>
+        <ProjectCardBody slug={slug} className={s.body}>
+          <Link href={url} className={s.link}>
+            <ProjectCardTitle
+              tag="h4"
+              url={url}
+              className={s.title}
+              style={{ marginBottom: '24px', fontSize: '36px' }}
+            >
+              {title}
+            </ProjectCardTitle>
+            <ProjectCardDescription lines={5}>
+              {description}
+            </ProjectCardDescription>
 
-          <ProjectCardTitle
-            tag="h4"
-            style={{ marginBottom: '24px', fontSize: '36px' }}
-          >
-            {title}
-          </ProjectCardTitle>
-          <ProjectCardDescription lines={5}>
-            {description}
-          </ProjectCardDescription>
-
-          <Flex style={{ flexGrow: 1 }}>
+            {/* <Flex style={{ flexGrow: 1 }}>
             <Button
               className={s.button}
               href={`/projects/${slug}`}
@@ -101,7 +62,45 @@ const ProjectCardWide = ({
             >
               View project
             </Button>
-          </Flex>
+          </Flex> */}
+            <ProjectCardTags
+              style={{
+                marginTop: '24px',
+                // marginBottom: '24px',
+              }}
+            >
+              {tags?.map((tag, index) => (
+                <>
+                  <span
+                    style={
+                      {
+                        // textTransform: 'uppercase',
+                        // fontSize: '15px',
+                        // letterSpacing: '1px',
+                        // fontWeight: 500,
+                        // opacity: 0.8,
+                      }
+                    }
+                  >
+                    {tag}
+                  </span>
+                  {index !== tags.length - 1 && (
+                    <span
+                      style={{
+                        margin: '0 8px',
+                        opacity: 0.6,
+                        fontSize: '18px',
+                        display: 'inline-block',
+                        transform: 'translateY(0.5px)',
+                      }}
+                    >
+                      /
+                    </span>
+                  )}
+                </>
+              ))}
+            </ProjectCardTags>
+          </Link>
         </ProjectCardBody>
       </Flex>
       <ProjectCard
