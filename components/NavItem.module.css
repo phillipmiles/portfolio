@@ -3,7 +3,7 @@ a.contentStyle {
   text-decoration: none;
 }
 
-div.underline::before {
+div.hover.underline::before {
   background-color: white;
 }
 

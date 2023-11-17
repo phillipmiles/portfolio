@@ -19,10 +19,6 @@ div.hoverEffect::before {
   transition-duration: 200ms;
 }
 
-div.hoverEffect.invert::before {
-  background-color: white;
-}
-
 div.hoverEffect:hover::before {
   opacity: 1;
   transform: scaleX(100%);
