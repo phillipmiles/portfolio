@@ -1,8 +1,24 @@
+import MDXImage from '../../components/MDXImage';
+import image1 from '../../public/images/projects/michelle-mcquaid/michelle-mcquaid_image-compare.jpg';
+import banner from '../../public/images/projects/michelle-mcquaid/michelle-mcquaid_banner.jpg';
+
+<MDXImage
+  src={banner}
+  width={1140}
+  aspectRatio="6/3"
+  priority
+  wide
+  layout="responsive"
+  alt=""
+/>
+
 My role in this project was to help migrate their front end website from a lergacy weordpress version to their more modern Gutenverg block based system which utilises the React framework.
 
 Gutenberg operates with blocks that make up various parts of a web page. They should be configurable in a way that lets them be reusable across the website. In this way they are very siilar to a good React component.
 
 The creation of these blocks was my job with ther actual construction of the web pages unsing these blocks left the the content editors on the team.
+
+<MDXImage src={image1} width={1140} aspectRatio="5/6" wide alt="" />
 
 This meant thaty each block had two front ends that needed to be made. One to be displayed in the Wordpress page editor for the content editors to populate with content. The other wone would be for the actual front facing site that visiting users would see and interact with.
 
