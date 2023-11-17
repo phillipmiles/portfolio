@@ -9,7 +9,7 @@ import { useRef, useState, useEffect, Dispatch, useCallback } from 'react';
 import { toMinutes, addLeadingZero } from '../../utils/time';
 import DraggableConstraint from './DraggableConstraint';
 
-import { getValueAsPercentage } from '../../utils/math';
+import { percentage } from '../../utils/math';
 
 const AudioPlayer = ({
   className,
@@ -92,11 +92,11 @@ const AudioPlayer = ({
       if (!audioRef.current) return;
       for (let i = 0; i < audioRef.current.buffered.length; i++) {
         buffered.push({
-          start: getValueAsPercentage(
+          start: percentage(
             audioRef.current.buffered.start(i),
             audioRef.current.duration
           ),
-          end: getValueAsPercentage(
+          end: percentage(
             audioRef.current.buffered.end(i),
             audioRef.current.duration
           ),
@@ -109,7 +109,7 @@ const AudioPlayer = ({
       if (!audioRef.current) return;
 
       const current = audioRef.current.currentTime;
-      const progress = getValueAsPercentage(
+      const progress = percentage(
         audioRef.current.currentTime,
         audioRef.current.duration
       );
