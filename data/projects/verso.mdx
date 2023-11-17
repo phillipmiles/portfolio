@@ -3,7 +3,7 @@ import MDXGallery from '../../components/MDXGallery';
 import MDXVideo from '../../components/MDXVideo';
 
 <MDXImage
-  src="/images/projects/verso/verso_thumbnail_01.jpg"
+  src="/images/projects/verso/verso_banner.jpg"
   width={1140}
   aspectRatio="6/3"
   alt="sdfsf"
@@ -30,36 +30,30 @@ I was brought in along with a designer to handle the implementation of the redes
 The design language was then integrated into our chosen CSS in JS solution called [Theme UI](https://theme-ui.com/) which allowed us to restrict styles to those defined in our design guide. This insured consistency across the web apps by creating a friction point for developers that would automatically guide them even without a designer present on the team.
 
 <MDXImage
-  src="/images/projects/verso/verso_feedback.png"
-  height={512}
+  src="/images/projects/verso/verso_home.png"
   width={680}
-  aspectRatio="9/6"
+  aspectRatio="5/7"
   alt=""
+  position="top"
+  caption="Verso app's home page. Here the user's personalised feed displays various action types made by your collaborators."
 />
 
 A second friction point was created by separating the core components out into an isolated NPM module. Again to help deter any spontaneous changes that may erode the codebase. These components were then integrated in [Storybook](https://storybook.js.org/) which provided clear, easy to read documentation for the components and would dynamically update itself based on changes made to the component's code.
 
 The result was a component library of over 100 new, versatile and documented components shared across two different web apps.
 
-<MDXGallery
-  images={[
-    {
-      src: '/images/projects/verso/verso_form.png',
-      alt: '',
-    },
-    {
-      src: '/images/projects/verso/verso_home.png',
-      alt: '',
-    },
-    {
-      src: '/images/projects/verso/verso_comic.png',
-      alt: '',
-    },
-  ]}
-  height={680}
-  width={1140}
-  priority
-  wide
+<MDXImage
+  src="/images/projects/verso/verso_form.png"
+  width={680}
+  aspectRatio="7/3"
+  alt=""
+  position="top"
+/>
+
+<MDXImage
+  src="/images/projects/verso/verso_comic.png"
+  width={680}
+  aspectRatio="7/3"
   alt=""
 />
 
@@ -68,6 +62,15 @@ The core app relied heavily on user generated data that often needed to be commu
 I used [AMCharts](https://www.amcharts.com/) to provide a number of default charts and the tools needed to create new chart types from scratch.
 
 A problem we encountered with the charts was that of poor performance. Animations both within and from outside the charts would struggle to remain smooth as React would perform re-renders on large sections of the app.
+
+<MDXImage
+  src="/images/projects/verso/verso_feedback.png"
+  width={680}
+  aspectRatio="3/5"
+  position="top"
+  alt=""
+  caption="An example of a lesson's reflection page. After students provide brief feedback of their experience in the lesson, the data is presented to the teacher to inform them on where they can focus additional support or to adjust their lesson strategy."
+/>
 
 Careful monitoring of performance using various tools helped me isolate problematic areas that caused large repaints of the webpage
 

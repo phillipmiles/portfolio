@@ -12,6 +12,7 @@ const MDXImage = ({
   zoom,
   aspectRatio = '16 / 9',
   caption,
+  position,
 }): JSX.Element => {
   const w = `${width}px`;
   const h = `${height}px`;
@@ -58,6 +59,7 @@ const MDXImage = ({
           style={{
             objectFit: 'cover',
             ...(!!zoom && { transform: `scale(${zoom})` }),
+            ...(position === 'top' && { objectPosition: 'top' }),
           }}
           priority={priority}
         />
