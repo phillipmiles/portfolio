@@ -81,6 +81,7 @@ const Projects: NextPage = () => {
           <div className={s.grid}>
             {professionalProjects.slice(1).map((project) => (
               <ProjectCard
+                key={project.slug}
                 slug={project.slug}
                 url={`/projects/${project.slug}`}
                 title={project.name}
@@ -112,6 +113,7 @@ const Projects: NextPage = () => {
           <div className={s.grid}>
             {personalProjects.slice(1).map((project) => (
               <ProjectCard
+                key={project.slug}
                 slug={project.slug}
                 url={`/projects/${project.slug}`}
                 title={project.name}
