@@ -3,9 +3,10 @@ import MDXVideo from '../../components/MDXVideo';
 import MDXGallery from '../../components/MDXGallery';
 
 <MDXImage
-  src="/images/projects/thought-stream/feature-graphic.png"
+  src="/images/projects/thought-stream/thought-stream_banner.jpg"
   width={1140}
   aspectRatio="6/3"
+  position="top"
   alt=""
 />
 
@@ -15,11 +16,15 @@ So when I had a personal need for a mobile app I jumped on it.
 
 I frequently take notes throughout my day. Often not because I want to return to them but because I just want to get them out of my head.
 
-In the past I had used paper. A lot of it. But I was tired of having piles of paper everywhere and the environmental impact was bothering me. So I wanted to switch to using a note taking app.
-
-The problem was that I couldn't find any app that I was happy with.
-
-They were either too bloated, not streamlined enough, too slow or were just plain ugly. All I wanted was something as close to the simplicity and speed of writing on a piece of paper.
+<MDXImage
+  src="/images/projects/thought-stream/store-mobile-1.png"
+  height={812}
+  width={400}
+  aspectRatio="5/9"
+  alt=""
+  float="right"
+  caption="The home feed screen of all your thoughts in an infinite scrolling wall. The hidden side menu lets you filter the thoughts by a specific stream."
+/>
 
 <MDXImage
   src="/images/projects/thought-stream/store-mobile-4.png"
@@ -28,7 +33,15 @@ They were either too bloated, not streamlined enough, too slow or were just plai
   aspectRatio="5/9"
   alt=""
   float="right"
+  caption="Editing screen with a rich text editor, undo/redo functions and the ability to change the thought's stream."
 />
+In the past I had used paper. A lot of it. But I was tired of having piles of paper
+everywhere and the environmental impact was bothering me. So I wanted to switch to
+using a note taking app.
+
+The problem was that I couldn't find any app that I was happy with.
+
+They were either too bloated, not streamlined enough, too slow or were just plain ugly. All I wanted was something as close to the simplicity and speed of writing on a piece of paper.
 
 On paper it sounds like a really generic note taking app but found it very useful and enjoyed using it. It gave me exactly what I wanted in just the way that I wanted it. Since this was an app intended just for myself it was perfect.
 
@@ -38,34 +51,6 @@ Notes also didn't need to be titled, have complex tagging or be searchable becau
 
 This filtering is achieved through "Streams" (hence why the app is called 'Thought Stream'). Streams effectively act as a category. When writing a note you can specify what stream to add it in but by default the app will add the note to the same stream of the previously added note. The reason behind this is because I would often have a string of thoughts in a row on the one subject and it saved on a button press to note have to specify the stream on every new note.
 
-<MDXGallery
-  images={[
-    {
-      src: '/images/projects/thought-stream/store-tablet-1.png',
-      alt: '',
-    },
-    {
-      src: '/images/projects/thought-stream/store-mobile-5.png',
-      alt: '',
-    },
-    {
-      src: '/images/projects/thought-stream/store-tablet-2.png',
-      alt: '',
-    },
-  ]}
-  height={680}
-  width={1140}
-  priority
-  wide
-/>
-
-<MDXVideo
-  src="/video/thought-stream-app.mp4"
-  height={600}
-  width={400}
-  float="right"
-/>
-
 The biggest challenge was the rich text editor. React Native by itself doesn't come with one and because every primitive React Native component is written in the operating system's own language I couldn't exactly write my own without spending way too much time learning Android's native code.
 
 Another challenge was performance. Especially on page loads. Any delay would effectively kill any chance that I would actually want to use the app. This was largely solved by using the recommended development practices and through careful and controlled rendering of components at different times within a transition.
@@ -73,3 +58,5 @@ Another challenge was performance. Especially on page loads. Any delay would eff
 The final challenge was jank. At the end of the day React Native just won't ever be as good as an app writing in the operating systems native code. Within it there exists numerous little quirks and inconsistencies that would just feel a little off compared to a native app.
 
 I had to experiment and discover work arounds to these issues to make sure the user experience didn't distract from the user's objective when using it.
+
+<MDXVideo src="/video/thought-stream-app.mp4" height={600} width={680} />
