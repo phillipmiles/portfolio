@@ -15,6 +15,7 @@ import colesThumb from '../../public/images/projects/coles/coles_thumbnail_01.jp
 import cpaThumb from '../../public/images/projects/cpa/cpa_thumbnail_01.jpg';
 import versoThumb from '../../public/images/projects/verso/verso_thumbnail_01.jpg';
 import thoughtStreamThumb from '../../public/images/projects/thought-stream/thought-stream_thumbnail_01.jpg';
+import michelleMcquaidThumb from '../../public/images/projects/michelle-mcquaid/michelle-mcquaid_thumbnail.jpg';
 
 const projects = [
   {
@@ -54,21 +55,20 @@ const projects = [
       '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
     content: <ThoughtStream />,
   },
-  // {
-  //   slug: 'wordpress',
-  //   name: 'Wordpress Gutenberg React',
-  //   type: 'professional',
-  //   tags: ['React', 'Wordpress'],
-  //   intro:
-  //     'A cross-platform mobile note taking app built with React Native built for me, by me.',
-  //   year: '2021 - 2022',
-  //   thumbnail:
-  //     '/images/projects/thought-stream/thought-stream_thumbnail_01.jpg',
-  //   bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
-  //   description:
-  //     '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
-  //   content: <Wordpress />,
-  // },
+  {
+    slug: 'wordpress',
+    name: 'Michelle Mcquaid',
+    type: 'professional',
+    tags: ['React', 'Wordpress', 'Gutenberg'],
+    intro:
+      "Migration of a legacy Wordpress site into Gutenburg, Wordpress's modern React framework.",
+    year: '2021 - 2022',
+    thumbnail: michelleMcquaidThumb,
+    bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
+    description:
+      '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
+    content: <Wordpress />,
+  },
   {
     slug: 'binder',
     type: 'personal',
