@@ -19,7 +19,8 @@ div.hoverEffect::before {
   transition-duration: 200ms;
 }
 
-div.hoverEffect:hover::before {
+div.hoverEffect:hover::before,
+div.hoverEffect.active::before {
   opacity: 1;
   transform: scaleX(100%);
 }

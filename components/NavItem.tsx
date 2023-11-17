@@ -8,8 +8,11 @@ interface Props {
   invert: boolean;
 }
 
-const NavItem = ({ href, invert, children }: Props) => (
-  <HoverUnderline className={`${s.hover} ${invert && s.underline}`}>
+const NavItem = ({ href, invert, active, children }: Props) => (
+  <HoverUnderline
+    className={`${s.hover} ${invert && s.underline}`}
+    active={active}
+  >
     <Link href={href} className={s.contentStyle}>
       {children}
     </Link>
