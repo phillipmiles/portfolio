@@ -33,7 +33,7 @@ const Nav = ({ invert }: Props): JSX.Element => {
       </NavItem>
       {/* <Link href="/about">About</Link> */}
       {/* <Link href="blog">Blog</Link> */}
-      <NavItem href="mailTo:hello@phillipmiles.com" invert={invert}>
+      <NavItem href="mailTo:phillip@phillipmiles.com" invert={invert}>
         Contact
       </NavItem>
     </nav>

@@ -78,6 +78,7 @@
 
 .pageWrapInner {
   justify-content: center;
+  /* max-width: 200px; */
 }
 
 .header {
