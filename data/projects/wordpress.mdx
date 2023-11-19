@@ -12,24 +12,33 @@ import banner from '../../public/images/projects/michelle-mcquaid/michelle-mcqua
   alt=""
 />
 
-My role in this project was to help migrate their front end website from a lergacy weordpress version to their more modern Gutenverg block based system which utilises the React framework.
+My role in this project was to help migrate the Michelle Mcquaid website's front-end from a legacy site, that was on it's way to becoming depreciated by Wordpress, to Wordpress's more modern Gutenberg block based system.
 
-Gutenberg operates with blocks that make up various parts of a web page. They should be configurable in a way that lets them be reusable across the website. In this way they are very siilar to a good React component.
+Gutenberg blocks use React for making a block's editing tools used within Wordpress's editor. Frustratingly though it doesn't use React for the actual front facing website. An issue I will touch on later.
 
-The creation of these blocks was my job with ther actual construction of the web pages unsing these blocks left the the content editors on the team.
+Gutenberg operates with blocks that make up various parts of a web page. They should be configurable in a way that lets them be reusable across the website. In this way they are very similar to a good React component.
 
-<MDXImage src={image1} width={1140} aspectRatio="5/6" wide alt="" />
+The creation of these blocks was my job with the actual construction of the web pages and filling of content left for the content editors on the team.
 
-This meant thaty each block had two front ends that needed to be made. One to be displayed in the Wordpress page editor for the content editors to populate with content. The other wone would be for the actual front facing site that visiting users would see and interact with.
+<MDXImage
+  src={image1}
+  width={1140}
+  aspectRatio="5/6"
+  wide
+  alt=""
+  caption="An example of an empty block viewed from an editors perspective (top) and then with content added as viewed by a visitor to the website (bottom). "
+/>
 
-- Configuration
-- Themse parent/child theme.JSON
-- challenge
-- - Took a bit to get up to speed with wordpresses way of Working
-- - the lack of good documentation requring me to trawl therough wordpresses github pages to find the functions and components I needed
-- - The mix of react vs old school. Ie - SASS and CSS, React and JS, HTML and JSX
-- - strange design decisions
-- - - gigantic theme file
-- - - reliance on dynamic blocks so that edits to the blocks would populate across the site insetread of the opt in strategy.
+What this meant was that each block would need two versions made. The version that is displayed to visitors of the website and then the version that is shown within Wordpress's editor waiting for content and any customisations to be applied to the block's instances.
 
-One great benifit of transitioning to Gutenberg was a significant page render speed. The old website was incredably bloated with time to first render taking up to 5 to 6 seconds and time to full render up to 10 seconds which in website page speed terms is horrendous. This didn't matter if it was on a first time page load or a return visit. Caching seemed to have no effect. The initial server connection speed took over 2 seconds and it also appeared that the site was downloading the entire site regardless of whether it was relavent to the current page or not. Over 300 seperate network requests are made at page load.
+A notable benefit of the transition to Gutenberg was that it brought a significant improvement to page render speed. The old website was incredibly bloated and slow, taking up to 5,6 seconds for initial render and up to 10 seconds for a web page to complete its loading. Moving to Gutenberg dropped page render speed to well under a second.
+
+However with the good comes the bad. A dichotomy that is disproportionate in just how frustrating Gutenberg can be to work with.
+
+I'll dot point these out because there are a few of them.
+
+- Code duplication due to blocks being written in React for the editor and again in CSS, HTML and Javascript on the front facing site.
+- The reliance on the theme.json file for defining styles, a file that becomes enormous becoming a pain to edit.
+- Incomplete documentation. I'd frequently have to trawl through wordpress's git repos to find the functions and components I needed.
+- Wordpress's methodology that block updates should be opt-in per block instance rather than propagating to all instances of the block being used across the site. A maintenance nightmare.
+- The mixing of SASS in some circumstances and CSS in others. Of JSX in some circumstances and HTML + JS in others.

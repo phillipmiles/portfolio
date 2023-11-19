@@ -8,13 +8,15 @@
 .content h3,
 .content h4,
 .content h5,
-.content h6 {
+.content h6,
+.content ul {
   max-width: var(--content-width);
   margin: auto;
   text-align: left;
 }
 
-.content > p {
+.content > p,
+.content li {
   margin-bottom: 16px;
 }
 

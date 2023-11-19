@@ -20,7 +20,7 @@ import michelleMcquaidThumb from '../../public/images/projects/michelle-mcquaid/
 const projects = [
   {
     slug: 'verso',
-    name: 'Verso Learning',
+    name: 'Verso Learning Web Apps',
     type: 'professional',
     tags: ['React', 'Storybook', 'Charts'],
     intro: 'Implementation of a site wide redesign as part of a rebranding.',
@@ -55,20 +55,20 @@ const projects = [
       '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
     content: <ThoughtStream />,
   },
-  // {
-  //   slug: 'wordpress',
-  //   name: 'Michelle Mcquaid',
-  //   type: 'professional',
-  //   tags: ['React', 'Wordpress', 'PHP'],
-  //   intro:
-  //     "Migration of a legacy Wordpress site into Gutenburg, Wordpress's modern React framework.",
-  //   year: '2021 - 2022',
-  //   thumbnail: michelleMcquaidThumb,
-  //   bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
-  //   description:
-  //     '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
-  //   content: <Wordpress />,
-  // },
+  {
+    slug: 'wordpress',
+    name: 'Michelle Mcquaid Wordpress React',
+    type: 'professional',
+    tags: ['React', 'Wordpress', 'PHP'],
+    intro:
+      "Migration of a legacy Wordpress site into Gutenburg, Wordpress's modern React framework.",
+    year: '2023',
+    thumbnail: michelleMcquaidThumb,
+    bannerSrc: '/images/projects/thought-stream/thought-stream_banner_01.png',
+    description:
+      '<p>Thought Stream is a note taking mobile app that I developed with React Native &#8212; a framework that lets you develop mobile apps using Javascript and React.</p>',
+    content: <Wordpress />,
+  },
   {
     slug: 'binder',
     type: 'personal',
