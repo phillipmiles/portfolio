@@ -1,3 +1,53 @@
-In 2016 I was eager to flex my skills and challenge myself with new ones by trying at building a complete web app. So, I started a project that merged my interest of video games with my fondness for the community forum Reddit.
+import MDXImage from '../../components/MDXImage';
+import MDXGallery from '../../components/MDXGallery';
+import banner from '../../public/images/projects/gametalk/gametalk_banner.jpg';
+import image1 from '../../public/images/projects/gametalk/gametalk_game.jpg';
+import imagemobile from '../../public/images/projects/gametalk/gametalk_mobile.jpg';
 
-The result was a community website on video games that included functionality for user account creation, login/logout, posting of discussions and comments and a voting system for quality content. Some additional touches I took from Reddit was the algorithm used for sorting 'hot' or 'trending' posts as well as the nested tree style comment system.
+<MDXImage
+  src={banner}
+  width={1140}
+  aspectRatio="6/3"
+  priority
+  wide
+  layout="responsive"
+  alt=""
+/>
+
+GameTalk was my first attempt at a full-stack web development project.
+
+It's a community website from gamers that is essentially a reddit clone. Users can post various media links and files to a specific game prompting a discussion with other users.
+
+The similarities with reddit continue was the actual usage of an old algorithm used by reddit to order posts on the"hot/Trending" page.
+
+The algorithm uses time since a post was created along with the number of the post's upvotes. The value returned is saved to the database and defines the post's position in the post orders.
+
+<MDXImage
+  src={image1}
+  width={1140}
+  aspectRatio="6/3"
+  priority
+  wide
+  layout="responsive"
+  alt=""
+/>
+
+The comment system also mimics reddit's nested commenting system.
+
+Comments can be applied not only to posts but also other comments creating branching trees of comments.
+
+The challenge with this project was enormous amount of new information I had to learn.
+
+The web stack consisted of a PHP backend using the Laravel framework, a MySQL database and a pretty traditional frontend of HTML, CSS and Javascript and JQuery but assisted with Laravel's templating system.
+
+Most of these technologies I had either never used before or only have a very basic level of exposure. Topics I had to get caught up on were PHP, Laravel, MySQL, Routing, Templating, APIs, User Authentication, Security concerns (password handling, SQL Injections), etc.
+
+<MDXImage
+  src={imagemobile}
+  width={1140}
+  aspectRatio="6/3"
+  priority
+  wide
+  layout="responsive"
+  alt=""
+/>
