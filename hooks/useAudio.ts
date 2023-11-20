@@ -7,18 +7,7 @@ import {
   useEffect,
 } from 'react';
 import { percentage } from '../utils/math';
-import { addLeadingZero, toMinutes } from '../utils/time';
-
-const getTimeString = (seconds: Number) => {
-  if (!seconds) {
-    return '0:00';
-  }
-
-  const minutes = Math.trunc(toMinutes(seconds, 'seconds'));
-  const secondsAbs = parseInt(seconds);
-  const secondsConverted = addLeadingZero(secondsAbs % 60, 2);
-  return `${minutes}:${secondsConverted}`;
-};
+import { addLeadingZero, toMinutes, getTimeString } from '../utils/time';
 
 // const useEffectEvent = (callback) => {
 //   const ref = useRef(callback);

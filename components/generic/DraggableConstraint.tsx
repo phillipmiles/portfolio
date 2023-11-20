@@ -52,6 +52,7 @@ interface Props {
 
 const DraggableConstraint = ({
   className,
+  style,
   externalPosX = 0,
   externalPosY = 0,
   constrainToParent = true,
@@ -82,6 +83,9 @@ const DraggableConstraint = ({
     let oldPosX = 0;
     let oldPosY = 0;
 
+    // TODO NEED TO INIT THIS OR SOMEHTING BECUSE THEY ONLY GET
+    // UPDATED AFTER A MOVE EVENT FIRST ELSE 0 IS RETURNED WHEN DRAG ENDS WITHOUT
+    // HAVING A MOVE EVENT FIRED.
     let localElementPosX = 0;
     let localElementPosY = 0;
     let elementPercentX = 0;
@@ -209,6 +213,7 @@ const DraggableConstraint = ({
       style={{
         left: elementPosX,
         top: elementPosY,
+        ...style,
       }}
       {...props}
     />

@@ -11,40 +11,86 @@ export const Example = () => {
 export const exampleCode = [
   {
     language: 'jsx',
-    code: `const [position, setPosition] = useState({
-  offsetLeft: 0,
-  offsetLeftPercent: 0,
-  offsetTop: 0,
-  offsetTopPercent: 0,
-});
-  
-const handleMove = (event, position) => {
-  setPosition(position);
-};
+    code: `const AudioPlayer = ({ className, src }) => {
+  const audio = useAudio(src);
 
-return (
-  <div>
-    <p>Click square and drag.</p>
-    <div style={{ height: '600px', position: 'relative' }}>
-      <DraggableConstraint
-        className={s.dragElement}
-        onMove={handleMove}
-        onStart={() => {}}
-        onEnd={() => {}}
-        disable={false}
+  const [renderedTime, setRenderedTime] = useState(getTimeString(0));
+
+  useEffect(() => {
+    setRenderedTime(audio.currentTimeString);
+  }, [audio.currentTimeString]);
+
+  useEffect(() => {
+    if (audio.audioState === 'loaded') {
+      audio.play();
+    }
+  }, [audio.audioState]);
+
+  const togglePlay = () => {
+    if (audio.audioState === 'unloaded') {
+      audio.load();
+    } else if (audio.audioState === 'play') {
+      audio.pause();
+    } else if (audio.audioState === 'pause') {
+      audio.play();
+    }
+  };
+
+  const handleDragSeeker = (val) => {
+    setRenderedTime(getTimeString(val));
+  };
+
+  const handleEndSeeker = (val) => {
+    if (!audio.a) return;
+    audio.a.currentTime = val;
+    audio.play();
+  };
+
+  const handleDragStartSeeker = () => {
+    audio.pause();
+  };
+
+  return (
+    <div className={className}>
+      {audio.audioState === 'loading' && <button>Loading</button>}
+
+      <button onClick={togglePlay}>
+        {audio.audioState === 'pause' ? 'Pause' : 'Play'}
+      </button>
+
+      <a href={src} target="_blank">
+        Download
+      </a>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
       >
-        <p><strong>LEFT</strong></p>
-        <p>
-          {position.offsetLeft}px | {Math.round(position.offsetLeftPercent)}%
-        </p>
-        <p><strong>TOP</strong></p>
-        <p>
-          {position.offsetTop}px | {Math.round(position.offsetTopPercent)}%
-        </p>
-      </DraggableConstraint>
+        <MediaTimeline
+          buffered={audio.buffered}
+          disable={
+            audio.audioState === 'unloaded' || audio.audioState === 'loading'
+          }
+          currentTime={audio.a ? audio.a.currentTime : 0}
+          duration={audio.a ? audio.a.duration : 0}
+          onClick={(val) => {
+            audio.setTime(audio.a.duration * val);
+          }}
+          onDragStart={handleDragStartSeeker}
+          onDrag={handleDragSeeker}
+          onEnd={handleEndSeeker}
+        />
+
+        <span>
+          {renderedTime} / {audio.durationTimeString}
+        </span>
+      </div>
     </div>
-  </div>
-);`,
+  );
+};`,
   },
   {
     language: 'css',

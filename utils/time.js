@@ -165,3 +165,14 @@ export const timeFunction = async (time = 'seconds', func) => {
 
   return [duration, result];
 };
+
+export const getTimeString = (seconds) => {
+  if (!seconds) {
+    return '0:00';
+  }
+
+  const minutes = Math.trunc(toMinutes(seconds, 'seconds'));
+  const secondsAbs = parseInt(seconds);
+  const secondsConverted = addLeadingZero(secondsAbs % 60, 2);
+  return `${minutes}:${secondsConverted}`;
+};
