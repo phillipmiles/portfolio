@@ -94,8 +94,6 @@ const InfinityPanner = ({
     };
   }, [children, translateX]);
 
-  console.log(translateX);
-
   return (
     <div
       className={`${s.container} ${className}`}
