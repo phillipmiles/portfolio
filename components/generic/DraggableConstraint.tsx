@@ -1,5 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 import s from './DraggableConstraint.module.css';
+import { percentage } from '../../utils/math';
+
+// TO EXPLORE - Ability to set position by percentage rather then a fixed pixel offset.
+// use case for this would be for changes in viewport but maybe this should be solved for
+// by a parent component.
+
+// TO EXPLORE - OffsetPercent values go incorrect if parent element changes size or screen
+// is resized.
 
 interface Props {
   className?: string;
@@ -34,11 +42,21 @@ const DraggableConstraint = ({
   const [prevClientXPos, setPrevClientXPos] = useState(null);
   const [prevClientYPos, setPrevClientYPos] = useState(null);
 
-  useEffect(() => {
-    // TODO NEED TO INIT THIS OR SOMEHTING BECUSE THEY ONLY GET
-    // UPDATED AFTER A MOVE EVENT FIRST ELSE 0 IS RETURNED WHEN DRAG ENDS WITHOUT
-    // HAVING A MOVE EVENT FIRED.
+  const getOffsetLeftPercent = () => {
+    const parentBounding =
+      dragElement.current.parentElement.getBoundingClientRect();
 
+    return percentage(posX, parentBounding.width);
+  };
+
+  const getOffsetTopPercent = () => {
+    const parentBounding =
+      dragElement.current.parentElement.getBoundingClientRect();
+
+    return percentage(posY, parentBounding.height);
+  };
+
+  useEffect(() => {
     const endDrag = (e: any) => {
       document.documentElement.removeEventListener('mouseup', endDrag);
       document.documentElement.removeEventListener('mousemove', moveElement);
@@ -47,8 +65,8 @@ const DraggableConstraint = ({
         onEnd(e, {
           offsetLeft: posX,
           offsetTop: posY,
-          offsetLeftPercent: 0,
-          offsetTopPercent: 0,
+          offsetLeftPercent: getOffsetLeftPercent(),
+          offsetTopPercent: getOffsetTopPercent(),
         });
 
       setIsDragging(false);
@@ -59,9 +77,8 @@ const DraggableConstraint = ({
 
       e.preventDefault();
 
-      const parentConstraintBounding =
+      const parentBounding =
         dragElement.current.parentElement.getBoundingClientRect();
-      const draggableBounding = dragElement.current.getBoundingClientRect();
 
       // Get client cursor/touchpoint position deltas.
       const clientDeltaX = prevClientXPos
@@ -81,24 +98,12 @@ const DraggableConstraint = ({
       setPrevClientXPos(e.clientX);
       setPrevClientYPos(e.clientY);
 
-      console.log(draggableBounding);
-      let newOffsetLeft = dragElement.current.offsetLeft - newPosX;
-      let newOffsetTop = dragElement.current.offsetTop - newPosY;
-
-      const rightBounds =
-        parentConstraintBounding.width - draggableBounding.width;
-      const bottomBounds =
-        parentConstraintBounding.height - draggableBounding.height;
-
-      let newOffsetTopPercentage = (newOffsetTop / bottomBounds) * 100;
-      let newOffsetLeftPercentage = (newOffsetLeft / rightBounds) * 100;
-
       if (onMove)
         onMove(e, {
           offsetLeft: newPosX,
           offsetTop: newPosY,
-          offsetLeftPercent: newOffsetLeftPercentage,
-          offsetTopPercent: newOffsetTopPercentage,
+          offsetLeftPercent: percentage(newPosX, parentBounding.width),
+          offsetTopPercent: percentage(newPosY, parentBounding.height),
         });
     };
 
@@ -115,8 +120,8 @@ const DraggableConstraint = ({
 
       if (onStart)
         onStart(e, {
-          offsetLeft: dragElement.current.offsetLeft,
-          offsetTop: dragElement.current.offsetTop,
+          offsetLeft: getOffsetLeftPercent(),
+          offsetTop: getOffsetTopPercent(),
         });
     };
 
@@ -139,7 +144,7 @@ const DraggableConstraint = ({
   return (
     <div
       ref={dragElement}
-      className={`${s.dragElement} ${className}${disable ? ' disabled' : ''}`}
+      className={`${s.dragElement} ${className} ${disable ? 'disabled' : ''}`}
       style={{
         left: posX,
         top: posY,

@@ -25,12 +25,8 @@ export const Example = () => {
           posX={position.offsetLeft}
           posY={position.offsetTop}
           onMove={handleMove}
-          onStart={(e, d) => {
-            // console.log(d);
-          }}
-          onEnd={(e, d) => {
-            console.log(d);
-          }}
+          onStart={(e, d) => {}}
+          onEnd={(e, d) => {}}
           disable={false}
         >
           <p>
