@@ -1,5 +1,4 @@
-import { MouseEventHandler, useRef, useState } from 'react';
-import Flex from './Flex';
+import { MouseEventHandler } from 'react';
 import s from './SelectInput.module.css';
 
 interface Props {

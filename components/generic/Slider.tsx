@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import { percentage } from '../../utils/math';
 import DraggableConstraint from './DraggableConstraint';
 
-const MediaTimeline = ({
+const Slider = ({
   className,
   buffered,
   currentTime,
@@ -12,9 +12,11 @@ const MediaTimeline = ({
   onDragStart,
   onDrag,
   onEnd,
+  TimelineComponent,
+  SeekerComponent,
+  style,
 }) => {
   const timelineRef = useRef<HTMLElement>(null);
-  // const [seekerPos, setSeekerPos] = useState(currentTime);
 
   const handleClickTimeline = (e: any) => {
     if (!timelineRef.current || disable) return;
@@ -69,7 +71,7 @@ const MediaTimeline = ({
     )
       return 0;
 
-    const seekerWidth = timelineRef.current.parentElement.querySelector(
+    const seekerWidth = timelineRef.current.querySelector(
       '.mmcq-component-audio-timeline-seeker'
     );
 
@@ -79,82 +81,33 @@ const MediaTimeline = ({
 
     const fraction = currentTime / duration;
     const leftOffset =
-      (timelineRef.current.parentElement.getBoundingClientRect().width - el) *
-      fraction;
+      (timelineRef.current.getBoundingClientRect().width - el) * fraction;
 
     return Math.round(leftOffset);
   };
 
   return (
     <div
-      className={className}
+      ref={timelineRef as React.RefObject<HTMLDivElement>}
       style={{
         position: 'relative',
-        height: '16px',
-        width: '300px',
-        paddingLeft: '8px',
-        paddingRight: '8px',
-        paddingTop: '4px',
-        paddingBottom: '4px',
-        marginRight: '8px',
-        // background: 'green',
-        // display: 'flex',
-        // justifyContent: 'center'
+        ...style,
       }}
     >
-      <div
-        ref={timelineRef as React.RefObject<HTMLDivElement>}
-        onClick={handleClickTimeline}
-        style={{
-          background: '#CCC',
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-          borderRadius: '4px',
-        }}
-      >
-        {buffered.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              left: `${item.start}%`,
-              width: `${item.end - item.start}%`,
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              background: '#999',
-            }}
-          />
-        ))}
-
-        <div
-          style={{
-            width: `${(currentTime / duration) * 100}%`,
-            top: 0,
-            left: 0,
-            bottom: 0,
-            background: 'blue',
-            position: 'absolute',
-          }}
-        ></div>
-      </div>
+      <TimelineComponent onClick={handleClickTimeline} />
       <DraggableConstraint
-        style={{
-          width: '16px',
-          height: '16px',
-          background: 'red',
-          borderRadius: '8px',
-        }}
         className={'mmcq-component-audio-timeline-seeker'}
         axisYMultiplier={0}
         onStart={handleDragSeekStart}
         onMove={handleMoveSeeker}
         onEnd={handleMoveSeekerEnd}
-        posX={getSeekerPos()}
+        externalPosX={getSeekerPos()}
         disable={disable}
-      />
+      >
+        <SeekerComponent />
+      </DraggableConstraint>
     </div>
   );
 };
 
-export default MediaTimeline;
+export default Slider;

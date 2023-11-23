@@ -1,6 +1,4 @@
-import SelectInput from './SelectInput';
-import SelectOption from './SelectOption';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   children: Function;

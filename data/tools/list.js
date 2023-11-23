@@ -69,6 +69,7 @@ import {
   ContentRevealExample,
   ContentRevealExample2,
 } from './component-library/contentReveal_example';
+import sliderExamples from './component-library/Slider';
 
 const tools = [
   {
@@ -83,6 +84,13 @@ const tools = [
         exampleMarkDown: draggableExampleCode,
       },
     ],
+  },
+  {
+    slug: 'slider',
+    title: 'Slider',
+    description:
+      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+    content: sliderExamples,
   },
   {
     slug: 'audio-player',
@@ -152,8 +160,8 @@ const tools = [
     ],
   },
   {
-    slug: 'custom-checkbox',
-    title: 'Custom Checkbox',
+    slug: 'checkbox',
+    title: 'Checkbox',
     description:
       'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
     content: [

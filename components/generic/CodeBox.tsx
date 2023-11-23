@@ -22,6 +22,7 @@ const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
       style={{
         backgroundColor: '#262C35',
         borderRadius: 8,
+
         ...style,
       }}
     >

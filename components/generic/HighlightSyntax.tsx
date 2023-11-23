@@ -17,9 +17,12 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
   return (
     <SyntaxHighlighter
       language={language}
+      customStyle={{ lineHeight: 1.2 }}
       style={{
         ...prism,
+
         ...{
+          lineHeight: 0,
           atrule: {
             color: 'red',
           },
@@ -133,7 +136,8 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
             // color: theme.colors.white,
             color: '#00F0FF',
             textShadow: 'none',
-            fontSize: '16px',
+            fontSize: '14px',
+            whiteSpace: 'inherit',
           },
         },
       }}

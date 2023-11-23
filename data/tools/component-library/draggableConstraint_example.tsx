@@ -11,19 +11,26 @@ export const Example = () => {
     offsetTopPercent: 0,
   });
 
-  const handleMove = (event, position) => {
-    setPosition(position);
+  const handleMove = (event, pos) => {
+    setPosition(pos);
   };
 
+  console.log(position.offsetLeft);
   return (
     <div style={{}}>
       <p>Click square and drag.</p>
       <div style={{ height: '320px', position: 'relative' }}>
         <DraggableConstraint
           className={s.dragElement}
+          posX={position.offsetLeft}
+          posY={position.offsetTop}
           onMove={handleMove}
-          onStart={() => {}}
-          onEnd={() => {}}
+          onStart={(e, d) => {
+            // console.log(d);
+          }}
+          onEnd={(e, d) => {
+            console.log(d);
+          }}
           disable={false}
         >
           <p>

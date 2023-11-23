@@ -125,7 +125,7 @@ const projects = [
     slug: 'woodfort',
     name: 'Woodfort Cases',
     type: 'personal',
-    tags: ['Business', 'Marketing'],
+    tags: ['Shopify', 'Marketing', 'Photography'],
     intro:
       'A small business making luxury handmade wood panelled computer cases.',
     year: '2022 - 2023',
