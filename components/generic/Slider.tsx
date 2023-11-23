@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { percentage } from '../../utils/math';
-import DraggableConstraint from './DraggableConstraint';
+import DraggableConstraint from './Draggable';
 
 const Slider = ({
   className,

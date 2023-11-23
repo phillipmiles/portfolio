@@ -150,7 +150,7 @@ const MediaTimeline = ({
         onStart={handleDragSeekStart}
         onMove={handleMoveSeeker}
         onEnd={handleMoveSeekerEnd}
-        posX={getSeekerPos()}
+        externalPosX={getSeekerPos()}
         disable={disable}
       />
     </div>

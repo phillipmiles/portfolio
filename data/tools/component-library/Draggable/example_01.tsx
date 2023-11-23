@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import DraggableConstraint from '../../../components/generic/DraggableConstraint';
-
-import s from './draggableConstraint_styles.module.css';
+import s from './example_01.module.css';
+import Draggable from '../../../../components/generic/Draggable';
 
 export const Example = () => {
   const [position, setPosition] = useState({
@@ -9,25 +8,25 @@ export const Example = () => {
     offsetLeftPercent: 0,
     offsetTop: 0,
     offsetTopPercent: 0,
+    clientDeltaX: 0,
+    clientDeltaY: 0,
   });
 
   const handleMove = (event, pos) => {
     setPosition(pos);
   };
 
-  console.log(position.offsetLeft);
   return (
-    <div style={{}}>
+    <div>
       <p>Click square and drag.</p>
       <div style={{ height: '320px', position: 'relative' }}>
-        <DraggableConstraint
+        <Draggable
           className={s.dragElement}
-          externalPosX={position.offsetLeft}
-          externalPosY={position.offsetTop}
+          posX={position.offsetLeft}
+          posY={position.offsetTop}
           onMove={handleMove}
           onStart={(e, d) => {}}
           onEnd={(e, d) => {}}
-          disable={false}
         >
           <p>
             <strong>LEFT</strong>
@@ -41,13 +40,13 @@ export const Example = () => {
           <p>
             {position.offsetTop}px | {Math.round(position.offsetTopPercent)}%
           </p>
-        </DraggableConstraint>
+        </Draggable>
       </div>
     </div>
   );
 };
 
-export const exampleCode = [
+export const code = [
   {
     language: 'jsx',
     code: `const [position, setPosition] = useState({
@@ -55,32 +54,39 @@ export const exampleCode = [
   offsetLeftPercent: 0,
   offsetTop: 0,
   offsetTopPercent: 0,
+  clientDeltaX: 0,
+  clientDeltaY: 0,
 });
-  
-const handleMove = (event, position) => {
-  setPosition(position);
+
+const handleMove = (event, pos) => {
+  setPosition(pos);
 };
 
 return (
   <div>
     <p>Click square and drag.</p>
-    <div style={{ height: '600px', position: 'relative' }}>
-      <DraggableConstraint
+    <div style={{ height: '320px', position: 'relative' }}>
+      <Draggable
         className={s.dragElement}
+        posX={position.offsetLeft}
+        posY={position.offsetTop}
         onMove={handleMove}
-        onStart={() => {}}
-        onEnd={() => {}}
-        disable={false}
+        onStart={(e, d) => {}}
+        onEnd={(e, d) => {}}
       >
-        <p><strong>LEFT</strong></p>
+        <p>
+          <strong>LEFT</strong>
+        </p>
         <p>
           {position.offsetLeft}px | {Math.round(position.offsetLeftPercent)}%
         </p>
-        <p><strong>TOP</strong></p>
+        <p>
+          <strong>TOP</strong>
+        </p>
         <p>
           {position.offsetTop}px | {Math.round(position.offsetTopPercent)}%
         </p>
-      </DraggableConstraint>
+      </Draggable>
     </div>
   </div>
 );`,

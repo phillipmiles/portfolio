@@ -70,8 +70,15 @@ import {
   ContentRevealExample2,
 } from './component-library/contentReveal_example';
 import sliderExamples from './component-library/Slider';
+import draggableExamples from './component-library/Draggable';
 
 const tools = [
+  {
+    slug: 'draggable',
+    title: 'Draggable',
+    description: 'A low level component for creating a draggable element.',
+    content: draggableExamples,
+  },
   {
     slug: 'draggable-constraint',
     title: 'Draggable Constraint',
