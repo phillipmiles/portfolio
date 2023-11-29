@@ -1,7 +1,7 @@
 import {
   Example as GetValueAsPercentageExample,
   code as getValueAsPercentageCode,
-} from './examples/maths/getValueAsPercentage';
+} from './examples/maths/toPercent';
 import {
   Example as RoundDecimalToExample,
   code as roundDecimalToCode,
@@ -9,13 +9,13 @@ import {
 
 const mathFunctions = [
   {
-    slug: 'get-value-as-percentage',
+    slug: 'toPercent',
     title: 'Maths',
     description: 'A collection of functions relating to general maths.',
     content: [
       {
         type: 'text',
-        title: 'percentage()',
+        title: 'toPercent()',
         description:
           'Returns the percent of one value to another rounded to a specified number of digits.',
         example: GetValueAsPercentageExample,

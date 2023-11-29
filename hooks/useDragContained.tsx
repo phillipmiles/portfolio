@@ -42,8 +42,8 @@ const useDragContained = (dragRef, containerRef, onStart, onMove, onEnd) => {
     if (onMove)
       if (onMove)
         onMove(e, {
-          deltaX: newDeltaX,
-          deltaY: newDeltaY,
+          x: newDeltaX,
+          y: newDeltaY,
         });
   };
 

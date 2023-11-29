@@ -1,6 +1,6 @@
 // Takes a float value between 0 and value2 and converts that into a percentage value between
 // 0 and 1 rounded to two decimal places.
-export const percentage = (value1, value2, decimals) => {
+export const toPercent = (value1, value2, decimals) => {
   const percentage = (value1 / value2) * 100;
 
   if (decimals) {

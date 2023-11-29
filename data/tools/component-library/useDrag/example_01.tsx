@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react';
 import s from './example_01.module.css';
-import useDragContained from '../../../../hooks/useDragContained';
+
+import useDrag from '../../../../hooks/useDrag';
 
 export const Example = () => {
   const elementRef = useRef(null);
-  const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({
     x: 0,
@@ -18,37 +18,30 @@ export const Example = () => {
     setIsDragging(false);
   };
 
-  const onDragMove = (event, delta) => {
+  const onDragMove = (e, d) => {
     setPosition((pos) => ({
-      x: pos.x + delta.x,
-      y: pos.y + delta.y,
+      x: pos.x + d.deltaX,
+      y: pos.y + d.deltaY,
     }));
   };
 
-  useDragContained(
-    elementRef,
-    containerRef,
-    onDragStart,
-    onDragMove,
-    onDragEnd
-  );
-
-  const handleChangeX = (event) => {
+  const handleChangeX = (e) => {
     setPosition((pos) => {
       return { x: parseInt(e.target.value), y: pos.y };
     });
   };
 
-  const handleChangeY = (event) => {
+  const handleChangeY = (e) => {
     setPosition((pos) => {
       return { x: pos.x, y: parseInt(e.target.value) };
     });
   };
 
+  useDrag(elementRef, onDragStart, onDragMove, onDragEnd);
+
   return (
     <div>
       <p>Click and hold blue square to drag.</p>
-
       <span className={s.inputs}>
         X
         <input
@@ -65,19 +58,17 @@ export const Example = () => {
           className={s.input}
         />
       </span>
-      <div ref={containerRef} className={s.container}>
-        <div className={s.fakeContainer}>
-          <div
-            ref={elementRef}
-            className={s.dragElement}
-            style={{
-              left: position.x,
-              top: position.y,
-              ...(isDragging && { background: 'rgb(243, 78, 95)' }),
-            }}
-          >
-            <p>Drag Me</p>
-          </div>
+      <div className={s.container}>
+        <div
+          ref={elementRef}
+          className={s.dragElement}
+          style={{
+            left: position.x,
+            top: position.y,
+            ...(isDragging && { background: 'rgb(243, 78, 95)' }),
+          }}
+        >
+          <p>Drag Me</p>
         </div>
       </div>
     </div>
@@ -88,7 +79,6 @@ export const code = [
   {
     language: 'jsx',
     code: `const elementRef = useRef(null);
-const containerRef = useRef(null);
 const [isDragging, setIsDragging] = useState(false);
 const [position, setPosition] = useState({
   x: 0,
@@ -102,37 +92,30 @@ const onDragEnd = () => {
   setIsDragging(false);
 };
 
-const onDragMove = (event, delta) => {
+const onDragMove = (e, d) => {
   setPosition((pos) => ({
-    x: pos.x + delta.x,
-    y: pos.y + delta.y,
+    x: pos.x + d.deltaX,
+    y: pos.y + d.deltaY,
   }));
 };
 
-useDragContained(
-  elementRef,
-  containerRef,
-  onDragStart,
-  onDragMove,
-  onDragEnd
-);
-
-const handleChangeX = (event) => {
+const handleChangeX = (e) => {
   setPosition((pos) => {
     return { x: parseInt(e.target.value), y: pos.y };
   });
 };
 
-const handleChangeY = (event) => {
+const handleChangeY = (e) => {
   setPosition((pos) => {
     return { x: pos.x, y: parseInt(e.target.value) };
   });
 };
 
+useDrag(elementRef, onDragStart, onDragMove, onDragEnd);
+
 return (
   <div>
     <p>Click and hold blue square to drag.</p>
-
     <span className={s.inputs}>
       X
       <input
@@ -149,19 +132,17 @@ return (
         className={s.input}
       />
     </span>
-    <div ref={containerRef} className={s.container}>
-      <div className={s.fakeContainer}>
-        <div
-          ref={elementRef}
-          className={s.dragElement}
-          style={{
-            left: position.x,
-            top: position.y,
-            ...(isDragging && { background: 'rgb(243, 78, 95)' }),
-          }}
-        >
-          <p>Drag Me</p>
-        </div>
+    <div className={s.container}>
+      <div
+        ref={elementRef}
+        className={s.dragElement}
+        style={{
+          left: position.x,
+          top: position.y,
+          ...(isDragging && { background: 'rgb(243, 78, 95)' }),
+        }}
+      >
+        <p>Drag Me</p>
       </div>
     </div>
   </div>
@@ -179,12 +160,6 @@ return (
   gap: 24px;
 }
 
-.fakeContainer {
-  background-color: rgba(255, 255, 255, 0.5);
-  flex-grow: 1;
-  border-radius: 4px;
-}
-
 .dragElement {
   position: absolute;
   cursor: pointer;
@@ -197,6 +172,10 @@ return (
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.dragElement p {
+  margin-bottom: 0;
 }
 
 .dragElement:hover {
@@ -220,6 +199,7 @@ return (
   margin-left: 8px;
   width: 80px;
   font-size: 16px;
-}`,
+}
+`,
   },
 ];
