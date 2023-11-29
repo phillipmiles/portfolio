@@ -35,13 +35,13 @@ export const Example = () => {
 
   const handleChangeX = (event) => {
     setPosition((pos) => {
-      return { x: parseInt(e.target.value), y: pos.y };
+      return { x: parseInt(event.target.value), y: pos.y };
     });
   };
 
   const handleChangeY = (event) => {
     setPosition((pos) => {
-      return { x: pos.x, y: parseInt(e.target.value) };
+      return { x: pos.x, y: parseInt(event.target.value) };
     });
   };
 
