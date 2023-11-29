@@ -1,22 +1,22 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import PageContentWrap from '../../../components/generic/PageContentWrap';
-import Flex from '../../../components/generic/Flex';
-import Footer from '../../../components/Footer';
-import PageWithFooter from '../../../components/generic/PageWithFooter';
-import Banner from '../../../components/Banner';
-import PageTitle from '../../../components/PageTitle';
-import PageIntro from '../../../components/PageIntro';
-import tools from '../../../data/tools/list';
+import PageContentWrap from '../../../../components/generic/PageContentWrap';
+import Flex from '../../../../components/generic/Flex';
+import Footer from '../../../../components/Footer';
+import PageWithFooter from '../../../../components/generic/PageWithFooter';
+import Banner from '../../../../components/Banner';
+import PageTitle from '../../../../components/PageTitle';
+import PageIntro from '../../../../components/PageIntro';
+import tools from '../../../../data/tools/list';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CodeBox from '../../../components/generic/CodeBox';
-import DetachedHoverEffect from '../../../components/generic/DetachedHoverEffect';
+import CodeBox from '../../../../components/generic/CodeBox';
+import DetachedHoverEffect from '../../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
-import Select from '../../../components/Select';
-import SelectMobile from '../../../components/SelectMobile';
-import Notification from '../../../components/Notification';
+import Select from '../../../../components/Select';
+import SelectMobile from '../../../../components/SelectMobile';
+import Notification from '../../../../components/Notification';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -24,20 +24,27 @@ const ToolsReactLibrary: NextPage = () => {
   const [currentTool, setCurrentTool] = useState(null);
 
   useEffect(() => {
-    const tool = tools.find((tool) => tool.slug === router.query.slug);
+    if (!router.query.category) return;
+    console.log(router);
 
-    if (!tool) {
+    const category = tools.find(
+      (category) => category.slug === router.query.category
+    );
+
+    const item = category.items.find((item) => item.slug === router.query.slug);
+
+    if (!item) {
       return;
     }
 
-    setCurrentTool({ value: tool.title, id: tool.slug, ...tool });
+    setCurrentTool({ value: item.title, id: item.slug, ...item });
   }, [router]);
 
-  const parsedTools = tools.map((tool) => ({
-    value: tool.title,
-    id: tool.slug,
-    ...tool,
-  }));
+  // const parsedTools = tools.map((tool) => ({
+  //   value: tool.title,
+  //   id: tool.slug,
+  //   ...tool,
+  // }));
 
   return (
     <>
@@ -79,40 +86,51 @@ const ToolsReactLibrary: NextPage = () => {
             }}
           >
             <div className={s.componentMenu}>
-              {tools.map((tool) => (
-                <Link
-                  key={tool.slug}
-                  href={tool.slug}
-                  scroll={false}
-                  passHref={true}
-                  style={{
-                    margin: '24px',
-                  }}
-                >
-                  <DetachedHoverEffect
-                    className={`${s.hover} ${
-                      currentTool &&
-                      tool.slug === currentTool.slug &&
-                      s.hoverSelect
-                    }`}
-                  >
-                    <span
+              {tools.map((category) => (
+                <div>
+                  <h6>{category.category}</h6>
+
+                  {category.items.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={{
+                        pathname:
+                          '/resources/react-construct/[category]/[slug]',
+                        query: { category: category.slug, slug: item.slug },
+                      }}
+                      scroll={false}
+                      passHref={true}
                       style={{
                         display: 'block',
-                        paddingLeft: '16px',
-                        paddingRight: '16px',
-                        paddingTop: '8px',
-                        paddingBottom: '8px',
+                        margin: '16px 0',
                       }}
                     >
-                      {tool.title}
-                    </span>
-                  </DetachedHoverEffect>
-                </Link>
+                      <DetachedHoverEffect
+                        className={`${s.hover} ${
+                          currentTool &&
+                          item.slug === currentTool.slug &&
+                          s.hoverSelect
+                        }`}
+                      >
+                        <span
+                          style={{
+                            display: 'block',
+                            paddingLeft: '16px',
+                            paddingRight: '16px',
+                            paddingTop: '8px',
+                            paddingBottom: '8px',
+                          }}
+                        >
+                          {item.title}
+                        </span>
+                      </DetachedHoverEffect>
+                    </Link>
+                  ))}
+                </div>
               ))}
             </div>
             <div className={s.content}>
-              <div className={s.selectControl}>
+              {/* <div className={s.selectControl}>
                 <h5>Components</h5>
                 {currentTool && (
                   <SelectMobile
@@ -124,7 +142,7 @@ const ToolsReactLibrary: NextPage = () => {
                     }}
                   />
                 )}
-              </div>
+              </div> */}
               <div
                 style={{
                   // maxWidth: '700px',

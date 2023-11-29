@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import s from './example_01.module.css';
-import useDragContained from '../../../../hooks/useDragContained';
+import useDragContained from '../../../../../hooks/useDragContained';
 
 export const Example = () => {
   const elementRef = useRef(null);
@@ -19,6 +19,7 @@ export const Example = () => {
   };
 
   const onDragMove = (event, delta) => {
+    console.log('D', delta);
     setPosition((pos) => ({
       x: pos.x + delta.x,
       y: pos.y + delta.y,
@@ -64,6 +65,7 @@ export const Example = () => {
           onChange={handleChangeY}
           className={s.input}
         />
+        <span></span>
       </span>
       <div ref={containerRef} className={s.container}>
         <div className={s.fakeContainer}>

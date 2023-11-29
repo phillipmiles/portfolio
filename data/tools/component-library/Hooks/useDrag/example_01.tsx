@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import s from './example_01.module.css';
 
-import useDrag from '../../../../hooks/useDrag';
+import useDrag from '../../../../../hooks/useDrag';
 
 export const Example = () => {
   const elementRef = useRef(null);

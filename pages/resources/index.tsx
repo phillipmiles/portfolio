@@ -37,7 +37,7 @@ const Tools: NextPage = () => {
               title="React Construct"
               description="React Construct is a library of low-level react components used to construct reusable UI components."
               srcThumb="/images/react-component-library-thumb.png"
-              href={`/resources/react-construct/${tools[0].slug}`}
+              href={`/resources/react-construct/${tools[0].slug}/${tools[0].items[0].slug}`}
             />
             <ToolCard
               className={s.tool}
