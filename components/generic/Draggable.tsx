@@ -45,32 +45,12 @@ const Draggable = ({
   const [prevClientXPos, setPrevClientXPos] = useState(null);
   const [prevClientYPos, setPrevClientYPos] = useState(null);
 
-  const getOffsetLeftPercent = () => {
-    const parentBounding =
-      dragElement.current.parentElement.getBoundingClientRect();
-
-    return percentage(posX, parentBounding.width);
-  };
-
-  const getOffsetTopPercent = () => {
-    const parentBounding =
-      dragElement.current.parentElement.getBoundingClientRect();
-
-    return percentage(posY, parentBounding.height);
-  };
-
   useEffect(() => {
     const endDrag = (e: any) => {
       document.documentElement.removeEventListener('mouseup', endDrag);
       document.documentElement.removeEventListener('mousemove', moveElement);
 
-      if (onEnd)
-        onEnd(e, {
-          offsetLeft: posX,
-          offsetTop: posY,
-          offsetLeftPercent: getOffsetLeftPercent(),
-          offsetTopPercent: getOffsetTopPercent(),
-        });
+      if (onEnd) onEnd(e);
 
       setIsDragging(false);
     };
@@ -80,9 +60,6 @@ const Draggable = ({
 
       e.preventDefault();
 
-      const parentBounding =
-        dragElement.current.parentElement.getBoundingClientRect();
-
       // Get client cursor/touchpoint position deltas.
       const clientDeltaX = prevClientXPos
         ? e.clientX - prevClientXPos
@@ -91,24 +68,14 @@ const Draggable = ({
         ? e.clientY - prevClientYPos
         : e.clientY;
 
-      // Get new draggable position
-      const newPosX =
-        dragElement.current.offsetLeft + clientDeltaX * axisXMultiplier;
-      const newPosY =
-        dragElement.current.offsetTop + clientDeltaY * axisYMultiplier;
-
       // Store current cursor/touchpoint position for use in next render/move event.
       setPrevClientXPos(e.clientX);
       setPrevClientYPos(e.clientY);
 
       if (onMove)
         onMove(e, {
-          offsetLeft: newPosX,
-          offsetTop: newPosY,
-          offsetLeftPercent: percentage(newPosX, parentBounding.width),
-          offsetTopPercent: percentage(newPosY, parentBounding.height),
-          clientDeltaX: clientDeltaX,
-          clientDeltaY: clientDeltaY,
+          deltaX: clientDeltaX,
+          deltaY: clientDeltaY,
         });
     };
 
@@ -117,17 +84,13 @@ const Draggable = ({
       e = e || window.event;
       e.preventDefault();
 
-      // get the mouse cursor position at drag init.
+      // Init previous cursor/touchpoint position as current position.
       setPrevClientXPos(e.clientX);
       setPrevClientYPos(e.clientY);
 
       setIsDragging(true);
 
-      if (onStart)
-        onStart(e, {
-          offsetLeft: getOffsetLeftPercent(),
-          offsetTop: getOffsetTopPercent(),
-        });
+      if (onStart) onStart(e);
     };
 
     dragElement.current.addEventListener('mousedown', dragMouseDown);
@@ -149,7 +112,7 @@ const Draggable = ({
   return (
     <div
       ref={dragElement}
-      className={`${s.dragElement} ${className} ${disable ? 'disabled' : ''}`}
+      className={`${s.dragElement} ${className}`}
       style={{
         left: posX,
         top: posY,

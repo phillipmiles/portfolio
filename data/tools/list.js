@@ -47,10 +47,10 @@ import {
   PageContentWidthExample,
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
-import {
-  Example as DraggableExample,
-  exampleCode as draggableExampleCode,
-} from './component-library/draggableConstraint_example';
+// import {
+//   Example as DraggableExample,
+//   exampleCode as draggableExampleCode,
+// } from './component-library/draggableContained_example';
 import {
   Example as AudioExample,
   exampleCode as audioExampleCode,
@@ -71,34 +71,39 @@ import {
 } from './component-library/contentReveal_example';
 import sliderExamples from './component-library/Slider';
 import draggableExamples from './component-library/Draggable';
+import useDragConstainedExamples from './component-library/useDragContained';
 
 const tools = [
   {
-    slug: 'draggable',
-    title: 'Draggable',
-    description: 'A low level component for creating a draggable element.',
+    slug: 'useDrag',
+    title: 'useDrag',
+    description:
+      "A low level component for creating a draggable element. It's position is relative to this components parent.",
     content: draggableExamples,
   },
-  {
-    slug: 'draggable-constraint',
-    title: 'Draggable Constraint',
-    description:
-      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-    content: [
-      {
-        type: 'text',
-        example: DraggableExample,
-        exampleMarkDown: draggableExampleCode,
-      },
-    ],
-  },
-  {
-    slug: 'slider',
-    title: 'Slider',
-    description:
-      "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-    content: sliderExamples,
-  },
+
+  useDragConstainedExamples,
+
+  // {
+  //   slug: 'draggable-contained',
+  //   title: 'Draggable Contained',
+  //   description:
+  //     "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+  //   content: [
+  //     {
+  //       type: 'text',
+  //       example: DraggableExample,
+  //       exampleMarkDown: draggableExampleCode,
+  //     },
+  //   ],
+  // },
+  // {
+  //   slug: 'slider',
+  //   title: 'Slider',
+  //   description:
+  //     "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+  //   content: sliderExamples,
+  // },
   {
     slug: 'audio-player',
     title: 'Audio Player',
