@@ -38,16 +38,7 @@ const Slider = ({
   };
 
   const handleDragSeekerMove = (e: any, delta: any) => {
-    const currentPos = seekerRef.current.offsetLeft;
-    const newPos = currentPos + delta.x;
-
-    const newPercent = toPercent(
-      newPos,
-      timelineRef.current.getBoundingClientRect().width -
-        seekerRef.current.getBoundingClientRect().width
-    );
-
-    onMove && onMove(newPercent);
+    onMove && onMove(delta.xPercent);
   };
 
   const handleDragSeekerEnd = (e: any, data: any) => {
