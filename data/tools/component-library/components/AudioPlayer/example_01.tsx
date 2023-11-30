@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import s from './audioPlayer.module.css';
-import AudioPlayer from '../../../components/generic/AudioPlayer';
+import AudioPlayer from '../../../../../components/generic/AudioPlayer';
+import s from './example_01.module.css';
 
 export const Example = () => {
   return (
@@ -8,7 +8,7 @@ export const Example = () => {
   );
 };
 
-export const exampleCode = [
+export const code = [
   {
     language: 'jsx',
     code: `const AudioPlayer = ({ className, src }) => {

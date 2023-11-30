@@ -1,7 +1,8 @@
+import useAudioExamples from './useAudio';
 import useDragExamples from './useDrag';
 import useDragConstainedExamples from './useDragContained';
 
-const hooks = [useDragExamples, useDragConstainedExamples];
+const hooks = [useAudioExamples, useDragExamples, useDragConstainedExamples];
 
 // Sort hooks array into alphabetical order
 hooks.sort((a, b) => {

@@ -51,10 +51,7 @@ import {
 //   Example as DraggableExample,
 //   exampleCode as draggableExampleCode,
 // } from './component-library/draggableContained_example';
-import {
-  Example as AudioExample,
-  exampleCode as audioExampleCode,
-} from './component-library/audioPlayer_example';
+
 import {
   Example as NumberAnimateExample,
   exampleCode as numberAnimateExampleCode,
@@ -69,28 +66,26 @@ import {
   ContentRevealExample,
   ContentRevealExample2,
 } from './component-library/contentReveal_example';
-import sliderExamples from './component-library/Slider';
-import hooks from './component-library/Hooks';
+import sliderExamples from './component-library/slider';
+import hooks from './component-library/hooks';
+import components from './component-library/components';
 
 const tools = [
   {
+    slug: 'hooks',
+    category: 'Hooks',
+    items: hooks,
+  },
+  {
     slug: 'components',
     category: 'Components',
+    items: components,
+  },
+  {
+    slug: 'other',
+    category: 'Other',
     items: [
       sliderExamples,
-      {
-        slug: 'audio-player',
-        title: 'Audio Player',
-        description:
-          "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-        content: [
-          {
-            type: 'text',
-            example: AudioExample,
-            exampleMarkDown: audioExampleCode,
-          },
-        ],
-      },
       {
         slug: 'infinity-panner',
         title: 'Infinity Panner',
@@ -268,11 +263,6 @@ const tools = [
         ],
       },
     ],
-  },
-  {
-    slug: 'hooks',
-    category: 'Hooks',
-    items: hooks,
   },
 ];
 

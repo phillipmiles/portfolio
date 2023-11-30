@@ -6,7 +6,7 @@ import {
   useState,
   useEffect,
 } from 'react';
-import { percentage } from '../utils/math';
+import { toPercent } from '../utils/math';
 import { addLeadingZero, toMinutes, getTimeString } from '../utils/time';
 
 // const useEffectEvent = (callback) => {
@@ -62,11 +62,11 @@ const useAudio = (src) => {
     if (!audioObject.current) return;
     for (let i = 0; i < audioObject.current.buffered.length; i++) {
       buffered.push({
-        start: percentage(
+        start: toPercent(
           audioObject.current.buffered.start(i),
           audioObject.current.duration
         ),
-        end: percentage(
+        end: toPercent(
           audioObject.current.buffered.end(i),
           audioObject.current.duration
         ),
@@ -78,7 +78,7 @@ const useAudio = (src) => {
   const updateProgress = () => {
     if (!audioObject.current) return;
 
-    const progress = percentage(
+    const progress = toPercent(
       audioObject.current.currentTime,
       audioObject.current.duration
     );
