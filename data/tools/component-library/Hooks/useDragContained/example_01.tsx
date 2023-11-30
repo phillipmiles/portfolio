@@ -7,8 +7,10 @@ export const Example = () => {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
+    xOffset: 0,
+    yOffset: 0,
+    xPercent: 0,
+    yPercent: 0,
   });
 
   const onDragStart = () => {
@@ -19,11 +21,7 @@ export const Example = () => {
   };
 
   const onDragMove = (event, delta) => {
-    console.log('D', delta);
-    setPosition((pos) => ({
-      x: pos.x + delta.x,
-      y: pos.y + delta.y,
-    }));
+    setPosition(delta);
   };
 
   useDragContained(
@@ -35,15 +33,11 @@ export const Example = () => {
   );
 
   const handleChangeX = (event) => {
-    setPosition((pos) => {
-      return { x: parseInt(event.target.value), y: pos.y };
-    });
+    setPosition((pos) => ({ ...pos, xOffset: parseInt(event.target.value) }));
   };
 
   const handleChangeY = (event) => {
-    setPosition((pos) => {
-      return { x: pos.x, y: parseInt(event.target.value) };
-    });
+    setPosition((pos) => ({ ...pos, yOffset: parseInt(event.target.value) }));
   };
 
   return (
@@ -54,18 +48,21 @@ export const Example = () => {
         X
         <input
           type="number"
-          value={position.x}
+          value={position.xOffset}
           onChange={handleChangeX}
           className={s.input}
         />
         Y
         <input
           type="number"
-          value={position.y}
+          value={position.yOffset}
           onChange={handleChangeY}
           className={s.input}
         />
-        <span></span>
+        <span>
+          x: {Math.round(position.xPercent)}% y: {Math.round(position.yPercent)}
+          %
+        </span>
       </span>
       <div ref={containerRef} className={s.container}>
         <div className={s.fakeContainer}>
@@ -73,8 +70,8 @@ export const Example = () => {
             ref={elementRef}
             className={s.dragElement}
             style={{
-              left: position.x,
-              top: position.y,
+              left: position.xOffset,
+              top: position.yOffset,
               ...(isDragging && { background: 'rgb(243, 78, 95)' }),
             }}
           >
@@ -89,85 +86,86 @@ export const Example = () => {
 export const code = [
   {
     language: 'jsx',
-    code: `const elementRef = useRef(null);
-const containerRef = useRef(null);
-const [isDragging, setIsDragging] = useState(false);
-const [position, setPosition] = useState({
-  x: 0,
-  y: 0,
-});
-
-const onDragStart = () => {
-  setIsDragging(true);
-};
-const onDragEnd = () => {
-  setIsDragging(false);
-};
-
-const onDragMove = (event, delta) => {
-  setPosition((pos) => ({
-    x: pos.x + delta.x,
-    y: pos.y + delta.y,
-  }));
-};
-
-useDragContained(
-  elementRef,
-  containerRef,
-  onDragStart,
-  onDragMove,
-  onDragEnd
-);
-
-const handleChangeX = (event) => {
-  setPosition((pos) => {
-    return { x: parseInt(e.target.value), y: pos.y };
+    code: `const Example = () => {
+  const elementRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [position, setPosition] = useState({
+    xOffset: 0,
+    yOffset: 0,
+    xPercent: 0,
+    yPercent: 0,
   });
-};
 
-const handleChangeY = (event) => {
-  setPosition((pos) => {
-    return { x: pos.x, y: parseInt(e.target.value) };
-  });
-};
+  const onDragStart = () => {
+    setIsDragging(true);
+  };
+  const onDragEnd = () => {
+    setIsDragging(false);
+  };
 
-return (
-  <div>
-    <p>Click and hold blue square to drag.</p>
+  const onDragMove = (event, delta) => {
+    setPosition(delta);
+  };
 
-    <span className={s.inputs}>
-      X
-      <input
-        type="number"
-        value={position.x}
-        onChange={handleChangeX}
-        className={s.input}
-      />
-      Y
-      <input
-        type="number"
-        value={position.y}
-        onChange={handleChangeY}
-        className={s.input}
-      />
-    </span>
-    <div ref={containerRef} className={s.container}>
-      <div className={s.fakeContainer}>
-        <div
-          ref={elementRef}
-          className={s.dragElement}
-          style={{
-            left: position.x,
-            top: position.y,
-            ...(isDragging && { background: 'rgb(243, 78, 95)' }),
-          }}
-        >
-          <p>Drag Me</p>
+  useDragContained(
+    elementRef,
+    containerRef,
+    onDragStart,
+    onDragMove,
+    onDragEnd
+  );
+
+  const handleChangeX = (event) => {
+    setPosition((pos) => ({ ...pos, xOffset: parseInt(event.target.value) }));
+  };
+
+  const handleChangeY = (event) => {
+    setPosition((pos) => ({ ...pos, yOffset: parseInt(event.target.value) }));
+  };
+
+  return (
+    <div>
+      <p>Click and hold blue square to drag.</p>
+
+      <span className={s.inputs}>
+        X
+        <input
+          type="number"
+          value={position.xOffset}
+          onChange={handleChangeX}
+          className={s.input}
+        />
+        Y
+        <input
+          type="number"
+          value={position.yOffset}
+          onChange={handleChangeY}
+          className={s.input}
+        />
+        <span>
+          x: {Math.round(position.xPercent)}% y: {Math.round(position.yPercent)}
+          %
+        </span>
+      </span>
+      <div ref={containerRef} className={s.container}>
+        <div className={s.fakeContainer}>
+          <div
+            ref={elementRef}
+            className={s.dragElement}
+            style={{
+              left: position.xOffset,
+              top: position.yOffset,
+              ...(isDragging && { background: 'rgb(243, 78, 95)' }),
+            }}
+          >
+            <p>Drag Me</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);`,
+  );
+};`,
   },
   {
     language: 'css',
@@ -214,11 +212,8 @@ return (
   margin-bottom: 24px;
 }
 
-.inputs .input:first-child {
-  margin-right: 24px;
-}
-
 .input {
+  margin-right: 24px;
   margin-left: 8px;
   width: 80px;
   font-size: 16px;
