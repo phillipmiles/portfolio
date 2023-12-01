@@ -4,10 +4,6 @@ import {
   InfinityPannerCode,
 } from './component-library/infinityPanner_example';
 import {
-  InfinityPannerExample2,
-  InfinityPannerCode2,
-} from './component-library/infinityPanner_example2';
-import {
   Example1,
   example1Code,
 } from './component-library/detachedHoverEffect_example1.tsx';
@@ -58,8 +54,8 @@ import {
   ContentRevealExample2,
 } from './component-library/contentReveal_example';
 import sliderExamples from './component-library/slider';
-import hooks from './component-library/hooks';
-import components from './component-library/components';
+import hooks from './component-library/hooks/index';
+import components from './component-library/components/index';
 
 const tools = [
   {
