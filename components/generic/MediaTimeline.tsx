@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { percentage } from '../../utils/math';
-import DraggableConstraint from './DraggableConstraint';
+// import { percentage } from '../../utils/math';
+// import DraggableConstraint from './DraggableConstraint';
 
 const MediaTimeline = ({
   className,
@@ -126,7 +126,7 @@ const MediaTimeline = ({
             }}
           />
         ))}
-
+        z
         <div
           style={{
             width: `${(currentTime / duration) * 100}%`,
@@ -138,7 +138,7 @@ const MediaTimeline = ({
           }}
         ></div>
       </div>
-      <DraggableConstraint
+      {/* <DraggableConstraint
         style={{
           width: '16px',
           height: '16px',
@@ -152,7 +152,7 @@ const MediaTimeline = ({
         onEnd={handleMoveSeekerEnd}
         externalPosX={getSeekerPos()}
         disable={disable}
-      />
+      /> */}
     </div>
   );
 };
