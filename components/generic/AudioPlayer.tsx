@@ -16,13 +16,13 @@ const AudioPlayer = ({
 
   useEffect(() => {
     setRenderedTime(audio.currentTimeString);
-  }, [audio.currentTimeString]);
+  }, [audio, audio.currentTimeString]);
 
   useEffect(() => {
     if (audio.audioState === 'loaded') {
       audio.play();
     }
-  }, [audio.audioState]);
+  }, [audio, audio.audioState]);
 
   const togglePlay = () => {
     if (audio.audioState === 'unloaded') {

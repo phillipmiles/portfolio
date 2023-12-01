@@ -4,10 +4,6 @@ import {
   InfinityPannerCode,
 } from './component-library/infinityPanner_example';
 import {
-  InfinityPannerExample2,
-  InfinityPannerCode2,
-} from './component-library/infinityPanner_example2';
-import {
   Example1,
   example1Code,
 } from './component-library/detachedHoverEffect_example1.tsx';
@@ -47,19 +43,10 @@ import {
   PageContentWidthExample,
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
-// import {
-//   Example as DraggableExample,
-//   exampleCode as draggableExampleCode,
-// } from './component-library/draggableContained_example';
-
 import {
   Example as NumberAnimateExample,
   exampleCode as numberAnimateExampleCode,
 } from './component-library/NumberAnimate_example';
-import {
-  flexColCode,
-  FlexColExample,
-} from './component-library/flexCol_example';
 import {
   contentRevealCode,
   contentRevealCode2,
@@ -93,11 +80,6 @@ const tools = [
             example: InfinityPannerExample,
             exampleMarkDown: InfinityPannerCode,
           },
-          // {
-          //   type: 'text',
-          //   example: InfinityPannerExample2,
-          //   exampleMarkDown: InfinityPannerCode2,
-          // },
         ],
       },
 

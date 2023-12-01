@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import s from './example_01.module.css';
-import Slider from '../../../../../components/generic/Slider';
+import Slider from '../../../../components/generic/Slider';
 
 export const Example = () => {
   const [val, setCurrentVal] = useState(50);

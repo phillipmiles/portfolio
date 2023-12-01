@@ -1,8 +1,0 @@
-.dragElement {
-  position: absolute;
-  cursor: pointer;
-
-  &.disabled {
-    cursor: default;
-  }
-}
