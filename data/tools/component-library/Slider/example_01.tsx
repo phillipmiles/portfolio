@@ -12,7 +12,7 @@ export const Example = () => {
     setCurrentVal(val);
   };
 
-  const handleDragMove = (percent) => {
+  const handleDragMove = () => {
     setCurrentVal(percent);
   };
 
