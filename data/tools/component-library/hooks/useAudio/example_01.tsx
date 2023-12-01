@@ -3,9 +3,10 @@ import s from './example_01.module.css';
 import useAudio from '../../../../../hooks/useAudio';
 
 export const Example = () => {
-  const audio = useAudio(
-    'https://traffic.libsyn.com/theleaderslabpodcast/S2_EP1_v2_-_Making_Leadership_Work.mp3'
-  );
+  // const audio = useAudio(
+  //   'https://traffic.libsyn.com/theleaderslabpodcast/S2_EP1_v2_-_Making_Leadership_Work.mp3'
+  // );
+  const audio = useAudio('/audio/trying-to-make-a-song.mp3');
 
   useEffect(() => {
     if (audio.audioState === 'loaded') {
@@ -25,11 +26,18 @@ export const Example = () => {
 
   return (
     <div>
-      {audio.audioState === 'loading' && <span>Loading</span>}
       <div>
+        <h4 className={s.heading}>Some music</h4>
+        <p>By Phillip Miles</p>
+
         <button onClick={togglePlay} className={s.button}>
-          {audio.audioState === 'play' ? 'Pause' : 'Play'}
+          {audio.audioState === 'loading'
+            ? 'loading'
+            : audio.audioState === 'play'
+            ? 'Pause'
+            : 'Play'}
         </button>
+
         <span>
           {audio.currentTimeString} / {audio.durationTimeString}
         </span>
@@ -42,9 +50,7 @@ export const code = [
   {
     language: 'jsx',
     code: `export const Example = () => {
-  const audio = useAudio(
-    'https://traffic.libsyn.com/theleaderslabpodcast/S2_EP1_v2_-_Making_Leadership_Work.mp3'
-  );
+  const audio = useAudio('/audio/trying-to-make-a-song.mp3');
 
   useEffect(() => {
     if (audio.audioState === 'loaded') {
@@ -64,6 +70,7 @@ export const code = [
 
   return (
     <div>
+    <h4>Trying to make a song</h4>
       {audio.audioState === 'loading' && <span>Loading</span>}
       <div>
         <button onClick={togglePlay} className={s.button}>
