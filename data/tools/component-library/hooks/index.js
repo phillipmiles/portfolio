@@ -1,6 +1,6 @@
 import useAudioExamples from './useAudio';
-import useDragExamples from './useDrag';
-import useDragConstainedExamples from './useDragContained';
+import useDragExamples from './useDrag/index';
+import useDragConstainedExamples from './useDragContained/index';
 
 const hooks = [useAudioExamples, useDragExamples, useDragConstainedExamples];
 

@@ -53,7 +53,7 @@ import {
   ContentRevealExample,
   ContentRevealExample2,
 } from './component-library/contentReveal_example';
-import sliderExamples from './component-library/slider';
+import sliderExamples from './component-library/slider/index';
 import hooks from './component-library/hooks/index';
 import components from './component-library/components/index';
 
