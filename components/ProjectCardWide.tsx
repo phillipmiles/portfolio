@@ -70,7 +70,7 @@ const ProjectCardWide = ({
               }}
             >
               {tags?.map((tag, index) => (
-                <>
+                <span key={tag}>
                   <span
                     style={
                       {
@@ -97,7 +97,7 @@ const ProjectCardWide = ({
                       /
                     </span>
                   )}
-                </>
+                </span>
               ))}
             </ProjectCardTags>
           </Link>

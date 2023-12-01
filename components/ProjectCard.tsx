@@ -57,7 +57,7 @@ const ProjectCard = ({
             }}
           >
             {tags?.map((tag, index) => (
-              <>
+              <span key={tag}>
                 <span
                   style={
                     {
@@ -84,7 +84,7 @@ const ProjectCard = ({
                     /
                   </span>
                 )}
-              </>
+              </span>
             ))}
           </ProjectCardTags>
         </Link>
