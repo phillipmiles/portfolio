@@ -47,19 +47,10 @@ import {
   PageContentWidthExample,
   pageContentWidthExampleCode,
 } from './component-library/PageContentWidth';
-// import {
-//   Example as DraggableExample,
-//   exampleCode as draggableExampleCode,
-// } from './component-library/draggableContained_example';
-
 import {
   Example as NumberAnimateExample,
   exampleCode as numberAnimateExampleCode,
 } from './component-library/NumberAnimate_example';
-import {
-  flexColCode,
-  FlexColExample,
-} from './component-library/flexCol_example';
 import {
   contentRevealCode,
   contentRevealCode2,
@@ -93,11 +84,6 @@ const tools = [
             example: InfinityPannerExample,
             exampleMarkDown: InfinityPannerCode,
           },
-          // {
-          //   type: 'text',
-          //   example: InfinityPannerExample2,
-          //   exampleMarkDown: InfinityPannerCode2,
-          // },
         ],
       },
 

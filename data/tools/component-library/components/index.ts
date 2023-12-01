@@ -1,5 +1,5 @@
 import AudioPlayer from './AudioPlayer';
-import MediaTimeline from './MediaTimeline';
+// import MediaTimeline from './MediaTimeline';
 
 const components = [
   AudioPlayer,
