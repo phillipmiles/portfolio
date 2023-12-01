@@ -5,7 +5,7 @@ const examples = {
   title: 'useAudio',
   category: 'Hooks',
   description:
-    'A hook that handles management of drag event listeners within the React lifecycle and passes movement deltas into the onMove callback.',
+    'A hook that initiates and manages an audio object through the React lifecycle. The hook also provides additional functions and properties to make using an audio object easier.',
   content: [
     {
       type: 'text',

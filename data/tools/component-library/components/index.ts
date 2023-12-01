@@ -1,7 +1,10 @@
 import AudioPlayer from './AudioPlayer';
 import MediaTimeline from './MediaTimeline';
 
-const components = [AudioPlayer, MediaTimeline];
+const components = [
+  AudioPlayer,
+  //MediaTimeline
+];
 
 // Sort hooks array into alphabetical order
 components.sort((a, b) => {

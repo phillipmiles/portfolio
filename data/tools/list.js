@@ -79,12 +79,8 @@ const tools = [
   {
     slug: 'components',
     category: 'Components',
-    items: components,
-  },
-  {
-    slug: 'other',
-    category: 'Other',
     items: [
+      ...components,
       sliderExamples,
       {
         slug: 'infinity-panner',
@@ -232,6 +228,7 @@ const tools = [
       },
     ],
   },
+
   {
     slug: 'inputs',
     category: 'Inputs',
