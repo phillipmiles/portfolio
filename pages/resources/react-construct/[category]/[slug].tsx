@@ -87,7 +87,7 @@ const ToolsReactLibrary: NextPage = () => {
           >
             <div className={s.componentMenu}>
               {tools.map((category) => (
-                <div>
+                <div key={category.slug}>
                   <h6>{category.category}</h6>
 
                   {category.items.map((item) => (
@@ -165,7 +165,7 @@ const ToolsReactLibrary: NextPage = () => {
 
               {currentTool &&
                 currentTool.content.map((example, index) => (
-                  <>
+                  <div key={index}>
                     <div
                       key={index}
                       style={{
@@ -182,7 +182,7 @@ const ToolsReactLibrary: NextPage = () => {
                     >
                       <example.example />
                     </div>
-                    <div style={{}}>
+                    <div>
                       {example.exampleMarkDown && (
                         <CodeBox
                           code={example.exampleMarkDown}
@@ -194,7 +194,7 @@ const ToolsReactLibrary: NextPage = () => {
                         />
                       )}
                     </div>
-                  </>
+                  </div>
                 ))}
             </div>
           </Flex>
