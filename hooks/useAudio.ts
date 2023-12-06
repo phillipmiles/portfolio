@@ -25,9 +25,28 @@ const useAudio = (src) => {
   const [audioState, setAudioState] = useState('unloaded');
   const [currentTimeString, setCurrentTimeString] = useState('0:00');
   const [durationTimeString, setDurationTimeString] = useState('0:00');
-  const [buffered, setBuffered] = useState<{ start: number; end: number }[]>(
-    []
-  );
+  const [buffered, setBuffered] = useState<{ start: number; end: number }[]>();
+  const analyserArray = useRef();
+  const analyser = useRef();
+  const [bufferLength, setBufferLength] = useState();
+  const [doOnce, setDoOnce] = useState(false);
+
+  const getAnalyserData = () => {
+    const HEIGHT = 50;
+
+    analyser.current.getByteFrequencyData(analyserArray.current);
+
+    // console.log(bufferLength);
+    // return analyserArray.current;
+    const array = [];
+    for (let i = 0; i < bufferLength; i++) {
+      array.push(analyserArray.current[i]);
+      // const v = analyserArray.current[i] / 128.0;
+      // const y = (v * HEIGHT) / 2;
+    }
+    return array;
+    // console.log(analyserArray.current);
+  };
 
   const onLoaded = (e: Event) => {
     if (!audioObject.current) return;
@@ -50,7 +69,28 @@ const useAudio = (src) => {
   }, [audioObject, src]);
 
   const loadAudio = () => {
+    const audioContext = new AudioContext();
     const a = new Audio(src);
+
+    const source = audioContext.createMediaElementSource(a);
+
+    source.connect(audioContext.destination);
+
+    analyser.current = audioContext.createAnalyser();
+    source.connect(analyser.current);
+    analyser.current.fftSize = 256;
+    const bufferLength2 = analyser.current.frequencyBinCount;
+    setBufferLength(bufferLength2);
+    analyserArray.current = new Uint8Array(bufferLength2);
+    analyser.current.getByteTimeDomainData(analyserArray.current);
+
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
+    // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
     audioObject.current = a;
 
     setAudioState('loading');
@@ -134,6 +174,7 @@ const useAudio = (src) => {
     play: play,
     pause: pause,
     audioState: audioState,
+    getAnalyserData: getAnalyserData,
   };
 };
 

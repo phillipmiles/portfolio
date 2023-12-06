@@ -1,0 +1,15 @@
+.button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at 50% 80%,
+    rgba(255, 255, 255, 0.1) 35%,
+    rgba(255, 255, 255, 0.2) 90%
+  );
+  margin: 16px;
+}
