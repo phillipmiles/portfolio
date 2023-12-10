@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import PageContentWrap from '../../components/generic/PageContentWrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import TestSVG from './test.svg';
 import {
   faAws,
   faCss3,
@@ -39,6 +40,10 @@ import Flex from '../../components/generic/Flex';
 import useAudio from '../../hooks/useAudio';
 import { useEffect } from 'react';
 
+import useAudioLevel from '../../hooks/useAudioLevel';
+import Image from 'next/image';
+import AudioSoundGraph from '../../components/generic/AudioSoundGraph';
+
 const Projects: NextPage = () => {
   //   a: audioObject.current,
   //   progress: progress,
@@ -50,7 +55,12 @@ const Projects: NextPage = () => {
   //   play: play,
   //   pause: pause,
   //   audioState: audioState,
-  const audio = useAudio('/audio/trying-to-make-a-song.mp3');
+  // const audio = useAudio('/audio/trying-to-make-a-song.mp3');
+  // const decibals = useAudioLevel('/audio/trying-to-make-a-song.mp3');
+  // const audio = useAudio('/audio/mixaund-hope.mp3');
+  // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
+  const audio = useAudio('/audio/letra-echoes.wav');
+  const decibals = useAudioLevel('/audio/letra-echoes.wav');
 
   useEffect(() => {
     if (audio.audioState === 'loaded') {
@@ -70,7 +80,6 @@ const Projects: NextPage = () => {
     }
   };
 
-  console.log(audio.audioState);
   return (
     <>
       <Head>
@@ -93,11 +102,25 @@ const Projects: NextPage = () => {
               <p>Made with</p>
               <ul>
                 <li>useAudio</li>
-                <li>useDragConstained</li>
+                <li>useAudioLevel</li>
+                <li>useDragContained</li>
               </ul>
             </div>
             <div style={{ flexGrow: 1, width: '60%' }}>
-              <Flex
+              <div
+                style={{
+                  display: 'flex',
+                  width: '100%',
+                  height: '80px',
+                  position: 'relative',
+                  // objectFit: 'cover',
+                }}
+              >
+                {/* <AudioSoundGraph data={decibals} /> */}
+                {/* <Image alt="" fill={true} src={'/test.svg'} /> */}
+              </div>
+
+              {/* <Flex
                 style={{
                   gap: '4px',
                   alignItems: 'flex-end',
@@ -118,52 +141,157 @@ const Projects: NextPage = () => {
                       />
                     );
                   })}
-              </Flex>
+              </Flex> */}
               <div
                 style={{
-                  borderRadius: '32px',
+                  background: '#331540',
+                  padding: '128px 16px',
+                  borderRadius: '32px 32px 0 0',
+                }}
+              >
+                <Flex
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <div
+                    className={s.albumArt}
+                    style={{
+                      width: '300px',
+                      height: '300px',
+                    }}
+                  >
+                    <div className={s.box}>
+                      <Image src="/audioTest.jpg" fill />
+                    </div>
+                  </div>
+                </Flex>
+              </div>
+              <div
+                style={{
+                  borderRadius: '0 0 32px 32px',
                   backgroundColor: '#442255',
                   height: '120px',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  padding: '32px',
                 }}
               >
-                <button className={s.button}>
-                  <FontAwesomeIcon
-                    icon={faBackwardStep}
-                    style={{ height: '16px', width: '16px' }}
-                  />
-                </button>
-                <button
-                  className={s.button}
-                  onClick={togglePlay}
+                <Flex
                   style={{
-                    height: '64px',
-                    width: '64px',
-                    background: '#d33c94',
+                    position: 'relative',
+                    flexGrow: 1,
+                    height: '80px',
+                    marginRight: '32px',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
-                  {audio.audioState === 'play' && (
-                    <FontAwesomeIcon
-                      icon={faPause}
-                      style={{ height: '20px', width: '20px' }}
-                    />
-                  )}
-                  {audio.audioState !== 'play' && (
-                    <FontAwesomeIcon
-                      icon={faPlay}
-                      style={{ height: '20px', width: '20px' }}
-                    />
-                  )}
-                </button>
+                  {/*
+                  <div
+                    style={{
+                      position: 'absolute',
+                      // background: 'red',
+                      // filter: 'hue-rotate(90deg)',
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      right: 0,
+                      overflow: 'hidden',
+                      width: `${audio.progress}%`,
+                      // width: '100%',
+                      // marginRight: '50%',
+                    }}
+                  >
+                    <Flex
+                      style={{
+                        alignItems: 'center',
+                        flexWrap: 'nowrap',
+                        width: '100%',
+                        height: '100%',
+                      }}
+                    >
+                      {decibals.map((seg) => (
+                        <div
+                          style={{
+                            flexGrow: 1,
+                            flexShrink: 0,
+                            // height: `${(Math.abs(seg) - 50) * 4}px`,
+                            height: `${seg}%`,
+                            // background: '#d33c94',
+                            background: '#d33c94',
+                            // filter: 'hue-rotate(90deg)',
+                          }}
+                        />
+                      ))}
+                    </Flex>
+                  </div>
+                  <Flex
+                    style={{
+                      alignItems: 'center',
 
-                <button className={s.button}>
-                  <FontAwesomeIcon
-                    icon={faForwardStep}
-                    style={{ height: '16px', width: '16px' }}
+                      flexGrow: 1,
+                    }}
+                  >
+                    {decibals.map((seg) => (
+                      <div
+                        style={{
+                          flexGrow: 1,
+                          // height: `${(Math.abs(seg) - 50) * 4}px`,
+                          height: `${seg}%`,
+                          // background: '#d33c94',
+                          background: '#775588',
+                          // filter: 'hue-rotate(90deg)',
+                        }}
+                      />
+                    ))}
+                  </Flex>
+                   */}
+
+                  <AudioSoundGraph
+                    data={decibals}
+                    progress={audio.progress / 100}
                   />
-                </button>
+                </Flex>
+                <Flex style={{ alignItems: 'center', position: 'relative' }}>
+                  <button className={s.button}>
+                    <FontAwesomeIcon
+                      icon={faBackwardStep}
+                      style={{ height: '16px', width: '16px' }}
+                    />
+                  </button>
+                  <button
+                    className={s.button}
+                    onClick={togglePlay}
+                    style={{
+                      height: '64px',
+                      width: '64px',
+                      background: '#d33c94',
+                    }}
+                  >
+                    {audio.audioState === 'play' && (
+                      <FontAwesomeIcon
+                        icon={faPause}
+                        style={{ height: '20px', width: '20px' }}
+                      />
+                    )}
+                    {audio.audioState !== 'play' && (
+                      <FontAwesomeIcon
+                        icon={faPlay}
+                        style={{ height: '20px', width: '20px' }}
+                      />
+                    )}
+                  </button>
+
+                  <button className={s.button}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ height: '16px', width: '16px' }}
+                    />
+                  </button>
+                </Flex>
               </div>
             </div>
           </Flex>

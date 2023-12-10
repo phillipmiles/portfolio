@@ -1,0 +1,6 @@
+.graph {
+  max-width: 100% !important;
+  width: auto !important;
+  height: 100% !important;
+  flex-grow: 1;
+}
