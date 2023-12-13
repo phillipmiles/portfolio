@@ -10,6 +10,7 @@ import { toPercent } from '../utils/math';
 import { addLeadingZero, toMinutes, getTimeString } from '../utils/time';
 
 const useAudio = (src) => {
+  const [source, setSource] = useState();
   const audioObject = useRef();
   const [progress, setProgress] = useState(0);
   const [db, setDB] = useState([]);
@@ -23,6 +24,45 @@ const useAudio = (src) => {
   const analyser = useRef();
   const [bufferLength, setBufferLength] = useState();
   const [doOnce, setDoOnce] = useState(false);
+
+  const [levels, setLevels] = useState([]);
+
+  // Calculates RMS
+  const calcLevel = (buffer: Float32Array, pos: number, winSize: number) => {
+    for (var rms, sum = 0, v, i = pos - winSize; i <= pos; i++) {
+      v = i < 0 ? 0 : buffer[i];
+      sum += v * v;
+    }
+
+    rms = Math.sqrt(sum / winSize);
+
+    return rms === 0 ? 0 : 20 * Math.log10(rms);
+  };
+
+  const getLevels = (buffer: AudioBuffer) => {
+    const WIDTH = 400;
+
+    var channel = buffer.getChannelData(0);
+    var points = [];
+
+    let max = 0;
+
+    for (var x = 1, i, v; x < WIDTH; x++) {
+      i = ((x / WIDTH) * channel.length) | 0;
+      v = Math.abs(calcLevel(channel, i, WIDTH));
+      if (max < v) {
+        max = v;
+      }
+      points.push(v);
+    }
+
+    const adjustedArray = [];
+    for (x = 0, v; x < points.length; x++) {
+      adjustedArray.push(max - points[x] * 2);
+    }
+
+    return adjustedArray;
+  };
 
   const getAnalyserData = () => {
     return [];
@@ -48,7 +88,7 @@ const useAudio = (src) => {
       // from memory.
       if (audioObject.current) {
         audioObject.current.pause();
-        audioObject.current.removeEventListener('loadeddata', onLoaded);
+        // audioObject.current.removeEventListener('loadeddata', onLoaded);
       }
     };
   }, [audioObject, src]);
@@ -74,13 +114,13 @@ const useAudio = (src) => {
     randomNoiseNode.connect(audioContext.destination);
   };
 
-  const onLoaded = async (e: Event) => {
+  const onLoaded = async () => {
     if (!audioObject.current) return;
 
     setDurationTimeString(getTimeString(audioObject.current.duration));
     setAudioState('loaded');
 
-    audioObject.current.removeEventListener('loadeddata', onLoaded);
+    // audioObject.current.removeEventListener('loadeddata', onLoaded);
   };
 
   const loadAudio = async () => {
@@ -106,13 +146,55 @@ const useAudio = (src) => {
       toneNode.connect(context.destination);
     };
 
-    // const audioContext = new AudioContext();
-    // const offlineCtx = new OfflineAudioContext({
-    //   numberOfChannels: 2,
-    //   length: 44100 * 40,
-    //   sampleRate: 44100,
-    // });
-    const a = new Audio(src);
+    const loadAudio2 = async () => {
+      const audioContext = new AudioContext();
+      const offlineContext = new OfflineAudioContext(2, 44100 * 40, 44100);
+      let preTime = new Date();
+      let postTime;
+      // Load audio track, decode it and calculate levels.
+      try {
+        const response = await fetch(src);
+        const downloadedBuffer = await response.arrayBuffer();
+        const decodedBuffer = await audioContext.decodeAudioData(
+          downloadedBuffer
+        );
+        setLevels(() => getLevels(decodedBuffer));
+        const source = new AudioBufferSourceNode(offlineContext, {
+          buffer: decodedBuffer,
+        });
+        source.connect(offlineContext.destination);
+        await source.start();
+        // source.start();
+
+        console.log(source.buffer.duration);
+        const renderedBuffer = await offlineContext.startRendering();
+
+        const song = new AudioBufferSourceNode(audioContext, {
+          buffer: renderedBuffer,
+        });
+        song.connect(audioContext.destination);
+        setSource(song);
+        // await song.start();
+      } catch (err) {
+        console.error(`Error encountered: ${err}`);
+      }
+
+      postTime = new Date();
+      const diff = (postTime.getTime() - preTime.getTime()) / 1000;
+      console.log(diff);
+
+      onLoaded();
+      // play.disabled = false;
+      // const song = new AudioBufferSourceNode(audioContext, {
+      //   buffer: renderedBuffer,
+      // });
+      // song.connect(audioContext.destination);
+      // setAudioState('play');
+
+      // song.start();
+    };
+    await loadAudio2();
+    // const a = new Audio(src);
 
     // var bufferSource = offlineCtx.createBufferSource();
     // console.log(bufferSource);
@@ -133,11 +215,11 @@ const useAudio = (src) => {
     // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
     // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
     // TODO!!!! SHOULD ADD AN REF TO AN AUDIO HTML ELEMENT FOR ACCESSIBILITY
-    audioObject.current = a;
+    // audioObject.current = a;
 
     setAudioState('loading');
 
-    a.addEventListener('loadeddata', onLoaded);
+    // a.addEventListener('loadeddata', onLoaded);
   };
 
   const updateBuffer = () => {

@@ -86,7 +86,7 @@ const Projects: NextPage = () => {
 
       return;
       // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
-      // until the whole audio file is first loaded from useAudio.
+      // until the whole audio file is first loaded from useAudio which is no good for speed.
       const positionPercent =
         (event.clientX - boundingBox.left) / boundingBox.width;
 
@@ -210,7 +210,7 @@ const Projects: NextPage = () => {
                     }}
                   >
                     <div className={s.box}>
-                      <Image src="/audioTest2.jpg" fill />
+                      <Image src="/audioTest2.jpg" fill alt="" />
                     </div>
                   </div>
                   <Heading

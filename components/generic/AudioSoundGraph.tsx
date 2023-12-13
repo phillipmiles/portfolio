@@ -3,11 +3,12 @@ import s from './AudioSoundGraph.module.css';
 
 interface Props {
   id: string;
+  gap: number;
   progress: number;
+  data: number[];
 }
 
 const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
-  // const data = [14, 77, 45, 64];
   const maxVal = 100; // Because each data point is being converted to a percentage value
   // 0 to 100, then the maximum value of a line is 100.
   const lineWidth = 1;
@@ -17,9 +18,10 @@ const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
   const noMinus = data.map((item) => (item < 0 ? 0 : item));
   const maxHeight = Math.max(...noMinus) * 2;
 
-  const startPoint = `M 0,${maxVal} `;
+  const startPoint = `M0,${maxVal} `;
 
-  const getLines = () => {
+  const getLines = (): string => {
+    if (!data.length) return '';
     const lines = [];
 
     lines.push(startPoint);
@@ -27,11 +29,7 @@ const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
       noMinus.map((point) => {
         // const val2 = point >= 0 ? point : 0;
         const val = toPercent(point, maxHeight);
-
-        // return `l 0,-6.0645 l 1,0 l 0,6.0645 l -1,0 m 2,0 `;
-        return `l 0,${val * -1} l ${lineWidth},0 l 0,${val} l -1,0 m ${
-          gap + 1
-        },0 `;
+        return `l0,${val * -1} l${lineWidth},0 l0,${val} l-1,0 m${gap + 1},0 `;
       })
     );
 
@@ -40,15 +38,12 @@ const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
       noMinus.map((point, index) => {
         // const val2 = point >= 0 ? point : 0;
         const val = toPercent(point, maxHeight);
-        // return `l 0,6.3648 l 1,0 l 0,-6.3648 l -1,0 m 2,0 `;
-        return `l 0,${val} l ${lineWidth},0 l 0,${val * -1} l -1,0 m ${
-          gap + 1
-        },0 `;
+        return `l0,${val} l${lineWidth},0 l0,${val * -1} l-1,0 m${gap + 1},0 `;
       })
     );
 
     lines.push('Z');
-    return lines;
+    return lines.toString();
   };
 
   return (
@@ -62,8 +57,6 @@ const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
         <linearGradient id="progress-347034571">
           <stop offset={`${progress}`} stopColor="#d33c94"></stop>
           <stop offset={`${progress}`} stopColor="#775588"></stop>
-          {/* <stop offset="0.2" stop-color="#d33c94"></stop>
-          <stop offset="0.2" stop-color="#775588"></stop> */}
         </linearGradient>
       </defs>
       <path
