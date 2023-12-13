@@ -42,7 +42,9 @@ const useAudioLevel = (src: string) => {
 
   const loadAudio = async () => {
     const context = new AudioContext();
-
+    const offlineContext = new OfflineAudioContext(2, 44100 * 40, 44100);
+    let preTime;
+    let postTime;
     // Load audio track, decode it and calculate levels.
     await fetch(src)
       .then((response) => response.arrayBuffer())
@@ -50,24 +52,34 @@ const useAudioLevel = (src: string) => {
       .then((decodedBuffer) => {
         setArray(getLevels(decodedBuffer));
 
-        // const source = new AudioBufferSourceNode(offlineCtx, {
-        //   buffer: decodedBuffer,
-        // });
-        // source.connect(offlineCtx.destination);
+        preTime = new Date();
+        const source = new AudioBufferSourceNode(context, {
+          buffer: decodedBuffer,
+        });
+
+        postTime = new Date();
+        const diff = (postTime.getTime() - preTime.getTime()) / 1000;
+        console.log(diff);
+        // source.connect(offlineContext.destination);
+
+        // console.log(source);
         // return source.start();
       })
-      // .then(() => offlineCtx.startRendering())
-      // .then((renderedBuffer) => {
-      //   console.log('Rendering completed successfully.');
-      //   // play.disabled = false;
-      //   // const song = new AudioBufferSourceNode(audioContext, {
-      //   //   buffer: renderedBuffer,
-      //   // });
-      //   // song.connect(audioContext.destination);
-      //   // setAudioState('play');
+      .then((derp) => {
+        return offlineContext.startRendering();
+      })
+      .then((renderedBuffer) => {
+        console.log('Rendering completed successfully.');
 
-      //   // song.start();
-      // })
+        // play.disabled = false;
+        // const song = new AudioBufferSourceNode(audioContext, {
+        //   buffer: renderedBuffer,
+        // });
+        // song.connect(audioContext.destination);
+        // setAudioState('play');
+
+        // song.start();
+      })
       .catch((err) => {
         console.error(`Error encountered: ${err}`);
       });

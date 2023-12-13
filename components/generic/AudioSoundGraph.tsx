@@ -60,8 +60,8 @@ const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
     >
       <defs>
         <linearGradient id="progress-347034571">
-          <stop offset={`${progress}`} stop-color="#d33c94"></stop>
-          <stop offset={`${progress}`} stop-color="#775588"></stop>
+          <stop offset={`${progress}`} stopColor="#d33c94"></stop>
+          <stop offset={`${progress}`} stopColor="#775588"></stop>
           {/* <stop offset="0.2" stop-color="#d33c94"></stop>
           <stop offset="0.2" stop-color="#775588"></stop> */}
         </linearGradient>

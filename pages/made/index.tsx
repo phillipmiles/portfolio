@@ -38,11 +38,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Flex from '../../components/generic/Flex';
 import useAudio from '../../hooks/useAudio';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import useAudioLevel from '../../hooks/useAudioLevel';
 import Image from 'next/image';
 import AudioSoundGraph from '../../components/generic/AudioSoundGraph';
+import useDragContained from '../../hooks/useDragContained';
+import { getTimeString } from '../../utils/time';
 
 const Projects: NextPage = () => {
   //   a: audioObject.current,
@@ -61,6 +63,70 @@ const Projects: NextPage = () => {
   // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
   const audio = useAudio('/audio/letra-echoes.wav');
   const decibals = useAudioLevel('/audio/letra-echoes.wav');
+
+  const elementRef = useRef(null);
+  const containerRef = useRef(null);
+  const [hoverPosition, setHoverPosition] = useState(0);
+  const [position, setPosition] = useState({
+    xOffset: 0,
+    yOffset: 0,
+    xPercent: 0,
+    yPercent: 0,
+  });
+
+  const [isOverGraph, setIsOverGraph] = useState(false);
+  const [graphIndicator, setGraphIndicator] = useState(0);
+
+  useEffect(() => {
+    const handleGraphMouseLeave = (event) => {
+      containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
+    };
+    const handleGraphMouseMove = (event) => {
+      const boundingBox = containerRef.current.getBoundingClientRect();
+
+      return;
+      // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
+      // until the whole audio file is first loaded from useAudio.
+      const positionPercent =
+        (event.clientX - boundingBox.left) / boundingBox.width;
+
+      console.log(audio);
+      const currentTime = audio.a.duration * positionPercent;
+      console.log(currentTime);
+      // getTimeString(audioObject.current.duration)
+      setGraphIndicator(event.clientX - boundingBox.left);
+    };
+    const handleGraphMouseOver = (event) => {
+      containerRef.current.removeEventListener(
+        'mouseover',
+        handleGraphMouseMove
+      );
+      containerRef.current.addEventListener('mousemove', handleGraphMouseMove);
+      containerRef.current.addEventListener(
+        'mouseleave',
+        handleGraphMouseLeave
+      );
+      setIsOverGraph(true);
+    };
+    containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
+
+    return () => {
+      containerRef.current.removeEventListener(
+        'mouseover',
+        handleGraphMouseOver
+      );
+      if (isOverGraph) {
+        containerRef.current.removeEventListener(
+          'mousemove',
+          handleGraphMouseMove
+        );
+        containerRef.current.removeEventListener(
+          'mouseleave',
+          handleGraphMouseLeave
+        );
+      }
+    };
+  }, [audio]);
 
   useEffect(() => {
     if (audio.audioState === 'loaded') {
@@ -89,14 +155,16 @@ const Projects: NextPage = () => {
 
       <Banner />
       <PageContentWrap>
-        <div style={{ marginBottom: 96 }}>
-          <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}>
-            <PageTitle>React Construct</PageTitle>
-            <PageIntro>Made with React Construct</PageIntro>
-          </div>
-          <Flex>
-            <div style={{ width: '40%' }}>
-              <Heading tag="h2" as="h5">
+        {/* <div style={{ marginBottom: 96 }}> */}
+        <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}>
+          <PageTitle>React Construct</PageTitle>
+          <PageIntro>Made with React Construct</PageIntro>
+        </div>
+
+        <Flex className={s.contentBox}>
+          <Flex className={s.left}>
+            <PageContentWrap>
+              <Heading tag="h2" as="h4">
                 Audio Player
               </Heading>
               <p>Made with</p>
@@ -104,23 +172,12 @@ const Projects: NextPage = () => {
                 <li>useAudio</li>
                 <li>useAudioLevel</li>
                 <li>useDragContained</li>
+                <li>AudioSoundGraph</li>
               </ul>
-            </div>
-            <div style={{ flexGrow: 1, width: '60%' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  width: '100%',
-                  height: '80px',
-                  position: 'relative',
-                  // objectFit: 'cover',
-                }}
-              >
-                {/* <AudioSoundGraph data={decibals} /> */}
-                {/* <Image alt="" fill={true} src={'/test.svg'} /> */}
-              </div>
-
-              {/* <Flex
+            </PageContentWrap>
+          </Flex>
+          <div className={s.right}>
+            {/* <Flex
                 style={{
                   gap: '4px',
                   alignItems: 'flex-end',
@@ -142,19 +199,9 @@ const Projects: NextPage = () => {
                     );
                   })}
               </Flex> */}
-              <div
-                style={{
-                  background: '#331540',
-                  padding: '128px 16px',
-                  borderRadius: '32px 32px 0 0',
-                }}
-              >
-                <Flex
-                  style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
+            <Flex className={s.playerContainer}>
+              <Flex className={s.playerTopContainer}>
+                <div>
                   <div
                     className={s.albumArt}
                     style={{
@@ -163,14 +210,39 @@ const Projects: NextPage = () => {
                     }}
                   >
                     <div className={s.box}>
-                      <Image src="/audioTest.jpg" fill />
+                      <Image src="/audioTest2.jpg" fill />
                     </div>
                   </div>
-                </Flex>
-              </div>
+                  <Heading
+                    tag="h3"
+                    as="heading6"
+                    style={{
+                      marginTop: ' 48px',
+                      marginBottom: 0,
+                      fontSize: '24px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Echoes
+                  </Heading>
+                  <span
+                    style={{
+                      display: 'block',
+                      marginTop: '8px',
+                      // fontSize: '16px',
+                      opacity: 0.7,
+                      textAlign: 'center',
+                      // color: '#775588',
+                      color: 'white',
+                    }}
+                  >
+                    Letra
+                  </span>
+                </div>
+              </Flex>
+
               <div
                 style={{
-                  borderRadius: '0 0 32px 32px',
                   backgroundColor: '#442255',
                   height: '120px',
                   display: 'flex',
@@ -179,17 +251,69 @@ const Projects: NextPage = () => {
                   padding: '32px',
                 }}
               >
-                <Flex
-                  style={{
-                    position: 'relative',
-                    flexGrow: 1,
-                    height: '80px',
-                    marginRight: '32px',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
-                  {/*
+                <Flex style={{ alignItems: 'center', position: 'relative' }}>
+                  <button className={s.button}>
+                    <FontAwesomeIcon
+                      icon={faBackwardStep}
+                      style={{ height: '16px', width: '16px' }}
+                    />
+                  </button>
+                  <button
+                    className={s.button}
+                    onClick={togglePlay}
+                    style={{
+                      height: '64px',
+                      width: '64px',
+                      background: '#d33c94',
+                    }}
+                  >
+                    {audio.audioState === 'play' && (
+                      <FontAwesomeIcon
+                        icon={faPause}
+                        style={{ height: '20px', width: '20px' }}
+                      />
+                    )}
+                    {audio.audioState !== 'play' && (
+                      <FontAwesomeIcon
+                        icon={faPlay}
+                        style={{ height: '20px', width: '20px' }}
+                      />
+                    )}
+                  </button>
+
+                  <button className={s.button}>
+                    <FontAwesomeIcon
+                      icon={faForwardStep}
+                      style={{ height: '16px', width: '16px' }}
+                    />
+                  </button>
+                </Flex>
+                <div className={s.graphContainer}>
+                  <div
+                    ref={elementRef}
+                    className={s.dragElement}
+                    style={{
+                      left: `${graphIndicator}px`,
+                      // top: position.yOffset,
+                      // ...(isDragging && { background: 'rgb(243, 78, 95)' }),
+                    }}
+                  >
+                    <div />
+                    <span>{audio.currentTimeString}</span>
+                  </div>
+                  <div
+                    ref={containerRef}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      position: 'relative',
+                      flexGrow: 1,
+                      height: '60px',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {/*
                   <div
                     style={{
                       position: 'absolute',
@@ -250,53 +374,19 @@ const Projects: NextPage = () => {
                   </Flex>
                    */}
 
-                  <AudioSoundGraph
-                    data={decibals}
-                    progress={audio.progress / 100}
-                  />
-                </Flex>
-                <Flex style={{ alignItems: 'center', position: 'relative' }}>
-                  <button className={s.button}>
-                    <FontAwesomeIcon
-                      icon={faBackwardStep}
-                      style={{ height: '16px', width: '16px' }}
+                    <AudioSoundGraph
+                      data={decibals}
+                      progress={audio.progress / 100}
                     />
-                  </button>
-                  <button
-                    className={s.button}
-                    onClick={togglePlay}
-                    style={{
-                      height: '64px',
-                      width: '64px',
-                      background: '#d33c94',
-                    }}
-                  >
-                    {audio.audioState === 'play' && (
-                      <FontAwesomeIcon
-                        icon={faPause}
-                        style={{ height: '20px', width: '20px' }}
-                      />
-                    )}
-                    {audio.audioState !== 'play' && (
-                      <FontAwesomeIcon
-                        icon={faPlay}
-                        style={{ height: '20px', width: '20px' }}
-                      />
-                    )}
-                  </button>
-
-                  <button className={s.button}>
-                    <FontAwesomeIcon
-                      icon={faForwardStep}
-                      style={{ height: '16px', width: '16px' }}
-                    />
-                  </button>
-                </Flex>
+                  </div>
+                </div>
               </div>
-            </div>
-          </Flex>
-        </div>
+            </Flex>
+          </div>
+        </Flex>
       </PageContentWrap>
+
+      {/* </div> */}
     </>
   );
 };
