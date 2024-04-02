@@ -9,7 +9,7 @@ import {
 import { toPercent } from '../utils/math';
 import { addLeadingZero, toMinutes, getTimeString } from '../utils/time';
 
-const useAudio = (src) => {
+const useAudio = (src, settings) => {
   const [audioContext, setAudioContext] = useState();
   const [source, setSource] = useState();
   const [renderedBuffer, setRenderedBuffer] = useState();
@@ -17,6 +17,7 @@ const useAudio = (src) => {
   const [progress, setProgress] = useState(0);
   const [db, setDB] = useState([]);
   const [audioState, setAudioState] = useState('unloaded');
+  const [audioLevelsState, setAudioLevelsState] = useState('unloaded');
   const [currentTimeString, setCurrentTimeString] = useState('0:00');
   const [durationTimeString, setDurationTimeString] = useState('0:00');
   const [buffered, setBuffered] = useState<{ start: number; end: number }[]>(
@@ -214,8 +215,19 @@ const useAudio = (src) => {
         const decodedBuffer = await audioContext2.decodeAudioData(
           downloadedBuffer
         );
-        console.log(calcLevels(decodedBuffer));
-        setLevels(() => calcLevels(decodedBuffer));
+
+        // ==== THIS PLAYS DA MUSIC!!!!!!
+        const sourcetest = audioContext2.createBufferSource();
+        sourcetest.buffer = decodedBuffer;
+        sourcetest.connect(audioContext2.destination);
+        sourcetest.loop = true;
+        sourcetest.start(0, 60);
+
+        return;
+        // ==== THIS PLAYS DA MUSIC!!!!!!
+        const levelsData = calcLevels(decodedBuffer);
+        setLevels(levelsData);
+        setAudioLevelsState('loaded');
         const source = new AudioBufferSourceNode(offlineContext, {
           buffer: decodedBuffer,
         });
@@ -223,15 +235,19 @@ const useAudio = (src) => {
         await source.start();
         // source.start();
 
-        console.log(source);
         const renderedBuffer2 = await offlineContext.startRendering();
 
         setRenderedBuffer(renderedBuffer2);
         const song = new AudioBufferSourceNode(audioContext2, {
           buffer: renderedBuffer2,
         });
+        console.log('=======');
+        console.log(song);
         setAudioState('play');
-        // song.connect(audioContext2.destination);
+        song.connect(audioContext2.destination);
+        // Does'nt work beyond 40 Seconds. Seems const offlineContext = new OfflineAudioContext(2, 44100 * 40, 44100); dictats that
+        // song.start(audioContext2.currentTime, 39);
+        song.start();
         // setSource(song);
         // song.start(100);
         // console.log(song);
@@ -278,6 +294,7 @@ const useAudio = (src) => {
     // audioObject.current = a;
 
     setAudioState('loading');
+    setAudioLevelsState('loading');
 
     // a.addEventListener('loadeddata', onLoaded);
   };
@@ -403,6 +420,10 @@ const useAudio = (src) => {
     updateProgress();
   };
 
+  const loadLevels = () => {
+    console.log('LOOOOOADDDD LEVELSSS');
+  };
+
   return {
     a: audioObject.current,
     progress: progress,
@@ -412,9 +433,11 @@ const useAudio = (src) => {
     currentTimeString: currentTimeString,
     durationTimeString: durationTimeString,
     load: loadAudio,
+    loadLevels: loadLevels,
     play: play,
     pause: pause,
     audioState: audioState,
+    audioLevelsState: audioState,
     getAnalyserData: getAnalyserData,
     db: db,
   };

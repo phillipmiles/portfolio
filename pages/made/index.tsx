@@ -61,6 +61,7 @@ const Projects: NextPage = () => {
   // const decibals = useAudioLevel('/audio/trying-to-make-a-song.mp3');
   // const audio = useAudio('/audio/mixaund-hope.mp3');
   // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
+
   const audio = useAudio('/audio/letra-echoes.wav');
   const decibals = useAudioLevel('/audio/letra-echoes.wav');
 
@@ -132,7 +133,13 @@ const Projects: NextPage = () => {
     if (audio.audioState === 'loaded') {
       audio.play();
     }
-  }, [audio.audioState]);
+  }, [audio, audio.audioState]);
+
+  useEffect(() => {
+    if (audio.audioLevelsState === 'unloaded') {
+      audio.loadLevels();
+    }
+  }, [audio]);
 
   const togglePlay = () => {
     console.log(audio.audioState);
