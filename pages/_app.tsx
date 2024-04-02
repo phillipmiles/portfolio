@@ -8,6 +8,7 @@ import Head from 'next/head';
 import PageWithFooter from '../components/generic/PageWithFooter';
 import Footer from '../components/Footer';
 import s from './_app.module.css';
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </main>
         <Footer />
       </PageWithFooter>
+      <Analytics />
     </>
   );
 }
