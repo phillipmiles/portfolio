@@ -135,9 +135,11 @@ const Projects: NextPage = () => {
   }, [audio.audioState]);
 
   const togglePlay = () => {
+    console.log(audio.audioState);
     if (audio.audioState === 'unloaded') {
       audio.load();
     } else if (audio.audioState === 'play') {
+      console.log('pause');
       // const analyserData = audio.getAnalyserData();
       // console.log(analyserData);
       audio.pause();
@@ -375,7 +377,7 @@ const Projects: NextPage = () => {
                    */}
 
                     <AudioSoundGraph
-                      data={decibals}
+                      data={audio.levels}
                       progress={audio.progress / 100}
                     />
                   </div>
