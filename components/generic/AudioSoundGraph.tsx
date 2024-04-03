@@ -8,7 +8,7 @@ interface Props {
   data: number[];
 }
 
-const AudioSoundGraph = ({ id, gap = 0, progress = 0, data }: Props) => {
+const AudioSoundGraph = ({ gap = 0, progress = 0, data }: Props) => {
   const maxVal = 100; // Because each data point is being converted to a percentage value
   // 0 to 100, then the maximum value of a line is 100.
   const lineWidth = 1;

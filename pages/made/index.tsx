@@ -62,9 +62,12 @@ const Projects: NextPage = () => {
   // const audio = useAudio('/audio/mixaund-hope.mp3');
   // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
 
-  const audio = useAudio('/audio/letra-echoes.wav');
+  const { audioState, load, play, pause, levels, progress } = useAudio(
+    '/audio/letra-echoes.wav'
+  );
   const decibals = useAudioLevel('/audio/letra-echoes.wav');
 
+  console.log(progress);
   const elementRef = useRef(null);
   const containerRef = useRef(null);
   const [hoverPosition, setHoverPosition] = useState(0);
@@ -79,79 +82,86 @@ const Projects: NextPage = () => {
   const [graphIndicator, setGraphIndicator] = useState(0);
 
   useEffect(() => {
-    const handleGraphMouseLeave = (event) => {
-      containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
-    };
-    const handleGraphMouseMove = (event) => {
-      const boundingBox = containerRef.current.getBoundingClientRect();
+    // const derp = new Audio('/audio/letra-echoes.wav');
+    console.log('NO MORE');
+    load();
+  }, [load]);
 
-      return;
-      // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
-      // until the whole audio file is first loaded from useAudio which is no good for speed.
-      const positionPercent =
-        (event.clientX - boundingBox.left) / boundingBox.width;
+  // useEffect(() => {
+  //   const handleGraphMouseLeave = (event) => {
+  //     containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
+  //   };
+  //   const handleGraphMouseMove = (event) => {
+  //     const boundingBox = containerRef.current.getBoundingClientRect();
 
-      console.log(audio);
-      const currentTime = audio.a.duration * positionPercent;
-      console.log(currentTime);
-      // getTimeString(audioObject.current.duration)
-      setGraphIndicator(event.clientX - boundingBox.left);
-    };
-    const handleGraphMouseOver = (event) => {
-      containerRef.current.removeEventListener(
-        'mouseover',
-        handleGraphMouseMove
-      );
-      containerRef.current.addEventListener('mousemove', handleGraphMouseMove);
-      containerRef.current.addEventListener(
-        'mouseleave',
-        handleGraphMouseLeave
-      );
-      setIsOverGraph(true);
-    };
-    containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
+  //     return;
+  //     // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
+  //     // until the whole audio file is first loaded from useAudio which is no good for speed.
+  //     const positionPercent =
+  //       (event.clientX - boundingBox.left) / boundingBox.width;
 
-    return () => {
-      containerRef.current.removeEventListener(
-        'mouseover',
-        handleGraphMouseOver
-      );
-      if (isOverGraph) {
-        containerRef.current.removeEventListener(
-          'mousemove',
-          handleGraphMouseMove
-        );
-        containerRef.current.removeEventListener(
-          'mouseleave',
-          handleGraphMouseLeave
-        );
-      }
-    };
-  }, [audio]);
+  //     console.log(audio);
+  //     const currentTime = audio.a.duration * positionPercent;
+  //     console.log(currentTime);
+  //     // getTimeString(audioObject.current.duration)
+  //     setGraphIndicator(event.clientX - boundingBox.left);
+  //   };
+  //   const handleGraphMouseOver = (event) => {
+  //     containerRef.current.removeEventListener(
+  //       'mouseover',
+  //       handleGraphMouseMove
+  //     );
+  //     containerRef.current.addEventListener('mousemove', handleGraphMouseMove);
+  //     containerRef.current.addEventListener(
+  //       'mouseleave',
+  //       handleGraphMouseLeave
+  //     );
+  //     setIsOverGraph(true);
+  //   };
+  //   containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
 
-  useEffect(() => {
-    if (audio.audioState === 'loaded') {
-      audio.play();
-    }
-  }, [audio, audio.audioState]);
+  //   return () => {
+  //     containerRef.current.removeEventListener(
+  //       'mouseover',
+  //       handleGraphMouseOver
+  //     );
+  //     if (isOverGraph) {
+  //       containerRef.current.removeEventListener(
+  //         'mousemove',
+  //         handleGraphMouseMove
+  //       );
+  //       containerRef.current.removeEventListener(
+  //         'mouseleave',
+  //         handleGraphMouseLeave
+  //       );
+  //     }
+  //   };
+  // }, [audio]);
 
-  useEffect(() => {
-    if (audio.audioLevelsState === 'unloaded') {
-      audio.loadLevels();
-    }
-  }, [audio]);
+  // useEffect(() => {
+  //   if (audioState === 'loaded') {
+  //     console.log('try play');
+  //     // audio.play();
+  //   }
+  // }, [audioState]);
+
+  // useEffect(() => {
+  //   if (audio.audioLevelsState === 'unloaded') {
+  //     // audio.loadLevels();
+  //   }
+  // }, [audio]);
 
   const togglePlay = () => {
-    console.log(audio.audioState);
-    if (audio.audioState === 'unloaded') {
-      audio.load();
-    } else if (audio.audioState === 'play') {
-      console.log('pause');
+    if (audioState === 'unloaded') {
+      // load();
+    } else if (audioState === 'loaded') {
+      play();
+    } else if (audioState === 'play') {
       // const analyserData = audio.getAnalyserData();
       // console.log(analyserData);
-      audio.pause();
-    } else if (audio.audioState === 'pause') {
-      audio.play();
+      pause();
+    } else if (audioState === 'pause') {
+      play();
     }
   };
 
@@ -276,13 +286,13 @@ const Projects: NextPage = () => {
                       background: '#d33c94',
                     }}
                   >
-                    {audio.audioState === 'play' && (
+                    {audioState === 'play' && (
                       <FontAwesomeIcon
                         icon={faPause}
                         style={{ height: '20px', width: '20px' }}
                       />
                     )}
-                    {audio.audioState !== 'play' && (
+                    {audioState !== 'play' && (
                       <FontAwesomeIcon
                         icon={faPlay}
                         style={{ height: '20px', width: '20px' }}
@@ -308,7 +318,7 @@ const Projects: NextPage = () => {
                     }}
                   >
                     <div />
-                    <span>{audio.currentTimeString}</span>
+                    {/* <span>{audio.currentTimeString}</span> */}
                   </div>
                   <div
                     ref={containerRef}
@@ -383,10 +393,7 @@ const Projects: NextPage = () => {
                   </Flex>
                    */}
 
-                    <AudioSoundGraph
-                      data={audio.levels}
-                      progress={audio.progress / 100}
-                    />
+                    <AudioSoundGraph data={levels} progress={progress / 100} />
                   </div>
                 </div>
               </div>
