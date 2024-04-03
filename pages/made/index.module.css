@@ -150,6 +150,7 @@
   font-size: 13px;
   margin-left: 32px;
   position: relative;
+  cursor: pointer;
 }
 
 .graphContainer:hover .dragElement {
@@ -159,7 +160,8 @@
 .dragElement {
   opacity: 0;
   position: absolute;
-  /* cursor: pointer; */
+  /* Disable pointer-events to propagate hover and click events to parent element. */
+  pointer-events: none;
 
   top: 0px;
   bottom: 0px;

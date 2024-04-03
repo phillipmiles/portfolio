@@ -69,7 +69,7 @@ const Projects: NextPage = () => {
   // );
   // const { audioRef, load } = useAudio('/audio/letra-echoes.wav');
 
-  const audioRef = useRef();
+  const audioRef = useRef<HTMLMediaElement>();
 
   const {
     audioSourceNode,
@@ -78,76 +78,58 @@ const Projects: NextPage = () => {
     pauseAudio,
     audioState,
     audioProgress,
+    currentAudioTime,
+    currentAudioTimeString,
   } = useAudio(audioRef);
   const [audioLevels, setAudioLevels] = useState<number[]>([]);
 
   const elementRef = useRef(null);
-  const containerRef = useRef(null);
-  const [hoverPosition, setHoverPosition] = useState(0);
-  const [position, setPosition] = useState({
-    xOffset: 0,
-    yOffset: 0,
-    xPercent: 0,
-    yPercent: 0,
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [isOverGraph, setIsOverGraph] = useState(false);
   const [graphIndicator, setGraphIndicator] = useState(0);
 
-  // useEffect(() => {
-  //   const handleGraphMouseLeave = (event) => {
-  //     containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
-  //   };
-  //   const handleGraphMouseMove = (event) => {
-  //     const boundingBox = containerRef.current.getBoundingClientRect();
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const localRef = containerRef.current;
 
-  //     return;
-  //     // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
-  //     // until the whole audio file is first loaded from useAudio which is no good for speed.
-  //     const positionPercent =
-  //       (event.clientX - boundingBox.left) / boundingBox.width;
+    const handleGraphMouseLeave = () => {
+      localRef.addEventListener('mouseover', handleGraphMouseOver);
+    };
+    const handleGraphMouseMove = (event: any) => {
+      const boundingBox = localRef.getBoundingClientRect();
+      // console.log(currentAudioTime, audioRef.current.currentTime);
+      // return;
+      // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
+      // until the whole audio file is first loaded from useAudio which is no good for speed.
+      // const positionPercent =
+      //   (event.clientX - boundingBox.left) / boundingBox.width;
 
-  //     console.log(audio);
-  //     const currentTime = audio.a.duration * positionPercent;
-  //     console.log(currentTime);
-  //     // getTimeString(audioObject.current.duration)
-  //     setGraphIndicator(event.clientX - boundingBox.left);
-  //   };
-  //   const handleGraphMouseOver = (event) => {
-  //     containerRef.current.removeEventListener(
-  //       'mouseover',
-  //       handleGraphMouseMove
-  //     );
-  //     containerRef.current.addEventListener('mousemove', handleGraphMouseMove);
-  //     containerRef.current.addEventListener(
-  //       'mouseleave',
-  //       handleGraphMouseLeave
-  //     );
-  //     setIsOverGraph(true);
-  //   };
-  //   containerRef.current.addEventListener('mouseover', handleGraphMouseOver);
+      // const currentTime = audioRef.current.duration * positionPercent;
+      // console.log(currentTime);
+      // getTimeString(audioObject.current.duration)
+      setGraphIndicator(event.clientX - boundingBox.left);
+    };
+    const handleGraphMouseOver = () => {
+      localRef.removeEventListener('mouseover', handleGraphMouseMove);
+      localRef.addEventListener('mousemove', handleGraphMouseMove);
+      localRef.addEventListener('mouseleave', handleGraphMouseLeave);
+      setIsOverGraph(true);
+    };
 
-  //   return () => {
-  //     containerRef.current.removeEventListener(
-  //       'mouseover',
-  //       handleGraphMouseOver
-  //     );
-  //     if (isOverGraph) {
-  //       containerRef.current.removeEventListener(
-  //         'mousemove',
-  //         handleGraphMouseMove
-  //       );
-  //       containerRef.current.removeEventListener(
-  //         'mouseleave',
-  //         handleGraphMouseLeave
-  //       );
-  //     }
-  //   };
-  // }, [audio]);
+    localRef.addEventListener('mouseover', handleGraphMouseOver);
+
+    return () => {
+      if (!localRef) return;
+      localRef.removeEventListener('mouseover', handleGraphMouseOver);
+      if (isOverGraph) {
+        localRef.removeEventListener('mousemove', handleGraphMouseMove);
+        localRef.removeEventListener('mouseleave', handleGraphMouseLeave);
+      }
+    };
+  }, [isOverGraph]);
 
   useEffect(() => {
-    console.log('DON ONE');
-
     const run = async () => {
       setAudioLevels(await fetchAudioLevels('/audio/letra-echoes.wav'));
     };
@@ -314,12 +296,13 @@ const Projects: NextPage = () => {
                     className={s.dragElement}
                     style={{
                       left: `${graphIndicator}px`,
+
                       // top: position.yOffset,
                       // ...(isDragging && { background: 'rgb(243, 78, 95)' }),
                     }}
                   >
                     <div />
-                    {/* <span>{audio.currentTimeString}</span> */}
+                    <span>{currentAudioTimeString}</span>
                   </div>
                   <div
                     ref={containerRef}
