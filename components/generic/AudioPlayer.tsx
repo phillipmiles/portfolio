@@ -25,6 +25,7 @@ const AudioPlayer = ({
   }, [audio, audio.audioState]);
 
   const togglePlay = () => {
+    // console.log
     if (audio.audioState === 'unloaded') {
       audio.load();
     } else if (audio.audioState === 'play') {
@@ -71,7 +72,7 @@ const AudioPlayer = ({
         Download
       </a> */}
 
-        <MediaTimeline
+        {/* <MediaTimeline
           buffered={audio.buffered}
           disable={
             audio.audioState === 'unloaded' || audio.audioState === 'loading'
@@ -83,7 +84,7 @@ const AudioPlayer = ({
           }}
           onDrag={handleDragSeeker}
           onEnd={handleEndSeeker}
-        />
+        /> */}
 
         <span>
           {renderedTime} / {audio.durationTimeString}

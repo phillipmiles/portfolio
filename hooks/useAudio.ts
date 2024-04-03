@@ -6,90 +6,76 @@ import {
   useState,
   useEffect,
 } from 'react';
-import { toPercent } from '../utils/math';
-import { addLeadingZero, toMinutes, getTimeString } from '../utils/time';
 import { calcLevels } from './useAudioFuncs';
+import { toPercent } from '../utils/math';
+import { getTimeString } from '../utils/time';
 
-const errorNoAudioContext =
-  'AudioContext is not defined. This is probably a woopsy on my part and not yours.';
-const errorNoBufferSource =
-  'BufferSource is not defined. This is probably a woopsy on my part and not yours.';
+// https://developer.mozilla.org/en-US/docs/Web/API/MediaElementAudioSourceNode
+const createMediaElementSource = (mediaElement: HTMLMediaElement) => {
+  const context = new AudioContext();
+  const audioSourceNode = context.createMediaElementSource(mediaElement);
+  audioSourceNode.connect(context.destination);
 
-const useAudio = (src: string) => {
-  const [audioContext, setAudioContext] = useState<AudioContext>();
-  const [buffer, setBuffer] = useState<AudioBuffer>();
-  const [audioState, setAudioState] = useState('unloaded');
-  const [levels, setLevels] = useState<number[]>([]);
-  const [progress, setProgress] = useState<number>();
+  return audioSourceNode;
+};
 
-  const loadAudio = useCallback(() => {
-    const run = async () => {
-      const context = new AudioContext();
+const useAudio = (mediaElement) => {
+  const [audioState, setAudioState] = useState('unconnected');
+  const [audioProgress, setAudioProgress] = useState(0);
+  const [currentAudioTimeString, setCurrentAudioTimeString] = useState('0:00');
+  const [audioSourceNode, setAudioSourceNode] =
+    useState<MediaElementAudioSourceNode>();
 
-      const response = await fetch(src);
-      const downloadedBuffer = await response.arrayBuffer();
-      const decodedBuffer = await context.decodeAudioData(downloadedBuffer);
-
-      setLevels(calcLevels(decodedBuffer));
-
-      setBuffer(decodedBuffer);
-      setAudioState('loaded');
-      setAudioContext(context);
-    };
-
-    run();
-  }, [src]);
-
-  const start = (buffer, offsetInSeconds, duration) => {
-    const audioTrack = audioContext.createBufferSource();
-
-    audioTrack.connect(audioContext.destination);
-    audioTrack.buffer = buffer;
-    audioTrack.start(audioContext.currentTime, offsetInSeconds, duration);
+  const connectAudio = () => {
+    setAudioSourceNode(createMediaElementSource(mediaElement.current));
+    setAudioState('connected');
   };
 
-  // const jumpTo = () => {
-  //   start(60);
-  // };
-
-  const play = () => {
-    // if (audioContext.state === 'suspended') {
-
-    if (audioState === 'loaded') {
-      start(buffer, 0, undefined);
-    } else {
-      audioContext.resume();
-    }
-    setAudioState('play');
+  const playAudio = () => {
+    mediaElement.current.play();
+    setAudioState('playing');
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/close
-  const close = () => {
-    audioContext.close();
-  };
-
-  const pause = () => {
-    audioContext.suspend();
-    setAudioState('pause');
+  const pauseAudio = () => {
+    mediaElement.current.pause();
+    setAudioState('paused');
   };
 
   const updateProgress = useCallback(() => {
-    const progress = toPercent(audioContext?.currentTime, buffer?.duration);
-    setProgress(progress);
+    // console.log(
+    //   audioSourceNode?.context?.currentTime,
+    //   mediaElement.current.currentTime
+    // );
+    // return;
+    // if (!audioObject.current) return;
 
-    // setCurrentTimeString(getTimeString(audioObject.current.currentTime));
-  }, [audioContext?.currentTime, buffer?.duration]);
+    const progress = toPercent(
+      mediaElement.current.currentTime,
+      mediaElement.current.duration
+    );
+
+    setAudioProgress(progress);
+
+    setCurrentAudioTimeString(getTimeString(mediaElement.current.currentTime));
+  }, [mediaElement]);
+
+  // const updateProgress = useCallback(() => {
+  //   const progress = toPercent(audioContext?.currentTime, buffer?.duration);
+  //   setProgress(progress);
+
+  //   // setCurrentTimeString(getTimeString(audioObject.current.currentTime));
+  // }, [audioContext?.currentTime, buffer?.duration]);
 
   useEffect(() => {
     const progressing = () => {
-      if (audioState === 'play') updateProgress();
+      if (audioState === 'playing') updateProgress();
 
       // if (hasBufferChanged()) {
       // updateBuffer();
       // }
     };
 
-    if (audioState === 'unloaded') return;
+    if (audioState !== 'playing') return;
     const timeout = setInterval(progressing, 200);
 
     return () => {
@@ -100,13 +86,13 @@ const useAudio = (src: string) => {
   }, [audioState, updateProgress]);
 
   return {
-    load: loadAudio,
-    play: play,
-    pause: pause,
-    levels: levels,
-    currentTime: audioContext?.currentTime,
-    progress: progress,
-    audioState: audioState,
+    audioSourceNode,
+    connectAudio,
+    playAudio,
+    pauseAudio,
+    audioState,
+    audioProgress,
+    currentAudioTimeString,
   };
 };
 

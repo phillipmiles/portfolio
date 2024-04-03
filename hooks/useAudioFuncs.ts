@@ -38,3 +38,13 @@ export const calcLevels = (buffer: AudioBuffer) => {
 
   return adjustedArray;
 };
+
+export const fetchAudioLevels = async (src: string) => {
+  const context = new AudioContext();
+
+  const response = await fetch(src);
+  const downloadedBuffer = await response.arrayBuffer();
+  const decodedBuffer = await context.decodeAudioData(downloadedBuffer);
+
+  return calcLevels(decodedBuffer);
+};

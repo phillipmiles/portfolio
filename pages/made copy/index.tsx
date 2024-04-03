@@ -37,7 +37,7 @@ import {
   faPlay,
 } from '@fortawesome/free-solid-svg-icons';
 import Flex from '../../components/generic/Flex';
-import useAudio from '../../hooks/useAudio';
+import useAudio from '../../hooks/useAudioNOHTML';
 import { useEffect, useRef, useState } from 'react';
 
 import useAudioLevel from '../../hooks/useAudioLevel';
@@ -45,8 +45,6 @@ import Image from 'next/image';
 import AudioSoundGraph from '../../components/generic/AudioSoundGraph';
 import useDragContained from '../../hooks/useDragContained';
 import { getTimeString } from '../../utils/time';
-import useMediaElementAudioSource from '../../hooks/useMediaElementAudioSource';
-import { fetchAudioLevels } from '../../hooks/useAudioFuncs';
 
 const Projects: NextPage = () => {
   //   a: audioObject.current,
@@ -64,23 +62,12 @@ const Projects: NextPage = () => {
   // const audio = useAudio('/audio/mixaund-hope.mp3');
   // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
 
-  // const { audioState, load, play, pause, levels, progress } = useAudio(
-  //   '/audio/letra-echoes.wav'
-  // );
-  // const { audioRef, load } = useAudio('/audio/letra-echoes.wav');
+  const { audioState, load, play, pause, levels, progress } = useAudio(
+    '/audio/letra-echoes.wav'
+  );
+  const decibals = useAudioLevel('/audio/letra-echoes.wav');
 
-  const audioRef = useRef();
-
-  const {
-    audioSourceNode,
-    connectAudio,
-    playAudio,
-    pauseAudio,
-    audioState,
-    audioProgress,
-  } = useAudio(audioRef);
-  const [audioLevels, setAudioLevels] = useState<number[]>([]);
-
+  console.log(progress);
   const elementRef = useRef(null);
   const containerRef = useRef(null);
   const [hoverPosition, setHoverPosition] = useState(0);
@@ -93,6 +80,12 @@ const Projects: NextPage = () => {
 
   const [isOverGraph, setIsOverGraph] = useState(false);
   const [graphIndicator, setGraphIndicator] = useState(0);
+
+  useEffect(() => {
+    // const derp = new Audio('/audio/letra-echoes.wav');
+    console.log('NO MORE');
+    load();
+  }, [load]);
 
   // useEffect(() => {
   //   const handleGraphMouseLeave = (event) => {
@@ -145,24 +138,30 @@ const Projects: NextPage = () => {
   //   };
   // }, [audio]);
 
-  useEffect(() => {
-    console.log('DON ONE');
+  // useEffect(() => {
+  //   if (audioState === 'loaded') {
+  //     console.log('try play');
+  //     // audio.play();
+  //   }
+  // }, [audioState]);
 
-    const run = async () => {
-      setAudioLevels(await fetchAudioLevels('/audio/letra-echoes.wav'));
-    };
-
-    run();
-  }, []);
+  // useEffect(() => {
+  //   if (audio.audioLevelsState === 'unloaded') {
+  //     // audio.loadLevels();
+  //   }
+  // }, [audio]);
 
   const togglePlay = () => {
-    if (!audioSourceNode) {
-      connectAudio();
-      playAudio();
-    } else if (audioState === 'playing') {
-      pauseAudio();
-    } else {
-      playAudio();
+    if (audioState === 'unloaded') {
+      // load();
+    } else if (audioState === 'loaded') {
+      play();
+    } else if (audioState === 'play') {
+      // const analyserData = audio.getAnalyserData();
+      // console.log(analyserData);
+      pause();
+    } else if (audioState === 'pause') {
+      play();
     }
   };
 
@@ -287,13 +286,13 @@ const Projects: NextPage = () => {
                       background: '#d33c94',
                     }}
                   >
-                    {audioState === 'playing' && (
+                    {audioState === 'play' && (
                       <FontAwesomeIcon
                         icon={faPause}
                         style={{ height: '20px', width: '20px' }}
                       />
                     )}
-                    {audioState !== 'playing' && (
+                    {audioState !== 'play' && (
                       <FontAwesomeIcon
                         icon={faPlay}
                         style={{ height: '20px', width: '20px' }}
@@ -394,22 +393,11 @@ const Projects: NextPage = () => {
                   </Flex>
                    */}
 
-                    <AudioSoundGraph
-                      data={audioLevels}
-                      progress={audioProgress / 100}
-                    />
+                    <AudioSoundGraph data={levels} progress={progress / 100} />
                   </div>
                 </div>
               </div>
             </Flex>
-            <audio
-              ref={audioRef}
-              src="/audio/letra-echoes.wav"
-              controls
-              style={{ width: '100%' }}
-            >
-              <source type="audio/mpeg" src="/audio/letra-echoes.wav" />
-            </audio>
           </div>
         </Flex>
       </PageContentWrap>

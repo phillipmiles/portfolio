@@ -217,14 +217,6 @@ const useAudio = (src, settings) => {
         );
 
         // ==== THIS PLAYS DA MUSIC!!!!!!
-        const sourcetest = audioContext2.createBufferSource();
-        sourcetest.buffer = decodedBuffer;
-        sourcetest.connect(audioContext2.destination);
-        sourcetest.loop = true;
-        sourcetest.start(0, 60);
-
-        return;
-        // ==== THIS PLAYS DA MUSIC!!!!!!
         const levelsData = calcLevels(decodedBuffer);
         setLevels(levelsData);
         setAudioLevelsState('loaded');
@@ -318,7 +310,7 @@ const useAudio = (src, settings) => {
     // source.start(100);
     // source.context.currentTime = 1000;
     // console.log(source.buffer.length);
-    return;
+    // return;
     const buffered = [];
     if (!audioObject.current) return;
     for (let i = 0; i < audioObject.current.buffered.length; i++) {
@@ -403,7 +395,7 @@ const useAudio = (src, settings) => {
   const play = () => {
     // if (!audioObject.current) return;
     // audioObject.current.play();
-    audioContext.resume();
+    // audioContext.resume();
     setAudioState('play');
   };
 

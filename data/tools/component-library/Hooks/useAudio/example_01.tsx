@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import s from './example_01.module.css';
-import useAudio from '../../../../../hooks/useAudio';
+import useAudio from '../../../../../hooks/useAudioNOHTML';
 
 export const Example = () => {
   // const audio = useAudio(
