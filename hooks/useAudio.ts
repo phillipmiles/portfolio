@@ -1,13 +1,12 @@
-import {
-  useReducer,
-  useRef,
-  useCallback,
-  useMemo,
-  useState,
-  useEffect,
-} from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { toPercent } from '../utils/math';
 import { getTimeString } from '../utils/time';
+
+// Why use a HTMLMediaElement instead of an AudioBufferSourceNode
+// ===
+// UseAudio makes use of a HTML media element provided to the hook as a property.
+// By using a HTML media element we get the beneift of having the audio file
+// be streamed in and buffered rather than the entire file needing to be downloaded.
 
 // https://developer.mozilla.org/en-US/docs/Web/API/MediaElementAudioSourceNode
 const createMediaElementSource = (mediaElement: HTMLMediaElement) => {

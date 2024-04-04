@@ -5,7 +5,7 @@ const examples = {
   title: 'useAudio',
   category: 'Hooks',
   description:
-    'A hook that initiates and manages an audio object through the React lifecycle. The hook also provides additional functions and properties to make using an audio object easier.',
+    'A hook that wraps a HTML media element and provides helpful functions and properties to make using a media element easier.',
   content: [
     {
       type: 'text',
