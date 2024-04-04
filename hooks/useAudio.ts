@@ -92,6 +92,7 @@ const useAudio = (mediaElement) => {
     pauseAudio,
     audioState,
     audioProgress,
+    audioDuration: mediaElement.current?.duration,
     currentAudioTime: mediaElement.current?.currentTime,
     currentAudioTimeString,
   };

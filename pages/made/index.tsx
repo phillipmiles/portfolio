@@ -47,6 +47,7 @@ import useDragContained from '../../hooks/useDragContained';
 import { getTimeString } from '../../utils/time';
 import useMediaElementAudioSource from '../../hooks/useMediaElementAudioSource';
 import { fetchAudioLevels } from '../../hooks/useAudioFuncs';
+import { toPercent } from '../../utils/math';
 
 const Projects: NextPage = () => {
   //   a: audioObject.current,
@@ -80,14 +81,17 @@ const Projects: NextPage = () => {
     audioProgress,
     currentAudioTime,
     currentAudioTimeString,
+    audioDuration,
   } = useAudio(audioRef);
   const [audioLevels, setAudioLevels] = useState<number[]>([]);
 
-  const elementRef = useRef(null);
+  const elementRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [isOverGraph, setIsOverGraph] = useState(false);
   const [graphIndicator, setGraphIndicator] = useState(0);
+  const [graphIndicatorTimeString, setGraphIndicatorTimeString] =
+    useState('0:00');
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -98,17 +102,22 @@ const Projects: NextPage = () => {
     };
     const handleGraphMouseMove = (event: any) => {
       const boundingBox = localRef.getBoundingClientRect();
-      // console.log(currentAudioTime, audioRef.current.currentTime);
-      // return;
-      // NEED TO MOVE INTO USEAUDIO AND LOADED THERE. AUDIO.A isn't avaialble
-      // until the whole audio file is first loaded from useAudio which is no good for speed.
-      // const positionPercent =
-      //   (event.clientX - boundingBox.left) / boundingBox.width;
+      if (!elementRef.current) return;
 
-      // const currentTime = audioRef.current.duration * positionPercent;
-      // console.log(currentTime);
-      // getTimeString(audioObject.current.duration)
-      setGraphIndicator(event.clientX - boundingBox.left);
+      const cursorPosX = event.clientX - boundingBox.left;
+      const posX = cursorPosX - elementRef.current.offsetWidth / 2;
+
+      const progress = posX / boundingBox.width;
+      const secondsIntoTrack = audioDuration * progress;
+
+      // Fix calculation sometimes going into the negative when graph is
+      // compressed by small screen sizes.
+      const limitedSecondsIntoTrack =
+        secondsIntoTrack < 0 ? 0 : secondsIntoTrack;
+      const timeString = getTimeString(limitedSecondsIntoTrack);
+
+      setGraphIndicator(posX);
+      setGraphIndicatorTimeString(timeString);
     };
     const handleGraphMouseOver = () => {
       localRef.removeEventListener('mouseover', handleGraphMouseMove);
@@ -127,7 +136,7 @@ const Projects: NextPage = () => {
         localRef.removeEventListener('mouseleave', handleGraphMouseLeave);
       }
     };
-  }, [isOverGraph]);
+  }, [isOverGraph, audioDuration]);
 
   useEffect(() => {
     const run = async () => {
@@ -302,7 +311,7 @@ const Projects: NextPage = () => {
                     }}
                   >
                     <div />
-                    <span>{currentAudioTimeString}</span>
+                    <span>{graphIndicatorTimeString}</span>
                   </div>
                   <div
                     ref={containerRef}
