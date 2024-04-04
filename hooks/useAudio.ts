@@ -42,13 +42,6 @@ const useAudio = (mediaElement) => {
   };
 
   const updateProgress = useCallback(() => {
-    // console.log(
-    //   audioSourceNode?.context?.currentTime,
-    //   mediaElement.current.currentTime
-    // );
-    // return;
-    // if (!audioObject.current) return;
-
     const progress = toPercent(
       mediaElement.current.currentTime,
       mediaElement.current.duration

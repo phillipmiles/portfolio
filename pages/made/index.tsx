@@ -2,27 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import PageContentWrap from '../../components/generic/PageContentWrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TestSVG from './test.svg';
-import {
-  faAws,
-  faCss3,
-  faGit,
-  faGithub,
-  faHtml5,
-  faJs,
-  faJsSquare,
-  faNode,
-  faNodeJs,
-  faReact,
-  faShopify,
-} from '@fortawesome/free-brands-svg-icons';
-
 import Banner from '../../components/Banner';
-import ProjectCard from '../../components/ProjectCard';
-import ProjectCardWide from '../../components/ProjectCardWide';
 import PageTitle from '../../components/PageTitle';
 import PageIntro from '../../components/PageIntro';
-import projects from '../../data/projects';
 import s from './index.module.css';
 import Heading from '../../components/Heading';
 import {
@@ -39,38 +21,15 @@ import {
 import Flex from '../../components/generic/Flex';
 import useAudio from '../../hooks/useAudio';
 import { useEffect, useRef, useState } from 'react';
-
-import useAudioLevel from '../../hooks/useAudioLevel';
 import Image from 'next/image';
 import AudioSoundGraph from '../../components/generic/AudioSoundGraph';
-import useDragContained from '../../hooks/useDragContained';
 import { getTimeString } from '../../utils/time';
-import useMediaElementAudioSource from '../../hooks/useMediaElementAudioSource';
 import { fetchAudioLevels } from '../../hooks/useAudioFuncs';
-import { toPercent } from '../../utils/math';
 
 const Projects: NextPage = () => {
-  //   a: audioObject.current,
-  //   progress: progress,
-  //   setTime: changeTime,
-  //   buffered: buffered,
-  //   currentTimeString: currentTimeString,
-  //   durationTimeString: durationTimeString,
-  //   load: loadAudio,
-  //   play: play,
-  //   pause: pause,
-  //   audioState: audioState,
-  // const audio = useAudio('/audio/trying-to-make-a-song.mp3');
-  // const decibals = useAudioLevel('/audio/trying-to-make-a-song.mp3');
-  // const audio = useAudio('/audio/mixaund-hope.mp3');
-  // const decibals = useAudioLevel('/audio/mixaund-hope.mp3');
-
-  // const { audioState, load, play, pause, levels, progress } = useAudio(
-  //   '/audio/letra-echoes.wav'
-  // );
-  // const { audioRef, load } = useAudio('/audio/letra-echoes.wav');
-
-  const audioRef = useRef<HTMLMediaElement>();
+  const audioRef = useRef<HTMLMediaElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const {
     audioSourceNode,
@@ -83,11 +42,8 @@ const Projects: NextPage = () => {
     currentAudioTimeString,
     audioDuration,
   } = useAudio(audioRef);
+
   const [audioLevels, setAudioLevels] = useState<number[]>([]);
-
-  const elementRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const [isOverGraph, setIsOverGraph] = useState(false);
   const [graphIndicator, setGraphIndicator] = useState(0);
   const [graphIndicatorTimeString, setGraphIndicatorTimeString] =
@@ -166,7 +122,6 @@ const Projects: NextPage = () => {
 
       <Banner />
       <PageContentWrap>
-        {/* <div style={{ marginBottom: 96 }}> */}
         <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}>
           <PageTitle>React Construct</PageTitle>
           <PageIntro>Made with React Construct</PageIntro>
@@ -188,28 +143,6 @@ const Projects: NextPage = () => {
             </PageContentWrap>
           </Flex>
           <div className={s.right}>
-            {/* <Flex
-                style={{
-                  gap: '4px',
-                  alignItems: 'flex-end',
-                  height: '200px',
-                  marginBottom: '24px',
-                }}
-              >
-                {audio.audioState === 'play' &&
-                  audio.getAnalyserData().map((data) => {
-                    return (
-                      <div
-                        style={{
-                          width: '8px',
-                          height: `${data / 2}px`,
-                          backgroundColor: '#d33c94',
-                          flexShrink: 0,
-                        }}
-                      />
-                    );
-                  })}
-              </Flex> */}
             <Flex className={s.playerContainer}>
               <Flex className={s.playerTopContainer}>
                 <div>
@@ -240,10 +173,8 @@ const Projects: NextPage = () => {
                     style={{
                       display: 'block',
                       marginTop: '8px',
-                      // fontSize: '16px',
                       opacity: 0.7,
                       textAlign: 'center',
-                      // color: '#775588',
                       color: 'white',
                     }}
                   >
@@ -305,9 +236,6 @@ const Projects: NextPage = () => {
                     className={s.dragElement}
                     style={{
                       left: `${graphIndicator}px`,
-
-                      // top: position.yOffset,
-                      // ...(isDragging && { background: 'rgb(243, 78, 95)' }),
                     }}
                   >
                     <div />
@@ -325,67 +253,6 @@ const Projects: NextPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    {/*
-                  <div
-                    style={{
-                      position: 'absolute',
-                      // background: 'red',
-                      // filter: 'hue-rotate(90deg)',
-                      left: 0,
-                      top: 0,
-                      bottom: 0,
-                      right: 0,
-                      overflow: 'hidden',
-                      width: `${audio.progress}%`,
-                      // width: '100%',
-                      // marginRight: '50%',
-                    }}
-                  >
-                    <Flex
-                      style={{
-                        alignItems: 'center',
-                        flexWrap: 'nowrap',
-                        width: '100%',
-                        height: '100%',
-                      }}
-                    >
-                      {decibals.map((seg) => (
-                        <div
-                          style={{
-                            flexGrow: 1,
-                            flexShrink: 0,
-                            // height: `${(Math.abs(seg) - 50) * 4}px`,
-                            height: `${seg}%`,
-                            // background: '#d33c94',
-                            background: '#d33c94',
-                            // filter: 'hue-rotate(90deg)',
-                          }}
-                        />
-                      ))}
-                    </Flex>
-                  </div>
-                  <Flex
-                    style={{
-                      alignItems: 'center',
-
-                      flexGrow: 1,
-                    }}
-                  >
-                    {decibals.map((seg) => (
-                      <div
-                        style={{
-                          flexGrow: 1,
-                          // height: `${(Math.abs(seg) - 50) * 4}px`,
-                          height: `${seg}%`,
-                          // background: '#d33c94',
-                          background: '#775588',
-                          // filter: 'hue-rotate(90deg)',
-                        }}
-                      />
-                    ))}
-                  </Flex>
-                   */}
-
                     <AudioSoundGraph
                       data={audioLevels}
                       progress={audioProgress / 100}
@@ -405,8 +272,6 @@ const Projects: NextPage = () => {
           </div>
         </Flex>
       </PageContentWrap>
-
-      {/* </div> */}
     </>
   );
 };

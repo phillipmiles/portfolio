@@ -2,8 +2,7 @@ import { toPercent } from '../../utils/math';
 import s from './AudioSoundGraph.module.css';
 
 interface Props {
-  id: string;
-  gap: number;
+  gap?: number;
   progress: number;
   data: number[];
 }
