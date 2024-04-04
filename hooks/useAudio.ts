@@ -22,6 +22,11 @@ const useAudio = (mediaElement) => {
   const [audioState, setAudioState] = useState('unconnected');
   const [audioProgress, setAudioProgress] = useState(0);
   const [currentAudioTimeString, setCurrentAudioTimeString] = useState('0:00');
+  const [audioDuration, setAudioDuration] = useState(0);
+  const [audioDurationTimeString, setAudioDurationTimeString] =
+    useState('0:00');
+  const [audioVolume, setAudioVolume] = useState(1);
+  const [audioMuted, setAudioMuted] = useState(false);
   const [audioSourceNode, setAudioSourceNode] =
     useState<MediaElementAudioSourceNode>();
 
@@ -50,20 +55,43 @@ const useAudio = (mediaElement) => {
 
   const pauseAudio = () => {
     mediaElement.current.pause();
-    setAudioState('paused');
   };
 
-  const jumpAudio = useCallback(
+  const toggleAudio = () => {
+    if (audioState === 'playing') {
+      pauseAudio();
+    } else {
+      playAudio();
+    }
+  };
+
+  const setAudioTime = useCallback(
     (time: number) => {
       mediaElement.current.currentTime = time;
     },
     [mediaElement]
   );
 
+  const setVolume = useCallback(
+    (volume: number) => {
+      mediaElement.current.volume = volume;
+    },
+    [mediaElement]
+  );
+
+  const muteAudio = useCallback(() => {
+    mediaElement.current.muted = true;
+  }, [mediaElement]);
+
+  const unmuteAudio = useCallback(() => {
+    mediaElement.current.muted = false;
+  }, [mediaElement]);
+
   // Events
   useEffect(() => {
+    if (!mediaElement.current) return;
+
     const onEnded = (event: Event) => {
-      console.log('Fin');
       setAudioState('paused');
     };
 
@@ -79,10 +107,22 @@ const useAudio = (mediaElement) => {
       updateProgress();
     };
 
+    const onDurationChange = (event: Event) => {
+      setAudioDuration(mediaElement.current.duration);
+      setAudioDurationTimeString(getTimeString(mediaElement.current.duration));
+    };
+
+    const onVolumeChange = (event: Event) => {
+      setAudioVolume(mediaElement.current.volume);
+      setAudioMuted(mediaElement.current.muted);
+    };
+
     mediaElement.current.addEventListener('play', onPlay);
     mediaElement.current.addEventListener('pause', onPause);
     mediaElement.current.addEventListener('timeupdate', onTimeUpdate);
     mediaElement.current.addEventListener('ended', onEnded);
+    mediaElement.current.addEventListener('durationchange', onDurationChange);
+    mediaElement.current.addEventListener('volumechange', onVolumeChange);
   }, [mediaElement, updateProgress]);
 
   return {
@@ -90,12 +130,19 @@ const useAudio = (mediaElement) => {
     connectAudio,
     playAudio,
     pauseAudio,
-    jumpAudio,
+    toggleAudio,
+    muteAudio,
+    unmuteAudio,
+    setAudioTime,
+    setAudioVolume: setVolume,
     audioState,
     audioProgress,
-    audioDuration: mediaElement.current?.duration,
+    audioDuration,
     currentAudioTime: mediaElement.current?.currentTime,
+    audioVolume,
+    audioMuted,
     currentAudioTimeString,
+    audioDurationTimeString,
   };
 };
 

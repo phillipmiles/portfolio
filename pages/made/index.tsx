@@ -36,7 +36,7 @@ const Projects: NextPage = () => {
     connectAudio,
     playAudio,
     pauseAudio,
-    jumpAudio,
+    setAudioTime,
     audioState,
     audioProgress,
     currentAudioTime,
@@ -118,7 +118,7 @@ const Projects: NextPage = () => {
     const secondsIntoTrack = audioDuration * progress;
     console.log(progress, secondsIntoTrack);
 
-    jumpAudio(secondsIntoTrack);
+    setAudioTime(secondsIntoTrack);
   };
 
   return (

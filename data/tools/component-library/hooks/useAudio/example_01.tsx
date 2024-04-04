@@ -1,47 +1,82 @@
-import { useEffect } from 'react';
+import { useRef } from 'react';
 import s from './example_01.module.css';
-import useAudio from '../../../../../hooks/useAudioNOHTML';
+import useAudio from '../../../../../hooks/useAudio';
 
 export const Example = () => {
-  // const audio = useAudio(
-  //   'https://traffic.libsyn.com/theleaderslabpodcast/S2_EP1_v2_-_Making_Leadership_Work.mp3'
-  // );
-  const audio = useAudio('/audio/trying-to-make-a-song.mp3');
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    if (audio.audioState === 'loaded') {
-      audio.play();
-    }
-  }, [audio.audioState]);
+  const {
+    connectAudio,
+    playAudio,
+    toggleAudio,
+    muteAudio,
+    unmuteAudio,
+    setAudioTime,
+    audioState,
+    audioProgress,
+    currentAudioTimeString,
+    audioDurationTimeString,
+    audioMuted,
+  } = useAudio(audioRef);
 
   const togglePlay = () => {
-    if (audio.audioState === 'unloaded') {
-      audio.load();
-    } else if (audio.audioState === 'play') {
-      audio.pause();
-    } else if (audio.audioState === 'pause') {
-      audio.play();
+    if (audioState === 'unloaded') {
+      connectAudio();
+      playAudio();
+    } else {
+      toggleAudio();
+    }
+  };
+
+  const jumpToStart = () => {
+    setAudioTime(0);
+  };
+
+  const mute = () => {
+    if (audioMuted) {
+      unmuteAudio();
+    } else {
+      muteAudio();
     }
   };
 
   return (
     <div>
-      <div>
-        <h4 className={s.heading}>Some music</h4>
-        <p>By Phillip Miles</p>
+      <h4 className={s.heading}>Song name</h4>
+      <p>By artist name</p>
 
+      <p>
         <button onClick={togglePlay} className={s.button}>
-          {audio.audioState === 'loading'
-            ? 'loading'
-            : audio.audioState === 'play'
-            ? 'Pause'
-            : 'Play'}
+          {audioState === 'playing' ? 'Pause' : 'Play'}
         </button>
+        <span style={{ margin: '16px' }}>|</span>
+        <button onClick={jumpToStart} className={s.button}>
+          Restart
+        </button>
+        <button onClick={mute} className={s.button}>
+          Mute
+        </button>
+      </p>
 
-        <span>
-          {audio.currentTimeString} / {audio.durationTimeString}
+      <audio
+        ref={audioRef}
+        src="/audio/trying-to-make-a-song.mp3"
+        controls={false}
+      >
+        <source type="audio/mpeg" src="/audio/trying-to-make-a-song.mp3" />
+      </audio>
+
+      <p>
+        {currentAudioTimeString} / {audioDurationTimeString}
+      </p>
+      <p>{Math.floor(audioProgress)}% song played.</p>
+      <p>
+        Volume:{' '}
+        <span style={{ textDecoration: audioMuted ? 'line-through' : 'none' }}>
+          100%
         </span>
-      </div>
+        {audioMuted && 'Muted'}
+      </p>
     </div>
   );
 };
@@ -49,37 +84,77 @@ export const Example = () => {
 export const code = [
   {
     language: 'jsx',
-    code: `export const Example = () => {
-  const audio = useAudio('/audio/trying-to-make-a-song.mp3');
+    code: `const Example = () => {
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    if (audio.audioState === 'loaded') {
-      audio.play();
-    }
-  }, [audio.audioState]);
+  const {
+    connectAudio,
+    playAudio,
+    toggleAudio,
+    muteAudio,
+    unmuteAudio,
+    setAudioTime,
+    audioState,
+    audioProgress,
+    currentAudioTimeString,
+    audioDurationTimeString,
+    audioMuted,
+  } = useAudio(audioRef);
 
   const togglePlay = () => {
-    if (audio.audioState === 'unloaded') {
-      audio.load();
-    } else if (audio.audioState === 'play') {
-      audio.pause();
-    } else if (audio.audioState === 'pause') {
-      audio.play();
+    if (audioState === 'unloaded') {
+      connectAudio();
+      playAudio();
+    } else {
+      toggleAudio();
+    }
+  };
+
+  const jumpToStart = () => {
+    setAudioTime(0);
+  };
+
+  const mute = () => {
+    if (audioMuted) {
+      unmuteAudio();
+    } else {
+      muteAudio();
     }
   };
 
   return (
     <div>
-    <h4>Trying to make a song</h4>
-      {audio.audioState === 'loading' && <span>Loading</span>}
-      <div>
+      <h4 className={s.heading}>Song name</h4>
+      <p>By artist name</p>
+
+      <p>
         <button onClick={togglePlay} className={s.button}>
-          {audio.audioState === 'play' ? 'Pause' : 'Play'}
+          {audioState === 'playing' ? 'Pause' : 'Play'}
         </button>
-        <span>
-          {audio.currentTimeString} / {audio.durationTimeString}
+        <span style={{ margin: '16px' }}>|</span>
+        <button onClick={jumpToStart} className={s.button}>
+          Restart
+        </button>
+        <button onClick={mute} className={s.button}>
+          Mute
+        </button>
+      </p>
+
+      <audio ref={audioRef} src="/audio/trying-to-make-a-song.mp3" controls={false}>
+        <source type="audio/mpeg" src="/audio/trying-to-make-a-song.mp3" />
+      </audio>
+
+      <p>
+        {currentAudioTimeString} / {audioDurationTimeString}
+      </p>
+      <p>{Math.floor(audioProgress)}% song played.</p>
+      <p>
+        Volume:{' '}
+        <span style={{ textDecoration: audioMuted ? 'line-through' : 'none' }}>
+          100%
         </span>
-      </div>
+        {audioMuted && 'Muted'}
+      </p>
     </div>
   );
 };`,
@@ -91,6 +166,11 @@ export const code = [
   border: 2px solid black;
   border-radius: 4px;
   margin-right: 8px;
-}`,
+}
+
+.heading {
+  margin-bottom: 0px;
+}
+`,
   },
 ];

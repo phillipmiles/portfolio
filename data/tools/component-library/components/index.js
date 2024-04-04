@@ -1,9 +1,9 @@
-import AudioPlayer from './AudioPlayer';
-// import MediaTimeline from './MediaTimeline';
+// import AudioPlayer from './AudioPlayer';
+import MediaTimeline from './MediaTimeline';
 
 const components = [
-  AudioPlayer,
-  //MediaTimeline
+  //AudioPlayer,
+  MediaTimeline,
 ];
 
 // Sort hooks array into alphabetical order
