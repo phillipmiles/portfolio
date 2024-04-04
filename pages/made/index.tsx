@@ -36,6 +36,7 @@ const Projects: NextPage = () => {
     connectAudio,
     playAudio,
     pauseAudio,
+    jumpAudio,
     audioState,
     audioProgress,
     currentAudioTime,
@@ -56,21 +57,17 @@ const Projects: NextPage = () => {
     const handleGraphMouseLeave = () => {
       localRef.addEventListener('mouseover', handleGraphMouseOver);
     };
-    const handleGraphMouseMove = (event: any) => {
-      const boundingBox = localRef.getBoundingClientRect();
+
+    const handleGraphMouseMove = (event: MouseEvent) => {
       if (!elementRef.current) return;
 
-      const cursorPosX = event.clientX - boundingBox.left;
-      const posX = cursorPosX - elementRef.current.offsetWidth / 2;
+      // Center indicator on mouse location.
+      const posX = event.offsetX - elementRef.current.offsetWidth / 2;
 
-      const progress = posX / boundingBox.width;
+      const progress = event.offsetX / localRef.offsetWidth;
       const secondsIntoTrack = audioDuration * progress;
 
-      // Fix calculation sometimes going into the negative when graph is
-      // compressed by small screen sizes.
-      const limitedSecondsIntoTrack =
-        secondsIntoTrack < 0 ? 0 : secondsIntoTrack;
-      const timeString = getTimeString(limitedSecondsIntoTrack);
+      const timeString = getTimeString(secondsIntoTrack);
 
       setGraphIndicator(posX);
       setGraphIndicatorTimeString(timeString);
@@ -111,6 +108,17 @@ const Projects: NextPage = () => {
     } else {
       playAudio();
     }
+  };
+
+  const handleClickGraph = (event: MouseEvent) => {
+    const localGraphRef = containerRef.current;
+    if (!localGraphRef) return;
+
+    const progress = event.nativeEvent.offsetX / localGraphRef.offsetWidth;
+    const secondsIntoTrack = audioDuration * progress;
+    console.log(progress, secondsIntoTrack);
+
+    jumpAudio(secondsIntoTrack);
   };
 
   return (
@@ -243,15 +251,8 @@ const Projects: NextPage = () => {
                   </div>
                   <div
                     ref={containerRef}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      position: 'relative',
-                      flexGrow: 1,
-                      height: '60px',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
+                    className={s.graphContainerInner}
+                    onClick={handleClickGraph}
                   >
                     <AudioSoundGraph
                       data={audioLevels}

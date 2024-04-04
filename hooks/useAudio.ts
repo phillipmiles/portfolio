@@ -6,7 +6,6 @@ import {
   useState,
   useEffect,
 } from 'react';
-import { calcLevels } from './useAudioFuncs';
 import { toPercent } from '../utils/math';
 import { getTimeString } from '../utils/time';
 
@@ -31,9 +30,22 @@ const useAudio = (mediaElement) => {
     setAudioState('connected');
   };
 
+  const updateProgress = useCallback(() => {
+    const progress = toPercent(
+      mediaElement.current.currentTime,
+      mediaElement.current.duration
+    );
+
+    // Really only using this hook for Audio Progress as a percent and AudioTimeString.
+    // Consider moving these out into separate smaller hooks or as utility functions.
+    // If I end up attaching an anaylser node to the audio source node
+    // this hook might still be useful.
+    setAudioProgress(progress);
+    setCurrentAudioTimeString(getTimeString(mediaElement.current.currentTime));
+  }, [mediaElement]);
+
   const playAudio = () => {
     mediaElement.current.play();
-    setAudioState('playing');
   };
 
   const pauseAudio = () => {
@@ -41,48 +53,44 @@ const useAudio = (mediaElement) => {
     setAudioState('paused');
   };
 
-  const updateProgress = useCallback(() => {
-    const progress = toPercent(
-      mediaElement.current.currentTime,
-      mediaElement.current.duration
-    );
+  const jumpAudio = useCallback(
+    (time: number) => {
+      mediaElement.current.currentTime = time;
+    },
+    [mediaElement]
+  );
 
-    setAudioProgress(progress);
-
-    setCurrentAudioTimeString(getTimeString(mediaElement.current.currentTime));
-  }, [mediaElement]);
-
-  // const updateProgress = useCallback(() => {
-  //   const progress = toPercent(audioContext?.currentTime, buffer?.duration);
-  //   setProgress(progress);
-
-  //   // setCurrentTimeString(getTimeString(audioObject.current.currentTime));
-  // }, [audioContext?.currentTime, buffer?.duration]);
-
+  // Events
   useEffect(() => {
-    const progressing = () => {
-      if (audioState === 'playing') updateProgress();
-
-      // if (hasBufferChanged()) {
-      // updateBuffer();
-      // }
+    const onEnded = (event: Event) => {
+      console.log('Fin');
+      setAudioState('paused');
     };
 
-    if (audioState !== 'playing') return;
-    const timeout = setInterval(progressing, 200);
-
-    return () => {
-      if (timeout) {
-        clearInterval(timeout);
-      }
+    const onPlay = (event: Event) => {
+      setAudioState('playing');
     };
-  }, [audioState, updateProgress]);
+
+    const onPause = (event: Event) => {
+      setAudioState('paused');
+    };
+
+    const onTimeUpdate = (event: Event) => {
+      updateProgress();
+    };
+
+    mediaElement.current.addEventListener('play', onPlay);
+    mediaElement.current.addEventListener('pause', onPause);
+    mediaElement.current.addEventListener('timeupdate', onTimeUpdate);
+    mediaElement.current.addEventListener('ended', onEnded);
+  }, [mediaElement, updateProgress]);
 
   return {
     audioSourceNode,
     connectAudio,
     playAudio,
     pauseAudio,
+    jumpAudio,
     audioState,
     audioProgress,
     audioDuration: mediaElement.current?.duration,

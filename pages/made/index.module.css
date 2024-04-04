@@ -144,6 +144,16 @@
   }
 }
 
+.graphContainerInner {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  flex-grow: 1;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
 .graphContainer {
   flex-grow: 1;
   color: white;
