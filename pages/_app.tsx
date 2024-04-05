@@ -9,6 +9,7 @@ import PageWithFooter from '../components/generic/PageWithFooter';
 import Footer from '../components/Footer';
 import s from './_app.module.css';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Footer />
       </PageWithFooter>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
