@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   children: Function;
+  options: {
+    id: string;
+  }[];
 }
 
 const SelectControl = ({
@@ -9,6 +12,7 @@ const SelectControl = ({
   options,
   onSelect,
   selectedOption,
+  className,
   children,
 }: Props) => {
   const [selectVisibility, setSelectVisibility] = useState(false);
@@ -32,7 +36,6 @@ const SelectControl = ({
 
   useEffect(() => {
     if (selectVisibility) {
-      console.log(options[0]);
       focusOnOption(options[0].id);
     }
   }, [selectVisibility, options]);
@@ -144,7 +147,7 @@ const SelectControl = ({
   };
 
   return (
-    <div ref={childrenRef} data-select-id={selectId}>
+    <div ref={childrenRef} data-select-id={selectId} className={className}>
       {content()}
     </div>
   );

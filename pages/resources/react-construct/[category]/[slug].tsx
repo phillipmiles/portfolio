@@ -10,7 +10,7 @@ import PageIntro from '../../../../components/PageIntro';
 import tools from '../../../../data/tools/list';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import CodeBox from '../../../../components/generic/CodeBox';
 import DetachedHoverEffect from '../../../../components/generic/DetachedHoverEffect';
 import s from './[slug].module.css';
@@ -18,6 +18,19 @@ import Select from '../../../../components/Select';
 import SelectMobile from '../../../../components/SelectMobile';
 import Notification from '../../../../components/Notification';
 import StickyContainer from '../../../../components/generic/StickyTopBar';
+import SelectInput from '../../../../components/generic/SelectInput';
+import SelectControl from '../../../../components/generic/SelectControl';
+import SelectOption from '../../../../components/generic/SelectOption';
+
+import { usePathname } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import {
+  faChevronDown,
+  faChevronLeft,
+  faChevronUp,
+} from '@fortawesome/free-solid-svg-icons';
+import { createPortal } from 'react-dom';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -41,11 +54,35 @@ const ToolsReactLibrary: NextPage = () => {
     setCurrentTool({ value: item.title, id: item.slug, ...item });
   }, [router]);
 
-  // const parsedTools = tools.map((tool) => ({
-  //   value: tool.title,
-  //   id: tool.slug,
-  //   ...tool,
-  // }));
+  const selectCurrentTool = useCallback(
+    (option) => {
+      router.push(
+        {
+          pathname: '/resources/react-construct/[category]/[slug]',
+          query: { category: option.categorySlug, slug: option.slug },
+        },
+        undefined,
+        {
+          scroll: false,
+        }
+      );
+    },
+    [router]
+  );
+
+  const toolOptions = tools.reduce(
+    (accumulator: { id: string }[], category) => [
+      ...accumulator,
+      ...category.items.map((item) => ({
+        category: category.category,
+        categorySlug: category.slug,
+        id: item.slug,
+        // value: item.title,
+        ...item,
+      })),
+    ],
+    []
+  );
 
   return (
     <>
@@ -80,11 +117,87 @@ const ToolsReactLibrary: NextPage = () => {
             This library is under development. A NPM module will be made
             available when it is ready.
           </Notification>
+
+          <div className={s.menuSelectContainer}>
+            <h5>Component:</h5>
+            <SelectControl
+              selectId={'menu'}
+              options={toolOptions}
+              onSelect={selectCurrentTool}
+              selectedOption={{
+                value: currentTool && currentTool.title,
+                ...currentTool,
+              }}
+            >
+              {({
+                selectVisibility,
+                selectedOption,
+                options,
+                inputProps,
+                optionProps,
+              }) => (
+                <>
+                  <div className={s.menuSelect}>
+                    <SelectInput
+                      {...inputProps}
+                      style={{ padding: '16px 24px' }}
+                    />
+
+                    <FontAwesomeIcon
+                      icon={selectVisibility ? faChevronUp : faChevronDown}
+                      style={{
+                        height: '24px',
+                        position: 'absolute',
+                        right: '24px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                      }}
+                    />
+                  </div>
+                  {selectVisibility &&
+                    createPortal(
+                      <div className={s.menuSelectOptions}>
+                        <h5
+                          style={{
+                            padding: '8px 8px 16px 8px',
+                            borderBottom: '2px solid var(--black-color)',
+                          }}
+                        >
+                          Components
+                        </h5>
+
+                        {options.map((option, index) => {
+                          return (
+                            <SelectOption
+                              key={index}
+                              {...option}
+                              {...optionProps}
+                              className={s.menuSelectOption}
+                              style={{
+                                backgroundColor:
+                                  selectedOption.id === option.id
+                                    ? 'var(--black-color)'
+                                    : 'white',
+                                color:
+                                  selectedOption.id === option.id
+                                    ? 'white'
+                                    : 'black',
+                              }}
+                            >
+                              {option.title}
+                            </SelectOption>
+                          );
+                        })}
+                      </div>,
+                      document.body
+                    )}
+                </>
+              )}
+            </SelectControl>
+          </div>
           <Flex
             style={{
-              //gap: '64px',
               width: '100%',
-
               alignItems: 'flex-start',
             }}
           >
@@ -142,19 +255,6 @@ const ToolsReactLibrary: NextPage = () => {
             </div>
 
             <div className={s.content}>
-              {/* <div className={s.selectControl}>
-                <h5>Components</h5>
-                {currentTool && (
-                  <SelectMobile
-                    selectId="component-select"
-                    options={parsedTools}
-                    selectedOption={currentTool}
-                    onSelect={(selection) => {
-                      router.push(selection.id, '', { scroll: false });
-                    }}
-                  />
-                )}
-              </div> */}
               <div
                 style={{
                   // maxWidth: '700px',
@@ -162,7 +262,9 @@ const ToolsReactLibrary: NextPage = () => {
                   marginBottom: '48px',
                 }}
               >
-                <h4>{currentTool ? currentTool.title : 'Title'}</h4>
+                <h4 className={s.componentHeading}>
+                  {currentTool ? currentTool.title : 'Title'}
+                </h4>
                 <p
                   style={{
                     marginLeft: 'auto',

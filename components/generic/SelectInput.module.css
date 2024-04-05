@@ -1,3 +1,6 @@
+.label {
+  display: block;
+}
 .input {
   opacity: 0;
   position: absolute;

@@ -23,7 +23,7 @@ const SelectInput = ({
   ...props
 }: Props) => {
   return (
-    <label className={className} style={style}>
+    <label className={`${s.label} ${className}`} style={style}>
       {value}
       <input
         className={s.input}

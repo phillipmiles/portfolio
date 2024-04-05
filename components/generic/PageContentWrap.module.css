@@ -6,6 +6,9 @@
 }
 
 .inner {
+  /* WARNING: Position relative here can mess with z-indexing of children with
+   * 'position: fixed' style. Make sure these elements use React Dom Portals to
+   * escape them. */
   position: relative;
   max-width: var(--max-content-width);
   width: 100%;

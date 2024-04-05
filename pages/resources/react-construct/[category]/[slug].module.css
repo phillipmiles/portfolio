@@ -31,17 +31,60 @@
   flex-shrink: 0;
   flex-grow: 0;
 }
-.selectControl {
+.menuSelectContainer {
   display: none;
 }
+
+.menuSelect {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color-black);
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.menuSelect:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.componentHeading {
+  display: block;
+}
+
+.menuSelectOptions {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color-black);
+
+  background-color: white;
+  overflow: scroll;
+
+  padding: 8px 0;
+}
+
+.menuSelectOption {
+  padding: 8px 24px;
+}
+
 @media (max-width: 900px) {
+  .componentHeading {
+    display: none;
+  }
   .content {
     width: 100%;
   }
   .componentMenu {
     display: none;
   }
-  .selectControl {
+  .menuSelectContainer {
     display: block;
   }
 }
