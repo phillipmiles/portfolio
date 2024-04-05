@@ -6,6 +6,7 @@ const StickyContainer = ({
   onClose,
   onUpdate,
   onOpen,
+  className,
   forcePosition, // 'open', 'close' or -200px'
   isRetractable = true, // If false disables javascript translation to only utilise css sticky.
 }) => {
@@ -144,12 +145,11 @@ const StickyContainer = ({
   return (
     <div
       ref={headerRef}
+      className={className}
       style={{
         ...style,
         position: 'sticky',
         top: 0,
-        width: '100%',
-        background: 'white',
         zIndex: 100,
         transform: isRetractable ? `translateY(${headerTranslate}px)` : 'none',
       }}

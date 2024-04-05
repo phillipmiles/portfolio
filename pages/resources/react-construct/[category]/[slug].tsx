@@ -17,6 +17,7 @@ import s from './[slug].module.css';
 import Select from '../../../../components/Select';
 import SelectMobile from '../../../../components/SelectMobile';
 import Notification from '../../../../components/Notification';
+import StickyContainer from '../../../../components/generic/StickyTopBar';
 
 const ToolsReactLibrary: NextPage = () => {
   const router = useRouter();
@@ -83,9 +84,19 @@ const ToolsReactLibrary: NextPage = () => {
             style={{
               //gap: '64px',
               width: '100%',
+
+              alignItems: 'flex-start',
             }}
           >
-            <div className={s.componentMenu}>
+            <div
+              className={s.componentMenu}
+              // isRetractable={false}
+              style={
+                {
+                  // background: 'yellow',
+                }
+              }
+            >
               {tools.map((category) => (
                 <div key={category.slug}>
                   <h6>{category.category}</h6>
@@ -129,6 +140,7 @@ const ToolsReactLibrary: NextPage = () => {
                 </div>
               ))}
             </div>
+
             <div className={s.content}>
               {/* <div className={s.selectControl}>
                 <h5>Components</h5>
