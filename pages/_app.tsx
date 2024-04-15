@@ -15,25 +15,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title key="title">Phillip Miles React Portfolio</title>
+        <title key="title">Phillip Miles - React Front End Web Developer</title>
         <meta
           key="description"
           name="description"
-          content="React component library specialist porfolio by Phillip Miles. Versatile, performant, documented react components."
+          content="React component library specialist portfolio by Phillip Miles. Versatile, performant, documented react components."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.ico" />
         <meta property="og:url" content="https://www.phillipmiles.com" />
         <meta property="og:type" content="website" key="og:type" />
-        <meta property="og:title" content="Your Website Title" key="og:title" />
+        <meta
+          property="og:title"
+          content="Phillip Miles - React Front End Web Developer"
+          key="og:title"
+        />
         <meta
           property="og:description"
-          content="React component library specialist porfolio by Phillip Miles. Versatile, performant, documented react components."
+          content="React component library specialist portfolio by Phillip Miles. Versatile, performant, documented react components."
           key="og:description"
         />
         <meta
           property="og:image"
-          content="https://www.your-domain.com/path/image.jpg"
+          content="https://www.phillipmiles.com/images/projects/thought-stream/thought-stream_thumbnail_01.jpg"
           key="og:image"
         />
       </Head>

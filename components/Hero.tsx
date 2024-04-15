@@ -15,7 +15,6 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import HeroScreen4 from './HeroScreen4';
 import Image from 'next/image';
 import Screen01 from './componentImages/Screen01';
 import Screen02 from './componentImages/Screen02';
@@ -41,24 +40,6 @@ const Hero = () => {
       setVideo1Ready(true);
     }
   }, [video1Ready]);
-
-  const onVideo2Ready = useCallback(() => {
-    console.log('hmm', video2Ready);
-    if (!video2Ready) {
-      console.log('okay');
-      // video2Ref.current.seekTo(0, 'seconds');
-
-      // setVideo2Ready(true);
-    }
-  }, [video2Ready]);
-
-  // const onVideo3Ready = useCallback(() => {
-  //   if (!video3Ready) {
-  //     // video3Ref.current.seekTo(0, 'seconds');
-
-  //     setVideo3Ready(true);
-  //   }
-  // }, [video3Ready]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -127,7 +108,6 @@ const Hero = () => {
         {video1Ready && (
           <VideoPlayer
             playerRef={video2Ref}
-            onReady={onVideo2Ready}
             url="/video/hero-vid-2.mp4"
             className={s.video}
             style={{
@@ -146,7 +126,6 @@ const Hero = () => {
         {video2Ready && (
           <VideoPlayer
             playerRef={video3Ref}
-            // onReady={onVideo3Ready}
             url="/video/hero-vid-3.mp4"
             className={s.video}
             style={{

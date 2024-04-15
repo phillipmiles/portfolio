@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /images/hero/video-placeholder.jpg
+Disallow: /blank.png
+Disallow: /blankYellow.png
