@@ -36,8 +36,8 @@ const Footer = ({ ...props }): JSX.Element => {
           </Flex>
           <Flex className={s.linkContent}>
             <p className={s.linkLabel}>Get in touch</p>
-            <Link href="mailTo:phillip@phillipmiles.com" className={s.link}>
-              phillip@phillipmiles.com
+            <Link href="mailTo:contact@phillipmiles.com" className={s.link}>
+              contact@phillipmiles.com
             </Link>
           </Flex>
         </Flex>
