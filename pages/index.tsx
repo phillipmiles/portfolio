@@ -124,12 +124,27 @@ const Home: NextPage = () => {
                 alt=""
                 width={32}
                 height={32}
-                src={'/images/companies/icons/storybook-icon.svg'}
+                src={"/images/companies/icons/next-icon.svg"}
               />
             </div>
             <div
               style={{
-                display: 'block',
+                display: "block",
+                height: 32,
+                width: 32,
+                margin: 12,
+              }}
+            >
+              <Image
+                alt=""
+                width={32}
+                height={32}
+                src={"/images/companies/icons/storybook-icon.svg"}
+              />
+            </div>
+            <div
+              style={{
+                display: "block",
                 height: 32,
                 width: 32,
                 margin: 12,
