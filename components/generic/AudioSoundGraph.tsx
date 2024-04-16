@@ -17,7 +17,7 @@ const AudioSoundGraph = ({ gap = 0, progress = 0, data }: Props) => {
   const noMinus = data.map((item) => (item < 0 ? 0 : item));
   const maxHeight = Math.max(...noMinus) * 2;
 
-  const startPoint = `M0,${maxVal} `;
+  const startPoint = `M 0 ${maxVal} `;
 
   const getLines = (): string => {
     if (!data.length) return '';
@@ -25,24 +25,33 @@ const AudioSoundGraph = ({ gap = 0, progress = 0, data }: Props) => {
 
     lines.push(startPoint);
     lines.push(
-      noMinus.map((point) => {
-        // const val2 = point >= 0 ? point : 0;
-        const val = toPercent(point, maxHeight);
-        return `l0,${val * -1} l${lineWidth},0 l0,${val} l-1,0 m${gap + 1},0 `;
-      })
+      noMinus
+        .map((point) => {
+          // const val2 = point >= 0 ? point : 0;
+          const val = toPercent(point, maxHeight);
+          return `l 0 ${val * -1} l${lineWidth} 0 l 0 ${val} l -1 0 m ${
+            gap + 1
+          } 0 `;
+        })
+        .join('')
     );
 
     lines.push(startPoint);
     lines.push(
-      noMinus.map((point, index) => {
-        // const val2 = point >= 0 ? point : 0;
-        const val = toPercent(point, maxHeight);
-        return `l0,${val} l${lineWidth},0 l0,${val * -1} l-1,0 m${gap + 1},0 `;
-      })
+      noMinus
+        .map((point, index) => {
+          // const val2 = point >= 0 ? point : 0;
+          const val = toPercent(point, maxHeight);
+          return `l 0 ${val} l ${lineWidth} 0 l 0 ${val * -1} l -1 0 m ${
+            gap + 1
+          } 0 `;
+        })
+        .join('')
     );
 
     lines.push('Z');
-    return lines.toString();
+
+    return lines.join('');
   };
 
   return (
