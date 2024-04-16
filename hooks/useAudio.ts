@@ -29,10 +29,23 @@ const useAudio = (mediaElement) => {
   const [audioSourceNode, setAudioSourceNode] =
     useState<MediaElementAudioSourceNode>();
 
-  const connectAudio = () => {
+  const updateDuration = useCallback(() => {
+    console.log(mediaElement.current.duration);
+    setAudioDuration(mediaElement.current.duration);
+    setAudioDurationTimeString(getTimeString(mediaElement.current.duration));
+  }, [mediaElement]);
+
+  useEffect(() => {
+    // WARN: Updating duration here without checking if audio has loaded may throw errors
+    // in edge cases. Probably need to use this AND a mix of listeners to know when to
+    // set the duration values at the right time.
+    updateDuration();
+  }, [updateDuration]);
+
+  const connectAudio = useCallback(() => {
     setAudioSourceNode(createMediaElementSource(mediaElement.current));
     setAudioState('connected');
-  };
+  }, [mediaElement]);
 
   const updateProgress = useCallback(() => {
     const progress = toPercent(
@@ -107,8 +120,7 @@ const useAudio = (mediaElement) => {
     };
 
     const onDurationChange = (event: Event) => {
-      setAudioDuration(mediaElement.current.duration);
-      setAudioDurationTimeString(getTimeString(mediaElement.current.duration));
+      updateDuration();
     };
 
     const onVolumeChange = (event: Event) => {
@@ -122,7 +134,7 @@ const useAudio = (mediaElement) => {
     mediaElement.current.addEventListener('ended', onEnded);
     mediaElement.current.addEventListener('durationchange', onDurationChange);
     mediaElement.current.addEventListener('volumechange', onVolumeChange);
-  }, [mediaElement, updateProgress]);
+  }, [mediaElement, updateProgress, updateDuration]);
 
   return {
     audioSourceNode,

@@ -66,7 +66,6 @@ const Projects: NextPage = () => {
 
       const progress = event.offsetX / localRef.offsetWidth;
       const secondsIntoTrack = audioDuration * progress;
-
       const timeString = getTimeString(secondsIntoTrack);
 
       setGraphIndicator(posX);
@@ -91,6 +90,7 @@ const Projects: NextPage = () => {
     };
   }, [isOverGraph, audioDuration]);
 
+  // This triggers a warning from browser stating it was blocked and must occur after an interaction.
   useEffect(() => {
     const run = async () => {
       setAudioLevels(await fetchAudioLevels('/audio/letra-echoes.wav'));
@@ -100,8 +100,12 @@ const Projects: NextPage = () => {
   }, []);
 
   const togglePlay = () => {
+    const run = async () => {
+      setAudioLevels(await fetchAudioLevels('/audio/letra-echoes.wav'));
+    };
     if (!audioSourceNode) {
       connectAudio();
+      // run();
       playAudio();
     } else if (audioState === 'playing') {
       pauseAudio();
