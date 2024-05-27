@@ -4,13 +4,11 @@ import Flex from './Flex';
 import SyntaxHighlighterComponent from './HighlightSyntax';
 
 interface Props {
-  language: 'jsx' | 'javascript' | 'css';
-  children: React.ReactNode;
   code: [any];
   style?: { [key: string]: any };
 }
 
-const CodeBox = ({ code, language, children, style }: Props): JSX.Element => {
+const CodeBox = ({ code, style }: Props): JSX.Element => {
   const [languageIndex, setLanguageIndex] = useState(0);
 
   const changeLanguage = (index: number) => {
