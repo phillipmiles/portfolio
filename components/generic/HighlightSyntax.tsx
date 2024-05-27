@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism';
 
 const SyntaxHighlighterComponent = ({ language, children }) => {
+  const [ready, setReady] = useState(false);
   useEffect(() => {
     if (language == 'jsx') {
       SyntaxHighlighter.registerLanguage('jsx', jsx);
@@ -12,7 +13,13 @@ const SyntaxHighlighterComponent = ({ language, children }) => {
     if (language == 'css') {
       SyntaxHighlighter.registerLanguage('css', css);
     }
+    setReady(true);
   }, [language]);
+
+  // Useing 'ready' to re-render component after SyntaxHighlighter registers the language else
+  // we don't have styles on page load/page refresh. See issue for more info...
+  // https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/263
+  if (!ready) return;
 
   return (
     <SyntaxHighlighter

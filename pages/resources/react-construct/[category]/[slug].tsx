@@ -290,8 +290,8 @@ const ToolsReactLibrary: NextPage = () => {
                       </p>
                     ) : (
                       <>
-                        {currentTool.description.map((para) => (
-                          <p>{para}</p>
+                        {currentTool.description.map((para, index) => (
+                          <p key={index}>{para}</p>
                         ))}
                       </>
                     )}
