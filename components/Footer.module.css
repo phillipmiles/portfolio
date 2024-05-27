@@ -78,12 +78,22 @@
   .footerContent {
     flex-direction: column;
   }
+  .avatarLabel {
+    line-height: 1.4;
+  }
+  .avatarText {
+    line-height: 1.4;
+  }
+
   .linkContent {
     flex-direction: row;
   }
+  .linkContent p {
+    font-size: 14px;
+  }
   .link {
     margin: 0 8px;
-    font-size: 16px;
+    font-size: 14px;
   }
   .avatarContent {
     margin-bottom: 24px;

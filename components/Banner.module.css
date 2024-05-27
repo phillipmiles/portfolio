@@ -30,5 +30,6 @@
   .banner {
     flex-direction: column;
     gap: 16px;
+    padding: 2rem 16px;
   }
 }

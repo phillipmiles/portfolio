@@ -20,3 +20,9 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 400px) {
+  .nav {
+    gap: 16px;
+  }
+}
