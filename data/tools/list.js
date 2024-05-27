@@ -28,10 +28,6 @@ import {
   exampleCode as pageWithFooterCode,
 } from './component-library/pageWithFooter_example.tsx';
 import {
-  CustomCheckboxExample,
-  customCheckboxExampleCode,
-} from './component-library/customCheckbox_example';
-import {
   Example as StickyTopBarExample,
   exampleCode as stickyTopBarExampleCode,
 } from './component-library/stickyTopBar_example';
@@ -225,19 +221,6 @@ const tools = [
             type: 'text',
             example: SelectExample,
             exampleMarkDown: SelectCode,
-          },
-        ],
-      },
-      {
-        slug: 'checkbox',
-        title: 'Checkbox',
-        description:
-          'A super basic utility component that just replaces a div with display flex to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-        content: [
-          {
-            type: 'text',
-            example: CustomCheckboxExample,
-            exampleMarkDown: customCheckboxExampleCode,
           },
         ],
       },

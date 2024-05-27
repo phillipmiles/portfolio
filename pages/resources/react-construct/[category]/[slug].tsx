@@ -265,16 +265,38 @@ const ToolsReactLibrary: NextPage = () => {
                 <h4 className={s.componentHeading}>
                   {currentTool ? currentTool.title : 'Title'}
                 </h4>
-                <p
-                  style={{
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  {currentTool
-                    ? currentTool.description
-                    : 'Component not found.'}
-                </p>
+                {/* <div dangerouslySetInnerHTML> */}
+                {!currentTool && (
+                  <p
+                    style={{
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                    }}
+                  >
+                    Component not found.
+                  </p>
+                )}
+
+                {currentTool && (
+                  <>
+                    {typeof currentTool.description === 'string' ? (
+                      <p
+                        style={{
+                          marginLeft: 'auto',
+                          marginRight: 'auto',
+                        }}
+                      >
+                        {currentTool.description}
+                      </p>
+                    ) : (
+                      <>
+                        {currentTool.description.map((para) => (
+                          <p>{para}</p>
+                        ))}
+                      </>
+                    )}
+                  </>
+                )}
               </div>
 
               {currentTool &&

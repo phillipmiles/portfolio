@@ -1,0 +1,35 @@
+.label {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 14px;
+  border: 2px solid rgb(103, 113, 121);
+  color: white;
+}
+
+.indicator svg {
+  margin: -1px;
+  display: none;
+}
+
+.indicator.checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.indicator.checked svg {
+  display: block;
+}
+
+.label input:focus-visible + .indicator {
+  outline: var(--primary-color) auto 1px;
+  outline-offset: 2px;
+}

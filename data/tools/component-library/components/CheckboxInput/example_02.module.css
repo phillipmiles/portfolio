@@ -1,0 +1,38 @@
+.label {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.indicator {
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+  margin-right: 14px;
+  background-color: rgb(148, 161, 171);
+  border-radius: 7px;
+}
+
+.indicator_pip {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  margin: -3px;
+  transition: transform ease-out 100ms;
+  background-color: rgb(192, 203, 210);
+}
+
+.indicator.checked {
+  background-color: rgb(135, 179, 232);
+}
+
+.indicator.checked .indicator_pip {
+  transform: translateX(100%);
+  background-color: rgb(52, 117, 238);
+}
+
+/* Accessibility focus styles */
+.label input:focus-visible + .indicator .indicator_pip {
+  outline: var(--primary-color) auto 1px;
+}

@@ -1,9 +1,11 @@
 // import AudioPlayer from './AudioPlayer';
-import MediaTimeline from './MediaTimeline';
+// import MediaTimeline from './MediaTimeline';
+import CheckboxInput from './CheckboxInput';
 
 const components = [
   // AudioPlayer,
   // MediaTimeline,
+  CheckboxInput,
 ];
 
 // Sort hooks array into alphabetical order
