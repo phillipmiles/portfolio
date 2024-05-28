@@ -1,8 +1,8 @@
-import s from './infinityPanner.module.css';
-import InfinityPanner from '../../../components/generic/InfinityPanner';
+import s from './example_03.module.css';
+import InfinityPanner from '../../../../../components/generic/InfinityPanner';
 import Image from 'next/image';
 
-export const InfinityPannerExample2 = () => {
+export const Example = () => {
   const images = [
     '/images/panner/horse-1.jpg',
     '/images/panner/horse-2.jpg',
@@ -64,7 +64,7 @@ export const InfinityPannerExample2 = () => {
   );
 };
 
-export const InfinityPannerCode2 = [
+export const code = [
   {
     language: 'jsx',
     code: ` const images = [

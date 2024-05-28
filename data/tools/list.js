@@ -1,9 +1,5 @@
 import { SelectExample, SelectCode } from './component-library/select_example';
 import {
-  InfinityPannerExample,
-  InfinityPannerCode,
-} from './component-library/infinityPanner_example';
-import {
   Example1,
   example1Code,
 } from './component-library/detachedHoverEffect_example1.tsx';
@@ -65,20 +61,6 @@ const tools = [
     items: [
       ...components,
       sliderExamples,
-      {
-        slug: 'infinity-panner',
-        title: 'Infinity Panner',
-        description:
-          'Scrolls the children of this component infinitly by seamlessly repositioning them back at the start.',
-        content: [
-          {
-            type: 'text',
-            example: InfinityPannerExample,
-            exampleMarkDown: InfinityPannerCode,
-          },
-        ],
-      },
-
       {
         slug: 'detached-hover-effect',
         title: 'Detached Hover Effect',

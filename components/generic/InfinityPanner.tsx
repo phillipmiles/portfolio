@@ -21,14 +21,14 @@ const useInterval = (callback, delay) => {
 
 interface Props {
   children: Array<JSX.Element>;
-  href: string;
   className?: string;
-  style: object;
+  style?: object;
+  speed?: string;
+  translateX?: -1 | 0 | 1;
 }
 
 const InfinityPanner = ({
   children,
-  href,
   className,
   style,
   speed = '6000ms',
