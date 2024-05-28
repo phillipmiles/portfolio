@@ -6,9 +6,9 @@ const examples = {
   title: 'CheckboxInput',
   category: 'Components',
   description: [
-    "CheckboxInput is used for replacing the default HTML checkbox input with your own. The default checkbox is very limited in how it's appearance may be customised so many developers op for replacing it. However, in doing so, it is important that developers don't forget to take accessibility into consideration.",
+    "CheckboxInput is used for replacing the default HTML checkbox input with your own. The default checkbox is very limited in how it's appearance may be customised so many developers opt for replacing it. However, in doing so, it is important that developers don't forget to take accessibility into consideration.",
     'HTML inputs interact with screen readers, tools that read out the content of a web page for people with limiting sight. These are difficult or impossible to replicate in ways that user of a screen reader would expect. As such it is considered best practice to still place a HTML input on the page but hide it from view letting it behave normally in all ways except visually.',
-    'CheckboxInput it a component that does that. It creates an input with type="checkbox" and hides it with CSS. The inputs checked and disabled state are then passed to a replacement component given in its CheckboxComponent property. A developer can then use the properties to adjust rendering of their custom checkbox as needed.',
+    'CheckboxInput is a component that does that. It creates an input with type="checkbox" and hides it with CSS. The inputs checked and disabled state are then passed to a replacement component given in its CheckboxComponent property. A developer can then use the properties to adjust rendering of their custom checkbox as needed.',
   ],
   content: [
     {
