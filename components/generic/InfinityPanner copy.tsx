@@ -26,6 +26,8 @@ interface Props {
   style: object;
 }
 
+const isWithin = (element) => {};
+
 const InfinityPanner = ({
   children,
   href,
@@ -47,61 +49,48 @@ const InfinityPanner = ({
 
       if (items.length === 0) return;
 
-      // Get the complete width of all original children added together.
-      let childrenWidth = 0;
+      let width = 0;
 
-      // Only loop through the number of original children so as to not add
-      // width of appended childrens.
       for (let index = 0; index < children.length; index++) {
-        childrenWidth =
-          childrenWidth + items[index].getBoundingClientRect().width;
+        width = width + items[index].getBoundingClientRect().width;
         if (items[index].style.marginLeft) {
-          childrenWidth =
-            childrenWidth + parseInt(items[index].style.marginLeft);
+          width = width + parseInt(items[index].style.marginLeft);
         }
 
         if (items[index].style.marginRight) {
-          childrenWidth =
-            childrenWidth + parseInt(items[index].style.marginRight);
+          width = width + parseInt(items[index].style.marginRight);
         }
       }
+      console.log('width', width);
+      const append = [];
+      const containerWidth = containerRef.current.getBoundingClientRect().width;
 
-      // The width of the container cropping the out of view children.
-      const croppedContainerWidth =
-        containerRef.current.getBoundingClientRect().width;
-
-      // Get an array of children to copy and appended to the container
-      const itemsToAppend = [];
       let appendWidth = 0;
 
-      while (appendWidth < croppedContainerWidth) {
+      while (appendWidth < containerWidth) {
         for (let index = 0; index < children.length; index++) {
           const el = containerRef.current.children[index];
           appendWidth = appendWidth + el.getBoundingClientRect().width;
-          if (items[index].style.marginLeft)
-            appendWidth = appendWidth + parseInt(el.style.marginLeft);
-          if (items[index].style.marginRight)
-            appendWidth = appendWidth + parseInt(el.style.marginRight);
-          itemsToAppend.push(children[index]);
+          appendWidth = appendWidth + parseInt(el.style.marginLeft);
+          appendWidth = appendWidth + parseInt(el.style.marginRight);
+          append.push(children[index]);
         }
       }
 
-      setAppendElements(itemsToAppend);
-      console.log(`translateX(${childrenWidth})`);
+      setAppendElements(append);
+      console.log(`translateX(${width})`);
       containerRef.current.style.transform = `translateX(${
-        (childrenWidth - 1) * translateX
+        (width - 1) * translateX
       }px)`;
     };
 
-    recalcPanner();
+    const onresize = recalcPanner;
 
-    const onresize = () => {
-      console.log('resize');
-      recalcPanner();
-    };
-    window.addEventListener('resize', onresize);
+    recalcPanner();
+    document.addEventListener('resize', onresize);
+
     return () => {
-      window.removeEventListener('resize', onresize);
+      document.removeEventListener('resize', onresize);
     };
   }, [children, translateX]);
 
