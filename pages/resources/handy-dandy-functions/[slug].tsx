@@ -93,11 +93,17 @@ const ToolsReactLibrary: NextPage = () => {
                   href={library.slug}
                   scroll={false}
                   passHref={true}
+                  className={`${s.toolsNavItem} ${
+                    currentTool && library.slug === currentLibrary.slug
+                      ? s.toolsNavItemActive
+                      : ''
+                  }`}
                   style={{
-                    margin: '24px',
+                    display: 'block',
+                    margin: '16px 0',
                   }}
                 >
-                  <DetachedHoverEffect
+                  {/* <DetachedHoverEffect
                     className={`${s.hover} ${
                       currentLibrary &&
                       library.slug === currentLibrary.slug &&
@@ -112,10 +118,10 @@ const ToolsReactLibrary: NextPage = () => {
                         paddingTop: '8px',
                         paddingBottom: '8px',
                       }}
-                    >
-                      {library.title}
-                    </span>
-                  </DetachedHoverEffect>
+                    > */}
+                  {library.title}
+                  {/* </span>
+                  </DetachedHoverEffect> */}
                 </Link>
               ))}
             </div>

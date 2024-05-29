@@ -186,13 +186,6 @@ const tools = [
           // },
         ],
       },
-    ],
-  },
-
-  {
-    slug: 'inputs',
-    category: 'Inputs',
-    items: [
       {
         slug: 'select',
         title: 'Select',
@@ -208,6 +201,26 @@ const tools = [
       },
     ],
   },
+
+  // {
+  //   slug: 'inputs',
+  //   category: 'Inputs',
+  //   items: [
+  //     {
+  //       slug: 'select',
+  //       title: 'Select',
+  //       description:
+  //         "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+  //       content: [
+  //         {
+  //           type: 'text',
+  //           example: SelectExample,
+  //           exampleMarkDown: SelectCode,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 // Sort tools array into alphabetical order

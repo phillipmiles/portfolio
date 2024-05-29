@@ -12,7 +12,7 @@ export const Example = () => {
 
 export const code = [
   {
-    language: 'tsx',
+    language: 'jsx',
     code: `<div>
   <p>300 is {toPercent(300, 450, 2)}% of 450</p>
   <p>0 is {toPercent(0, 450, 2)}% of 450</p>

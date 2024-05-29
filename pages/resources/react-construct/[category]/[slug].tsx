@@ -211,7 +211,7 @@ const ToolsReactLibrary: NextPage = () => {
               }
             >
               {tools.map((category) => (
-                <div key={category.slug}>
+                <div key={category.slug} style={{ marginBottom: '48px' }}>
                   <h6>{category.category}</h6>
 
                   {category.items.map((item) => (
@@ -224,12 +224,18 @@ const ToolsReactLibrary: NextPage = () => {
                       }}
                       scroll={false}
                       passHref={true}
+                      className={`${s.toolsNavItem} ${
+                        currentTool && item.slug === currentTool.slug
+                          ? s.toolsNavItemActive
+                          : ''
+                      }`}
                       style={{
                         display: 'block',
                         margin: '16px 0',
+                        paddingLeft: '24px',
                       }}
                     >
-                      <DetachedHoverEffect
+                      {/* <DetachedHoverEffect
                         className={`${s.hover} ${
                           currentTool &&
                           item.slug === currentTool.slug &&
@@ -244,10 +250,10 @@ const ToolsReactLibrary: NextPage = () => {
                             paddingTop: '8px',
                             paddingBottom: '8px',
                           }}
-                        >
-                          {item.title}
-                        </span>
-                      </DetachedHoverEffect>
+                        > */}
+                      {item.title}
+                      {/* </span>
+                      </DetachedHoverEffect> */}
                     </Link>
                   ))}
                 </div>

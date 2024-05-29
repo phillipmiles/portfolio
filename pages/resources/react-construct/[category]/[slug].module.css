@@ -74,6 +74,19 @@
   padding: 8px 24px;
 }
 
+.toolsNavItem {
+  opacity: 0.6;
+}
+
+.toolsNavItem:hover {
+  opacity: 1;
+}
+
+.toolsNavItemActive {
+  color: var(--primary-color);
+  opacity: 1;
+  font-weight: 500;
+}
 @media (max-width: 900px) {
   .componentHeading {
     display: none;

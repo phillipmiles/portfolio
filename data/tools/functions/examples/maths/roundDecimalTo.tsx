@@ -15,7 +15,7 @@ export const Example = () => {
 
 export const code = [
   {
-    language: 'tsx',
+    language: 'jsx',
     code: `<div>
   <p>0.373 rounded to 1 decimal place is {roundDecimalTo(0.373, 1)}</p>
   <p>1.373 rounded to 1 decimal place is {roundDecimalTo(1.373, 1)}</p>

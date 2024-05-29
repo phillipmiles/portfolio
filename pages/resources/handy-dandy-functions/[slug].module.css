@@ -20,3 +20,17 @@
   inset: -8px -8px;
   background-color: white;
 }
+
+.toolsNavItem {
+  opacity: 0.6;
+}
+
+.toolsNavItem:hover {
+  opacity: 1;
+}
+
+.toolsNavItemActive {
+  color: var(--primary-color);
+  opacity: 1;
+  font-weight: 500;
+}
