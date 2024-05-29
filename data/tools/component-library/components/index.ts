@@ -3,6 +3,8 @@
 import CheckboxInput from './CheckboxInput';
 import InfinityPanner from './InfinityPanner';
 import ContentSlider from './ContentSlider';
+import ContentReveal from './ContentReveal';
+import Slider from './Slider';
 
 const components = [
   // AudioPlayer,
@@ -10,6 +12,8 @@ const components = [
   CheckboxInput,
   InfinityPanner,
   ContentSlider,
+  ContentReveal,
+  Slider,
 ];
 
 // Sort hooks array into alphabetical order

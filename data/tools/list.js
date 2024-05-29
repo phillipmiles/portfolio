@@ -35,13 +35,6 @@ import {
   Example as NumberAnimateExample,
   exampleCode as numberAnimateExampleCode,
 } from './component-library/NumberAnimate_example';
-import {
-  contentRevealCode,
-  contentRevealCode2,
-  ContentRevealExample,
-  ContentRevealExample2,
-} from './component-library/contentReveal_example';
-import sliderExamples from './component-library/components/Slider';
 import hooks from './component-library/hooks';
 import components from './component-library/components';
 
@@ -56,7 +49,6 @@ const tools = [
     category: 'Components',
     items: [
       ...components,
-      sliderExamples,
       {
         slug: 'detached-hover-effect',
         title: 'Detached Hover Effect',
@@ -149,24 +141,6 @@ const tools = [
             example: NumberAnimateExample,
             exampleMarkDown: numberAnimateExampleCode,
           },
-        ],
-      },
-      {
-        slug: 'content-reveal',
-        title: 'Content Reveal',
-        description:
-          "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: row' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
-        content: [
-          {
-            type: 'text',
-            example: ContentRevealExample,
-            exampleMarkDown: contentRevealCode,
-          },
-          // {
-          //   type: 'text',
-          //   example: ContentRevealExample2,
-          //   exampleMarkDown: contentRevealCode2,
-          // },
         ],
       },
       {
