@@ -1,5 +1,4 @@
 import { useRef, useState, useLayoutEffect } from 'react';
-import { toPercent } from '../../utils/math';
 import useDragContained from '../../hooks/useDragContained';
 import s from './Slider.module.css';
 
@@ -75,6 +74,7 @@ const Slider = ({
   return (
     <div
       ref={timelineRef}
+      className={className}
       style={{
         position: 'relative',
         ...style,
@@ -87,10 +87,40 @@ const Slider = ({
         style={{
           top: 0,
           left: `${offset}px`,
-          ...(isDragging && { transform: 'scale(1)' }),
         }}
       >
-        <SeekerComponent />
+        {/* TODO: Integrate with an input */}
+        {/* TODO: Integrate with an input */}
+        {/* TODO: Integrate with an input */}
+        {/* TODO: Integrate with an input */}
+        {/* TODO: Integrate with an input */}
+
+        {/* <input
+          data-index="0"
+          aria-label="Volume"
+          aria-valuenow={100}
+          aria-orientation="horizontal"
+          aria-valuemax={100}
+          aria-valuemin={0}
+          type="range"
+          min={0}
+          max={100}
+          step={1}
+          value={100}
+          style={{
+            border: 0,
+            clip: 'rect(0 0 0 0)',
+            height: '100%',
+            margin: '-1px',
+            overflow: 'hidden',
+            padding: 0,
+            position: 'absolute',
+            whiteSpace: 'nowrap',
+            width: '100%',
+            direction: 'ltr',
+          }}
+        /> */}
+        <SeekerComponent isDragging={isDragging} />
       </div>
     </div>
   );

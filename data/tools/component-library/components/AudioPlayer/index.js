@@ -4,8 +4,9 @@ const examples = {
   slug: 'audio-player',
   title: 'Audio Player',
   category: 'Components',
-  description:
+  description: [
     'A hook that handles management of drag event listeners within the React lifecycle and passes movement deltas into the onMove callback.',
+  ],
   content: [
     {
       type: 'text',

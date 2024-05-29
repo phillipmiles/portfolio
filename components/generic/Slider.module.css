@@ -2,7 +2,3 @@
   position: absolute;
   cursor: pointer;
 }
-
-.seekWrap:hover {
-  transform: scale(1.1);
-}

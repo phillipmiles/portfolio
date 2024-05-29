@@ -1,3 +1,32 @@
+.slider {
+  width: 300px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.seeker {
+  width: 24px;
+  height: 24px;
+  background: var(--primary-color);
+  border-radius: 12px;
+}
+
+.seeker:hover {
+  transform: scale(1.1);
+}
+
+.seeker.dragging {
+  transform: scale(1);
+}
+
+.timeline {
+  background: #ccc;
+  height: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 .input {
   margin-bottom: 16px;
 }

@@ -1,0 +1,22 @@
+.buttonContainer {
+  display: flex;
+  padding: 16px 0;
+  gap: 8px;
+}
+
+.button {
+  padding: 8px 24px;
+  background-color: var(--black-color);
+  color: white;
+}
+
+.imageContainer {
+  position: relative;
+  height: 300px;
+  margin-bottom: 16px;
+}
+
+.image {
+  object-fit: cover;
+  height: 100%;
+}

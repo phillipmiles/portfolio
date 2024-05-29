@@ -12,10 +12,6 @@ import {
   example3Code,
 } from './component-library/detachedHoverEffect_example3.tsx';
 import {
-  Example as ContentSliderExample,
-  exampleCode as contentSliderCode,
-} from './component-library/contentSlider_example1.tsx';
-import {
   Example as PageExample,
   exampleCode as pageCode,
 } from './component-library/page_example.tsx';
@@ -125,19 +121,6 @@ const tools = [
         ],
       },
       {
-        slug: 'content-slider',
-        title: 'Content Slider',
-        description:
-          'A super basic utility component that just replaces a div with "display: flex;" and "flex-direction: column;" to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.',
-        content: [
-          {
-            type: 'text',
-            example: ContentSliderExample,
-            exampleMarkDown: contentSliderCode,
-          },
-        ],
-      },
-      {
         slug: 'sticky-container',
         title: 'Sticky Container',
         description:
@@ -189,8 +172,10 @@ const tools = [
       {
         slug: 'select',
         title: 'Select',
-        description:
+        description: [
           "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+          'TODO: Change focus styling to utilise focus-visible to avoid on click focus styling. ',
+        ],
         content: [
           {
             type: 'text',

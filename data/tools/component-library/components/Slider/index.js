@@ -4,8 +4,11 @@ const examples = {
   slug: 'slider',
   title: 'Slider',
   category: 'Inputs',
-  description:
-    "A simple utility component that replaces a div with 'display: flex' and 'flex-direction: column' to a component called Flex. I use flex alot and seeing a Flex component when scanning code is just easier for me to read.",
+  description: [
+    'A component to allow users to select from a range of values.',
+    'TODO: Integrate with a HTML input.',
+    'TODO: Expose value to seeker to give custom seeker component full control over styling.',
+  ],
   content: [
     {
       type: 'text',
