@@ -1,26 +1,15 @@
 import InfinityPanner from '../../../../../components/generic/InfinityPanner';
+import s from './example_01.module.css';
 
 export const Example = () => {
   return (
     <InfinityPanner speed="6000ms" translateX={1}>
-      <div style={{ width: '50px', flexShrink: 0, backgroundColor: '#DDD' }}>
-        Apple
-      </div>
-      <div style={{ width: '150px', flexShrink: 0, backgroundColor: '#EEE' }}>
-        Banner
-      </div>
-      <div style={{ width: '100px', flexShrink: 0, backgroundColor: '#DDD' }}>
-        Carrot
-      </div>
-      <div style={{ width: '100px', flexShrink: 0, backgroundColor: '#EEE' }}>
-        Duck
-      </div>
-      <div style={{ width: '100px', flexShrink: 0, backgroundColor: '#DDD' }}>
-        Sandwich
-      </div>
-      <div style={{ width: '100px', flexShrink: 0, backgroundColor: '#EEE' }}>
-        Purple
-      </div>
+      <div className={s.item}>Apple</div>
+      <div className={s.item}>Banner</div>
+      <div className={s.item}>Carrot</div>
+      <div className={s.item}>Duck</div>
+      <div className={s.item}>Sandwich</div>
+      <div className={s.item}>Purple</div>
     </InfinityPanner>
   );
 };
@@ -28,13 +17,25 @@ export const Example = () => {
 export const code = [
   {
     language: 'jsx',
-    code: ` <InfinityPanner speed="6000ms" translateX={1}>
-  <div style={{ width: '30px', flexShrink: 0 }}>Apple</div>
-  <div style={{ width: '340px', flexShrink: 0 }}>Banner</div>
-  <div style={{ width: '140px', flexShrink: 0 }}>Carrot</div>
-  <div style={{ width: '140px', flexShrink: 0 }}>Duck</div>
-  <div style={{ width: '140px', flexShrink: 0 }}>Sandwich</div>
-  <div style={{ width: '140px', flexShrink: 0 }}>Purple</div>
+    code: `<InfinityPanner speed="6000ms" translateX={1}>
+  <div className={s.item}>Apple</div>
+  <div className={s.item}>Banner</div>
+  <div className={s.item}>Carrot</div>
+  <div className={s.item}>Duck</div>
+  <div className={s.item}>Sandwich</div>
+  <div className={s.item}>Purple</div>
 </InfinityPanner>`,
+  },
+  {
+    language: 'css',
+    code: `.item {
+  flex-shrink: 0;
+  padding: 16px 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.item:nth-child(2n) {
+  background-color: #fff;
+}`,
   },
 ];
