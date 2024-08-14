@@ -15,11 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title key="title">Phillip Miles - React Front End Web Developer</title>
+        <title key="title">Phillip Miles - Frontend Web Developer</title>
         <meta
           key="description"
           name="description"
-          content="React component library specialist portfolio by Phillip Miles. Versatile, performant, documented react components."
+          content="Front-end web developer portfolio by Phillip Miles. Versatile, performant, documented react components."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.ico" />
@@ -27,12 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" key="og:type" />
         <meta
           property="og:title"
-          content="Phillip Miles - React Front End Web Developer"
+          content="Phillip Miles - Frontend Web Developer"
           key="og:title"
         />
         <meta
           property="og:description"
-          content="React component library specialist portfolio by Phillip Miles. Versatile, performant, documented react components."
+          content="Front-end web developer portfolio by Phillip Miles. Versatile, performant, documented react components."
           key="og:description"
         />
         <meta

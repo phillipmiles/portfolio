@@ -44,9 +44,7 @@ const Home: NextPage = () => {
           <header className={s.header}>
             <div className={s.headerLeft}>
               <h1 className={s.title}>Versatile, Performant, Documented</h1>
-              <p className={s.description}>
-                React component library specialist
-              </p>
+              <p className={s.description}>Front-end web developer</p>
               <div className={s.ctaWrap}>
                 <Link href="/projects" className={s.cta}>
                   View projects
@@ -124,12 +122,12 @@ const Home: NextPage = () => {
                 alt=""
                 width={32}
                 height={32}
-                src={"/images/companies/icons/next-icon.svg"}
+                src={'/images/companies/icons/next-icon.svg'}
               />
             </div>
             <div
               style={{
-                display: "block",
+                display: 'block',
                 height: 32,
                 width: 32,
                 margin: 12,
@@ -139,12 +137,12 @@ const Home: NextPage = () => {
                 alt=""
                 width={32}
                 height={32}
-                src={"/images/companies/icons/storybook-icon.svg"}
+                src={'/images/companies/icons/storybook-icon.svg'}
               />
             </div>
             <div
               style={{
-                display: "block",
+                display: 'block',
                 height: 32,
                 width: 32,
                 margin: 12,
