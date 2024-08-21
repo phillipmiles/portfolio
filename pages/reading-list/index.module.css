@@ -1,0 +1,87 @@
+.main {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.masonryGrid {
+  display: flex;
+  /* gutter size offset */
+  margin-left: -32px;
+  margin-right: -32px;
+  width: auto;
+}
+
+.masonryGridColumn {
+  /* gutter size */
+  padding-left: 8px;
+  padding-right: 8px;
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.masonryGridColumn > div {
+  /* change div to reference your elements you put in <Masonry> */
+  /* background: grey; */
+  /* margin-bottom: 30px; */
+}
+
+.grid {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-right: -32px;
+  margin-left: -32px;
+}
+
+.itemHoverEffect {
+  margin-bottom: 16px;
+
+  /* margin-left: -32px;
+  margin-right: -32px; */
+}
+
+.itemHoverEffect::before {
+  border-radius: 8px;
+  inset: 8px 8px;
+  box-shadow: rgb(193, 203, 215) 0px 4px 30px;
+  opacity: 0;
+  transition-property: opacity, inset;
+  transition-duration: 200ms;
+  background-color: white;
+}
+
+.itemHoverEffect:hover::before {
+  opacity: 1;
+  inset: 0px 0px;
+  background-color: white;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  .item {
+    padding: 24px;
+  }
+  .grid {
+    margin-right: -24px;
+    margin-left: -24px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .main {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .item {
+    padding: 16px;
+  }
+  .grid {
+    margin-right: -16px;
+    margin-left: -16px;
+    grid-template-columns: 1fr;
+  }
+}

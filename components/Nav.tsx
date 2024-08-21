@@ -31,6 +31,14 @@ const Nav = ({ invert }: Props): JSX.Element => {
       >
         Resources
       </NavItem>
+      <NavItem
+        href="/reading-list"
+        invert={invert}
+        // active={pathParts[0] == 'resources' ? true : false}
+        active={router.pathname == '/reading-list' ? true : false}
+      >
+        Reading list
+      </NavItem>
       {/* <Link href="/about">About</Link> */}
       {/* <Link href="blog">Blog</Link> */}
       <NavItem href="mailTo:phillip@phillipmiles.com" invert={invert}>
