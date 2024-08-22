@@ -5,7 +5,7 @@
 }
 
 .banner {
-  padding: 2rem 4rem;
+  padding: 2rem 3rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,9 +21,38 @@
 
 .logo {
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.2rem;
   color: inherit;
   font-size: 22px;
+  /* font-family: 'Filson Pro'; */
+}
+
+.logoMarkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.logoMark {
+  width: 40px;
+  height: 40px;
+  fill: var(--primary-color);
+  transition: transform 300ms, fill 100ms;
+  transition-timing-function: cubic-bezier(0.47, 1.64, 0.41, 1.8);
+}
+
+.logoMarkContainer:hover .logoMark {
+  transform: scale(1.1);
+  fill: var(--secondary-color);
+}
+
+.logoMarkContainer:hover .logoMarkInverted {
+  fill: white;
+}
+
+.logoMarkInverted {
+  fill: white;
 }
 
 @media (max-width: 600px) {

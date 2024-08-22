@@ -26,12 +26,12 @@
   font-weight: 700;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'filson-pro';
   src: url('/fonts/FilsonPro/FilsonProRegular.otf');
   font-style: normal;
   font-weight: 400;
-}
+} */
 
 html,
 body {

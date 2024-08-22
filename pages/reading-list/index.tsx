@@ -32,15 +32,15 @@ import ReadingListItem from '../../components/ReadingListItem';
 const ReadingList: NextPage = () => {
   const readingList = [
     {
-      title: 'On Opening Essays, Conference Talks, and Jam Jars',
+      title: 'A Brief History & Ethos of the Digital Garden',
       description:
-        'A wonderful explanation on generative technologies made extremely simple.',
-      url: 'https://maggieappleton.com/openings',
+        "I love this idea of cultivating a digital garden of knowledge. Maggie Appleton's own website is a brilliant example of it.",
+      url: 'https://maggieappleton.com/garden-history',
       source: 'Maggie Appleton',
       icon: 'maggie-appleton_icon.png',
       type: 'Article',
       // image: '/images/projects/binder/binder_image_01.jpg',
-      topics: ['AI', 'Databasing'],
+      topics: ['Internet'],
       timeAdded: new Date(),
     },
     {
