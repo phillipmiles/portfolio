@@ -1,7 +1,7 @@
 import s from './DetachedHoverEffect.module.css';
 
 interface Props {
-  children: JSX.Element | string | Array<JSX.Element>;
+  children: React.ReactNode;
   className?: string;
 }
 

@@ -102,7 +102,7 @@ const ReadingListItem = ({
             marginTop: '2px',
           }}
         />
-        <span>{source}</span>
+        <span className={s.source}>{source}</span>
         <span
           style={{
             marginLeft: '8px',

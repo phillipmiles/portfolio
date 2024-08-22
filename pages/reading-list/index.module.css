@@ -56,6 +56,14 @@
   background-color: white;
 }
 
+.booksContainer {
+  display: grid;
+  gap: 16px;
+  margin-left: -24px;
+  margin-right: -24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
 @media (max-width: 1200px) {
   .main {
     margin-left: 24px;
@@ -68,6 +76,9 @@
     margin-right: -24px;
     margin-left: -24px;
     grid-template-columns: 1fr 1fr;
+  }
+  .booksContainer {
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   }
 }
 

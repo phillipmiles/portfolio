@@ -17,3 +17,8 @@
   opacity: 1;
   transform: translate(0px, 0px);
 }
+
+.item:hover .source {
+  color: var(--primary-color);
+  /* text-decoration: underline; */
+}

@@ -28,8 +28,77 @@ import DetachedHoverEffect from '../../components/generic/DetachedHoverEffect';
 import Link from 'next/link';
 import Masonry from 'react-masonry-css';
 import ReadingListItem from '../../components/ReadingListItem';
+import LinkGhostBox from '../../components/LinkGhostBox';
 
 const ReadingList: NextPage = () => {
+  const books = [
+    {
+      title: "So you've been publicly shamed",
+      author: 'Bob Ross',
+      description:
+        'A collection of user interfaces from over 350 games to explore and inspire.',
+      url: 'https://interfaceingame.com/',
+      source: 'Interface In Game',
+      image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
+      icon: 'interface-in-game_icon.png',
+      type: 'book',
+      topics: ['Design', 'Game Dev'],
+      timeAdded: new Date(),
+    },
+    {
+      title: 'Homo Deus',
+      author: 'Bob Ross',
+      description:
+        'A collection of user interfaces from over 350 games to explore and inspire.',
+      url: 'https://interfaceingame.com/',
+      source: 'Interface In Game',
+      image: '/images/readinglist/thumb_homo-deus.jpg',
+      icon: 'interface-in-game_icon.png',
+      type: 'book',
+      topics: ['Design', 'Game Dev'],
+      timeAdded: new Date(),
+    },
+    {
+      title: 'Atomic Design',
+      author: 'Bob Ross',
+      description:
+        'A collection of user interfaces from over 350 games to explore and inspire.',
+      url: 'https://interfaceingame.com/',
+      source: 'Interface In Game',
+      image: '/images/readinglist/thumb_atomic-design.svg',
+      icon: 'interface-in-game_icon.png',
+      type: 'book',
+      topics: ['Design', 'Game Dev'],
+      timeAdded: new Date(),
+    },
+
+    {
+      title: 'Thinking fast and slow',
+      author: 'Bob Ross',
+      description:
+        'A collection of user interfaces from over 350 games to explore and inspire.',
+      url: 'https://interfaceingame.com/',
+      source: 'Interface In Game',
+      image: '/images/readinglist/thumb_thinking-fast-and-slow.jpg',
+      icon: 'interface-in-game_icon.png',
+      type: 'book',
+      topics: ['Design', 'Game Dev'],
+      timeAdded: new Date(),
+    },
+    {
+      title: 'Interface In Game',
+      author: 'Bob Ross',
+      description:
+        'A collection of user interfaces from over 350 games to explore and inspire.',
+      url: 'https://interfaceingame.com/',
+      source: 'Interface In Game',
+      image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
+      icon: 'interface-in-game_icon.png',
+      type: 'book',
+      topics: ['Design', 'Game Dev'],
+      timeAdded: new Date(),
+    },
+  ];
   const readingList = [
     {
       title: 'A Brief History & Ethos of the Digital Garden',
@@ -66,58 +135,14 @@ const ReadingList: NextPage = () => {
       timeAdded: new Date(),
     },
     {
-      title: 'On Opening Essays, Conference Talks, and Jam Jars',
+      title: 'Snow Fall The Avalanche at Tunnel Creek',
       description:
-        'A wonderful explanation on generative technologies made extremely simple.',
-      url: 'https://maggieappleton.com/openings2322',
-      source: 'Maggie Appleton',
-      icon: 'maggie-appleton_icon.png',
-      type: 'Article',
-      topics: ['AI', 'Databasing'],
-      timeAdded: new Date(),
-    },
-    {
-      title: 'On Opening Essays, Conference Talks, and Jam Jars',
-      description:
-        'A wonderful explanation on generative technologies made extremely simple.',
-      url: 'https://maggieappleton.com/openings222',
-      source: 'Maggie Appleton',
-      icon: 'maggie-appleton_icon.png',
-      type: 'Article',
-      topics: ['AI', 'Databasing'],
-      timeAdded: new Date(),
-    },
-    {
-      title: 'Interface In Game',
-      description:
-        'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/2223',
-      source: 'Interface In Game',
-      icon: 'interface-in-game_icon.png',
-      type: 'Link',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
-    },
-    {
-      title: 'Hexagonal Grids from Red Blob Games',
-      description:
-        'A unbelievable deep dive into the maths involved with working with a hexagonal grid system with interactive diagrams.',
-      url: 'https://www.redblobgames.com/grids/hexagons/333',
-      source: 'Red Blob Games',
-      icon: 'red-blob-games_icon.png',
+        'My first encounter with professional journalism leaning into the strength of the digital medium by utilising video and interactive elements.',
+      url: 'https://www.nytimes.com/projects/2012/snow-fall/index.html#/?part=tunnel-creek',
+      source: 'New York Times',
+      icon: 'icon_new-york-times.png',
       type: 'Article',
       topics: ['Math', 'Game Dev'],
-      timeAdded: new Date(),
-    },
-    {
-      title: 'On Opening Essays, Conference Talks, and Jam Jars',
-      description:
-        'A wonderful explanation on generative technologies made extremely simple.',
-      url: 'https://maggieappleton.com/openings333',
-      source: 'Maggie Appleton',
-      icon: 'maggie-appleton_icon.png',
-      type: 'Article',
-      topics: ['AI', 'Databasing'],
       timeAdded: new Date(),
     },
   ];
@@ -162,6 +187,7 @@ const ReadingList: NextPage = () => {
               receptors go <i>woosh!</i> <b>bam!</b> <u>zap!</u>
             </h2>
           </div>
+
           {/* <div className={s.grid}> */}
           <Masonry
             breakpointCols={columnBreakpoints}
@@ -169,7 +195,7 @@ const ReadingList: NextPage = () => {
             columnClassName={s.masonryGridColumn}
           >
             {readingList.map((item) => (
-              <DetachedHoverEffect key={item.url} className={s.itemHoverEffect}>
+              <LinkGhostBox key={item.url} style={{ marginBottom: '16px' }}>
                 <ReadingListItem
                   url={item.url}
                   title={item.title}
@@ -179,9 +205,51 @@ const ReadingList: NextPage = () => {
                   type={item.type}
                   image={item.image}
                 />
-              </DetachedHoverEffect>
+              </LinkGhostBox>
             ))}
           </Masonry>
+          <h3 style={{ marginTop: '64px' }}>Books</h3>
+          <div className={s.booksContainer}>
+            {books.map((item) => (
+              <LinkGhostBox key={item.url}>
+                <Link
+                  target="blank"
+                  href={item.url}
+                  className={s.item}
+                  style={{
+                    display: 'block',
+                    padding: '24px',
+                    // backgroundColor: image ? 'white' : 'transparent',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      aspectRatio: '2/3',
+                      position: 'relative',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    <Image src={item.image} fill objectFit="contain" alt="" />
+                  </div>
+                  <h4
+                    style={{
+                      fontWeight: 400,
+                      fontSize: '26px',
+                      marginTop: 0,
+                      marginBottom: '8px',
+                    }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p style={{ fontSize: '16px' }}>{item.author}</p>
+                  <p style={{ margin: 0, fontSize: '16px' }}>
+                    {item.description}
+                  </p>
+                </Link>
+              </LinkGhostBox>
+            ))}
+          </div>
           {/* <div>
               <h3>Links</h3>
               <p>Interface In Game</p>
