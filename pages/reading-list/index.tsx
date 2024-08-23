@@ -29,61 +29,44 @@ import Link from 'next/link';
 import Masonry from 'react-masonry-css';
 import ReadingListItem from '../../components/ReadingListItem';
 import LinkGhostBox from '../../components/LinkGhostBox';
+import BookListItem from '../../components/BookListItem';
 
 const ReadingList: NextPage = () => {
   const books = [
     {
       title: "So you've been publicly shamed",
-      author: 'Bob Ross',
+      author: 'Jon Ronson',
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/',
+      url: 'https://www.google.com.au/books/edition/So_You_ve_Been_Publicly_Shamed/-5elBQAAQBAJ',
       source: 'Interface In Game',
       image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
-      icon: 'interface-in-game_icon.png',
-      type: 'book',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
     },
     {
       title: 'Homo Deus',
-      author: 'Bob Ross',
+      author: 'Yuval Noah Harari',
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/',
-      source: 'Interface In Game',
+      url: 'https://www.google.com.au/books/edition/Homo_Deus/dWYyCwAAQBAJ',
       image: '/images/readinglist/thumb_homo-deus.jpg',
-      icon: 'interface-in-game_icon.png',
-      type: 'book',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
     },
     {
       title: 'Atomic Design',
-      author: 'Bob Ross',
+      author: 'Brad Frost',
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/',
-      source: 'Interface In Game',
+      url: 'https://atomicdesign.bradfrost.com/',
       image: '/images/readinglist/thumb_atomic-design.svg',
-      icon: 'interface-in-game_icon.png',
-      type: 'book',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
     },
 
     {
       title: 'Thinking fast and slow',
-      author: 'Bob Ross',
+      author: 'Daniel Kahneman',
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/',
+      url: 'https://www.google.com.au/books/edition/Thinking_Fast_and_Slow/oV1tXT3HigoC',
       source: 'Interface In Game',
       image: '/images/readinglist/thumb_thinking-fast-and-slow.jpg',
-      icon: 'interface-in-game_icon.png',
-      type: 'book',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
     },
     {
       title: 'Interface In Game',
@@ -93,10 +76,6 @@ const ReadingList: NextPage = () => {
       url: 'https://interfaceingame.com/',
       source: 'Interface In Game',
       image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
-      icon: 'interface-in-game_icon.png',
-      type: 'book',
-      topics: ['Design', 'Game Dev'],
-      timeAdded: new Date(),
     },
   ];
   const readingList = [
@@ -211,51 +190,17 @@ const ReadingList: NextPage = () => {
           <h3 style={{ marginTop: '64px' }}>Books</h3>
           <div className={s.booksContainer}>
             {books.map((item) => (
-              <LinkGhostBox key={item.url}>
-                <Link
-                  target="blank"
-                  href={item.url}
-                  className={s.item}
-                  style={{
-                    display: 'block',
-                    padding: '24px',
-                    // backgroundColor: image ? 'white' : 'transparent',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '100%',
-                      aspectRatio: '2/3',
-                      position: 'relative',
-                      marginBottom: '16px',
-                    }}
-                  >
-                    <Image src={item.image} fill objectFit="contain" alt="" />
-                  </div>
-                  <h4
-                    style={{
-                      fontWeight: 400,
-                      fontSize: '26px',
-                      marginTop: 0,
-                      marginBottom: '8px',
-                    }}
-                  >
-                    {item.title}
-                  </h4>
-                  <p style={{ fontSize: '16px' }}>{item.author}</p>
-                  <p style={{ margin: 0, fontSize: '16px' }}>
-                    {item.description}
-                  </p>
-                </Link>
+              <LinkGhostBox key={item.url} style={{ marginBottom: '16px' }}>
+                <BookListItem
+                  title={item.title}
+                  author={item.author}
+                  description={item.description}
+                  url={item.url}
+                  image={item.image}
+                />
               </LinkGhostBox>
             ))}
           </div>
-          {/* <div>
-              <h3>Links</h3>
-              <p>Interface In Game</p>
-              <p>https://interfaceingame.com/</p>
-            </div> */}
-          {/* </div> */}
         </main>
       </PageContentWrap>
     </>

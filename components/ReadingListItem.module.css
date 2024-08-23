@@ -1,6 +1,7 @@
 .item {
   padding: 24px;
   position: relative;
+  display: block;
 }
 .externalLinkIcon {
   position: absolute;
@@ -21,4 +22,16 @@
 .item:hover .source {
   color: var(--primary-color);
   /* text-decoration: underline; */
+}
+
+@media (max-width: 1200px) {
+  .item {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .item {
+    padding: 16px;
+  }
 }

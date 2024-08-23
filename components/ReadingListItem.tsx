@@ -13,15 +13,7 @@ const ReadingListItem = ({
   ...props
 }) => {
   return (
-    <Link
-      target="blank"
-      href={url}
-      className={s.item}
-      style={{
-        display: 'block',
-        // backgroundColor: image ? 'white' : 'transparent',
-      }}
-    >
+    <Link target="blank" href={url} className={s.item}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
