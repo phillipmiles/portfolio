@@ -6,7 +6,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-const BookListItem = ({ title, author, description, url, image }: Props) => (
+const BookListItem = ({
+  title,
+  author,
+  source,
+  description,
+  url,
+  image,
+}: Props) => (
   <Link target="blank" href={url} className={s.item}>
     {/* <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +33,17 @@ const BookListItem = ({ title, author, description, url, image }: Props) => (
     <div className={s.imageWrap}>
       <div className={s.overlay}>
         <div className={s.overlayInner}>
-          View on Google books
+          {/* <span> */}
+          {/* To{` `} */}
+          <span
+            style={{
+              color: 'var(--primary-color)',
+              //display: 'inline-block'
+            }}
+          >
+            {source}
+          </span>
+          {/* </span> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

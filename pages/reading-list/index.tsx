@@ -39,7 +39,7 @@ const ReadingList: NextPage = () => {
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
       url: 'https://www.google.com.au/books/edition/So_You_ve_Been_Publicly_Shamed/-5elBQAAQBAJ',
-      source: 'Interface In Game',
+      source: 'Google Books',
       image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
     },
     {
@@ -48,6 +48,7 @@ const ReadingList: NextPage = () => {
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
       url: 'https://www.google.com.au/books/edition/Homo_Deus/dWYyCwAAQBAJ',
+      source: 'Google Books',
       image: '/images/readinglist/thumb_homo-deus.jpg',
     },
     {
@@ -56,6 +57,7 @@ const ReadingList: NextPage = () => {
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
       url: 'https://atomicdesign.bradfrost.com/',
+      source: 'Brad Frost',
       image: '/images/readinglist/thumb_atomic-design.svg',
     },
 
@@ -65,17 +67,18 @@ const ReadingList: NextPage = () => {
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
       url: 'https://www.google.com.au/books/edition/Thinking_Fast_and_Slow/oV1tXT3HigoC',
-      source: 'Interface In Game',
+      source: 'Google Books',
       image: '/images/readinglist/thumb_thinking-fast-and-slow.jpg',
     },
     {
-      title: 'Interface In Game',
-      author: 'Bob Ross',
+      title: 'The subtle art of not giving a fuck',
+      author: 'Mark Manson',
       description:
         'A collection of user interfaces from over 350 games to explore and inspire.',
-      url: 'https://interfaceingame.com/',
-      source: 'Interface In Game',
-      image: '/images/readinglist/thumb_so-youve-been-publicly-shamed.jpg',
+      url: 'https://www.google.com.au/books/edition/The_Subtle_Art_of_Not_Giving_a_F_ck/sTKxDAAAQBAJ',
+      source: 'Google Books',
+      image:
+        '/images/readinglist/thumb_the-subtle-art-of-not-giving-a-fuck.jpg',
     },
   ];
   const readingList = [
@@ -195,6 +198,7 @@ const ReadingList: NextPage = () => {
                   title={item.title}
                   author={item.author}
                   description={item.description}
+                  source={item.source}
                   url={item.url}
                   image={item.image}
                 />
