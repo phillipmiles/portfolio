@@ -95,11 +95,17 @@ const ToolsReactLibrary: NextPage = () => {
       <PageContentWrap>
         <div style={{ marginBottom: 128 }}>
           <div style={{ textAlign: 'center', marginTop: 64 }}>
-            <PageTitle>React Construct</PageTitle>
-            <PageIntro>
+            <h1 className="h2">React Construct</h1>
+            <p
+              style={{
+                maxWidth: '500px',
+                margin: 'auto',
+                fontSize: '21px',
+              }}
+            >
               React Construct is a library of low-level react components used to
               construct reusable UI components.
-            </PageIntro>
+            </p>
           </div>
         </div>
       </PageContentWrap>

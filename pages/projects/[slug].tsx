@@ -77,8 +77,16 @@ const Projects: NextPage = (props) => {
                 }}
               >
                 <p style={{ marginBottom: 30 }}>{project.year}</p>
-                <PageTitle>{project.name}</PageTitle>
-                <PageIntro>{project.intro}</PageIntro>
+                <h1 className="h2">{project.name}</h1>
+                <p
+                  style={{
+                    maxWidth: '500px',
+                    margin: 'auto',
+                    fontSize: '21px',
+                  }}
+                >
+                  {project.intro}
+                </p>
               </div>
               <div className={s.content}>{project.content}</div>
               <Flex

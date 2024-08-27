@@ -5,7 +5,7 @@ interface Props {
 }
 
 const PageIntro = ({ children }: Props): JSX.Element => (
-  <p className={s.paragraph}>{children}</p>
+  <p className={s.paragraph + ' large'}>{children}</p>
 );
 
 export default PageIntro;

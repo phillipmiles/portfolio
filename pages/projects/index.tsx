@@ -42,7 +42,13 @@ const Projects: NextPage = () => {
       <Banner />
       <PageContentWrap>
         <div style={{ marginBottom: 96 }}>
-          <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}>
+          <div
+            style={{
+              //textAlign: 'center',
+              marginTop: 64,
+              marginBottom: 96,
+            }}
+          >
             <PageTitle>Projects</PageTitle>
             <PageIntro>
               A sample of projects I have worked on both personally and

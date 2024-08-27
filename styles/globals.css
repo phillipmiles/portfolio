@@ -1,6 +1,7 @@
 html,
 body {
   background-color: #ecf4fa;
+  color: var(--black-color);
   /* background-color: white; */
 }
 p {

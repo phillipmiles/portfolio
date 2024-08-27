@@ -50,11 +50,17 @@ const ToolsReactLibrary: NextPage = () => {
       <PageContentWrap>
         <div style={{ marginBottom: 128 }}>
           <div style={{ textAlign: 'center', marginTop: 64 }}>
-            <PageTitle>Handy Dandy Functions</PageTitle>
-            <PageIntro>
+            <h1 className="h2">Handy Dandy Functions</h1>
+            <p
+              style={{
+                maxWidth: '500px',
+                margin: 'auto',
+                fontSize: '21px',
+              }}
+            >
               Handy Dandy Functions are a collection of simple Javascript
               functions that I have found myself using in many projects.
-            </PageIntro>
+            </p>
           </div>
         </div>
       </PageContentWrap>

@@ -1,8 +1,3 @@
-.main {
-  margin-left: 24px;
-  margin-right: 24px;
-}
-
 .masonryGrid {
   display: flex;
   /* gutter size offset */
@@ -18,26 +13,8 @@
   background-clip: padding-box;
 }
 
-/* Style your items */
-.masonryGridColumn > div {
-  /* change div to reference your elements you put in <Masonry> */
-  /* background: grey; */
-  /* margin-bottom: 30px; */
-}
-
-.grid {
-  display: grid;
-  column-gap: 16px;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-right: -32px;
-  margin-left: -32px;
-}
-
 .itemHoverEffect {
   margin-bottom: 16px;
-
-  /* margin-left: -32px;
-  margin-right: -32px; */
 }
 
 .itemHoverEffect::before {
@@ -65,34 +42,21 @@
 }
 
 @media (max-width: 1200px) {
-  .main {
-    margin-left: 24px;
-    margin-right: 24px;
+  .masonryGrid {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  .booksContainer {
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .item {
     padding: 24px;
   }
-  .grid {
-    margin-right: -24px;
-    margin-left: -24px;
-    grid-template-columns: 1fr 1fr;
-  }
-  .booksContainer {
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-  }
 }
 
 @media (max-width: 800px) {
-  .main {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
   .item {
     padding: 16px;
-  }
-  .grid {
-    margin-right: -16px;
-    margin-left: -16px;
-    grid-template-columns: 1fr;
   }
 }

@@ -2,6 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import s from './ReadingListItem.module.css';
 
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  icon: string;
+  source: string;
+  type: string;
+  image?: string;
+}
+
 const ReadingListItem = ({
   title,
   description,
@@ -10,8 +20,7 @@ const ReadingListItem = ({
   source,
   type,
   image,
-  ...props
-}) => {
+}: Props) => {
   return (
     <Link target="blank" href={url} className={s.item}>
       <svg
@@ -81,7 +90,7 @@ const ReadingListItem = ({
           color: '#888899',
           display: 'flex',
           flexWrap: 'wrap',
-          textWrap: 'nowrap',
+          // textWrap: 'nowrap',
         }}
       >
         <Image

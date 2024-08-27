@@ -32,11 +32,17 @@ const ToolsReactLibrary: NextPage = () => {
       <PageContentWrap>
         <div style={{ marginBottom: 128 }}>
           <div style={{ textAlign: 'center', marginTop: 64 }}>
-            <PageTitle>React useFormState</PageTitle>
-            <PageIntro>
+            <h1 className="h2">React useFormState</h1>
+            <p
+              style={{
+                maxWidth: '500px',
+                margin: 'auto',
+                fontSize: '21px',
+              }}
+            >
               UseFormState is a flexible React Hook that manages the state of a
               web form.
-            </PageIntro>
+            </p>
           </div>
         </div>
       </PageContentWrap>

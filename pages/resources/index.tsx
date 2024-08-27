@@ -24,7 +24,7 @@ const Tools: NextPage = () => {
       <Banner />
       <PageContentWrap>
         <div style={{ marginBottom: 96 }}>
-          <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 96 }}>
+          <div style={{ marginTop: 64, marginBottom: 96 }}>
             <PageTitle>Resources</PageTitle>
             <PageIntro>
               I write a lot of code. Sometimes I write something useful. Take a

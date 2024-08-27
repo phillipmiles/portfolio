@@ -3,7 +3,12 @@ import Link from 'next/link';
 import s from './BookListItem.module.css';
 
 interface Props {
-  children: React.ReactNode;
+  title: string;
+  author: string;
+  source: string;
+  description: string;
+  url: string;
+  image: string;
 }
 
 const BookListItem = ({

@@ -99,9 +99,26 @@ a.small {
   font-size: 15px;
 }
 
+p.large,
+span.large,
+a.large {
+  font-size: 26px;
+}
+
 @media (max-width: 900px) {
   p {
     font-size: 16px;
+  }
+
+  p.large,
+  span.large,
+  a.large {
+    font-size: 21px;
+  }
+
+  h1,
+  h1 {
+    font-size: 56px;
   }
 
   h2,
@@ -118,5 +135,18 @@ a.small {
   .h4 {
     font-size: 21px;
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1,
+  h1 {
+    font-size: 48px;
+  }
+
+  p.large,
+  span.large,
+  a.large {
+    font-size: 18px;
   }
 }
