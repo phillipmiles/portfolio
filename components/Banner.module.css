@@ -5,7 +5,7 @@
 }
 
 .banner {
-  padding: 2rem 3rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,8 +35,8 @@
 }
 
 .logoMark {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   fill: var(--primary-color);
   transition: transform 300ms cubic-bezier(0.47, 1.64, 0.41, 1.8), fill 300ms;
   /* transition-timing-function: cubic-bezier(0.47, 1.64, 0.41, 1.8); */
