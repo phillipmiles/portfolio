@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* max-width: 400px; */
+  background-color: white;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 300ms;
+}
+
+.container.open {
+  transform: translateX(0%);
+}
+
+/* Make sidebar sit under header */
+.container {
+  top: 112px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    top: 88px;
+  }
+}

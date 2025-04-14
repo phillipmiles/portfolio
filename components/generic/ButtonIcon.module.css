@@ -1,0 +1,11 @@
+.button {
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: inherit;
+}

@@ -255,6 +255,20 @@
 }
 
 @media (max-width: 900px) {
+  .imageIconGroup,
+  .imageIconGroup2 {
+    transform: scale(0.85);
+  }
+
+  .imageButtonGroup {
+    transform: rotate(12deg) scale(0.85);
+  }
+  .imageButtonGroup2 {
+    transform: rotate(4deg) scale(0.85);
+  }
+  .imageSearch {
+    transform: rotate(-8deg) scale(0.85);
+  }
   .videoWrap {
     height: 300px;
   }

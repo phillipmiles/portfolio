@@ -11,18 +11,22 @@
   padding: 16px;
 }
 
+.invert {
+  color: white;
+}
+.sidebarButton {
+  display: none;
+}
+
+.sidebar {
+  color: black;
+}
+
 @media (max-width: 900px) {
-}
-
-@media (max-width: 600px) {
   .nav {
-    width: 100%;
-    font-size: 14px;
+    display: none;
   }
-}
-
-@media (max-width: 400px) {
-  .nav {
-    gap: 16px;
+  .sidebarButton {
+    display: block;
   }
 }

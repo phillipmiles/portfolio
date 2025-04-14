@@ -56,10 +56,11 @@
   fill: white;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .banner {
-    flex-direction: column;
-    gap: 16px;
-    padding: 2rem 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 0;
+    padding-right: 16px;
   }
 }

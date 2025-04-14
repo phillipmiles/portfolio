@@ -58,3 +58,9 @@
   flex-grow: 1;
   align-items: center;
 }
+
+@media (max-width: 900px) {
+  .imageScreen {
+    transform: scale(0.85);
+  }
+}

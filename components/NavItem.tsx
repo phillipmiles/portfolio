@@ -4,8 +4,9 @@ import HoverUnderline from './HoverUnderline';
 
 interface Props {
   href: string;
+  active?: boolean;
   children: string;
-  invert: boolean;
+  invert?: boolean;
 }
 
 const NavItem = ({ href, invert, active, children }: Props) => (

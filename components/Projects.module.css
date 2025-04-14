@@ -16,7 +16,8 @@
   height: 395px;
   /* Margin left used to adjust for right most image being transformed scale
    * so it doesn't align with the containers right edge. */
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  margin-right: -24px;
 }
 
 .textContainer {
@@ -115,6 +116,8 @@
 @media (max-width: 900px) {
   .imageWrap {
     height: 360px;
+    margin-left: 0px;
+    margin-right: -14px;
   }
 
   .buttonContainer {

@@ -69,55 +69,20 @@ const Home: NextPage = () => {
       >
         <PageContentWrap>
           <Flex className={s.techIcons}>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <FontAwesomeIcon icon={faReact} />
             </div>
 
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <FontAwesomeIcon icon={faNodeJs} />
             </div>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <FontAwesomeIcon icon={faGit} />
             </div>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <FontAwesomeIcon icon={faWordpressSimple} />
             </div>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <Image
                 alt=""
                 width={32}
@@ -125,14 +90,7 @@ const Home: NextPage = () => {
                 src={'/images/companies/icons/next-icon.svg'}
               />
             </div>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <Image
                 alt=""
                 width={32}
@@ -140,19 +98,20 @@ const Home: NextPage = () => {
                 src={'/images/companies/icons/storybook-icon.svg'}
               />
             </div>
-            <div
-              style={{
-                display: 'block',
-                height: 32,
-                width: 32,
-                margin: 12,
-              }}
-            >
+            <div className={s.techIcon}>
               <Image
                 alt=""
                 width={32}
                 height={32}
                 src={'/images/companies/icons/typescript-icon.svg'}
+              />
+            </div>
+            <div className={s.techIcon}>
+              <Image
+                alt=""
+                width={32}
+                height={32}
+                src={'/images/companies/icons/tailwind-icon.svg'}
               />
             </div>
           </Flex>

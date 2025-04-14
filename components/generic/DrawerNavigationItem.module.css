@@ -1,0 +1,24 @@
+.container {
+  list-style: none;
+}
+
+.link {
+  display: block;
+  padding: 16px 32px;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.link:hover {
+  background-color: var(--color-background-soft);
+}
+
+.link.active {
+  background-color: var(--color-background-soft);
+}
+
+.link.active:hover {
+  background-color: var(--color-background-dark);
+}
