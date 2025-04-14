@@ -255,19 +255,41 @@
 }
 
 @media (max-width: 900px) {
+  .imageScreenWrap {
+    transform: rotate(-5deg) scale(0.8);
+  }
+
+  .imageScreenWrap2 {
+    transform: rotate(10deg) scale(0.8);
+    left: -48px;
+  }
+
+  .imageScreenWrap3 {
+    transform: rotate(-6deg) scale(0.8);
+    right: -16px;
+  }
+
+  .imageIconGroup {
+    right: 16px;
+  }
+
+  .imageIconGroup2 {
+    left: 0;
+  }
+
   .imageIconGroup,
   .imageIconGroup2 {
     transform: scale(0.85);
   }
 
   .imageButtonGroup {
-    transform: rotate(12deg) scale(0.85);
+    transform: rotate(12deg) scale(0.8);
   }
   .imageButtonGroup2 {
-    transform: rotate(4deg) scale(0.85);
+    transform: rotate(4deg) scale(0.8);
   }
   .imageSearch {
-    transform: rotate(-8deg) scale(0.85);
+    transform: rotate(-8deg) scale(0.8);
   }
   .videoWrap {
     height: 300px;
