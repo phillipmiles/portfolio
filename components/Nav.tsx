@@ -5,6 +5,7 @@ import Sidebar from './constructs/Sidebar';
 import { useState } from 'react';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import ButtonIcon from './generic/ButtonIcon';
+import ButtonHamburger from './ButtonHamburger';
 
 interface Props {
   invert?: boolean;
@@ -62,11 +63,17 @@ const Nav = ({ invert }: Props): JSX.Element => {
           Contact
         </NavItem>
       </nav>
-      <ButtonIcon
+      <ButtonHamburger
+        onClick={handleToggleSidebar}
+        invert={invert}
+        open={sideBarOpen}
+        className={s.sidebarButton}
+      />
+      {/* <ButtonIcon
         onClick={handleToggleSidebar}
         icon={sideBarOpen ? faXmark : faBars}
         className={`${s.sidebarButton} ${invert && s.invert}`}
-      />
+      /> */}
       <Sidebar open={sideBarOpen} onClickClose={handleToggleSidebar} />
     </>
   );

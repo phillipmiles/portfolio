@@ -1,0 +1,122 @@
+.button {
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+}
+
+.container {
+  position: relative;
+  height: 24px;
+  width: 28px;
+}
+
+.barWrap {
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: transform 300ms;
+  transition-delay: 300ms;
+}
+
+.bar {
+  border-radius: 9999px;
+  background-color: var(--primary-color);
+  height: 4px;
+  width: 28px;
+  transition: transform 300ms;
+  transition-delay: 0ms;
+}
+
+.invert .bar {
+  background-color: white;
+}
+
+.top {
+  transform: translateY(0px) rotate(0);
+}
+
+.middle {
+  transform: translateY(10px) rotate(0);
+}
+
+.bottom {
+  transform: translateY(20px) rotate(0);
+}
+
+.open .barWrap {
+  transition-delay: 0ms;
+}
+
+.open .bar {
+  transition-delay: 300ms;
+}
+
+.open .top {
+  transform: translateY(10px);
+}
+
+.open .middle {
+  transform: translateY(10px);
+}
+
+.open .bottom {
+  transform: translateY(10px);
+}
+
+.open .top .bar {
+  transform: rotate(135deg);
+}
+
+.open .middle .bar {
+  transform: rotate(135deg);
+}
+
+.open .bottom .bar {
+  transform: rotate(225deg);
+}
+
+/* 
+.top {
+  animation-name: top;
+  animation-duration: 1000ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-direction: reverse;
+}
+
+.open .top {
+  animation-play-state: running;
+}
+
+.close {
+  animation-direction: reverse;
+}
+
+.top {
+  transform: translateY(-10px);
+  background-color: green;
+}
+
+.middle {
+  background-color: red;
+}
+
+.bottom {
+  transform: translateY(10px);
+}
+
+@keyframes top {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+} */
