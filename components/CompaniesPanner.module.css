@@ -1,0 +1,42 @@
+.container {
+  background-color: #007be4;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.image {
+  margin: 40px;
+}
+
+.imageDHHS {
+  height: 50px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .image {
+    margin: 30px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .image {
+    margin: 20px;
+    width: 100px;
+  }
+
+  .imageDHHS {
+    height: 30px;
+  }
+}

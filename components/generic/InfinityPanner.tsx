@@ -25,6 +25,7 @@ interface Props {
   style?: object;
   speed?: string;
   translateX?: -1 | 0 | 1;
+  translateY?: -1 | 0 | 1;
 }
 
 const InfinityPanner = ({

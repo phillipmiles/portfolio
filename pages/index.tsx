@@ -31,6 +31,7 @@ import PageWithFooter from '../components/generic/PageWithFooter';
 import Banner from '../components/Banner';
 import ContentSlider from '../components/generic/ContentSlider';
 import InfinityPanner from '../components/generic/InfinityPanner';
+import CompaniesPanner from '../components/CompaniesPanner';
 
 const Home: NextPage = () => {
   return (
@@ -162,68 +163,7 @@ const Home: NextPage = () => {
           <DevTools />
         </PageContentWrap>
       </div>
-
-      <Flex className={s.companiesContainer}>
-        <InfinityPanner speed="30000ms" translateX={-1} translateY={0}>
-          <Image
-            src={'/images/companies/logo_anz_h_white.svg'}
-            width={140}
-            height={100}
-            alt="ANZ Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_coles_white.svg'}
-            width={140}
-            height={100}
-            alt="Coles Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_deakinuni_h_white.svg'}
-            width={140}
-            height={100}
-            alt="Deakin University Logo"
-            style={{ margin: 40 }}
-          />
-
-          <Image
-            src={'/images/companies/logo_auspost_white.svg'}
-            width={140}
-            height={100}
-            alt="Aus Post Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_hla_white.svg'}
-            width={140}
-            height={100}
-            alt="HLA Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_cpa_white.svg'}
-            width={140}
-            height={100}
-            alt="CPA Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_transurban_white.svg'}
-            width={140}
-            height={100}
-            alt="Transurban Logo"
-            style={{ margin: 40 }}
-          />
-          <Image
-            src={'/images/companies/logo_dhhs_white.png'}
-            width={140}
-            height={50}
-            alt="DHHS Logo"
-            style={{ margin: 40 }}
-          />
-        </InfinityPanner>
-      </Flex>
+      <CompaniesPanner className={s.companiesContainer} />
     </>
   );
 };
